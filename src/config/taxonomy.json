@@ -1,0 +1,760 @@
+{
+  "version": "1.0.0",
+  "categories": [
+    {
+      "l1": "Travel",
+      "l1_id": "TRV",
+      "l2_subcategories": [
+        {
+          "l2": "Travel - Local",
+          "l2_id": "TRV-LOC",
+          "l3_types": [
+            {
+              "l3": "Travel - Local - Uber",
+              "l3_id": "TRV-LOC-UBR",
+              "aliases": ["uber", "uber eats", "uber trip", "uber technologies"],
+              "mcc_codes": ["4121"],
+              "keywords": ["rideshare", "taxi", "cab", "ride"]
+            },
+            {
+              "l3": "Travel - Local - Metro",
+              "l3_id": "TRV-LOC-MET",
+              "aliases": ["metro card", "subway", "transit", "metro rail"],
+              "mcc_codes": ["4111"],
+              "keywords": ["public transport", "rail", "metro", "subway"]
+            },
+            {
+              "l3": "Travel - Local - Auto/Rickshaw",
+              "l3_id": "TRV-LOC-AUT",
+              "aliases": ["auto", "rickshaw", "ola", "rapido"],
+              "mcc_codes": ["4121"],
+              "keywords": ["auto", "rickshaw", "local transport"]
+            }
+          ]
+        },
+        {
+          "l2": "Travel - International",
+          "l2_id": "TRV-INT",
+          "l3_types": [
+            {
+              "l3": "Travel - International - Flight",
+              "l3_id": "TRV-INT-FLT",
+              "aliases": ["airline", "airways", "indigo", "air india", "emirates"],
+              "mcc_codes": ["4511"],
+              "keywords": ["flight", "airline", "aviation"]
+            },
+            {
+              "l3": "Travel - International - Visa",
+              "l3_id": "TRV-INT-VIS",
+              "aliases": ["visa", "visa fee", "vfs"],
+              "mcc_codes": ["9399"],
+              "keywords": ["visa", "passport", "immigration"]
+            }
+          ]
+        },
+        {
+          "l2": "Travel - Accommodation",
+          "l2_id": "TRV-ACC",
+          "l3_types": [
+            {
+              "l3": "Travel - Accommodation - Hotel",
+              "l3_id": "TRV-ACC-HTL",
+              "aliases": ["hotel", "oyo", "airbnb", "booking"],
+              "mcc_codes": ["7011"],
+              "keywords": ["hotel", "lodging", "stay", "accommodation"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "l1": "Dining",
+      "l1_id": "DIN",
+      "l2_subcategories": [
+        {
+          "l2": "Dining - Restaurants",
+          "l2_id": "DIN-RES",
+          "l3_types": [
+            {
+              "l3": "Dining - Restaurants - Fine Dining",
+              "l3_id": "DIN-RES-FIN",
+              "aliases": ["restaurant", "fine dining"],
+              "mcc_codes": ["5812"],
+              "keywords": ["restaurant", "dine", "meal"]
+            },
+            {
+              "l3": "Dining - Restaurants - Casual",
+              "l3_id": "DIN-RES-CAS",
+              "aliases": ["cafe", "bistro", "eatery"],
+              "mcc_codes": ["5812"],
+              "keywords": ["casual dining", "cafe", "bistro"]
+            }
+          ]
+        },
+        {
+          "l2": "Dining - Fast Food",
+          "l2_id": "DIN-FST",
+          "l3_types": [
+            {
+              "l3": "Dining - Fast Food - Burgers",
+              "l3_id": "DIN-FST-BRG",
+              "aliases": ["mcdonalds", "burger king", "kfc"],
+              "mcc_codes": ["5814"],
+              "keywords": ["burger", "fast food", "quick service"]
+            },
+            {
+              "l3": "Dining - Fast Food - Pizza",
+              "l3_id": "DIN-FST-PIZ",
+              "aliases": ["dominos", "pizza hut", "papa johns"],
+              "mcc_codes": ["5814"],
+              "keywords": ["pizza", "pizzeria"]
+            }
+          ]
+        },
+        {
+          "l2": "Dining - Coffee Shops",
+          "l2_id": "DIN-COF",
+          "l3_types": [
+            {
+              "l3": "Dining - Coffee Shops - Starbucks",
+              "l3_id": "DIN-COF-STB",
+              "aliases": ["starbucks", "sbux"],
+              "mcc_codes": ["5814"],
+              "keywords": ["starbucks", "coffee"]
+            },
+            {
+              "l3": "Dining - Coffee Shops - Local",
+              "l3_id": "DIN-COF-LOC",
+              "aliases": ["coffee", "cafe coffee day", "barista"],
+              "mcc_codes": ["5814"],
+              "keywords": ["coffee", "cafe", "espresso"]
+            }
+          ]
+        },
+        {
+          "l2": "Dining - Food Delivery",
+          "l2_id": "DIN-DEL",
+          "l3_types": [
+            {
+              "l3": "Dining - Food Delivery - Swiggy",
+              "l3_id": "DIN-DEL-SWG",
+              "aliases": ["swiggy", "swiggy food", "swiggy delivery"],
+              "mcc_codes": ["5814"],
+              "keywords": ["swiggy", "food delivery"]
+            },
+            {
+              "l3": "Dining - Food Delivery - Zomato",
+              "l3_id": "DIN-DEL-ZOM",
+              "aliases": ["zomato", "zomato food"],
+              "mcc_codes": ["5814"],
+              "keywords": ["zomato", "food delivery"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "l1": "Shopping",
+      "l1_id": "SHP",
+      "l2_subcategories": [
+        {
+          "l2": "Shopping - Retail",
+          "l2_id": "SHP-RET",
+          "l3_types": [
+            {
+              "l3": "Shopping - Retail - Clothing",
+              "l3_id": "SHP-RET-CLO",
+              "aliases": ["zara", "h&m", "uniqlo", "clothing store"],
+              "mcc_codes": ["5651"],
+              "keywords": ["clothing", "apparel", "fashion"]
+            },
+            {
+              "l3": "Shopping - Retail - Electronics",
+              "l3_id": "SHP-RET-ELC",
+              "aliases": ["best buy", "croma", "reliance digital"],
+              "mcc_codes": ["5732"],
+              "keywords": ["electronics", "gadgets", "appliances"]
+            }
+          ]
+        },
+        {
+          "l2": "Shopping - Online",
+          "l2_id": "SHP-ONL",
+          "l3_types": [
+            {
+              "l3": "Shopping - Online - Amazon",
+              "l3_id": "SHP-ONL-AMZ",
+              "aliases": ["amazon", "amzn", "amazon marketplace"],
+              "mcc_codes": ["5942"],
+              "keywords": ["amazon", "online shopping"]
+            },
+            {
+              "l3": "Shopping - Online - Flipkart",
+              "l3_id": "SHP-ONL-FLP",
+              "aliases": ["flipkart", "flipkart online"],
+              "mcc_codes": ["5942"],
+              "keywords": ["flipkart", "e-commerce"]
+            }
+          ]
+        },
+        {
+          "l2": "Shopping - Groceries",
+          "l2_id": "SHP-GRO",
+          "l3_types": [
+            {
+              "l3": "Shopping - Groceries - Supermarket",
+              "l3_id": "SHP-GRO-SUP",
+              "aliases": ["walmart", "target", "bigbasket", "dmart"],
+              "mcc_codes": ["5411"],
+              "keywords": ["supermarket", "grocery", "groceries"]
+            },
+            {
+              "l3": "Shopping - Groceries - Online",
+              "l3_id": "SHP-GRO-ONL",
+              "aliases": ["instacart", "blinkit", "zepto"],
+              "mcc_codes": ["5411"],
+              "keywords": ["grocery delivery", "online groceries"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "l1": "Entertainment",
+      "l1_id": "ENT",
+      "l2_subcategories": [
+        {
+          "l2": "Entertainment - Movies",
+          "l2_id": "ENT-MOV",
+          "l3_types": [
+            {
+              "l3": "Entertainment - Movies - Theater",
+              "l3_id": "ENT-MOV-THR",
+              "aliases": ["pvr", "inox", "cinepolis", "amc"],
+              "mcc_codes": ["7832"],
+              "keywords": ["movie", "cinema", "theater"]
+            }
+          ]
+        },
+        {
+          "l2": "Entertainment - Streaming",
+          "l2_id": "ENT-STR",
+          "l3_types": [
+            {
+              "l3": "Entertainment - Streaming - Netflix",
+              "l3_id": "ENT-STR-NFX",
+              "aliases": ["netflix", "netflix subscription"],
+              "mcc_codes": ["4899"],
+              "keywords": ["netflix", "streaming"]
+            },
+            {
+              "l3": "Entertainment - Streaming - Prime",
+              "l3_id": "ENT-STR-PRM",
+              "aliases": ["amazon prime", "prime video"],
+              "mcc_codes": ["4899"],
+              "keywords": ["prime video", "streaming"]
+            },
+            {
+              "l3": "Entertainment - Streaming - Other",
+              "l3_id": "ENT-STR-OTH",
+              "aliases": ["spotify", "youtube premium", "hotstar"],
+              "mcc_codes": ["4899"],
+              "keywords": ["streaming", "subscription"]
+            }
+          ]
+        },
+        {
+          "l2": "Entertainment - Events",
+          "l2_id": "ENT-EVT",
+          "l3_types": [
+            {
+              "l3": "Entertainment - Events - Concerts",
+              "l3_id": "ENT-EVT-CON",
+              "aliases": ["concert", "live music", "bookmyshow"],
+              "mcc_codes": ["7922"],
+              "keywords": ["concert", "show", "event"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "l1": "Utilities",
+      "l1_id": "UTL",
+      "l2_subcategories": [
+        {
+          "l2": "Utilities - Electric",
+          "l2_id": "UTL-ELC",
+          "l3_types": [
+            {
+              "l3": "Utilities - Electric - Bill",
+              "l3_id": "UTL-ELC-BIL",
+              "aliases": ["electricity", "power bill", "electric company"],
+              "mcc_codes": ["4900"],
+              "keywords": ["electricity", "power", "utility"]
+            }
+          ]
+        },
+        {
+          "l2": "Utilities - Water",
+          "l2_id": "UTL-WAT",
+          "l3_types": [
+            {
+              "l3": "Utilities - Water - Bill",
+              "l3_id": "UTL-WAT-BIL",
+              "aliases": ["water", "water bill"],
+              "mcc_codes": ["4900"],
+              "keywords": ["water", "utility"]
+            }
+          ]
+        },
+        {
+          "l2": "Utilities - Internet",
+          "l2_id": "UTL-INT",
+          "l3_types": [
+            {
+              "l3": "Utilities - Internet - Broadband",
+              "l3_id": "UTL-INT-BRD",
+              "aliases": ["internet", "broadband", "wifi", "jio fiber", "airtel"],
+              "mcc_codes": ["4899"],
+              "keywords": ["internet", "broadband", "isp"]
+            },
+            {
+              "l3": "Utilities - Internet - Mobile",
+              "l3_id": "UTL-INT-MOB",
+              "aliases": ["mobile recharge", "prepaid", "postpaid"],
+              "mcc_codes": ["4814"],
+              "keywords": ["mobile", "recharge", "phone bill"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "l1": "Healthcare",
+      "l1_id": "HLT",
+      "l2_subcategories": [
+        {
+          "l2": "Healthcare - Pharmacy",
+          "l2_id": "HLT-PHR",
+          "l3_types": [
+            {
+              "l3": "Healthcare - Pharmacy - Medicine",
+              "l3_id": "HLT-PHR-MED",
+              "aliases": ["pharmacy", "apollo pharmacy", "medplus", "cvs"],
+              "mcc_codes": ["5912"],
+              "keywords": ["pharmacy", "medicine", "drug"]
+            }
+          ]
+        },
+        {
+          "l2": "Healthcare - Hospital",
+          "l2_id": "HLT-HOS",
+          "l3_types": [
+            {
+              "l3": "Healthcare - Hospital - Consultation",
+              "l3_id": "HLT-HOS-CON",
+              "aliases": ["hospital", "clinic", "doctor"],
+              "mcc_codes": ["8011"],
+              "keywords": ["hospital", "doctor", "medical"]
+            }
+          ]
+        },
+        {
+          "l2": "Healthcare - Insurance",
+          "l2_id": "HLT-INS",
+          "l3_types": [
+            {
+              "l3": "Healthcare - Insurance - Premium",
+              "l3_id": "HLT-INS-PRM",
+              "aliases": ["health insurance", "medical insurance"],
+              "mcc_codes": ["6300"],
+              "keywords": ["insurance", "premium", "health"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "l1": "Education",
+      "l1_id": "EDU",
+      "l2_subcategories": [
+        {
+          "l2": "Education - Tuition",
+          "l2_id": "EDU-TUI",
+          "l3_types": [
+            {
+              "l3": "Education - Tuition - School",
+              "l3_id": "EDU-TUI-SCH",
+              "aliases": ["school", "school fee", "tuition"],
+              "mcc_codes": ["8211"],
+              "keywords": ["school", "education", "tuition"]
+            },
+            {
+              "l3": "Education - Tuition - College",
+              "l3_id": "EDU-TUI-COL",
+              "aliases": ["college", "university", "college fee"],
+              "mcc_codes": ["8220"],
+              "keywords": ["college", "university", "higher education"]
+            }
+          ]
+        },
+        {
+          "l2": "Education - Books",
+          "l2_id": "EDU-BOK",
+          "l3_types": [
+            {
+              "l3": "Education - Books - Purchase",
+              "l3_id": "EDU-BOK-PUR",
+              "aliases": ["books", "bookstore", "textbooks"],
+              "mcc_codes": ["5942"],
+              "keywords": ["books", "textbook", "study material"]
+            }
+          ]
+        },
+        {
+          "l2": "Education - Courses",
+          "l2_id": "EDU-CRS",
+          "l3_types": [
+            {
+              "l3": "Education - Courses - Online",
+              "l3_id": "EDU-CRS-ONL",
+              "aliases": ["udemy", "coursera", "skillshare", "online course"],
+              "mcc_codes": ["8299"],
+              "keywords": ["course", "learning", "online education"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "l1": "Transportation",
+      "l1_id": "TRN",
+      "l2_subcategories": [
+        {
+          "l2": "Transportation - Fuel",
+          "l2_id": "TRN-FUL",
+          "l3_types": [
+            {
+              "l3": "Transportation - Fuel - Petrol",
+              "l3_id": "TRN-FUL-PET",
+              "aliases": ["petrol", "gas station", "shell", "bp", "indian oil"],
+              "mcc_codes": ["5541"],
+              "keywords": ["petrol", "gasoline", "fuel"]
+            },
+            {
+              "l3": "Transportation - Fuel - Diesel",
+              "l3_id": "TRN-FUL-DIE",
+              "aliases": ["diesel", "fuel"],
+              "mcc_codes": ["5541"],
+              "keywords": ["diesel", "fuel"]
+            }
+          ]
+        },
+        {
+          "l2": "Transportation - Parking",
+          "l2_id": "TRN-PRK",
+          "l3_types": [
+            {
+              "l3": "Transportation - Parking - Fee",
+              "l3_id": "TRN-PRK-FEE",
+              "aliases": ["parking", "parking lot", "parking fee"],
+              "mcc_codes": ["7523"],
+              "keywords": ["parking", "lot"]
+            }
+          ]
+        },
+        {
+          "l2": "Transportation - Maintenance",
+          "l2_id": "TRN-MNT",
+          "l3_types": [
+            {
+              "l3": "Transportation - Maintenance - Service",
+              "l3_id": "TRN-MNT-SRV",
+              "aliases": ["car service", "vehicle maintenance", "repair"],
+              "mcc_codes": ["7538"],
+              "keywords": ["maintenance", "service", "repair"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "l1": "Financial Services",
+      "l1_id": "FIN",
+      "l2_subcategories": [
+        {
+          "l2": "Financial Services - Banking",
+          "l2_id": "FIN-BNK",
+          "l3_types": [
+            {
+              "l3": "Financial Services - Banking - Fees",
+              "l3_id": "FIN-BNK-FEE",
+              "aliases": ["bank fee", "service charge", "atm fee"],
+              "mcc_codes": ["6010"],
+              "keywords": ["bank", "fee", "charge"]
+            }
+          ]
+        },
+        {
+          "l2": "Financial Services - Investment",
+          "l2_id": "FIN-INV",
+          "l3_types": [
+            {
+              "l3": "Financial Services - Investment - Trading",
+              "l3_id": "FIN-INV-TRD",
+              "aliases": ["zerodha", "groww", "stock", "mutual fund"],
+              "mcc_codes": ["6211"],
+              "keywords": ["investment", "trading", "stock"]
+            }
+          ]
+        },
+        {
+          "l2": "Financial Services - Insurance",
+          "l2_id": "FIN-INS",
+          "l3_types": [
+            {
+              "l3": "Financial Services - Insurance - Premium",
+              "l3_id": "FIN-INS-PRM",
+              "aliases": ["insurance", "insurance premium", "life insurance"],
+              "mcc_codes": ["6300"],
+              "keywords": ["insurance", "premium", "policy"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "l1": "Housing",
+      "l1_id": "HSG",
+      "l2_subcategories": [
+        {
+          "l2": "Housing - Rent",
+          "l2_id": "HSG-RNT",
+          "l3_types": [
+            {
+              "l3": "Housing - Rent - Monthly",
+              "l3_id": "HSG-RNT-MNT",
+              "aliases": ["rent", "rental payment", "house rent"],
+              "mcc_codes": ["6513"],
+              "keywords": ["rent", "rental", "lease"]
+            }
+          ]
+        },
+        {
+          "l2": "Housing - Mortgage",
+          "l2_id": "HSG-MTG",
+          "l3_types": [
+            {
+              "l3": "Housing - Mortgage - EMI",
+              "l3_id": "HSG-MTG-EMI",
+              "aliases": ["home loan", "mortgage", "emi"],
+              "mcc_codes": ["6513"],
+              "keywords": ["mortgage", "home loan", "emi"]
+            }
+          ]
+        },
+        {
+          "l2": "Housing - Home Improvement",
+          "l2_id": "HSG-IMP",
+          "l3_types": [
+            {
+              "l3": "Housing - Home Improvement - Repair",
+              "l3_id": "HSG-IMP-REP",
+              "aliases": ["home repair", "renovation", "contractor"],
+              "mcc_codes": ["1520"],
+              "keywords": ["repair", "renovation", "improvement"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "l1": "Personal Care",
+      "l1_id": "PER",
+      "l2_subcategories": [
+        {
+          "l2": "Personal Care - Salon",
+          "l2_id": "PER-SAL",
+          "l3_types": [
+            {
+              "l3": "Personal Care - Salon - Haircut",
+              "l3_id": "PER-SAL-HAR",
+              "aliases": ["salon", "haircut", "barber"],
+              "mcc_codes": ["7230"],
+              "keywords": ["salon", "haircut", "grooming"]
+            }
+          ]
+        },
+        {
+          "l2": "Personal Care - Gym",
+          "l2_id": "PER-GYM",
+          "l3_types": [
+            {
+              "l3": "Personal Care - Gym - Membership",
+              "l3_id": "PER-GYM-MEM",
+              "aliases": ["gym", "fitness", "gym membership"],
+              "mcc_codes": ["7997"],
+              "keywords": ["gym", "fitness", "workout"]
+            }
+          ]
+        },
+        {
+          "l2": "Personal Care - Wellness",
+          "l2_id": "PER-WEL",
+          "l3_types": [
+            {
+              "l3": "Personal Care - Wellness - Spa",
+              "l3_id": "PER-WEL-SPA",
+              "aliases": ["spa", "massage", "wellness"],
+              "mcc_codes": ["7298"],
+              "keywords": ["spa", "massage", "wellness"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "l1": "Technology",
+      "l1_id": "TEC",
+      "l2_subcategories": [
+        {
+          "l2": "Technology - Electronics",
+          "l2_id": "TEC-ELE",
+          "l3_types": [
+            {
+              "l3": "Technology - Electronics - Computer",
+              "l3_id": "TEC-ELE-CMP",
+              "aliases": ["laptop", "computer", "pc"],
+              "mcc_codes": ["5732"],
+              "keywords": ["computer", "laptop", "pc"]
+            },
+            {
+              "l3": "Technology - Electronics - Mobile",
+              "l3_id": "TEC-ELE-MOB",
+              "aliases": ["mobile", "smartphone", "phone"],
+              "mcc_codes": ["5732"],
+              "keywords": ["mobile", "phone", "smartphone"]
+            }
+          ]
+        },
+        {
+          "l2": "Technology - Software",
+          "l2_id": "TEC-SFT",
+          "l3_types": [
+            {
+              "l3": "Technology - Software - License",
+              "l3_id": "TEC-SFT-LIC",
+              "aliases": ["software", "license", "microsoft", "adobe"],
+              "mcc_codes": ["5734"],
+              "keywords": ["software", "license", "application"]
+            }
+          ]
+        },
+        {
+          "l2": "Technology - Subscriptions",
+          "l2_id": "TEC-SUB",
+          "l3_types": [
+            {
+              "l3": "Technology - Subscriptions - Cloud",
+              "l3_id": "TEC-SUB-CLD",
+              "aliases": ["aws", "google cloud", "azure", "cloud"],
+              "mcc_codes": ["5734"],
+              "keywords": ["cloud", "saas", "subscription"]
+            },
+            {
+              "l3": "Technology - Subscriptions - Tools",
+              "l3_id": "TEC-SUB-TOL",
+              "aliases": ["github", "jira", "confluence"],
+              "mcc_codes": ["5734"],
+              "keywords": ["tool", "productivity", "subscription"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "l1": "Charitable",
+      "l1_id": "CHR",
+      "l2_subcategories": [
+        {
+          "l2": "Charitable - Donations",
+          "l2_id": "CHR-DON",
+          "l3_types": [
+            {
+              "l3": "Charitable - Donations - NGO",
+              "l3_id": "CHR-DON-NGO",
+              "aliases": ["donation", "charity", "ngo"],
+              "mcc_codes": ["8398"],
+              "keywords": ["donation", "charity", "ngo"]
+            }
+          ]
+        },
+        {
+          "l2": "Charitable - Nonprofits",
+          "l2_id": "CHR-NPR",
+          "l3_types": [
+            {
+              "l3": "Charitable - Nonprofits - Contribution",
+              "l3_id": "CHR-NPR-CON",
+              "aliases": ["nonprofit", "contribution"],
+              "mcc_codes": ["8398"],
+              "keywords": ["nonprofit", "contribution"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "l1": "Business Expenses",
+      "l1_id": "BUS",
+      "l2_subcategories": [
+        {
+          "l2": "Business Expenses - Office",
+          "l2_id": "BUS-OFC",
+          "l3_types": [
+            {
+              "l3": "Business Expenses - Office - Supplies",
+              "l3_id": "BUS-OFC-SUP",
+              "aliases": ["office supplies", "stationery"],
+              "mcc_codes": ["5943"],
+              "keywords": ["office", "supplies", "stationery"]
+            }
+          ]
+        },
+        {
+          "l2": "Business Expenses - Services",
+          "l2_id": "BUS-SRV",
+          "l3_types": [
+            {
+              "l3": "Business Expenses - Services - Professional",
+              "l3_id": "BUS-SRV-PRO",
+              "aliases": ["consulting", "professional services"],
+              "mcc_codes": ["8999"],
+              "keywords": ["consulting", "professional", "service"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "l1": "Miscellaneous",
+      "l1_id": "MSC",
+      "l2_subcategories": [
+        {
+          "l2": "Miscellaneous - Uncategorized",
+          "l2_id": "MSC-UNC",
+          "l3_types": [
+            {
+              "l3": "Miscellaneous - Uncategorized - Other",
+              "l3_id": "MSC-UNC-OTH",
+              "aliases": ["other", "miscellaneous"],
+              "mcc_codes": [],
+              "keywords": ["other", "miscellaneous", "unknown"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
