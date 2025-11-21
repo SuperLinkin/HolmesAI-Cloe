@@ -47,12 +47,28 @@ python inference.py --data data/raw/transactions_test.csv --output results.json
 
 # 5. Start API server
 uvicorn src.api.main:app --reload
+
+# 6. Open the Dashboard
+cd frontend
+open index.html  # or python -m http.server 8080
 ```
 
-Visit [http://localhost:8000/docs](http://localhost:8000/docs) for interactive API documentation.
+Visit the **Web Dashboard** at [frontend/index.html](frontend/index.html) or the **API Docs** at [http://localhost:8000/docs](http://localhost:8000/docs)
+
+## 🎨 Web Dashboard
+
+Holmes AI includes a beautiful, interactive web dashboard with:
+
+- 📊 **Real-time Metrics**: Accuracy, latency, confidence tracking
+- 🎯 **Live Categorization**: Test transactions instantly
+- 🌳 **Taxonomy Browser**: Explore 15 L1 → 45+ L3 categories
+- 📈 **Performance Charts**: Visual analytics and insights
+
+**Quick Start**: Open `frontend/index.html` in your browser (API must be running)
 
 ## Documentation
 
+- **[Web Dashboard](frontend/README.md)**: Frontend dashboard guide
 - **[Setup Guide](SETUP.md)**: Detailed installation and configuration instructions
 - **[PRD](HolmesAI%20PRD%20MD%20draft.md)**: Complete product requirements and technical specifications
 - **[API Docs](http://localhost:8000/docs)**: Interactive API documentation (when server is running)

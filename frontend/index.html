@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holmes AI - Transaction Categorization Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <h1>Holmes AI</h1>
+            </div>
+            <nav>
+                <a href="#dashboard" class="nav-link active">Dashboard</a>
+                <a href="#categorize" class="nav-link">Categorize</a>
+                <a href="#taxonomy" class="nav-link">Taxonomy</a>
+                <a href="#metrics" class="nav-link">Metrics</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="section active">
+                <h2 class="section-title">System Overview</h2>
+
+                <!-- Metrics Cards -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon blue">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3 class="metric-value" id="accuracy-metric">--</h3>
+                            <p class="metric-label">Model Accuracy (L3)</p>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon green">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3 class="metric-value" id="latency-metric">--</h3>
+                            <p class="metric-label">Avg Latency</p>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon purple">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3 class="metric-value" id="confidence-metric">--</h3>
+                            <p class="metric-label">Avg Confidence</p>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon orange">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3 class="metric-value" id="transactions-metric">--</h3>
+                            <p class="metric-label">Transactions Processed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>Confidence Distribution</h3>
+                        <canvas id="confidenceChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Category Distribution (L1)</h3>
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Transactions -->
+                <div class="card">
+                    <h3>Recent Categorizations</h3>
+                    <div id="recent-transactions" class="transactions-list">
+                        <p class="empty-state">No transactions processed yet</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categorize Section -->
+            <section id="categorize" class="section">
+                <h2 class="section-title">Categorize Transactions</h2>
+
+                <div class="two-column">
+                    <div class="card">
+                        <h3>Single Transaction</h3>
+                        <form id="single-transaction-form" class="form">
+                            <div class="form-group">
+                                <label>Transaction ID</label>
+                                <input type="text" id="txn-id" placeholder="TXN_001" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Merchant Description</label>
+                                <input type="text" id="merchant-raw" placeholder="SWIGGY*FOOD DELIVERY" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Amount</label>
+                                    <input type="number" id="amount" placeholder="25.50" step="0.01" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Currency</label>
+                                    <select id="currency">
+                                        <option value="USD">USD</option>
+                                        <option value="EUR">EUR</option>
+                                        <option value="INR">INR</option>
+                                        <option value="GBP">GBP</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Channel</label>
+                                    <select id="channel">
+                                        <option value="online">Online</option>
+                                        <option value="pos">Point of Sale</option>
+                                        <option value="atm">ATM</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>MCC Code (Optional)</label>
+                                    <input type="text" id="mcc-code" placeholder="5814">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Location (Optional)</label>
+                                <input type="text" id="location" placeholder="Bangalore, KA">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-magic"></i> Categorize Transaction
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="card">
+                        <h3>Categorization Result</h3>
+                        <div id="result-container" class="result-container">
+                            <p class="empty-state">Submit a transaction to see results</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Batch Upload -->
+                <div class="card">
+                    <h3>Batch Upload</h3>
+                    <div class="upload-area" id="upload-area">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drop CSV file here or click to upload</p>
+                        <input type="file" id="file-input" accept=".csv" hidden>
+                        <button class="btn btn-secondary" onclick="document.getElementById('file-input').click()">
+                            Choose File
+                        </button>
+                    </div>
+                    <div id="batch-results"></div>
+                </div>
+            </section>
+
+            <!-- Taxonomy Section -->
+            <section id="taxonomy" class="section">
+                <h2 class="section-title">Category Taxonomy</h2>
+
+                <div class="taxonomy-info">
+                    <div class="info-card">
+                        <h4>15 L1 Categories</h4>
+                        <p>Primary category groups</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>45+ L3 Categories</h4>
+                        <p>Specific transaction types</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Hierarchical</h4>
+                        <p>L1 → L2 → L3 structure</p>
+                    </div>
+                </div>
+
+                <div id="taxonomy-tree" class="taxonomy-tree"></div>
+            </section>
+
+            <!-- Metrics Section -->
+            <section id="metrics" class="section">
+                <h2 class="section-title">Performance Metrics</h2>
+
+                <div class="metrics-detailed">
+                    <div class="card">
+                        <h3>Model Performance</h3>
+                        <div class="metric-row">
+                            <span>L1 Accuracy</span>
+                            <span class="metric-value-inline" id="l1-accuracy">--</span>
+                        </div>
+                        <div class="metric-row">
+                            <span>L2 Accuracy</span>
+                            <span class="metric-value-inline" id="l2-accuracy">--</span>
+                        </div>
+                        <div class="metric-row">
+                            <span>L3 Accuracy</span>
+                            <span class="metric-value-inline" id="l3-accuracy">--</span>
+                        </div>
+                        <div class="metric-row">
+                            <span>Macro F1 Score</span>
+                            <span class="metric-value-inline" id="f1-score">--</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>System Performance</h3>
+                        <div class="metric-row">
+                            <span>Average Latency</span>
+                            <span class="metric-value-inline" id="avg-latency">--</span>
+                        </div>
+                        <div class="metric-row">
+                            <span>P95 Latency</span>
+                            <span class="metric-value-inline" id="p95-latency">--</span>
+                        </div>
+                        <div class="metric-row">
+                            <span>P99 Latency</span>
+                            <span class="metric-value-inline" id="p99-latency">--</span>
+                        </div>
+                        <div class="metric-row">
+                            <span>Target Latency</span>
+                            <span class="metric-value-inline">< 200ms</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Confidence Breakdown</h3>
+                        <div class="metric-row">
+                            <span>High Confidence (≥85%)</span>
+                            <span class="metric-value-inline" id="high-conf">--</span>
+                        </div>
+                        <div class="metric-row">
+                            <span>Medium Confidence (70-85%)</span>
+                            <span class="metric-value-inline" id="medium-conf">--</span>
+                        </div>
+                        <div class="metric-row">
+                            <span>Low Confidence (<70%)</span>
+                            <span class="metric-value-inline" id="low-conf">--</span>
+                        </div>
+                        <div class="metric-row">
+                            <span>Review Queue</span>
+                            <span class="metric-value-inline" id="review-queue">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Processing Timeline</h3>
+                    <canvas id="timelineChart"></canvas>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Holmes AI - Transaction Categorization Engine</p>
+            <p>Built with Sentence-BERT + LightGBM | API: <a href="http://localhost:8000/docs" target="_blank">http://localhost:8000/docs</a></p>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Processing...</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
