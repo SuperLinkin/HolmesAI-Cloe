@@ -11,6 +11,35 @@ An AI-native transaction categorization engine that converts unstructured bank t
 
 ## Architecture
 
+### 📊 Interactive Architecture Visualization
+
+**🎨 NEW:** Explore the complete Holmes AI architecture with our interactive dashboard!
+
+**[▶️ Open Architecture Dashboard](architecture_dashboard.html)** - Click to view animated workflow
+
+Features:
+- ✨ **Dual Workflows:** Switch between Inference Flow and Training Pipeline
+- 🎬 **Animated Stages:** Watch data flow through the 6-stage pipeline
+- 📊 **Live Metrics:** Real-time performance stats (10.2ms latency, 486 txns/sec)
+- 🔍 **Stage Details:** Click any component for technical specifications
+- 📱 **Fully Interactive:** Responsive design with smooth animations
+
+**Quick Start:**
+```bash
+# Open in browser
+start architecture_dashboard.html
+
+# Or use a local server
+python -m http.server 8000
+# Then navigate to: http://localhost:8000/architecture_dashboard.html
+```
+
+See [ARCHITECTURE_DASHBOARD_README.md](ARCHITECTURE_DASHBOARD_README.md) for complete guide.
+
+---
+
+### Pipeline Overview
+
 ```
 Raw Transaction → Data Ingestion → Pre-processing → Semantic Encoding → Classification → Confidence Scoring → Hierarchical Output
 ```

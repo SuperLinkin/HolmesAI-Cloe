@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holmes AI v2.0 - Deep Dive Architecture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #f1f5f9; 
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: #0f172a;
+        }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Glassmorphism Panels */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Stage Cards */
+        .stage-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 10;
+            background: white;
+        }
+        .stage-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #3b82f6;
+        }
+        .stage-card.active {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2), 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .stage-card.training-active {
+            border-color: #f59e0b; /* Amber for training */
+            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2), 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Pipeline Connector */
+        .pipeline-track {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #e2e8f0;
+            z-index: 0;
+            transform: translateY(-50%);
+        }
+        
+        /* Data Packet Animation */
+        .data-packet {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 12px;
+            height: 12px;
+            background: #3b82f6;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px #3b82f6;
+            z-index: 5;
+            display: none;
+        }
+
+        /* Status Badge */
+        .tech-badge {
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Terminal Log Styling */
+        .terminal-line {
+            opacity: 0;
+            animation: fadeIn 0.3s forwards;
+        }
+        @keyframes fadeIn { to { opacity: 1; } }
+
+        /* Drawer Animation */
+        .drawer {
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .drawer.open { transform: translateX(0); }
+
+        /* Tabs */
+        .tab-btn {
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .tab-btn.active {
+            border-bottom-color: #3b82f6;
+            color: #1e293b;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden">
+
+    <!-- Header -->
+    <header class="glass-panel border-b border-slate-200 px-6 py-3 flex justify-between items-center z-50 shrink-0">
+        <div class="flex items-center gap-3">
+            <div class="bg-blue-600 text-white p-2 rounded-lg shadow-lg shadow-blue-600/20">
+                <i class="fas fa-network-wired"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold text-slate-800 tracking-tight">Holmes AI <span class="text-blue-600">v2.0</span></h1>
+                <div class="flex items-center gap-2 text-[10px] font-medium text-slate-500 uppercase tracking-wider">
+                    <span>Production Ready</span>
+                    <span class="w-1 h-1 rounded-full bg-slate-300"></span>
+                    <span>GPU Accelerated</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab Navigation -->
+        <div class="flex gap-6 text-sm font-medium text-slate-500">
+            <button onclick="switchTab('inference')" id="tab-btn-inference" class="tab-btn active pb-1 hover:text-slate-700">
+                <i class="fas fa-bolt mr-2"></i> Inference Flow
+            </button>
+            <button onclick="switchTab('training')" id="tab-btn-training" class="tab-btn pb-1 hover:text-slate-700">
+                <i class="fas fa-graduation-cap mr-2"></i> Training Pipeline
+            </button>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 rounded-md border border-slate-200">
+                <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                <span class="text-xs font-mono text-slate-600">SYSTEM_ONLINE</span>
+            </div>
+            <button onclick="runSimulation()" id="sim-btn" class="bg-slate-900 hover:bg-slate-800 text-white px-5 py-2 rounded-lg text-sm font-medium transition-all shadow-lg shadow-slate-900/20 flex items-center gap-2">
+                <i class="fas fa-play"></i> <span id="sim-btn-text">Run Transaction</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <div class="flex-1 flex overflow-hidden relative">
+        
+        <!-- Architecture Canvas -->
+        <div class="flex-1 overflow-y-auto overflow-x-hidden relative p-8 bg-slate-50/50">
+            
+            <!-- TAB 1: INFERENCE FLOW -->
+            <div id="tab-inference" class="max-w-[1600px] mx-auto relative transition-opacity duration-300">
+                
+                <!-- Background Track -->
+                <div class="hidden xl:block pipeline-track top-[160px]"></div>
+                
+                <!-- Moving Packet -->
+                <div id="packet" class="data-packet top-[160px]"></div>
+
+                <!-- Stages Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 relative z-10">
+                    <!-- Stage 1 -->
+                    <div class="group" onclick="openDrawer('inf', 1)">
+                        <div id="stage-inf-1" class="stage-card h-[320px] rounded-xl border border-slate-200 p-5 flex flex-col cursor-pointer hover:border-blue-400">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="tech-badge bg-blue-50 text-blue-700 border border-blue-100">Ingestion</span>
+                                <i class="fas fa-database text-slate-300 group-hover:text-blue-500 transition-colors"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-lg mb-1">Data Ingestion</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">Normalization of multi-source streams (CSV, JSON, ERP).</p>
+                            <div class="mt-auto space-y-2">
+                                <div class="flex items-center justify-between text-xs border-t border-slate-100 pt-3">
+                                    <span class="text-slate-500">Schema</span>
+                                    <span class="font-mono text-slate-700 bg-slate-100 px-1.5 py-0.5 rounded">Pydantic</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-slate-500">Volume</span>
+                                    <span class="font-mono text-slate-700">20M/mo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 2 -->
+                    <div class="group" onclick="openDrawer('inf', 2)">
+                        <div id="stage-inf-2" class="stage-card h-[320px] rounded-xl border border-slate-200 p-5 flex flex-col cursor-pointer hover:border-teal-400">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="tech-badge bg-teal-50 text-teal-700 border border-teal-100">Preprocessing</span>
+                                <i class="fas fa-filter text-slate-300 group-hover:text-teal-500 transition-colors"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-lg mb-1">Token Enrich</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">Text cleaning & contextual feature injection.</p>
+                            <div class="mt-auto space-y-2">
+                                <div class="flex items-center justify-between text-xs border-t border-slate-100 pt-3">
+                                    <span class="text-slate-500">Features</span>
+                                    <span class="font-mono text-slate-700">SpendBand</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-slate-500">Impact</span>
+                                    <span class="font-mono text-green-600">+8% F1</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 3 -->
+                    <div class="group" onclick="openDrawer('inf', 3)">
+                        <div id="stage-inf-3" class="stage-card h-[320px] rounded-xl border border-slate-200 p-5 flex flex-col cursor-pointer hover:border-indigo-400">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="tech-badge bg-indigo-50 text-indigo-700 border border-indigo-100">Encoding</span>
+                                <i class="fas fa-brain text-slate-300 group-hover:text-indigo-500 transition-colors"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-lg mb-1">Semantic Vector</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">Dense embedding generation via Transformer.</p>
+                            <div class="mt-auto space-y-2">
+                                <div class="flex items-center justify-between text-xs border-t border-slate-100 pt-3">
+                                    <span class="text-slate-500">Model</span>
+                                    <span class="font-mono text-slate-700 bg-slate-100 px-1.5 py-0.5 rounded">mpnet-v2</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-slate-500">Dim</span>
+                                    <span class="font-mono text-slate-700">768D</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 4 -->
+                    <div class="group" onclick="openDrawer('inf', 4)">
+                        <div id="stage-inf-4" class="stage-card h-[320px] rounded-xl border border-slate-200 p-5 flex flex-col cursor-pointer hover:border-purple-400">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="tech-badge bg-purple-50 text-purple-700 border border-purple-100">ML Model</span>
+                                <i class="fas fa-project-diagram text-slate-300 group-hover:text-purple-500 transition-colors"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-lg mb-1">Classification</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">Gradient boosted decision trees for categorization.</p>
+                            <div class="mt-auto space-y-2">
+                                <div class="flex items-center justify-between text-xs border-t border-slate-100 pt-3">
+                                    <span class="text-slate-500">Algo</span>
+                                    <span class="font-mono text-slate-700 bg-slate-100 px-1.5 py-0.5 rounded">LightGBM</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-slate-500">Latency</span>
+                                    <span class="font-mono text-slate-700">&lt;50ms</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 5 -->
+                    <div class="group" onclick="openDrawer('inf', 5)">
+                        <div id="stage-inf-5" class="stage-card h-[320px] rounded-xl border border-slate-200 p-5 flex flex-col cursor-pointer hover:border-orange-400">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="tech-badge bg-orange-50 text-orange-700 border border-orange-100">Governance</span>
+                                <i class="fas fa-sitemap text-slate-300 group-hover:text-orange-500 transition-colors"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-lg mb-1">Taxonomy Map</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">Dynamic hierarchical filtering & validation.</p>
+                            <div class="mt-auto space-y-2">
+                                <div class="flex items-center justify-between text-xs border-t border-slate-100 pt-3">
+                                    <span class="text-slate-500">Config</span>
+                                    <span class="font-mono text-slate-700 bg-slate-100 px-1.5 py-0.5 rounded">JSON</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-slate-500">Control</span>
+                                    <span class="font-mono text-slate-700">No Code</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 6 -->
+                    <div class="group" onclick="openDrawer('inf', 6)">
+                        <div id="stage-inf-6" class="stage-card h-[320px] rounded-xl border border-slate-200 p-5 flex flex-col cursor-pointer hover:border-red-400">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="tech-badge bg-red-50 text-red-700 border border-red-100">Loop</span>
+                                <i class="fas fa-sync text-slate-300 group-hover:text-red-500 transition-colors"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-lg mb-1">Feedback</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">Continuous learning & human-in-the-loop review.</p>
+                            <div class="mt-auto space-y-2">
+                                <div class="flex items-center justify-between text-xs border-t border-slate-100 pt-3">
+                                    <span class="text-slate-500">Retrain</span>
+                                    <span class="font-mono text-slate-700">Nightly</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-slate-500">Gain</span>
+                                    <span class="font-mono text-green-600">3-5%/qtr</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feedback Loop Line -->
+                <svg class="absolute top-0 left-0 w-full h-full pointer-events-none z-0 hidden xl:block overflow-visible">
+                    <path d="M 1450 320 C 1450 450, 150 450, 150 320" fill="none" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="6 4" />
+                </svg>
+            </div>
+
+            <!-- TAB 2: TRAINING PIPELINE (Hidden by default) -->
+            <div id="tab-training" class="max-w-[1600px] mx-auto relative hidden">
+                
+                <!-- Background Track for Training -->
+                <div class="hidden xl:block pipeline-track top-[160px] border-t-2 border-dashed border-amber-200 bg-transparent h-0"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 relative z-10">
+                    
+                    <!-- T-Stage 1: Dataset Gen -->
+                    <div class="group" onclick="openDrawer('train', 1)">
+                        <div id="stage-train-1" class="stage-card h-[320px] rounded-xl border border-slate-200 p-5 flex flex-col cursor-pointer hover:border-amber-400">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="tech-badge bg-amber-50 text-amber-700 border border-amber-100">Generation</span>
+                                <i class="fas fa-table text-slate-300 group-hover:text-amber-500 transition-colors"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-lg mb-1">Dataset Gen</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">Synthetic generation of transactions with realistic distributions.</p>
+                            <div class="mt-auto space-y-2">
+                                <div class="flex items-center justify-between text-xs border-t border-slate-100 pt-3">
+                                    <span class="text-slate-500">Samples</span>
+                                    <span class="font-mono text-slate-700">100,000</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-slate-500">L1 Classes</span>
+                                    <span class="font-mono text-slate-700">15</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- T-Stage 2: GPU Embedding -->
+                    <div class="group" onclick="openDrawer('train', 2)">
+                        <div id="stage-train-2" class="stage-card h-[320px] rounded-xl border border-slate-200 p-5 flex flex-col cursor-pointer hover:border-amber-400">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="tech-badge bg-indigo-50 text-indigo-700 border border-indigo-100">GPU Batch</span>
+                                <i class="fas fa-microchip text-slate-300 group-hover:text-indigo-500 transition-colors"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-lg mb-1">Embeddings</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">High-throughput vector generation on Google Colab Pro.</p>
+                            <div class="mt-auto space-y-2">
+                                <div class="flex items-center justify-between text-xs border-t border-slate-100 pt-3">
+                                    <span class="text-slate-500">Device</span>
+                                    <span class="font-mono text-slate-700">Tesla T4</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-slate-500">Batch Size</span>
+                                    <span class="font-mono text-slate-700">64</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-slate-500">Time</span>
+                                    <span class="font-mono text-slate-700">~2 mins</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- T-Stage 3: Feature Eng -->
+                    <div class="group" onclick="openDrawer('train', 3)">
+                        <div id="stage-train-3" class="stage-card h-[320px] rounded-xl border border-slate-200 p-5 flex flex-col cursor-pointer hover:border-amber-400">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="tech-badge bg-teal-50 text-teal-700 border border-teal-100">Engineering</span>
+                                <i class="fas fa-flask text-slate-300 group-hover:text-teal-500 transition-colors"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-lg mb-1">Feature Eng</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">Concatenating dense vectors with engineered metadata.</p>
+                            <div class="mt-auto space-y-2">
+                                <div class="flex items-center justify-between text-xs border-t border-slate-100 pt-3">
+                                    <span class="text-slate-500">Vector</span>
+                                    <span class="font-mono text-slate-700">768D</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-slate-500">Meta</span>
+                                    <span class="font-mono text-slate-700">+5 feats</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-slate-500">Total</span>
+                                    <span class="font-mono text-slate-700">773D Matrix</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- T-Stage 4: Train L1 -->
+                    <div class="group" onclick="openDrawer('train', 4)">
+                        <div id="stage-train-4" class="stage-card h-[320px] rounded-xl border border-slate-200 p-5 flex flex-col cursor-pointer hover:border-amber-400">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="tech-badge bg-green-50 text-green-700 border border-green-100">Training</span>
+                                <i class="fas fa-layer-group text-slate-300 group-hover:text-green-500 transition-colors"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-lg mb-1">Train L1</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">Training top-level category model (Dining, Travel, etc).</p>
+                            <div class="mt-auto space-y-2">
+                                <div class="flex items-center justify-between text-xs border-t border-slate-100 pt-3">
+                                    <span class="text-slate-500">Rounds</span>
+                                    <span class="font-mono text-slate-700">500</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-slate-500">Metric</span>
+                                    <span class="font-mono text-slate-700">Multi-Logloss</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-slate-500">Target Acc</span>
+                                    <span class="font-mono text-green-600">90%+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- T-Stage 5: Train L2/L3 -->
+                    <div class="group" onclick="openDrawer('train', 5)">
+                        <div id="stage-train-5" class="stage-card h-[320px] rounded-xl border border-slate-200 p-5 flex flex-col cursor-pointer hover:border-amber-400">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="tech-badge bg-green-50 text-green-700 border border-green-100">Training</span>
+                                <i class="fas fa-cubes text-slate-300 group-hover:text-green-500 transition-colors"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-lg mb-1">Train L2/L3</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">Training fine-grained sub-category classifiers.</p>
+                            <div class="mt-auto space-y-2">
+                                <div class="flex items-center justify-between text-xs border-t border-slate-100 pt-3">
+                                    <span class="text-slate-500">Hierarchy</span>
+                                    <span class="font-mono text-slate-700">Conditional</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-slate-500">L2 Classes</span>
+                                    <span class="font-mono text-slate-700">42</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-slate-500">L3 Classes</span>
+                                    <span class="font-mono text-slate-700">59</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- T-Stage 6: Artifacts -->
+                    <div class="group" onclick="openDrawer('train', 6)">
+                        <div id="stage-train-6" class="stage-card h-[320px] rounded-xl border border-slate-200 p-5 flex flex-col cursor-pointer hover:border-amber-400">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="tech-badge bg-slate-100 text-slate-700 border border-slate-200">Registry</span>
+                                <i class="fas fa-save text-slate-300 group-hover:text-slate-500 transition-colors"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-lg mb-1">Artifacts</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">Saving quantized models and encoder maps for production.</p>
+                            <div class="mt-auto space-y-2">
+                                <div class="flex items-center justify-between text-xs border-t border-slate-100 pt-3">
+                                    <span class="text-slate-500">Format</span>
+                                    <span class="font-mono text-slate-700">.txt / .pkl</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-slate-500">Size</span>
+                                    <span class="font-mono text-slate-700">~150MB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metrics & Impact Dashboard -->
+            <div class="mt-10 max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <div class="glass-panel rounded-xl p-5">
+                    <h4 class="text-xs font-bold text-slate-400 uppercase mb-4">Production Metrics</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <div class="text-2xl font-bold text-slate-800">99.6%</div>
+                            <div class="text-xs text-slate-500">L1 Accuracy</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-slate-800">0.996</div>
+                            <div class="text-xs text-slate-500">L1 Macro F1</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-green-600">10.2ms</div>
+                            <div class="text-xs text-slate-500">Avg Latency</div>
+                        </div>
+                         <div>
+                            <div class="text-2xl font-bold text-green-600">486/s</div>
+                            <div class="text-xs text-slate-500">Throughput</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-xl p-5 lg:col-span-2">
+                    <h4 class="text-xs font-bold text-slate-400 uppercase mb-4">Architecture Innovations</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <div class="flex items-center gap-2 mb-1">
+                                <i class="fas fa-microchip text-blue-500"></i>
+                                <span class="text-sm font-bold text-slate-700">Offline AI</span>
+                            </div>
+                            <p class="text-xs text-slate-500">Full local inference capabilities using quantized models on T4.</p>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <div class="flex items-center gap-2 mb-1">
+                                <i class="fas fa-file-code text-purple-500"></i>
+                                <span class="text-sm font-bold text-slate-700">JSON Taxonomy</span>
+                            </div>
+                            <p class="text-xs text-slate-500">Business logic decoupled from code. Instant category updates.</p>
+                        </div>
+                         <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <div class="flex items-center gap-2 mb-1">
+                                <i class="fas fa-layer-group text-teal-500"></i>
+                                <span class="text-sm font-bold text-slate-700">Hybrid Model</span>
+                            </div>
+                            <p class="text-xs text-slate-500">Semantic Search (BERT) + Structured Classification (LightGBM).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Sidebar: Inspector & Logs -->
+        <div class="w-[400px] glass-panel border-l border-slate-200 flex flex-col z-40 shrink-0">
+            
+            <!-- Inspector Tab -->
+            <div class="p-4 border-b border-slate-100">
+                <h2 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                    <i class="fas fa-search text-blue-500"></i> Live Inspector
+                </h2>
+            </div>
+
+            <!-- Real-time State Viewer -->
+            <div class="p-4 border-b border-slate-100 bg-slate-50/50 h-1/2 overflow-y-auto">
+                <div id="inspector-empty" class="text-center text-slate-400 mt-10">
+                    <i class="fas fa-cube text-2xl mb-2"></i>
+                    <p class="text-xs">Run simulation to view state</p>
+                </div>
+                
+                <!-- Inference Inspector Content -->
+                <div id="inspector-inf" class="space-y-4 hidden">
+                    <!-- Raw Input -->
+                    <div class="group opacity-50 transition-opacity" id="state-inf-1">
+                        <div class="flex justify-between text-[10px] font-bold text-slate-400 uppercase mb-1">
+                            <span>Input</span>
+                            <span>JSON</span>
+                        </div>
+                        <div class="bg-white border border-slate-200 rounded p-2 font-mono text-[10px] text-slate-600 shadow-sm">
+                            {<br>
+                            &nbsp;"raw": "Starbucks Coffee #1234 NY",<br>
+                            &nbsp;"amt": 5.50,<br>
+                            &nbsp;"mcc": "5812"<br>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Preprocessed -->
+                    <div class="group opacity-50 transition-opacity" id="state-inf-2">
+                         <div class="flex justify-between text-[10px] font-bold text-slate-400 uppercase mb-1">
+                            <span>Enrichment</span>
+                            <span>Feature Vector</span>
+                        </div>
+                        <div class="bg-white border border-slate-200 rounded p-2 font-mono text-[10px] text-teal-700 shadow-sm">
+                            clean: "starbucks"<br>
+                            spend_band: "micro" (&lt;$10)<br>
+                            region: "NY"<br>
+                            channel: "pos"
+                        </div>
+                    </div>
+
+                     <!-- Embedding -->
+                    <div class="group opacity-50 transition-opacity" id="state-inf-3">
+                         <div class="flex justify-between text-[10px] font-bold text-slate-400 uppercase mb-1">
+                            <span>Embedding</span>
+                            <span>Tensor[768]</span>
+                        </div>
+                        <div class="bg-white border border-slate-200 rounded p-2 shadow-sm overflow-hidden">
+                             <div class="flex gap-0.5 h-4 items-end opacity-80">
+                                <!-- Visual bars -->
+                                <div class="w-1 bg-indigo-500 h-[40%]"></div>
+                                <div class="w-1 bg-indigo-400 h-[70%]"></div>
+                                <div class="w-1 bg-indigo-600 h-[30%]"></div>
+                                <div class="w-1 bg-indigo-300 h-[90%]"></div>
+                                <div class="w-1 bg-indigo-500 h-[50%]"></div>
+                                <div class="w-1 bg-indigo-400 h-[20%]"></div>
+                                <div class="w-1 bg-indigo-600 h-[80%]"></div>
+                                <div class="w-1 bg-indigo-300 h-[60%]"></div>
+                                <div class="w-1 bg-indigo-500 h-[40%]"></div>
+                                <div class="w-1 bg-indigo-400 h-[70%]"></div>
+                                <span class="text-[9px] text-indigo-400 ml-2 self-center">...768 dims</span>
+                             </div>
+                        </div>
+                    </div>
+
+                     <!-- Output -->
+                    <div class="group opacity-50 transition-opacity" id="state-inf-4">
+                         <div class="flex justify-between text-[10px] font-bold text-slate-400 uppercase mb-1">
+                            <span>Prediction</span>
+                            <span>Result</span>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 rounded p-2 font-mono text-[10px] text-green-400 shadow-sm">
+                            L1: "Dining" (0.98)<br>
+                            L2: "Dining - Coffee" (0.92)<br>
+                            L3: "Coffee Chains" (0.88)<br>
+                            <span class="text-slate-500">-----------------</span><br>
+                            Final Conf: 0.95 (High)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Training Inspector Content (Logs) -->
+                <div id="inspector-train" class="space-y-4 hidden">
+                    <div id="train-progress" class="space-y-2">
+                        <div class="flex justify-between text-[10px] font-bold text-slate-500 uppercase">
+                            <span>Overall Progress</span>
+                            <span id="progress-pct">0%</span>
+                        </div>
+                        <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                            <div id="progress-bar" class="h-full bg-amber-500 w-0 transition-all duration-300"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-slate-800 p-3 rounded font-mono text-[10px] text-slate-300 h-[200px] overflow-y-auto" id="train-logs">
+                        <div class="text-slate-500">Click 'Run Training' to start...</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Console Logs -->
+            <div class="flex-1 bg-slate-900 p-4 overflow-hidden flex flex-col">
+                 <div class="flex justify-between items-center mb-2">
+                    <h2 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">System Logs</h2>
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                 </div>
+                 <div id="console-output" class="font-mono text-[10px] text-slate-300 space-y-1 overflow-y-auto flex-1">
+                     <div class="text-slate-500">[SYSTEM] Holmes AI v2.0 Initialized...</div>
+                     <div class="text-slate-500">[SYSTEM] Model loaded: all-mpnet-base-v2</div>
+                     <div class="text-slate-500">[SYSTEM] Connected to pgvector instance</div>
+                 </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Detailed Slide-over Drawer -->
+    <div id="detail-drawer" class="fixed inset-y-0 right-0 w-[500px] bg-white shadow-2xl drawer z-50 border-l border-slate-200 flex flex-col">
+        <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+            <div>
+                <h2 id="drawer-title" class="text-xl font-bold text-slate-900">Stage Details</h2>
+                <p class="text-xs text-slate-500 mt-1">Technical Specification</p>
+            </div>
+            <button onclick="closeDrawer()" class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-50 transition-colors">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="drawer-content" class="p-6 overflow-y-auto flex-1 text-sm leading-relaxed text-slate-600">
+            <!-- Injected Content -->
+        </div>
+        <div class="p-4 border-t border-slate-100 bg-slate-50 flex justify-between items-center">
+            <span class="text-xs text-slate-400 font-mono">ID: SPEC-2025-V2</span>
+            <button onclick="closeDrawer()" class="px-4 py-2 bg-white border border-slate-300 rounded text-xs font-bold text-slate-700 hover:bg-slate-50">CLOSE PANEL</button>
+        </div>
+    </div>
+
+    <!-- Backdrop for Drawer -->
+    <div id="drawer-backdrop" onclick="closeDrawer()" class="fixed inset-0 bg-slate-900/20 backdrop-blur-[2px] z-40 hidden opacity-0 transition-opacity"></div>
+
+    <script>
+        // --------------------------------------------------
+        // GLOBAL STATE
+        // --------------------------------------------------
+        let activeTab = 'inference'; // 'inference' | 'training'
+        let isRunning = false;
+
+        // --------------------------------------------------
+        // TAB LOGIC
+        // --------------------------------------------------
+        function switchTab(tab) {
+            if (isRunning) return; // Prevent switching while running
+            activeTab = tab;
+
+            // Toggle Buttons
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(`tab-btn-${tab}`).classList.add('active');
+
+            // Toggle Content
+            if (tab === 'inference') {
+                document.getElementById('tab-inference').classList.remove('hidden');
+                document.getElementById('tab-training').classList.add('hidden');
+                document.getElementById('sim-btn-text').innerText = 'Run Transaction';
+                // Switch Inspector
+                document.getElementById('inspector-inf').classList.add('hidden');
+                document.getElementById('inspector-train').classList.add('hidden');
+                document.getElementById('inspector-empty').classList.remove('hidden');
+            } else {
+                document.getElementById('tab-training').classList.remove('hidden');
+                document.getElementById('tab-inference').classList.add('hidden');
+                document.getElementById('sim-btn-text').innerText = 'Run Training';
+                // Switch Inspector
+                document.getElementById('inspector-inf').classList.add('hidden');
+                document.getElementById('inspector-train').classList.remove('hidden');
+                document.getElementById('inspector-empty').classList.add('hidden');
+            }
+        }
+
+        // --------------------------------------------------
+        // DRAWER DATA
+        // --------------------------------------------------
+        const inferenceData = {
+            1: { title: "Data Ingestion", content: "Ingests raw transaction data from diverse sources (CSV, JSON, ERP), validates schema compliance using Pydantic, and normalizes fields." },
+            2: { title: "Preprocessing", content: "Cleans raw merchant strings (lowercase, noise removal) and injects contextual tokens (Spend Band, Region) to aid semantic separation." },
+            3: { title: "Semantic Encoding", content: "Uses `sentence-transformers/all-mpnet-base-v2` to generate 768-dimensional dense vectors on Tesla T4 GPUs." },
+            4: { title: "Classification", content: "LightGBM Gradient Boosting Classifier. trained on 100k+ samples. Latency < 50ms. Uses 63 leaves, 0.03 learning rate." },
+            5: { title: "Governance", content: "Strict JSON-based taxonomy map. Decouples business logic from code, allowing instant category updates by Finance team." },
+            6: { title: "Feedback Loop", content: "Low confidence (<0.7) predictions go to manual review. Corrected labels are fed back into nightly retraining." }
+        };
+
+        const trainingData = {
+            1: { title: "Synthetic Dataset Gen", content: "Generates 100,000+ synthetic transactions using `generate_dataset.py`. Ensures realistic distribution across 15 L1 categories, with merchant aliases and noise." },
+            2: { title: "GPU Embedding Generation", content: "Batch processes 100k texts using `all-mpnet-base-v2` on Google Colab Pro (Tesla T4). Batch size: 64. Takes ~2-3 minutes." },
+            3: { title: "Feature Engineering", content: "Concatenates 768D semantic vectors with 5 engineered features: Spend Band (Cat), Temporal Pattern (Cat), Channel (Cat), MCC (Norm), Amount % (Norm)." },
+            4: { title: "Train L1 Model", content: "LightGBM Classifier for top-level categories. 500 boost rounds, early stopping at 50. Class weight: Balanced. validation split: 15%." },
+            5: { title: "Train L2/L3 Models", content: "Hierarchical training. Separate classifiers for each parent category. Ensures 0% hierarchy violations in inference." },
+            6: { title: "Artifact Registry", content: "Saves trained `.txt` LightGBM models, PyTorch `.bin` weights, and Label Encoders `.pkl` for the inference container." }
+        };
+
+        function openDrawer(type, id) {
+            const data = type === 'inf' ? inferenceData[id] : trainingData[id];
+            if(!data) return;
+            
+            document.getElementById('drawer-title').innerText = data.title;
+            // Add some dummy extra technical details for "Detailed" feel
+            document.getElementById('drawer-content').innerHTML = `
+                <div class="space-y-4">
+                    <p class="leading-relaxed">${data.content}</p>
+                    <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                        <h4 class="text-xs font-bold uppercase text-slate-400 mb-2">System Spec</h4>
+                        <div class="grid grid-cols-2 gap-2 text-xs">
+                            <div><span class="text-slate-500">Input:</span> <span class="font-mono text-slate-700">Stream/Batch</span></div>
+                            <div><span class="text-slate-500">Latency:</span> <span class="font-mono text-slate-700">~12ms</span></div>
+                            <div><span class="text-slate-500">Mem:</span> <span class="font-mono text-slate-700">256MB</span></div>
+                            <div><span class="text-slate-500">Status:</span> <span class="text-green-600 font-bold">Active</span></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            const drawer = document.getElementById('detail-drawer');
+            const backdrop = document.getElementById('drawer-backdrop');
+            backdrop.classList.remove('hidden');
+            setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
+            drawer.classList.add('open');
+        }
+
+        function closeDrawer() {
+            const drawer = document.getElementById('detail-drawer');
+            const backdrop = document.getElementById('drawer-backdrop');
+            drawer.classList.remove('open');
+            backdrop.classList.add('opacity-0');
+            setTimeout(() => backdrop.classList.add('hidden'), 300);
+        }
+
+        // --------------------------------------------------
+        // LOGGING UTILS
+        // --------------------------------------------------
+        const consoleEl = document.getElementById('console-output');
+        const trainLogEl = document.getElementById('train-logs');
+
+        function log(msg, type='INFO', target='console') {
+            const div = document.createElement('div');
+            div.className = 'terminal-line';
+            if(target === 'train') div.className = 'terminal-line text-[10px] font-mono mb-1';
+
+            const time = new Date().toLocaleTimeString('en-US', {hour12: false, hour: "numeric", minute: "numeric", second: "numeric"});
+            let color = 'text-slate-400';
+            if(type === 'SUCCESS') color = 'text-green-400';
+            if(type === 'WARN') color = 'text-amber-400';
+            
+            div.innerHTML = `<span class="text-slate-600">[${time}]</span> <span class="${color}">${msg}</span>`;
+            
+            if (target === 'console') {
+                consoleEl.appendChild(div);
+                consoleEl.scrollTop = consoleEl.scrollHeight;
+            } else {
+                trainLogEl.appendChild(div);
+                trainLogEl.scrollTop = trainLogEl.scrollHeight;
+            }
+        }
+
+        // --------------------------------------------------
+        // SIMULATION RUNNER
+        // --------------------------------------------------
+        function runSimulation() {
+            if (isRunning) return;
+            if (activeTab === 'inference') {
+                runInferenceSim();
+            } else {
+                runTrainingSim();
+            }
+        }
+
+        // --- INFERENCE SIMULATION ---
+        function runInferenceSim() {
+            isRunning = true;
+            const btn = document.getElementById('sim-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            btn.classList.add('opacity-75');
+
+            // Setup UI
+            document.getElementById('inspector-empty').classList.add('hidden');
+            document.getElementById('inspector-inf').classList.remove('hidden');
+            [1,2,3,4].forEach(i => document.getElementById(`state-inf-${i}`).classList.remove('opacity-100'));
+            [1,2,3,4].forEach(i => document.getElementById(`state-inf-${i}`).classList.add('opacity-50'));
+
+            log("New Transaction: txn_123 received", "INFO");
+
+            // Animate Stage 1
+            highlightStage('inf', 1);
+            movePacket('inf', 1, 2, 1000);
+            
+            setTimeout(() => {
+                highlightState('inf', 1);
+                log("Schema Validated.", "SUCCESS");
+            }, 800);
+
+            // Animate Stage 2
+            setTimeout(() => {
+                highlightStage('inf', 2);
+                movePacket('inf', 2, 3, 1000);
+                highlightState('inf', 2);
+                log("Enrichment: SpendBand=MICRO", "INFO");
+            }, 1800);
+
+            // Animate Stage 3
+            setTimeout(() => {
+                highlightStage('inf', 3);
+                movePacket('inf', 3, 4, 1000);
+                highlightState('inf', 3);
+                log("Embedding Generated (T4)", "WARN");
+            }, 3000);
+
+            // Animate Stage 4
+            setTimeout(() => {
+                highlightStage('inf', 4);
+                movePacket('inf', 4, 5, 500); // Faster
+                highlightState('inf', 4);
+                log("LightGBM Inference: 23ms", "SUCCESS");
+            }, 4200);
+
+            // End
+            setTimeout(() => {
+                highlightStage('inf', 5); 
+                setTimeout(() => highlightStage('inf', 6), 300); // Ripple
+                
+                log("Classified: Dining > Coffee", "SUCCESS");
+                
+                resetStages();
+                btn.innerHTML = originalText;
+                btn.classList.remove('opacity-75');
+                isRunning = false;
+            }, 5000);
+        }
+
+        // --- TRAINING SIMULATION ---
+        function runTrainingSim() {
+            isRunning = true;
+            const btn = document.getElementById('sim-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-cog fa-spin"></i> Training...';
+            btn.classList.add('opacity-75');
+
+            // Reset Training Logs
+            trainLogEl.innerHTML = '';
+            document.getElementById('progress-bar').style.width = '0%';
+            document.getElementById('progress-pct').innerText = '0%';
+
+            log("Starting Training Pipeline...", "WARN", "console");
+
+            // Helper to update progress
+            const updateProgress = (pct, stageId) => {
+                document.getElementById('progress-bar').style.width = `${pct}%`;
+                document.getElementById('progress-pct').innerText = `${pct}%`;
+                if (stageId) highlightStage('train', stageId);
+            };
+
+            // Step 1: Gen Data
+            updateProgress(10, 1);
+            log("Generating 100k synthetic rows...", "INFO", "train");
+            
+            setTimeout(() => {
+                log("Dataset created: 15MB CSV", "SUCCESS", "train");
+                
+                // Step 2: GPU
+                updateProgress(30, 2);
+                log("Loading model: all-mpnet-base-v2", "INFO", "train");
+                log("Allocating Tesla T4 Memory...", "WARN", "train");
+                
+                setTimeout(() => {
+                    log("Batch 10/1562 processed...", "INFO", "train");
+                    log("Batch 500/1562 processed...", "INFO", "train");
+                    log("Embeddings complete.", "SUCCESS", "train");
+                    
+                    // Step 3: Feat Eng
+                    updateProgress(45, 3);
+                    log("Concatenating Vectors (773D)...", "INFO", "train");
+
+                    setTimeout(() => {
+                        // Step 4: Train L1
+                        updateProgress(60, 4);
+                        log("Training L1 LightGBM...", "WARN", "train");
+                        log("[1] train-logloss: 0.65 valid-logloss: 0.68", "INFO", "train");
+                        log("[50] train-logloss: 0.22 valid-logloss: 0.25", "INFO", "train");
+                        log("[500] train-logloss: 0.05 valid-logloss: 0.12", "SUCCESS", "train");
+
+                        setTimeout(() => {
+                             // Step 5: Train L2/L3
+                            updateProgress(85, 5);
+                            log("Training L2 Hierarchy (42 models)...", "WARN", "train");
+                            log("Training L3 Hierarchy (59 models)...", "WARN", "train");
+                            
+                            setTimeout(() => {
+                                // Step 6: Save
+                                updateProgress(100, 6);
+                                log("Saving Artifacts to /models...", "SUCCESS", "train");
+                                log("Training Pipeline Completed Successfully.", "SUCCESS", "console");
+                                
+                                resetStages();
+                                btn.innerHTML = originalText;
+                                btn.classList.remove('opacity-75');
+                                isRunning = false;
+                            }, 1500);
+                        }, 1500);
+                    }, 1500);
+                }, 2000);
+            }, 1500);
+        }
+
+        // --------------------------------------------------
+        // VISUAL HELPERS
+        // --------------------------------------------------
+        function highlightStage(type, id) {
+            // Remove existing highlights
+            document.querySelectorAll('.stage-card').forEach(c => {
+                c.classList.remove('active');
+                c.classList.remove('training-active');
+            });
+
+            const el = document.getElementById(`stage-${type}-${id}`);
+            if (type === 'inf') {
+                el.classList.add('active');
+            } else {
+                el.classList.add('training-active');
+            }
+        }
+
+        function resetStages() {
+            document.querySelectorAll('.stage-card').forEach(c => {
+                c.classList.remove('active');
+                c.classList.remove('training-active');
+            });
+            document.getElementById('packet').style.display = 'none';
+        }
+
+        function highlightState(type, id) {
+            const el = document.getElementById(`state-${type}-${id}`);
+            if(el) {
+                el.classList.remove('opacity-50');
+                el.classList.add('opacity-100');
+            }
+        }
+
+        function movePacket(type, startId, endId, duration) {
+            const packet = document.getElementById('packet');
+            packet.style.display = 'block';
+            
+            // Simple % based positioning for demo
+            const startPos = ((startId - 1) * 16) + 8; 
+            const endPos = ((endId - 1) * 16) + 8;
+            
+            packet.style.transition = 'none';
+            packet.style.left = `${startPos}%`;
+            
+            // Force reflow
+            void packet.offsetWidth;
+            
+            packet.style.transition = `left ${duration}ms linear`;
+            packet.style.left = `${endPos}%`;
+        }
+
+    </script>
+</body>
+</html>
