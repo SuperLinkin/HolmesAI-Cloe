@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holmes AI v2.0 - Results Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .metric-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .pulse-dot {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .success-badge {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .performance-badge {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        }
+    </style>
+</head>
+<body class="p-8">
+
+    <!-- Header -->
+    <div class="max-w-7xl mx-auto mb-8">
+        <div class="bg-white rounded-2xl shadow-2xl p-8">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="bg-gradient-to-br from-purple-600 to-indigo-600 p-4 rounded-xl">
+                        <i class="fas fa-brain text-white text-3xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-4xl font-bold text-gray-900">Holmes AI <span class="text-purple-600">v2.0</span></h1>
+                        <p class="text-gray-500 mt-1">Financial Transaction Categorization Engine</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-2 px-4 py-2 bg-green-50 rounded-lg border border-green-200">
+                        <div class="w-3 h-3 rounded-full bg-green-500 pulse-dot"></div>
+                        <span class="text-sm font-semibold text-green-700">PRODUCTION READY</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Results Grid -->
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Hero Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+
+            <!-- L1 Accuracy -->
+            <div class="metric-card bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-sm font-semibold text-gray-500 uppercase tracking-wider">L1 Accuracy</span>
+                    <div class="success-badge p-2 rounded-lg">
+                        <i class="fas fa-check text-white text-sm"></i>
+                    </div>
+                </div>
+                <div class="text-5xl font-bold text-gray-900 mb-2">99.64%</div>
+                <div class="flex items-center gap-2">
+                    <span class="text-sm text-green-600 font-semibold">+9.64% above target</span>
+                    <i class="fas fa-arrow-up text-green-600 text-xs"></i>
+                </div>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <div class="flex justify-between text-xs">
+                        <span class="text-gray-500">Macro F1</span>
+                        <span class="font-mono font-semibold text-gray-900">0.9960</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- L2 Accuracy -->
+            <div class="metric-card bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-sm font-semibold text-gray-500 uppercase tracking-wider">L2 Accuracy</span>
+                    <div class="success-badge p-2 rounded-lg">
+                        <i class="fas fa-check text-white text-sm"></i>
+                    </div>
+                </div>
+                <div class="text-5xl font-bold text-gray-900 mb-2">98.48%</div>
+                <div class="flex items-center gap-2">
+                    <span class="text-sm text-green-600 font-semibold">+8.48% above target</span>
+                    <i class="fas fa-arrow-up text-green-600 text-xs"></i>
+                </div>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <div class="flex justify-between text-xs">
+                        <span class="text-gray-500">Macro F1</span>
+                        <span class="font-mono font-semibold text-gray-900">0.9792</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- L3 Accuracy -->
+            <div class="metric-card bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-sm font-semibold text-gray-500 uppercase tracking-wider">L3 Accuracy</span>
+                    <div class="success-badge p-2 rounded-lg">
+                        <i class="fas fa-check text-white text-sm"></i>
+                    </div>
+                </div>
+                <div class="text-5xl font-bold text-gray-900 mb-2">97.53%</div>
+                <div class="flex items-center gap-2">
+                    <span class="text-sm text-green-600 font-semibold">+7.53% above target</span>
+                    <i class="fas fa-arrow-up text-green-600 text-xs"></i>
+                </div>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <div class="flex justify-between text-xs">
+                        <span class="text-gray-500">Macro F1</span>
+                        <span class="font-mono font-semibold text-gray-900">0.9728</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Latency -->
+            <div class="metric-card bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Latency</span>
+                    <div class="performance-badge p-2 rounded-lg">
+                        <i class="fas fa-bolt text-white text-sm"></i>
+                    </div>
+                </div>
+                <div class="text-5xl font-bold text-gray-900 mb-2">10.2ms</div>
+                <div class="flex items-center gap-2">
+                    <span class="text-sm text-blue-600 font-semibold">19.5x faster than target</span>
+                    <i class="fas fa-rocket text-blue-600 text-xs"></i>
+                </div>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <div class="flex justify-between text-xs">
+                        <span class="text-gray-500">Target</span>
+                        <span class="font-mono font-semibold text-gray-900">&lt;200ms</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Metrics Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+
+            <!-- Accuracy Breakdown -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="bg-purple-100 p-3 rounded-lg">
+                        <i class="fas fa-chart-bar text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900">Accuracy Metrics</h2>
+                        <p class="text-sm text-gray-500">Hierarchical Performance</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- L1 -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-semibold text-gray-700">Level 1 (15 categories)</span>
+                            <span class="text-lg font-bold text-gray-900">99.64%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                            <div class="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full" style="width: 99.64%"></div>
+                        </div>
+                        <div class="mt-2 grid grid-cols-2 gap-4 text-xs">
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Macro F1:</span>
+                                <span class="font-mono font-semibold">0.9960</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Weighted F1:</span>
+                                <span class="font-mono font-semibold">0.9964</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- L2 -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-semibold text-gray-700">Level 2 (42 categories)</span>
+                            <span class="text-lg font-bold text-gray-900">98.48%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                            <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full" style="width: 98.48%"></div>
+                        </div>
+                        <div class="mt-2 grid grid-cols-2 gap-4 text-xs">
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Macro F1:</span>
+                                <span class="font-mono font-semibold">0.9792</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Weighted F1:</span>
+                                <span class="font-mono font-semibold">0.9847</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- L3 -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-semibold text-gray-700">Level 3 (59 categories)</span>
+                            <span class="text-lg font-bold text-gray-900">97.53%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                            <div class="bg-gradient-to-r from-purple-500 to-purple-600 h-3 rounded-full" style="width: 97.53%"></div>
+                        </div>
+                        <div class="mt-2 grid grid-cols-2 gap-4 text-xs">
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Macro F1:</span>
+                                <span class="font-mono font-semibold">0.9728</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Weighted F1:</span>
+                                <span class="font-mono font-semibold">0.9752</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-6 border-t border-gray-200">
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-500">Overall Target</span>
+                        <span class="text-lg font-bold text-green-600">✓ ALL EXCEEDED</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Metrics -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="bg-blue-100 p-3 rounded-lg">
+                        <i class="fas fa-tachometer-alt text-blue-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900">Performance Benchmarks</h2>
+                        <p class="text-sm text-gray-500">Latency & Throughput</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6">
+                        <div class="text-sm font-semibold text-gray-600 mb-1">Average Latency</div>
+                        <div class="text-4xl font-bold text-gray-900 mb-2">10.22ms</div>
+                        <div class="text-xs text-gray-500">Target: &lt;200ms (19.5x faster)</div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="text-xs font-semibold text-gray-500 mb-1">P95 Latency</div>
+                            <div class="text-2xl font-bold text-gray-900">11.27ms</div>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="text-xs font-semibold text-gray-500 mb-1">P99 Latency</div>
+                            <div class="text-2xl font-bold text-gray-900">12.06ms</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6">
+                        <div class="text-sm font-semibold text-gray-600 mb-1">Throughput</div>
+                        <div class="text-4xl font-bold text-gray-900 mb-2">486 txns/sec</div>
+                        <div class="text-xs text-gray-500">High-volume processing capability</div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="text-xs font-semibold text-gray-500 mb-1">Embedding Time</div>
+                            <div class="text-lg font-bold text-gray-900">205.6s</div>
+                            <div class="text-xs text-gray-400">for 10K samples</div>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="text-xs font-semibold text-gray-500 mb-1">Deployment Cost</div>
+                            <div class="text-lg font-bold text-green-600">&lt;$100</div>
+                            <div class="text-xs text-gray-400">On-premise</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Training Details -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="bg-amber-100 p-3 rounded-lg">
+                    <i class="fas fa-cogs text-amber-600 text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900">Training Configuration</h2>
+                    <p class="text-sm text-gray-500">Model Development Details</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center p-6 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl">
+                    <div class="text-4xl font-bold text-purple-600 mb-2">100,000</div>
+                    <div class="text-sm text-gray-600">Training Samples</div>
+                </div>
+                <div class="text-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">79.2 min</div>
+                    <div class="text-sm text-gray-600">Training Time</div>
+                    <div class="text-xs text-gray-400 mt-1">Tesla T4 GPU</div>
+                </div>
+                <div class="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl">
+                    <div class="text-4xl font-bold text-green-600 mb-2">773</div>
+                    <div class="text-sm text-gray-600">Features</div>
+                    <div class="text-xs text-gray-400 mt-1">768D + 5 engineered</div>
+                </div>
+                <div class="text-center p-6 bg-gradient-to-br from-orange-50 to-red-50 rounded-xl">
+                    <div class="text-4xl font-bold text-orange-600 mb-2">10,000</div>
+                    <div class="text-sm text-gray-600">Test Samples</div>
+                </div>
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-gray-200">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                    <div>
+                        <div class="text-gray-500 font-semibold mb-2">Embedding Model</div>
+                        <div class="font-mono text-gray-900 bg-gray-50 px-3 py-2 rounded">all-mpnet-base-v2 (768D)</div>
+                    </div>
+                    <div>
+                        <div class="text-gray-500 font-semibold mb-2">Classifier</div>
+                        <div class="font-mono text-gray-900 bg-gray-50 px-3 py-2 rounded">LightGBM (500 rounds)</div>
+                    </div>
+                    <div>
+                        <div class="text-gray-500 font-semibold mb-2">Validation Split</div>
+                        <div class="font-mono text-gray-900 bg-gray-50 px-3 py-2 rounded">15% (stratified)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bias Analysis Summary -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="bg-pink-100 p-3 rounded-lg">
+                    <i class="fas fa-balance-scale text-pink-600 text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900">Bias Analysis</h2>
+                    <p class="text-sm text-gray-500">Fairness & Performance Equity</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fas fa-check-circle text-green-600"></i>
+                        <span class="font-bold text-gray-900">Level 1</span>
+                    </div>
+                    <div class="text-3xl font-bold text-green-600 mb-2">0 issues</div>
+                    <div class="text-sm text-gray-600">All categories ≥ 0.90 F1</div>
+                    <div class="mt-3 text-xs text-gray-500">
+                        Mean F1: 0.9960 | Std: 0.0116
+                    </div>
+                </div>
+
+                <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fas fa-exclamation-triangle text-yellow-600"></i>
+                        <span class="font-bold text-gray-900">Level 2</span>
+                    </div>
+                    <div class="text-3xl font-bold text-yellow-600 mb-2">1 below 0.80</div>
+                    <div class="text-sm text-gray-600">Charitable - Donations: 0.7927</div>
+                    <div class="mt-3 text-xs text-gray-500">
+                        Mean F1: 0.9792 | Std: 0.0505
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 border border-orange-200 rounded-lg p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fas fa-info-circle text-orange-600"></i>
+                        <span class="font-bold text-gray-900">Level 3</span>
+                    </div>
+                    <div class="text-3xl font-bold text-orange-600 mb-2">11 below 0.90</div>
+                    <div class="text-sm text-gray-600">Primarily low-frequency categories</div>
+                    <div class="mt-3 text-xs text-gray-500">
+                        Mean F1: 0.9728 | 1 below 0.80
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 bg-gray-50 rounded-lg p-4">
+                <div class="text-xs font-semibold text-gray-500 mb-2">Mitigation Strategies Applied</div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-600 text-xs"></i>
+                        <span class="text-gray-700">Class-weighted training (balanced)</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-600 text-xs"></i>
+                        <span class="text-gray-700">100K sample dataset (increased volume)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technology Stack -->
+        <div class="bg-white rounded-xl shadow-lg p-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="bg-indigo-100 p-3 rounded-lg">
+                    <i class="fas fa-layer-group text-indigo-600 text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900">Technology Stack</h2>
+                    <p class="text-sm text-gray-500">Production Architecture</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <div class="text-sm font-semibold text-gray-500 mb-3">Semantic Encoding</div>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span class="text-gray-700">Model</span>
+                            <span class="font-mono text-gray-900">all-mpnet-base-v2</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span class="text-gray-700">Dimensions</span>
+                            <span class="font-mono text-gray-900">768D</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span class="text-gray-700">Framework</span>
+                            <span class="font-mono text-gray-900">Sentence-BERT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="text-sm font-semibold text-gray-500 mb-3">Classification</div>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span class="text-gray-700">Algorithm</span>
+                            <span class="font-mono text-gray-900">LightGBM</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span class="text-gray-700">Boosting Rounds</span>
+                            <span class="font-mono text-gray-900">500 (early stop: 50)</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span class="text-gray-700">Features</span>
+                            <span class="font-mono text-gray-900">773 (768+5)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-gray-200">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg">
+                        <i class="fas fa-shield-alt text-blue-600 text-2xl mb-2"></i>
+                        <div class="text-sm font-semibold text-gray-700">100% Local</div>
+                        <div class="text-xs text-gray-500">No API dependencies</div>
+                    </div>
+                    <div class="text-center p-4 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg">
+                        <i class="fas fa-dollar-sign text-green-600 text-2xl mb-2"></i>
+                        <div class="text-sm font-semibold text-gray-700">&lt;$100 Cost</div>
+                        <div class="text-xs text-gray-500">On-premise deployment</div>
+                    </div>
+                    <div class="text-center p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg">
+                        <i class="fas fa-code text-purple-600 text-2xl mb-2"></i>
+                        <div class="text-sm font-semibold text-gray-700">Open Source</div>
+                        <div class="text-xs text-gray-500">Full control</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="max-w-7xl mx-auto mt-8 text-center text-white">
+        <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6">
+            <div class="text-sm mb-2">
+                <span class="font-semibold">Evaluation Date:</span> 2025-11-22
+            </div>
+            <div class="text-sm mb-4">
+                <span class="font-semibold">Status:</span>
+                <span class="text-green-300">✓ ALL TARGETS EXCEEDED - PRODUCTION READY</span>
+            </div>
+            <div class="text-xs text-white/70">
+                Generated by Holmes AI v2.0 | Powered by Claude Code
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
