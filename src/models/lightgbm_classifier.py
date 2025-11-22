@@ -29,19 +29,23 @@ class LightGBMClassifier:
             params: LightGBM parameters (uses defaults if None)
             taxonomy_path: Path to taxonomy.json file
         """
-        # Default LightGBM parameters
+        # Enhanced LightGBM parameters for better accuracy
         self.default_params = {
             'objective': 'multiclass',
             'metric': 'multi_logloss',
             'boosting_type': 'gbdt',
-            'num_leaves': 31,
-            'learning_rate': 0.05,
+            'num_leaves': 63,  # Increased for more complex patterns
+            'learning_rate': 0.03,  # Reduced for better generalization
             'feature_fraction': 0.9,
             'bagging_fraction': 0.8,
             'bagging_freq': 5,
-            'max_depth': -1,
-            'min_data_in_leaf': 20,
-            'verbose': -1
+            'max_depth': 10,  # Limit depth to prevent overfitting
+            'min_data_in_leaf': 10,  # Reduced for better rare category handling
+            'lambda_l1': 0.1,  # L1 regularization
+            'lambda_l2': 0.1,  # L2 regularization
+            'min_gain_to_split': 0.01,  # Minimum gain to make a split
+            'verbose': -1,
+            'force_col_wise': True  # Faster training on wide datasets
         }
 
         self.params = params if params is not None else self.default_params
@@ -82,21 +86,61 @@ class LightGBMClassifier:
     def prepare_features(
         self,
         embeddings: np.ndarray,
-        enrichment_features: List[Dict]
+        enrichment_features: List[Dict],
+        include_enrichment: bool = True
     ) -> np.ndarray:
         """
         Combine embeddings with enrichment features.
 
         Args:
-            embeddings: Sentence-BERT embeddings (n_samples, 384)
+            embeddings: Sentence-BERT embeddings (n_samples, embedding_dim)
             enrichment_features: List of enrichment feature dictionaries
+            include_enrichment: Whether to include enrichment features
 
         Returns:
             Combined feature array
         """
-        # For now, use embeddings as primary features
-        # TODO: Add one-hot encoded enrichment features
-        features = embeddings
+        if not include_enrichment:
+            return embeddings
+
+        # Extract enrichment features
+        additional_features = []
+
+        for txn in enrichment_features:
+            txn_features = []
+
+            # Spend band (one-hot encoded: 0-4)
+            spend_band = txn.get('spend_band', 'medium')
+            spend_band_map = {'micro': 0, 'low': 1, 'medium': 2, 'high': 3, 'premium': 4}
+            txn_features.append(spend_band_map.get(spend_band, 2))
+
+            # Temporal pattern (one-hot encoded: 0-3)
+            temporal = txn.get('temporal_pattern', 'irregular')
+            temporal_map = {'daily': 0, 'weekly': 1, 'monthly': 2, 'irregular': 3}
+            txn_features.append(temporal_map.get(temporal, 3))
+
+            # Channel (one-hot encoded: 0-3)
+            channel = txn.get('channel', 'online')
+            channel_map = {'online': 0, 'pos': 1, 'atm': 2, 'mobile': 3}
+            txn_features.append(channel_map.get(channel, 0))
+
+            # MCC code (normalized to 0-1 range)
+            mcc = txn.get('mcc_code', 0)
+            if mcc:
+                mcc_normalized = min(int(mcc) / 10000.0, 1.0)  # Normalize MCC codes
+            else:
+                mcc_normalized = 0.0
+            txn_features.append(mcc_normalized)
+
+            # Amount percentile (normalized: 0-1)
+            amount_percentile = txn.get('amount_percentile', 0.5)
+            txn_features.append(float(amount_percentile) if amount_percentile else 0.5)
+
+            additional_features.append(txn_features)
+
+        # Combine embeddings with enrichment features
+        additional_features_array = np.array(additional_features, dtype=np.float32)
+        features = np.hstack([embeddings, additional_features_array])
 
         # Store feature names for explainability
         if self.feature_names is None:
@@ -178,7 +222,9 @@ class LightGBMClassifier:
         y_l2: np.ndarray,
         y_l3: np.ndarray,
         validation_split: float = 0.15,
-        num_boost_round: int = 100
+        num_boost_round: int = 500,
+        early_stopping_rounds: int = 50,
+        use_class_weight: bool = True
     ) -> Dict[str, float]:
         """
         Train hierarchical models for L1, L2, and L3 classification.
@@ -189,7 +235,9 @@ class LightGBMClassifier:
             y_l2: L2 labels (encoded)
             y_l3: L3 labels (encoded)
             validation_split: Fraction of data for validation
-            num_boost_round: Number of boosting rounds
+            num_boost_round: Number of boosting rounds (default: 500)
+            early_stopping_rounds: Early stopping patience (default: 50)
+            use_class_weight: Use class weighting to handle imbalance
 
         Returns:
             Dictionary with validation scores
@@ -209,10 +257,26 @@ class LightGBMClassifier:
 
         scores = {}
 
+        # Compute class weights if requested
+        def compute_class_weights(y):
+            """Compute balanced class weights."""
+            from sklearn.utils.class_weight import compute_class_weight
+            classes = np.unique(y)
+            weights = compute_class_weight('balanced', classes=classes, y=y)
+            weight_dict = {i: w for i, w in enumerate(weights)}
+            sample_weights = np.array([weight_dict[label] for label in y])
+            return sample_weights
+
         # Train L1 model
         print("\nTraining L1 classifier...")
         self.params['num_class'] = len(np.unique(y_l1))
-        train_data_l1 = lgb.Dataset(X_train, label=y_l1_train)
+
+        if use_class_weight:
+            l1_weights = compute_class_weights(y_l1_train)
+            train_data_l1 = lgb.Dataset(X_train, label=y_l1_train, weight=l1_weights)
+        else:
+            train_data_l1 = lgb.Dataset(X_train, label=y_l1_train)
+
         val_data_l1 = lgb.Dataset(X_val, label=y_l1_val, reference=train_data_l1)
 
         self.model_l1 = lgb.train(
@@ -220,14 +284,21 @@ class LightGBMClassifier:
             train_data_l1,
             num_boost_round=num_boost_round,
             valid_sets=[val_data_l1],
-            valid_names=['validation']
+            valid_names=['validation'],
+            callbacks=[lgb.early_stopping(stopping_rounds=early_stopping_rounds, verbose=False)]
         )
         scores['l1_accuracy'] = self._evaluate(X_val, y_l1_val, self.model_l1)
 
         # Train L2 model
         print("\nTraining L2 classifier...")
         self.params['num_class'] = len(np.unique(y_l2))
-        train_data_l2 = lgb.Dataset(X_train, label=y_l2_train)
+
+        if use_class_weight:
+            l2_weights = compute_class_weights(y_l2_train)
+            train_data_l2 = lgb.Dataset(X_train, label=y_l2_train, weight=l2_weights)
+        else:
+            train_data_l2 = lgb.Dataset(X_train, label=y_l2_train)
+
         val_data_l2 = lgb.Dataset(X_val, label=y_l2_val, reference=train_data_l2)
 
         self.model_l2 = lgb.train(
@@ -235,14 +306,21 @@ class LightGBMClassifier:
             train_data_l2,
             num_boost_round=num_boost_round,
             valid_sets=[val_data_l2],
-            valid_names=['validation']
+            valid_names=['validation'],
+            callbacks=[lgb.early_stopping(stopping_rounds=early_stopping_rounds, verbose=False)]
         )
         scores['l2_accuracy'] = self._evaluate(X_val, y_l2_val, self.model_l2)
 
         # Train L3 model
         print("\nTraining L3 classifier...")
         self.params['num_class'] = len(np.unique(y_l3))
-        train_data_l3 = lgb.Dataset(X_train, label=y_l3_train)
+
+        if use_class_weight:
+            l3_weights = compute_class_weights(y_l3_train)
+            train_data_l3 = lgb.Dataset(X_train, label=y_l3_train, weight=l3_weights)
+        else:
+            train_data_l3 = lgb.Dataset(X_train, label=y_l3_train)
+
         val_data_l3 = lgb.Dataset(X_val, label=y_l3_val, reference=train_data_l3)
 
         self.model_l3 = lgb.train(
@@ -250,7 +328,8 @@ class LightGBMClassifier:
             train_data_l3,
             num_boost_round=num_boost_round,
             valid_sets=[val_data_l3],
-            valid_names=['validation']
+            valid_names=['validation'],
+            callbacks=[lgb.early_stopping(stopping_rounds=early_stopping_rounds, verbose=False)]
         )
         scores['l3_accuracy'] = self._evaluate(X_val, y_l3_val, self.model_l3)
 

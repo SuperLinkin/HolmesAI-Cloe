@@ -16,7 +16,8 @@ class SentenceBERTEncoder:
 
     def __init__(
         self,
-        model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+        model_name: str = "sentence-transformers/all-mpnet-base-v2",
+        model_path: Optional[str] = None,
         device: Optional[str] = None
     ):
         """
@@ -24,6 +25,7 @@ class SentenceBERTEncoder:
 
         Args:
             model_name: Name of the pre-trained Sentence-BERT model
+            model_path: Path to a saved model (overrides model_name if provided)
             device: Device to run the model on ('cuda', 'cpu', or None for auto)
         """
         self.model_name = model_name
@@ -34,13 +36,17 @@ class SentenceBERTEncoder:
         else:
             self.device = device
 
-        print(f"Loading Sentence-BERT model: {model_name}")
-        print(f"Using device: {self.device}")
+        # Load from path or model name
+        if model_path:
+            print(f"Loading Sentence-BERT model from: {model_path}")
+            print(f"Using device: {self.device}")
+            self.model = SentenceTransformer(model_path, device=self.device)
+        else:
+            print(f"Loading Sentence-BERT model: {model_name}")
+            print(f"Using device: {self.device}")
+            self.model = SentenceTransformer(model_name, device=self.device)
 
-        # Load pre-trained model
-        self.model = SentenceTransformer(model_name, device=self.device)
         self.embedding_dim = self.model.get_sentence_embedding_dimension()
-
         print(f"Model loaded. Embedding dimension: {self.embedding_dim}")
 
     def encode(
