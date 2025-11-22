@@ -34,6 +34,7 @@ env/
 *.swp
 *.swo
 *~
+.claude/settings.local.json
 
 # Environment variables
 .env
@@ -66,6 +67,7 @@ Thumbs.db
 *.ckpt
 *.pth
 *.safetensors
+models_old/
 
 # Testing
 .pytest_cache/
