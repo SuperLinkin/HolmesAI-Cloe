@@ -1,0 +1,39 @@
+{
+  "evaluation_date": "2025-11-22T16:55:03.658146",
+  "model_path": "models",
+  "test_data": "data/test.csv",
+  "test_samples": 10000,
+  "performance": {
+    "avg_latency_ms": 10.22,
+    "p95_latency_ms": 11.27,
+    "p99_latency_ms": 12.06,
+    "throughput_txns_per_sec": 486.26,
+    "embedding_time_sec": 205.61
+  },
+  "metrics": {
+    "L1": {
+      "accuracy": 0.9964,
+      "macro_f1": 0.996,
+      "weighted_f1": 0.9964,
+      "num_classes": 15
+    },
+    "L2": {
+      "accuracy": 0.9848,
+      "macro_f1": 0.9792,
+      "weighted_f1": 0.9847,
+      "num_classes": 42
+    },
+    "L3": {
+      "accuracy": 0.9753,
+      "macro_f1": 0.9728,
+      "weighted_f1": 0.9752,
+      "num_classes": 59
+    }
+  },
+  "target_achievement": {
+    "L1_meets_target": true,
+    "L2_meets_target": true,
+    "L3_meets_target": true,
+    "overall_meets_target": true
+  }
+}

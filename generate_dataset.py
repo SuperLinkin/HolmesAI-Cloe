@@ -376,7 +376,7 @@ def main():
             generator.generate_train_test_split(df)
 
     print(f"\n{'=' * 60}")
-    print("✓ Dataset generation complete!")
+    print("[OK] Dataset generation complete!")
     print("=" * 60)
 
 

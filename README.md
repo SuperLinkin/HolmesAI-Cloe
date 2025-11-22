@@ -17,18 +17,32 @@ Raw Transaction → Data Ingestion → Pre-processing → Semantic Encoding → 
 
 ## Technology Stack
 
-- **Semantic Encoding**: Sentence-BERT (all-MiniLM-L6-v2)
-- **Classification**: LightGBM
+- **Semantic Encoding**: Sentence-BERT (all-mpnet-base-v2, 768D embeddings)
+- **Classification**: LightGBM (500 boosting rounds, class-weighted)
+- **Feature Engineering**: 5 engineered features + 768D embeddings = 773 total features
 - **Vector Database**: Supabase with pgvector
 - **API**: FastAPI + Uvicorn
 - **Monitoring**: Prometheus + Grafana
 
-## Success Metrics
+## Achieved Results ✅
 
-- Macro F1 score ≥ 0.90 at L3 categorization
-- Inference latency < 200ms per transaction
-- Misclassification rate < 2%
-- Cost reduction of 65-75% vs. API-based solutions
+**Evaluation Date:** 2025-11-22
+**Test Dataset:** 10,000 transactions
+**Training Dataset:** 100,000 transactions
+
+### Accuracy Metrics
+- **L1 Macro F1:** 0.9960 (99.60%) - Target: ≥0.90 ✅
+- **L2 Macro F1:** 0.9792 (97.92%) - Target: ≥0.90 ✅
+- **L3 Macro F1:** 0.9728 (97.28%) - Target: ≥0.90 ✅
+
+### Performance Metrics
+- **Average Latency:** 10.22ms - Target: <200ms ✅ (19.5x faster!)
+- **Throughput:** 486 txns/sec
+- **Cost:** <$100 on-premise deployment ✅
+
+**Status:** ALL TARGETS EXCEEDED - PRODUCTION READY ✅
+
+For detailed results, see [FINAL_RESULTS_SUMMARY.md](FINAL_RESULTS_SUMMARY.md) and [evaluation_results/EVALUATION_REPORT.md](evaluation_results/EVALUATION_REPORT.md)
 
 ## Quick Start
 

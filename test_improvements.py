@@ -56,7 +56,7 @@ def test_improvements(data_path: str = "data/synthetic_transactions_1k.csv"):
     )
     print(f"[OK] Generated embeddings: {embeddings.shape}")
     assert embeddings.shape[1] == 768, f"Expected 768D embeddings, got {embeddings.shape[1]}D"
-    print(f"✓ Embeddings are 768-dimensional (upgraded from 384D)")
+    print(f"[VERIFIED] Embeddings are 768-dimensional (upgraded from 384D)")
 
     # Step 4: Test feature engineering
     print("\n[4/6] Testing feature engineering...")
@@ -70,7 +70,7 @@ def test_improvements(data_path: str = "data/synthetic_transactions_1k.csv"):
     )
     print(f"[OK] Features WITH enrichment: {X_with_enrichment.shape}")
     assert X_with_enrichment.shape[1] == 773, f"Expected 773 features (768 + 5), got {X_with_enrichment.shape[1]}"
-    print(f"✓ Feature engineering working: 768 embeddings + 5 engineered = 773 total")
+    print(f"[VERIFIED] Feature engineering working: 768 embeddings + 5 engineered = 773 total")
 
     # Prepare features WITHOUT enrichment (baseline)
     X_without_enrichment = classifier.prepare_features(
@@ -97,12 +97,12 @@ def test_improvements(data_path: str = "data/synthetic_transactions_1k.csv"):
     # Step 6: Test training with all improvements
     print("\n[6/6] Testing training with all improvements...")
     print("Training with:")
-    print("  - 768D embeddings ✓")
-    print("  - Feature engineering (773 features) ✓")
-    print("  - Class weighting ✓")
-    print("  - Early stopping (patience=50) ✓")
-    print("  - Improved hyperparameters ✓")
-    print("  - 500 boosting rounds ✓")
+    print("  - 768D embeddings [YES]")
+    print("  - Feature engineering (773 features) [YES]")
+    print("  - Class weighting [YES]")
+    print("  - Early stopping (patience=50) [YES]")
+    print("  - Improved hyperparameters [YES]")
+    print("  - 500 boosting rounds [YES]")
     print()
 
     scores = classifier.train(
@@ -124,11 +124,11 @@ def test_improvements(data_path: str = "data/synthetic_transactions_1k.csv"):
 
     # Verify improvements are working
     print("Verification:")
-    print(f"✓ Embedding model: all-mpnet-base-v2 (768D)")
-    print(f"✓ Feature count: {X_with_enrichment.shape[1]} (768 + 5 engineered)")
-    print(f"✓ Class weighting: Enabled")
-    print(f"✓ Early stopping: Enabled")
-    print(f"✓ Hierarchy maps: {len(classifier.l1_to_l2_map)} L1 → L2 mappings")
+    print(f"[OK] Embedding model: all-mpnet-base-v2 (768D)")
+    print(f"[OK] Feature count: {X_with_enrichment.shape[1]} (768 + 5 engineered)")
+    print(f"[OK] Class weighting: Enabled")
+    print(f"[OK] Early stopping: Enabled")
+    print(f"[OK] Hierarchy maps: {len(classifier.l1_to_l2_map)} L1 -> L2 mappings")
     print()
 
     print("=" * 80)

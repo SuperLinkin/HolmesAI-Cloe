@@ -244,16 +244,23 @@ class LightGBMClassifier:
         """
         print("Training hierarchical LightGBM models...")
 
-        # Split data
+        # Split data ONCE using L1 stratification, then use same indices for all levels
+        # This ensures train/val sets are aligned across all levels
         X_train, X_val, y_l1_train, y_l1_val = train_test_split(
             X, y_l1, test_size=validation_split, stratify=y_l1, random_state=42
         )
-        _, _, y_l2_train, y_l2_val = train_test_split(
-            X, y_l2, test_size=validation_split, stratify=y_l2, random_state=42
+
+        # Get indices for the split
+        train_indices = np.arange(len(X))
+        train_idx, val_idx = train_test_split(
+            train_indices, test_size=validation_split, stratify=y_l1, random_state=42
         )
-        _, _, y_l3_train, y_l3_val = train_test_split(
-            X, y_l3, test_size=validation_split, stratify=y_l3, random_state=42
-        )
+
+        # Use the same indices to split L2 and L3
+        y_l2_train = y_l2[train_idx]
+        y_l2_val = y_l2[val_idx]
+        y_l3_train = y_l3[train_idx]
+        y_l3_val = y_l3[val_idx]
 
         scores = {}
 

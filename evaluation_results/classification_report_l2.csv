@@ -1,0 +1,46 @@
+,precision,recall,f1-score,support
+Business Expenses - Office,1.0,1.0,1.0,93.0
+Business Expenses - Services,1.0,1.0,1.0,93.0
+Charitable - Donations,0.9027777777777778,0.7065217391304348,0.7926829268292683,92.0
+Charitable - Nonprofits,0.7567567567567568,0.9230769230769231,0.8316831683168316,91.0
+Dining - Coffee Shops,0.926056338028169,0.9669117647058824,0.9460431654676259,544.0
+Dining - Fast Food,0.9642857142857143,0.9204545454545454,0.9418604651162791,528.0
+Dining - Food Delivery,1.0,1.0,1.0,543.0
+Dining - Restaurants,1.0,1.0,1.0,555.0
+Education - Books,0.8316831683168316,0.8235294117647058,0.8275862068965517,102.0
+Education - Courses,1.0,1.0,1.0,92.0
+Education - Tuition,1.0,1.0,1.0,184.0
+Entertainment - Events,1.0,1.0,1.0,187.0
+Entertainment - Movies,1.0,1.0,1.0,183.0
+Entertainment - Streaming,1.0,1.0,1.0,550.0
+Financial Services - Banking,1.0,1.0,1.0,90.0
+Financial Services - Insurance,0.99,1.0,0.9949748743718593,99.0
+Financial Services - Investment,1.0,1.0,1.0,89.0
+Healthcare - Hospital,1.0,1.0,1.0,136.0
+Healthcare - Insurance,1.0,0.991869918699187,0.9959183673469387,123.0
+Healthcare - Pharmacy,1.0,1.0,1.0,133.0
+Housing - Home Improvement,1.0,1.0,1.0,89.0
+Housing - Mortgage,1.0,1.0,1.0,90.0
+Housing - Rent,1.0,1.0,1.0,90.0
+Miscellaneous - Uncategorized,1.0,1.0,1.0,86.0
+Personal Care - Gym,1.0,1.0,1.0,128.0
+Personal Care - Salon,1.0,1.0,1.0,131.0
+Personal Care - Wellness,1.0,1.0,1.0,131.0
+Shopping - Groceries,1.0,1.0,1.0,542.0
+Shopping - Online,0.9673321234119783,0.9690909090909091,0.9682107175295186,550.0
+Shopping - Retail,1.0,1.0,1.0,544.0
+Technology - Electronics,1.0,1.0,1.0,181.0
+Technology - Software,0.8829787234042553,0.8829787234042553,0.8829787234042553,94.0
+Technology - Subscriptions,0.9432989690721649,0.9432989690721649,0.9432989690721649,194.0
+Transportation - Fuel,1.0,1.0,1.0,545.0
+Transportation - Maintenance,1.0,1.0,1.0,276.0
+Transportation - Parking,1.0,1.0,1.0,284.0
+Travel - Accommodation,1.0,1.0,1.0,135.0
+Travel - International,1.0,1.0,1.0,282.0
+Travel - Local,1.0,1.0,1.0,414.0
+Utilities - Electric,1.0,1.0,1.0,182.0
+Utilities - Internet,1.0,1.0,1.0,356.0
+Utilities - Water,1.0,1.0,1.0,169.0
+accuracy,0.9848,0.9848,0.9848,0.9848
+macro avg,0.9801230850250869,0.9792317358190239,0.9791723234369355,10000.0
+weighted avg,0.9851712276495506,0.9848,0.984748996467208,10000.0

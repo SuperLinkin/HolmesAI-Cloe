@@ -1,0 +1,63 @@
+,precision,recall,f1-score,support
+Business Expenses - Office - Supplies,1.0,1.0,1.0,93.0
+Business Expenses - Services - Professional,1.0,1.0,1.0,93.0
+Charitable - Donations - NGO,0.9027777777777778,0.7065217391304348,0.7926829268292683,92.0
+Charitable - Nonprofits - Contribution,0.7567567567567568,0.9230769230769231,0.8316831683168316,91.0
+Dining - Coffee Shops - Local,1.0,1.0,1.0,279.0
+Dining - Coffee Shops - Starbucks,0.8546712802768166,0.9320754716981132,0.8916967509025271,265.0
+Dining - Fast Food - Burgers,0.9240506329113924,0.8390804597701149,0.8795180722891566,261.0
+Dining - Fast Food - Pizza,1.0,1.0,1.0,267.0
+Dining - Food Delivery - Swiggy,1.0,1.0,1.0,278.0
+Dining - Food Delivery - Zomato,1.0,1.0,1.0,265.0
+Dining - Restaurants - Casual,1.0,1.0,1.0,282.0
+Dining - Restaurants - Fine Dining,1.0,1.0,1.0,273.0
+Education - Books - Purchase,0.8316831683168316,0.8235294117647058,0.8275862068965517,102.0
+Education - Courses - Online,1.0,1.0,1.0,92.0
+Education - Tuition - College,1.0,1.0,1.0,91.0
+Education - Tuition - School,1.0,1.0,1.0,93.0
+Entertainment - Events - Concerts,1.0,1.0,1.0,187.0
+Entertainment - Movies - Theater,1.0,1.0,1.0,183.0
+Entertainment - Streaming - Netflix,1.0,1.0,1.0,180.0
+Entertainment - Streaming - Other,1.0,1.0,1.0,184.0
+Entertainment - Streaming - Prime,1.0,1.0,1.0,186.0
+Financial Services - Banking - Fees,1.0,1.0,1.0,90.0
+Financial Services - Insurance - Premium,0.99,1.0,0.9949748743718593,99.0
+Financial Services - Investment - Trading,1.0,1.0,1.0,89.0
+Healthcare - Hospital - Consultation,1.0,1.0,1.0,136.0
+Healthcare - Insurance - Premium,1.0,0.991869918699187,0.9959183673469387,123.0
+Healthcare - Pharmacy - Medicine,1.0,1.0,1.0,133.0
+Housing - Home Improvement - Repair,1.0,1.0,1.0,89.0
+Housing - Mortgage - EMI,1.0,1.0,1.0,90.0
+Housing - Rent - Monthly,1.0,1.0,1.0,90.0
+Miscellaneous - Uncategorized - Other,1.0,1.0,1.0,86.0
+Personal Care - Gym - Membership,1.0,1.0,1.0,128.0
+Personal Care - Salon - Haircut,1.0,1.0,1.0,131.0
+Personal Care - Wellness - Spa,1.0,1.0,1.0,131.0
+Shopping - Groceries - Online,0.8759398496240601,0.8597785977859779,0.8677839851024208,271.0
+Shopping - Groceries - Supermarket,0.8623188405797102,0.8782287822878229,0.870201096892139,271.0
+Shopping - Online - Amazon,1.0,0.996268656716418,0.9981308411214953,268.0
+Shopping - Online - Flipkart,0.9366197183098591,0.9432624113475178,0.9399293286219081,282.0
+Shopping - Retail - Clothing,1.0,1.0,1.0,270.0
+Shopping - Retail - Electronics,1.0,1.0,1.0,274.0
+Technology - Electronics - Computer,0.845360824742268,0.9010989010989011,0.8723404255319149,91.0
+Technology - Electronics - Mobile,0.8928571428571429,0.8333333333333334,0.8620689655172413,90.0
+Technology - Software - License,0.8829787234042553,0.8829787234042553,0.8829787234042553,94.0
+Technology - Subscriptions - Cloud,1.0,1.0,1.0,95.0
+Technology - Subscriptions - Tools,0.8888888888888888,0.8888888888888888,0.8888888888888888,99.0
+Transportation - Fuel - Diesel,1.0,1.0,1.0,275.0
+Transportation - Fuel - Petrol,1.0,1.0,1.0,270.0
+Transportation - Maintenance - Service,1.0,1.0,1.0,276.0
+Transportation - Parking - Fee,1.0,1.0,1.0,284.0
+Travel - Accommodation - Hotel,1.0,1.0,1.0,135.0
+Travel - International - Flight,1.0,1.0,1.0,148.0
+Travel - International - Visa,1.0,1.0,1.0,134.0
+Travel - Local - Auto/Rickshaw,1.0,1.0,1.0,132.0
+Travel - Local - Metro,1.0,1.0,1.0,143.0
+Travel - Local - Uber,1.0,1.0,1.0,139.0
+Utilities - Electric - Bill,1.0,1.0,1.0,182.0
+Utilities - Internet - Broadband,1.0,1.0,1.0,179.0
+Utilities - Internet - Mobile,1.0,1.0,1.0,177.0
+Utilities - Water - Bill,1.0,1.0,1.0,169.0
+accuracy,0.9753,0.9753,0.9753,0.9753
+macro avg,0.9736424339736569,0.9728812240508915,0.972820044441244,10000.0
+weighted avg,0.9757907051569258,0.9753,0.9752400397224119,10000.0

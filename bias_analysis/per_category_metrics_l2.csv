@@ -1,0 +1,43 @@
+category,num_samples,num_correct,precision,recall,f1_score
+Business Expenses - Office,93,93,1.0,1.0,1.0
+Business Expenses - Services,93,93,1.0,1.0,1.0
+Charitable - Donations,92,65,0.9027777777777778,0.7065217391304348,0.7926829268292683
+Charitable - Nonprofits,91,84,0.7567567567567568,0.9230769230769231,0.8316831683168316
+Dining - Coffee Shops,544,526,0.926056338028169,0.9669117647058824,0.9460431654676259
+Dining - Fast Food,528,486,0.9642857142857143,0.9204545454545454,0.9418604651162791
+Dining - Food Delivery,543,543,1.0,1.0,1.0
+Dining - Restaurants,555,555,1.0,1.0,1.0
+Education - Books,102,84,0.8316831683168316,0.8235294117647058,0.8275862068965517
+Education - Courses,92,92,1.0,1.0,1.0
+Education - Tuition,184,184,1.0,1.0,1.0
+Entertainment - Events,187,187,1.0,1.0,1.0
+Entertainment - Movies,183,183,1.0,1.0,1.0
+Entertainment - Streaming,550,550,1.0,1.0,1.0
+Financial Services - Banking,90,90,1.0,1.0,1.0
+Financial Services - Insurance,99,99,0.99,1.0,0.9949748743718593
+Financial Services - Investment,89,89,1.0,1.0,1.0
+Healthcare - Hospital,136,136,1.0,1.0,1.0
+Healthcare - Insurance,123,122,1.0,0.991869918699187,0.9959183673469387
+Healthcare - Pharmacy,133,133,1.0,1.0,1.0
+Housing - Home Improvement,89,89,1.0,1.0,1.0
+Housing - Mortgage,90,90,1.0,1.0,1.0
+Housing - Rent,90,90,1.0,1.0,1.0
+Miscellaneous - Uncategorized,86,86,1.0,1.0,1.0
+Personal Care - Gym,128,128,1.0,1.0,1.0
+Personal Care - Salon,131,131,1.0,1.0,1.0
+Personal Care - Wellness,131,131,1.0,1.0,1.0
+Shopping - Groceries,542,542,1.0,1.0,1.0
+Shopping - Online,550,533,0.9673321234119783,0.9690909090909091,0.9682107175295186
+Shopping - Retail,544,544,1.0,1.0,1.0
+Technology - Electronics,181,181,1.0,1.0,1.0
+Technology - Software,94,83,0.8829787234042553,0.8829787234042553,0.8829787234042553
+Technology - Subscriptions,194,183,0.9432989690721649,0.9432989690721649,0.9432989690721649
+Transportation - Fuel,545,545,1.0,1.0,1.0
+Transportation - Maintenance,276,276,1.0,1.0,1.0
+Transportation - Parking,284,284,1.0,1.0,1.0
+Travel - Accommodation,135,135,1.0,1.0,1.0
+Travel - International,282,282,1.0,1.0,1.0
+Travel - Local,414,414,1.0,1.0,1.0
+Utilities - Electric,182,182,1.0,1.0,1.0
+Utilities - Internet,356,356,1.0,1.0,1.0
+Utilities - Water,169,169,1.0,1.0,1.0
