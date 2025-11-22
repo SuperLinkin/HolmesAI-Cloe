@@ -65,12 +65,29 @@ class DataIngestion:
 
         for idx, row in df.iterrows():
             try:
+                # Convert row to dict
+                row_dict = row.to_dict()
+
                 # Convert timestamp to datetime if string
-                if isinstance(row.get('timestamp'), str):
-                    row['timestamp'] = pd.to_datetime(row['timestamp'])
+                if isinstance(row_dict.get('timestamp'), str):
+                    row_dict['timestamp'] = pd.to_datetime(row_dict['timestamp'])
+
+                # Handle NaN values for optional fields
+                if pd.isna(row_dict.get('location')):
+                    row_dict['location'] = None
+
+                # Convert MCC code from float to string if needed
+                if pd.notna(row_dict.get('mcc_code')):
+                    mcc = row_dict['mcc_code']
+                    if isinstance(mcc, float):
+                        row_dict['mcc_code'] = str(int(mcc))
+                    elif not isinstance(mcc, str):
+                        row_dict['mcc_code'] = str(mcc)
+                else:
+                    row_dict['mcc_code'] = None
 
                 # Create TransactionInput object (validates schema)
-                transaction = TransactionInput(**row.to_dict())
+                transaction = TransactionInput(**row_dict)
                 transactions.append(transaction)
             except Exception as e:
                 errors.append(f"Row {idx}: {str(e)}")

@@ -1,0 +1,31 @@
+====================================================================================================
+HOLMES AI - TRANSACTION CATEGORIZATION DEMO
+====================================================================================================
+
+[OK] API is healthy: healthy
+[OK] Models loaded: True
+
+[OK] Loaded 1000 transactions from dataset
+[OK] Processing 50 transactions for demo
+
+[INFO] Sending 50 transactions to API...
+[OK] Received 50 results
+[OK] Processing time: 2.03s (40.60ms per transaction)
+
+====================================================================================================
+CATEGORIZATION RESULTS
+====================================================================================================
+Traceback (most recent call last):
+  File "c:\Users\Pranav Mv\Documents\Holmes_Cloe\demo_categorization.py", line 245, in <module>
+    main()
+    ~~~~^^
+  File "c:\Users\Pranav Mv\Documents\Holmes_Cloe\demo_categorization.py", line 238, in main
+    display_results(results, df)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\Pranav Mv\Documents\Holmes_Cloe\demo_categorization.py", line 90, in display_results
+    print("\n\U0001f4ca SAMPLE RESULTS (First 10 transactions):\n")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4ca' in position 2: character maps to <undefined>

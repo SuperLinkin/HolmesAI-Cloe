@@ -113,21 +113,47 @@ async def startup_event():
 
     # Initialize preprocessor
     preprocessor = TransactionPreprocessor()
-    print("✓ Preprocessor initialized")
+    print("[OK] Preprocessor initialized")
 
     # Initialize confidence scorer
     try:
         confidence_scorer = ConfidenceScorer(
             taxonomy_path="src/config/taxonomy.json"
         )
-        print("✓ Confidence scorer initialized")
+        print("[OK] Confidence scorer initialized")
     except Exception as e:
         print(f"Warning: Could not load taxonomy for confidence scorer: {e}")
         confidence_scorer = ConfidenceScorer()
 
-    # Note: Encoder and classifier would be loaded from saved models
-    # For now, they are initialized but not loaded
-    print("Note: Encoder and classifier need to be trained and loaded")
+    # Try to load trained models if they exist
+    from pathlib import Path
+    encoder_path = Path("data/models/sentence_bert")
+    classifier_path = Path("data/models/lightgbm")
+
+    if encoder_path.exists() and classifier_path.exists():
+        try:
+            print("Loading trained models...")
+
+            # Load Sentence-BERT encoder
+            encoder = SentenceBERTEncoder(model_path=str(encoder_path))
+            print("[OK] Sentence-BERT encoder loaded")
+
+            # Load LightGBM classifier
+            classifier = LightGBMClassifier(taxonomy_path="src/config/taxonomy.json")
+            classifier.load(str(classifier_path))
+            print("[OK] LightGBM classifiers loaded")
+
+            print("[OK] All trained models loaded successfully!")
+        except Exception as e:
+            print(f"Warning: Could not load trained models: {e}")
+            print("API will use fallback mode")
+            encoder = None
+            classifier = None
+    else:
+        print("Note: Trained models not found. API will use fallback mode")
+        encoder = None
+        classifier = None
+
     print("Holmes AI API ready!")
 
 

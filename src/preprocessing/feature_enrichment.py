@@ -167,10 +167,27 @@ class FeatureEnrichment:
             transaction.get('currency', 'USD')
         )
 
+        # Extract temporal features from timestamp if not already present
+        if 'timestamp' in transaction and ('day_of_week' not in transaction or 'hour_of_day' not in transaction):
+            try:
+                ts = datetime.fromisoformat(transaction['timestamp'].replace('Z', '+00:00'))
+                day_of_week = ts.weekday()
+                hour_of_day = ts.hour
+            except Exception:
+                # Default to weekday afternoon if parsing fails
+                day_of_week = 0
+                hour_of_day = 14
+        else:
+            day_of_week = transaction.get('day_of_week', 0)
+            hour_of_day = transaction.get('hour_of_day', 14)
+
+        enriched['day_of_week'] = day_of_week
+        enriched['hour_of_day'] = hour_of_day
+
         # Temporal pattern
         enriched['temporal_pattern'] = self.get_temporal_pattern(
-            transaction['day_of_week'],
-            transaction['hour_of_day']
+            day_of_week,
+            hour_of_day
         )
 
         # Geographic features
@@ -188,7 +205,7 @@ class FeatureEnrichment:
         enriched['is_refund'] = transaction['amount'] < 0
 
         # Day type
-        enriched['is_weekend'] = transaction['day_of_week'] >= 5
+        enriched['is_weekend'] = day_of_week >= 5
 
         return enriched
 

@@ -349,59 +349,137 @@ function displayTaxonomy(taxonomy) {
 async function loadStats() {
     try {
         const response = await fetch(`${API_BASE_URL}/api/v1/stats`);
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch stats');
+        }
+
         const stats = await response.json();
 
-        // Update dashboard metrics (mock data for now)
-        document.getElementById('accuracy-metric').textContent = '≥90%';
-        document.getElementById('latency-metric').textContent = '<200ms';
-        document.getElementById('confidence-metric').textContent = '--';
-        document.getElementById('transactions-metric').textContent = recentTransactions.length.toString();
+        // Update dashboard metrics from real API data
+        document.getElementById('accuracy-metric').textContent = stats.model_accuracy ?
+            `${(stats.model_accuracy * 100).toFixed(1)}%` : 'N/A';
+        document.getElementById('latency-metric').textContent = stats.avg_latency ?
+            `${stats.avg_latency.toFixed(0)}ms` : 'N/A';
+        document.getElementById('confidence-metric').textContent = stats.avg_confidence ?
+            `${(stats.avg_confidence * 100).toFixed(1)}%` : 'N/A';
+        document.getElementById('transactions-metric').textContent = stats.total_transactions ||
+            recentTransactions.length.toString();
+
+        // Update metrics if available
+        if (stats.metrics) {
+            updateMetricsDisplay(stats.metrics);
+        }
 
     } catch (error) {
         console.error('Error loading stats:', error);
+        // Show fallback data
+        document.getElementById('accuracy-metric').textContent = 'N/A';
+        document.getElementById('latency-metric').textContent = 'N/A';
+        document.getElementById('confidence-metric').textContent = 'N/A';
+        document.getElementById('transactions-metric').textContent = recentTransactions.length.toString();
     }
 }
 
 // Load Metrics
-function loadMetrics() {
-    // Mock data for demonstration
-    updateMetricsDisplay({
-        l1_accuracy: 0.95,
-        l2_accuracy: 0.92,
-        l3_accuracy: 0.90,
-        f1_score: 0.90,
-        avg_latency: 145,
-        p95_latency: 185,
-        p99_latency: 195,
-        high_confidence: 0.75,
-        medium_confidence: 0.20,
-        low_confidence: 0.05
-    });
+async function loadMetrics() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/api/v1/stats`);
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch metrics');
+        }
+
+        const stats = await response.json();
+
+        // Use real metrics from API if available
+        if (stats.metrics) {
+            updateMetricsDisplay(stats.metrics);
+        } else {
+            // Show N/A for all metrics if not available
+            updateMetricsDisplay({
+                l1_accuracy: null,
+                l2_accuracy: null,
+                l3_accuracy: null,
+                f1_score: null,
+                avg_latency: null,
+                p95_latency: null,
+                p99_latency: null,
+                high_confidence: null,
+                medium_confidence: null,
+                low_confidence: null
+            });
+        }
+    } catch (error) {
+        console.error('Error loading metrics:', error);
+        // Show N/A for all metrics on error
+        updateMetricsDisplay({
+            l1_accuracy: null,
+            l2_accuracy: null,
+            l3_accuracy: null,
+            f1_score: null,
+            avg_latency: null,
+            p95_latency: null,
+            p99_latency: null,
+            high_confidence: null,
+            medium_confidence: null,
+            low_confidence: null
+        });
+    }
 }
 
 // Update Metrics Display
 function updateMetricsDisplay(metrics) {
-    document.getElementById('l1-accuracy').textContent = (metrics.l1_accuracy * 100).toFixed(1) + '%';
-    document.getElementById('l2-accuracy').textContent = (metrics.l2_accuracy * 100).toFixed(1) + '%';
-    document.getElementById('l3-accuracy').textContent = (metrics.l3_accuracy * 100).toFixed(1) + '%';
-    document.getElementById('f1-score').textContent = metrics.f1_score.toFixed(2);
+    // Helper function to safely display metric
+    const displayMetric = (value, formatter) => {
+        return value !== null && value !== undefined ? formatter(value) : 'N/A';
+    };
 
-    document.getElementById('avg-latency').textContent = metrics.avg_latency.toFixed(0) + ' ms';
-    document.getElementById('p95-latency').textContent = metrics.p95_latency.toFixed(0) + ' ms';
-    document.getElementById('p99-latency').textContent = metrics.p99_latency.toFixed(0) + ' ms';
+    document.getElementById('l1-accuracy').textContent = displayMetric(
+        metrics.l1_accuracy, v => `${(v * 100).toFixed(1)}%`
+    );
+    document.getElementById('l2-accuracy').textContent = displayMetric(
+        metrics.l2_accuracy, v => `${(v * 100).toFixed(1)}%`
+    );
+    document.getElementById('l3-accuracy').textContent = displayMetric(
+        metrics.l3_accuracy, v => `${(v * 100).toFixed(1)}%`
+    );
+    document.getElementById('f1-score').textContent = displayMetric(
+        metrics.f1_score, v => v.toFixed(2)
+    );
 
-    document.getElementById('high-conf').textContent = (metrics.high_confidence * 100).toFixed(0) + '%';
-    document.getElementById('medium-conf').textContent = (metrics.medium_confidence * 100).toFixed(0) + '%';
-    document.getElementById('low-conf').textContent = (metrics.low_confidence * 100).toFixed(0) + '%';
-    document.getElementById('review-queue').textContent = Math.floor(recentTransactions.length * metrics.low_confidence);
+    document.getElementById('avg-latency').textContent = displayMetric(
+        metrics.avg_latency, v => `${v.toFixed(0)} ms`
+    );
+    document.getElementById('p95-latency').textContent = displayMetric(
+        metrics.p95_latency, v => `${v.toFixed(0)} ms`
+    );
+    document.getElementById('p99-latency').textContent = displayMetric(
+        metrics.p99_latency, v => `${v.toFixed(0)} ms`
+    );
 
-    // Update confidence chart
-    confidenceChart.data.datasets[0].data = [
-        metrics.high_confidence * 100,
-        metrics.medium_confidence * 100,
-        metrics.low_confidence * 100
-    ];
-    confidenceChart.update();
+    document.getElementById('high-conf').textContent = displayMetric(
+        metrics.high_confidence, v => `${(v * 100).toFixed(0)}%`
+    );
+    document.getElementById('medium-conf').textContent = displayMetric(
+        metrics.medium_confidence, v => `${(v * 100).toFixed(0)}%`
+    );
+    document.getElementById('low-conf').textContent = displayMetric(
+        metrics.low_confidence, v => `${(v * 100).toFixed(0)}%`
+    );
+    document.getElementById('review-queue').textContent = displayMetric(
+        metrics.low_confidence, v => Math.floor(recentTransactions.length * v)
+    );
+
+    // Update confidence chart only if data is available
+    if (metrics.high_confidence !== null && metrics.medium_confidence !== null && metrics.low_confidence !== null) {
+        confidenceChart.data.datasets[0].data = [
+            metrics.high_confidence * 100,
+            metrics.medium_confidence * 100,
+            metrics.low_confidence * 100
+        ];
+        confidenceChart.update();
+    }
 }
 
 // Update Stats
