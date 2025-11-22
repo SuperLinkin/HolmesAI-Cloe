@@ -29,10 +29,26 @@ def load_labeled_data(data_path: str):
     print(f"Loading labeled data from: {data_path}")
 
     ingestion = DataIngestion()
+
+    # Load raw dataframe first to get labels
+    import pandas as pd
+    df = pd.read_csv(data_path)
+
+    # Process through ingestion pipeline
     normalized = ingestion.ingest_pipeline(data_path)
 
-    # Convert to dictionaries
-    transactions = [txn.model_dump() for txn in normalized]
+    # Convert to dictionaries and add labels
+    transactions = []
+    for i, txn in enumerate(normalized):
+        txn_dict = txn.model_dump()
+
+        # Add labels from original dataframe
+        row = df.iloc[i]
+        txn_dict['l1'] = row['l1']
+        txn_dict['l2'] = row['l2']
+        txn_dict['l3'] = row['l3']
+
+        transactions.append(txn_dict)
 
     print(f"Loaded {len(transactions)} labeled transactions")
     return transactions
@@ -91,6 +107,10 @@ def train_models(
     print(f"L1 classes: {len(np.unique(y_l1))}")
     print(f"L2 classes: {len(np.unique(y_l2))}")
     print(f"L3 classes: {len(np.unique(y_l3))}")
+
+    # Step 4.5: Build hierarchy maps for conditional prediction
+    print("\nBuilding hierarchy maps...")
+    classifier.build_hierarchy_maps(preprocessed)
 
     # Step 5: Prepare features
     print("\nPreparing features...")

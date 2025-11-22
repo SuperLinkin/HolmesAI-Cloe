@@ -1,0 +1,14 @@
+{
+  "training_samples": 1000,
+  "validation_split": 0.15,
+  "num_boost_round": 100,
+  "embedding_dimension": 384,
+  "scores": {
+    "l1_accuracy": 0.7733333333333333,
+    "l2_accuracy": 0.04666666666666667,
+    "l3_accuracy": 0.013333333333333334
+  },
+  "l1_classes": 15,
+  "l2_classes": 42,
+  "l3_classes": 59
+}

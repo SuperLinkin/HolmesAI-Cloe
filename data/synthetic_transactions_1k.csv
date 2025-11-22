@@ -1,0 +1,1001 @@
+transaction_id,merchant_raw,amount,currency,timestamp,channel,location,mcc_code,l1,l1_id,l2,l2_id,l3,l3_id
+TXN_20241121_000465,SUBWAY,508.9,USD,2024-11-22T02:30:22.473473,online,,4111,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Metro,TRV-LOC-MET
+TXN_20241121_000728,CAR SERVICE * TCKWJZE9,20.61,USD,2024-11-22T12:36:07.473473,mobile,"Los Angeles, CA",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000862,GYM 731,39.82,USD,2024-11-22T13:32:36.473473,online,Online,7997,Personal Care,PER,Personal Care - Gym,PER-GYM,Personal Care - Gym - Membership,PER-GYM-MEM
+TXN_20241121_000260,SQ * VISA,1924.21,EUR,2024-11-24T04:54:31.473473,mobile,"Chicago, IL",9399,Travel,TRV,Travel - International,TRV-INT,Travel - International - Visa,TRV-INT-VIS
+TXN_20241121_000643,AMAZON PRIME #1252,200.0,USD,2024-11-24T05:22:35.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000747,AIRBNB BANGALORE #3002 01762,700.92,USD,2024-11-24T05:48:25.473473,pos,"Delhi, DL",7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000583,SBUX * 1WNGYPTO 68015,51.54,GBP,2024-11-24T11:49:09.473473,pos,"Los Angeles, CA",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000295,FUEL IL,6.6,USD,2024-11-24T20:17:58.473473,pos,"Ahmedabad, GJ",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000580,HOTSTAR,24.32,USD,2024-11-24T22:15:01.473473,mobile,"Delhi, DL",4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000877,BEST BUY MUMBAI,99.72,EUR,2024-11-24T22:43:24.473473,pos,"Houston, TX",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000190,ZARA * B8YLXG1M 819042,94.36,USD,2024-11-25T09:05:59.473473,pos,"San Antonio, TX",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000059,MCDONALDS,33.3,USD,2024-11-25T10:55:02.473473,pos,"Phoenix, AZ",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000085,ZOMATO FOOD CA #4564,81.26,INR,2024-11-25T11:30:43.473473,pos,"Phoenix, AZ",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000219,ZOMATO FOOD * 6YNM9KN5 462,29.36,EUR,2024-11-25T13:17:02.473473,online,Web Purchase,5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000689,UBER TECHNOLOGIES,842.76,INR,2024-11-25T18:45:48.473473,pos,"Chennai, TN",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000228,ONLINE COURSE * GOOI4HKE,778.97,USD,2024-11-26T00:56:31.473473,online,,8299,Education,EDU,Education - Courses,EDU-CRS,Education - Courses - Online,EDU-CRS-ONL
+TXN_20241121_000595,PRIME VIDEO WA,23.06,EUR,2024-11-26T11:59:42.473473,online,Online,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000249,PC,280.31,GBP,2024-11-26T14:49:16.473473,online,Online,5732,Technology,TEC,Technology - Electronics,TEC-ELE,Technology - Electronics - Computer,TEC-ELE-CMP
+TXN_20241121_000606,LIVE MUSIC DELHI #1102,62.58,USD,2024-11-26T18:08:20.473473,mobile,"Bangalore, KA",7922,Entertainment,ENT,Entertainment - Events,ENT-EVT,Entertainment - Events - Concerts,ENT-EVT-CON
+TXN_20241121_000275,VISA FEE HYDERABAD #4240,1940.43,AUD,2024-11-26T19:52:23.473473,mobile,"Chicago, IL",9399,Travel,TRV,Travel - International,TRV-INT,Travel - International - Visa,TRV-INT-VIS
+TXN_20241121_000166,BP #1328,76.74,USD,2024-11-27T01:56:06.473473,pos,"San Diego, CA",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000633,PAYPAL * H&M 98770,102.7,USD,2024-11-27T11:01:18.473473,pos,"Hyderabad, TG",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000558,CROMA,115.74,USD,2024-11-27T19:46:17.473473,pos,"New York, NY",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000860,KFC VA #725 73727,23.81,USD,2024-11-28T08:34:54.473473,pos,"New York, NY",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000046,PP* CAR SERVICE 9917,20.8,EUR,2024-11-28T12:09:35.473473,atm,"Bangalore, KA",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000148,TST* CLINIC 764988,375.36,USD,2024-11-28T13:32:34.473473,online,,8011,Healthcare,HLT,Healthcare - Hospital,HLT-HOS,Healthcare - Hospital - Consultation,HLT-HOS-CON
+TXN_20241121_000778,METRO CARD 537909,350.75,USD,2024-11-28T18:47:37.473473,atm,"Delhi, DL",4111,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Metro,TRV-LOC-MET
+TXN_20241121_000353,SQ * CINEPOLIS,102.48,INR,2024-11-29T11:57:34.473473,pos,"New York, NY",7832,Entertainment,ENT,Entertainment - Movies,ENT-MOV,Entertainment - Movies - Theater,ENT-MOV-THR
+TXN_20241121_000716,ATM FEE,4029.34,INR,2024-11-29T18:04:50.473473,online,Web Purchase,6010,Financial Services,FIN,Financial Services - Banking,FIN-BNK,Financial Services - Banking - Fees,FIN-BNK-FEE
+TXN_20241121_000319,AIRBNB * 3JQ8B7YE 156,2000.0,EUR,2024-11-29T18:13:23.473473,online,Web Purchase,7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000433,CONTRACTOR,3000.0,USD,2024-11-29T23:05:00.473473,pos,"New York, NY",1520,Housing,HSG,Housing - Home Improvement,HSG-IMP,Housing - Home Improvement - Repair,HSG-IMP-REP
+TXN_20241121_000242,TARGET,124.38,GBP,2024-11-30T05:36:32.473473,pos,"San Antonio, TX",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000204,FUEL LTD 499435,100.0,AUD,2024-11-30T10:59:00.473473,mobile,"Houston, TX",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000410,TST* SCHOOL FEE 90590,1446.05,INR,2024-11-30T19:27:38.473473,pos,"Pune, MH",8211,Education,EDU,Education - Tuition,EDU-TUI,Education - Tuition - School,EDU-TUI-SCH
+TXN_20241121_000517,SQ * BARISTA,138.36,USD,2024-11-30T21:18:34.473473,atm,"Los Angeles, CA",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000115,SQ * OLA,110.19,AUD,2024-12-01T02:27:19.473473,online,,4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Auto/Rickshaw,TRV-LOC-AUT
+TXN_20241121_000816,FLIPKART ONLINE * 33JQZ292 76871,327.61,EUR,2024-12-01T07:38:37.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000800,PIZZA HUT LLC,81.47,USD,2024-12-01T14:24:22.473473,pos,"Pune, MH",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000180,RESTAURANT * M5ZR2189,90.81,USD,2024-12-03T09:32:52.473473,pos,"Kolkata, WB",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000253,OYO BANGALORE,1399.13,EUR,2024-12-03T12:15:37.473473,mobile,"Chicago, IL",7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000754,DOMINOS * MXNMJB39,34.74,USD,2024-12-03T14:26:42.473473,pos,"Delhi, DL",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000965,SWIGGY * Y65MOA1R,78.17,USD,2024-12-04T19:04:54.473473,mobile,"San Diego, CA",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000296,SQ * AWS,327.71,USD,2024-12-05T11:45:01.473473,online,Internet,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Cloud,TEC-SUB-CLD
+TXN_20241121_000227,BP,21.07,USD,2024-12-05T11:49:40.473473,pos,"Chicago, IL",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000914,HEALTH INSURANCE NY #5636,500.0,USD,2024-12-05T19:46:50.473473,atm,"Philadelphia, PA",6300,Healthcare,HLT,Healthcare - Insurance,HLT-INS,Healthcare - Insurance - Premium,HLT-INS-PRM
+TXN_20241121_000555,METRO RAIL #7816 84530,213.55,USD,2024-12-06T15:13:18.473473,pos,"San Diego, CA",4111,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Metro,TRV-LOC-MET
+TXN_20241121_000383,PAPA JOHNS * MDGRY7QI,150.0,USD,2024-12-06T20:00:11.473473,pos,"Philadelphia, PA",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000220,RAPIDO MUMBAI,633.23,USD,2024-12-07T07:02:28.473473,mobile,"Mumbai, MH",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Auto/Rickshaw,TRV-LOC-AUT
+TXN_20241121_000072,OLA HYDERABAD,332.76,EUR,2024-12-08T21:59:41.473473,pos,"Ahmedabad, GJ",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Auto/Rickshaw,TRV-LOC-AUT
+TXN_20241121_000953,RELIANCE DIGITAL * 7K1K3MB0,500.0,USD,2024-12-09T11:10:55.473473,pos,"San Diego, CA",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000907,PAPA JOHNS 81848,41.22,GBP,2024-12-09T11:19:02.473473,pos,"Ahmedabad, GJ",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000493,EATERY LTD 24890,59.89,INR,2024-12-09T14:12:28.473473,pos,"Mumbai, MH",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000885,SQ * RELIANCE DIGITAL 842221,398.32,EUR,2024-12-10T01:07:19.473473,pos,"Hyderabad, TG",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000611,AMAZON LTD 727,77.2,USD,2024-12-11T09:07:34.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000290,CLINIC MA,118.83,EUR,2024-12-11T16:39:38.473473,mobile,"Ahmedabad, GJ",8011,Healthcare,HLT,Healthcare - Hospital,HLT-HOS,Healthcare - Hospital - Consultation,HLT-HOS-CON
+TXN_20241121_000352,BARISTA #1626,135.71,USD,2024-12-12T00:55:42.473473,pos,"Chennai, TN",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000967,POSTPAID * 1Z6A3RFJ 30016,138.16,AUD,2024-12-12T14:26:18.473473,mobile,"Philadelphia, PA",4814,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Mobile,UTL-INT-MOB
+TXN_20241121_000336,TST* SBUX,39.29,EUR,2024-12-12T14:31:36.473473,online,Web Purchase,5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000934,SWIGGY DELIVERY HYDERABAD #551,29.57,GBP,2024-12-12T14:58:45.473473,pos,"Mumbai, MH",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000612,SHELL WA,14.87,USD,2024-12-13T10:32:06.473473,pos,"Delhi, DL",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000338,ZOMATO #7076,11.52,INR,2024-12-13T15:37:50.473473,pos,"Philadelphia, PA",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000008,STARBUCKS 95218,54.11,EUR,2024-12-13T20:36:37.473473,pos,"Kolkata, WB",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000167,WATER BILL LLC 961,300.0,USD,2024-12-14T01:38:29.473473,mobile,"Delhi, DL",4900,Utilities,UTL,Utilities - Water,UTL-WAT,Utilities - Water - Bill,UTL-WAT-BIL
+TXN_20241121_000189,PARKING LOT,67.47,USD,2024-12-14T02:41:54.473473,pos,"Los Angeles, CA",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000566,PC IL #8210,1529.82,USD,2024-12-14T07:47:35.473473,mobile,"Phoenix, AZ",5732,Technology,TEC,Technology - Electronics,TEC-ELE,Technology - Electronics - Computer,TEC-ELE-CMP
+TXN_20241121_000052,ZOMATO FOOD,34.86,USD,2024-12-14T12:55:39.473473,pos,"Chennai, TN",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000831,DOCTOR MUMBAI,193.35,GBP,2024-12-14T20:14:04.473473,pos,"Mumbai, MH",8011,Healthcare,HLT,Healthcare - Hospital,HLT-HOS,Healthcare - Hospital - Consultation,HLT-HOS-CON
+TXN_20241121_000740,CAFE BANGALORE #2044 54434,48.92,USD,2024-12-14T21:49:01.473473,mobile,"Mumbai, MH",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000922,NETFLIX,31.27,USD,2024-12-15T03:01:08.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Netflix,ENT-STR-NFX
+TXN_20241121_000822,PP* UNIQLO,137.58,USD,2024-12-15T05:14:55.473473,pos,"Houston, TX",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000502,SWIGGY DELIVERY ONLINE,40.12,EUR,2024-12-15T07:49:26.473473,online,,5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000560,BP,35.66,USD,2024-12-15T23:59:28.473473,online,Web Purchase,5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000155,BIGBASKET * PD8OMEZV 253980,67.35,EUR,2024-12-16T02:18:18.473473,atm,"Philadelphia, PA",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000845,TST* CVS,398.2,INR,2024-12-16T14:40:41.473473,online,,5912,Healthcare,HLT,Healthcare - Pharmacy,HLT-PHR,Healthcare - Pharmacy - Medicine,HLT-PHR-MED
+TXN_20241121_000165,LIVE MUSIC 973833,13.9,AUD,2024-12-16T16:18:59.473473,online,,7922,Entertainment,ENT,Entertainment - Events,ENT-EVT,Entertainment - Events - Concerts,ENT-EVT-CON
+TXN_20241121_000116,WIFI,188.95,INR,2024-12-17T13:05:23.473473,pos,"Philadelphia, PA",4899,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Broadband,UTL-INT-BRD
+TXN_20241121_000418,SOFTWARE,270.78,GBP,2024-12-17T20:56:56.473473,pos,"Phoenix, AZ",5734,Technology,TEC,Technology - Software,TEC-SFT,Technology - Software - License,TEC-SFT-LIC
+TXN_20241121_000663,INSURANCE PREMIUM DELHI #1239,662.22,EUR,2024-12-18T20:12:21.473473,mobile,"Los Angeles, CA",6300,Financial Services,FIN,Financial Services - Insurance,FIN-INS,Financial Services - Insurance - Premium,FIN-INS-PRM
+TXN_20241121_000661,SQ * VEHICLE MAINTENANCE,9.32,USD,2024-12-19T14:31:30.473473,online,,7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000948,PARKING FEE,20.88,USD,2024-12-20T03:02:18.473473,mobile,"Chennai, TN",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000215,SWIGGY INC,47.44,USD,2024-12-20T19:35:10.473473,pos,"Bangalore, KA",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000739,HAIRCUT #2427,64.47,USD,2024-12-20T20:12:09.473473,mobile,"Ahmedabad, GJ",7230,Personal Care,PER,Personal Care - Salon,PER-SAL,Personal Care - Salon - Haircut,PER-SAL-HAR
+TXN_20241121_000692,PARKING FEE #8667,19.48,INR,2024-12-21T05:27:28.473473,atm,"Bangalore, KA",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000821,POSTPAID STORE 150,45.3,USD,2024-12-21T12:09:46.473473,mobile,"Houston, TX",4814,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Mobile,UTL-INT-MOB
+TXN_20241121_000802,PAYPAL * FUEL,26.84,AUD,2024-12-22T03:41:51.473473,pos,"San Antonio, TX",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000087,POWER BILL,112.08,USD,2024-12-22T09:04:01.473473,online,Internet,4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000955,KFC ONLINE 8348,52.54,USD,2024-12-22T16:15:08.473473,pos,"Phoenix, AZ",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000731,SQ * STARBUCKS,8.84,USD,2024-12-23T00:48:43.473473,pos,"Pune, MH",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000950,MISCELLANEOUS MUMBAI,119.29,EUR,2024-12-23T15:50:50.473473,atm,"Bangalore, KA",,Miscellaneous,MSC,Miscellaneous - Uncategorized,MSC-UNC,Miscellaneous - Uncategorized - Other,MSC-UNC-OTH
+TXN_20241121_000600,PIZZA HUT FL,47.79,GBP,2024-12-24T00:50:01.473473,pos,"Ahmedabad, GJ",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000856,FUEL,70.54,INR,2024-12-24T20:27:49.473473,pos,"Chicago, IL",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000443,STRIPE * RELIANCE DIGITAL,185.29,USD,2024-12-25T10:51:36.473473,pos,"Phoenix, AZ",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000548,H&M 002,70.87,USD,2024-12-25T14:12:40.473473,pos,"Los Angeles, CA",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000111,SWIGGY FOOD HYDERABAD #221 907,20.93,USD,2024-12-26T11:39:12.473473,pos,"Pune, MH",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000291,SQ * STATIONERY,317.16,EUR,2024-12-26T14:25:21.473473,mobile,"New York, NY",5943,Business Expenses,BUS,Business Expenses - Office,BUS-OFC,Business Expenses - Office - Supplies,BUS-OFC-SUP
+TXN_20241121_000480,TARGET #2309,250.73,EUR,2024-12-26T16:30:57.473473,pos,"Bangalore, KA",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000529,CONFLUENCE 45193,722.25,EUR,2024-12-27T11:39:51.473473,online,,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Tools,TEC-SUB-TOL
+TXN_20241121_000417,FLIPKART * 7F8RYCPZ,70.62,USD,2024-12-27T13:53:08.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000515,PARKING #9673 162896,11.75,EUR,2024-12-27T14:15:12.473473,atm,"San Antonio, TX",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000927,INSTACART STORE 28986,93.26,GBP,2024-12-28T02:58:09.473473,atm,"Kolkata, WB",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000546,SPA VA #8035,200.0,INR,2024-12-28T05:42:47.473473,mobile,"Los Angeles, CA",7298,Personal Care,PER,Personal Care - Wellness,PER-WEL,Personal Care - Wellness - Spa,PER-WEL-SPA
+TXN_20241121_000730,PP* INSTACART,108.87,EUR,2024-12-29T10:05:15.473473,atm,"San Diego, CA",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000614,PP* APOLLO PHARMACY 7735,174.37,USD,2024-12-29T13:50:45.473473,mobile,"Mumbai, MH",5912,Healthcare,HLT,Healthcare - Pharmacy,HLT-PHR,Healthcare - Pharmacy - Medicine,HLT-PHR-MED
+TXN_20241121_000026,HEALTH INSURANCE * S85O8RMT 646,97.51,EUR,2024-12-29T18:40:48.473473,pos,"Ahmedabad, GJ",6300,Healthcare,HLT,Healthcare - Insurance,HLT-INS,Healthcare - Insurance - Premium,HLT-INS-PRM
+TXN_20241121_000252,SQ * SALON 9909,29.76,USD,2024-12-30T10:31:36.473473,mobile,"Bangalore, KA",7230,Personal Care,PER,Personal Care - Salon,PER-SAL,Personal Care - Salon - Haircut,PER-SAL-HAR
+TXN_20241121_000735,OLA 89153,440.54,INR,2024-12-30T17:32:30.473473,mobile,"San Diego, CA",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Auto/Rickshaw,TRV-LOC-AUT
+TXN_20241121_000122,PAPA JOHNS * NV48S61D,45.39,INR,2024-12-30T17:49:31.473473,pos,"Kolkata, WB",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000197,TST* OLA,192.98,USD,2024-12-31T03:19:33.473473,online,,4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Auto/Rickshaw,TRV-LOC-AUT
+TXN_20241121_000794,BIGBASKET MA,105.66,GBP,2024-12-31T09:56:19.473473,mobile,"Phoenix, AZ",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000124,AWS #8676,642.33,EUR,2024-12-31T18:49:41.473473,online,,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Cloud,TEC-SUB-CLD
+TXN_20241121_000330,AUTO STORE,439.4,GBP,2024-12-31T21:27:44.473473,mobile,"Bangalore, KA",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Auto/Rickshaw,TRV-LOC-AUT
+TXN_20241121_000886,PARKING LOT IL,12.52,USD,2025-01-01T11:18:50.473473,pos,"Delhi, DL",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000725,CONCERT,55.73,EUR,2025-01-01T11:42:52.473473,online,Web Purchase,7922,Entertainment,ENT,Entertainment - Events,ENT-EVT,Entertainment - Events - Concerts,ENT-EVT-CON
+TXN_20241121_000435,CROMA STORE,239.73,EUR,2025-01-01T12:34:31.473473,pos,"Delhi, DL",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000399,PETROL NC #1823 169511,9.2,EUR,2025-01-01T13:48:44.473473,pos,"San Diego, CA",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000853,BISTRO ONLINE 61926,48.37,AUD,2025-01-01T15:27:12.473473,pos,"Bangalore, KA",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000055,CAFE #3646,25.32,EUR,2025-01-01T17:59:51.473473,pos,"Houston, TX",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000203,FLIPKART ONLINE 6219,210.12,USD,2025-01-02T08:44:22.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000409,DONATION 764,191.55,EUR,2025-01-02T11:43:42.473473,atm,"Chicago, IL",8398,Charitable,CHR,Charitable - Donations,CHR-DON,Charitable - Donations - NGO,CHR-DON-NGO
+TXN_20241121_000341,SQ * CINEPOLIS,182.98,INR,2025-01-02T13:34:56.473473,online,Online,7832,Entertainment,ENT,Entertainment - Movies,ENT-MOV,Entertainment - Movies - Theater,ENT-MOV-THR
+TXN_20241121_000045,DOMINOS CA,36.82,GBP,2025-01-02T15:36:45.473473,online,,5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000828,STRIPE * AMC,145.43,USD,2025-01-03T03:14:22.473473,mobile,"Bangalore, KA",7832,Entertainment,ENT,Entertainment - Movies,ENT-MOV,Entertainment - Movies - Theater,ENT-MOV-THR
+TXN_20241121_000088,UBER EATS #9461,2000.0,USD,2025-01-04T05:01:39.473473,atm,"Mumbai, MH",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000634,SWIGGY DELIVERY GA #4203 6097,150.0,USD,2025-01-04T11:28:01.473473,mobile,"San Diego, CA",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000317,SQ * PAPA JOHNS 30768,16.3,INR,2025-01-04T19:40:36.473473,online,,5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000423,SQ * CROMA,303.28,USD,2025-01-04T21:01:04.473473,pos,"San Diego, CA",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000157,PRIME VIDEO DELHI #5073,5.94,EUR,2025-01-04T21:20:49.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000662,PARKING LOT INC,32.75,USD,2025-01-05T08:08:21.473473,pos,"Bangalore, KA",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000186,RICKSHAW NC #2929 3324,547.92,INR,2025-01-05T12:27:07.473473,online,,4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Auto/Rickshaw,TRV-LOC-AUT
+TXN_20241121_000482,HOSPITAL #5979,105.7,USD,2025-01-05T13:09:35.473473,atm,"San Diego, CA",8011,Healthcare,HLT,Healthcare - Hospital,HLT-HOS,Healthcare - Hospital - Consultation,HLT-HOS-CON
+TXN_20241121_000084,AWS WA,450.51,USD,2025-01-05T19:12:58.473473,online,Online,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Cloud,TEC-SUB-CLD
+TXN_20241121_000519,STRIPE * METRO RAIL,562.72,EUR,2025-01-06T19:44:13.473473,atm,"Chicago, IL",4111,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Metro,TRV-LOC-MET
+TXN_20241121_000280,AIRTEL LLC,77.15,INR,2025-01-06T20:05:14.473473,pos,"Phoenix, AZ",4899,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Broadband,UTL-INT-BRD
+TXN_20241121_000028,GOOGLE CLOUD * G2YC9GJ4,578.48,USD,2025-01-07T17:27:47.473473,online,,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Cloud,TEC-SUB-CLD
+TXN_20241121_000424,PP* BEST BUY,142.63,AUD,2025-01-07T18:39:13.473473,pos,"Mumbai, MH",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000693,STRIPE * INTERNET,300.0,USD,2025-01-08T11:14:41.473473,atm,"Chennai, TN",4899,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Broadband,UTL-INT-BRD
+TXN_20241121_000698,AMZN,141.76,USD,2025-01-08T19:01:34.473473,online,Online,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000533,PARKING #7614 21628,5.07,EUR,2025-01-09T18:13:01.473473,atm,"Ahmedabad, GJ",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000154,UNIQLO TX 83616,102.1,EUR,2025-01-10T13:52:04.473473,pos,"Hyderabad, TG",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000091,METRO CARD #7521,426.26,USD,2025-01-10T15:06:14.473473,online,,4111,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Metro,TRV-LOC-MET
+TXN_20241121_000389,FUEL VA,45.03,USD,2025-01-11T01:44:12.473473,pos,"Pune, MH",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000132,AMAZON PRIME,76.26,EUR,2025-01-11T03:21:14.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000169,NGO,85.05,EUR,2025-01-11T06:03:34.473473,online,,8398,Charitable,CHR,Charitable - Donations,CHR-DON,Charitable - Donations - NGO,CHR-DON-NGO
+TXN_20241121_000359,EMI MA #4193,2934.38,GBP,2025-01-11T06:47:40.473473,online,Web Purchase,6513,Housing,HSG,Housing - Mortgage,HSG-MTG,Housing - Mortgage - EMI,HSG-MTG-EMI
+TXN_20241121_000247,ZOMATO FOOD BANGALORE #8359,95.91,USD,2025-01-11T11:53:45.473473,atm,"Chicago, IL",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000444,H&M #4023,122.71,EUR,2025-01-11T16:42:31.473473,mobile,"Ahmedabad, GJ",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000062,UBER EATS,846.67,INR,2025-01-12T10:43:05.473473,mobile,"Chicago, IL",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000918,PP* YOUTUBE PREMIUM,45.61,USD,2025-01-13T12:50:16.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000216,SKILLSHARE #2385,1358.69,USD,2025-01-14T10:23:43.473473,online,,8299,Education,EDU,Education - Courses,EDU-CRS,Education - Courses - Online,EDU-CRS-ONL
+TXN_20241121_000387,DOMINOS LTD,71.61,EUR,2025-01-14T11:13:28.473473,pos,"Delhi, DL",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000814,REPAIR #4886,45.6,EUR,2025-01-14T13:48:22.473473,pos,"Kolkata, WB",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000141,GYM,22.24,USD,2025-01-14T20:39:55.473473,atm,"Chennai, TN",7997,Personal Care,PER,Personal Care - Gym,PER-GYM,Personal Care - Gym - Membership,PER-GYM-MEM
+TXN_20241121_000401,WIFI 112714,89.82,AUD,2025-01-15T19:39:47.473473,atm,"Bangalore, KA",4899,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Broadband,UTL-INT-BRD
+TXN_20241121_000983,SCHOOL * HK09WDZR,1133.48,EUR,2025-01-16T12:46:34.473473,online,Web Purchase,8211,Education,EDU,Education - Tuition,EDU-TUI,Education - Tuition - School,EDU-TUI-SCH
+TXN_20241121_000910,FLIPKART ONLINE,500.0,USD,2025-01-16T13:50:36.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000588,PAYPAL * OYO,685.45,USD,2025-01-16T16:14:17.473473,mobile,"Philadelphia, PA",7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000464,SQ * SWIGGY DELIVERY 6399,41.99,USD,2025-01-16T16:27:16.473473,atm,"New York, NY",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000938,BLINKIT 2279,94.93,USD,2025-01-16T16:32:21.473473,pos,"New York, NY",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000161,SQ * BARISTA,17.56,INR,2025-01-16T17:36:03.473473,mobile,"Delhi, DL",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000360,HOSPITAL FL,500.0,GBP,2025-01-17T00:53:48.473473,atm,"Hyderabad, TG",8011,Healthcare,HLT,Healthcare - Hospital,HLT-HOS,Healthcare - Hospital - Consultation,HLT-HOS-CON
+TXN_20241121_000102,AMC #2989,41.09,USD,2025-01-17T09:52:09.473473,online,,7832,Entertainment,ENT,Entertainment - Movies,ENT-MOV,Entertainment - Movies - Theater,ENT-MOV-THR
+TXN_20241121_000748,MOBILE RECHARGE PUNE 7732,75.08,EUR,2025-01-17T09:54:34.473473,mobile,"Chicago, IL",4814,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Mobile,UTL-INT-MOB
+TXN_20241121_000538,PP* BOOKMYSHOW,200.0,USD,2025-01-17T16:05:49.473473,online,,7922,Entertainment,ENT,Entertainment - Events,ENT-EVT,Entertainment - Events - Concerts,ENT-EVT-CON
+TXN_20241121_000706,PETROL,11.5,AUD,2025-01-17T19:27:15.473473,pos,"Bangalore, KA",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000474,UNIVERSITY GA,1260.86,INR,2025-01-19T12:19:00.473473,mobile,"Bangalore, KA",8220,Education,EDU,Education - Tuition,EDU-TUI,Education - Tuition - College,EDU-TUI-COL
+TXN_20241121_000457,STRIPE * WATER BILL,158.02,GBP,2025-01-19T19:30:57.473473,online,Web Purchase,4900,Utilities,UTL,Utilities - Water,UTL-WAT,Utilities - Water - Bill,UTL-WAT-BIL
+TXN_20241121_000113,PARKING,7.93,EUR,2025-01-20T09:20:23.473473,online,Online,7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000594,SQ * ZOMATO FOOD,72.14,USD,2025-01-20T13:39:57.473473,mobile,"Pune, MH",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000221,STATIONERY DELHI 847,212.62,GBP,2025-01-20T17:15:24.473473,mobile,"Philadelphia, PA",5943,Business Expenses,BUS,Business Expenses - Office,BUS-OFC,Business Expenses - Office - Supplies,BUS-OFC-SUP
+TXN_20241121_000358,YOUTUBE PREMIUM #2372,38.64,USD,2025-01-20T20:01:16.473473,online,Online,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000929,RESTAURANT * B2UJ17DR 321532,15.04,INR,2025-01-21T20:20:32.473473,pos,"San Antonio, TX",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000259,ZOMATO,43.17,USD,2025-01-22T02:13:34.473473,online,,5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000335,VISA FEE HYDERABAD,709.53,USD,2025-01-23T10:53:19.473473,atm,"Chennai, TN",9399,Travel,TRV,Travel - International,TRV-INT,Travel - International - Visa,TRV-INT-VIS
+TXN_20241121_000299,CLOUD * T20TIMEP,465.08,AUD,2025-01-23T12:35:59.473473,online,,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Cloud,TEC-SUB-CLD
+TXN_20241121_000294,PIZZA HUT CA #8771 377,58.81,EUR,2025-01-23T20:14:24.473473,mobile,"Philadelphia, PA",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000995,ELECTRICITY,20.0,EUR,2025-01-24T09:31:21.473473,online,,4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000241,CONSULTING,413.68,USD,2025-01-25T10:12:44.473473,mobile,"Pune, MH",8999,Business Expenses,BUS,Business Expenses - Services,BUS-SRV,Business Expenses - Services - Professional,BUS-SRV-PRO
+TXN_20241121_000395,REPAIR * PQFV0JNP,27.98,USD,2025-01-25T19:02:14.473473,mobile,"Hyderabad, TG",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000986,RELIANCE DIGITAL #2629,500.0,USD,2025-01-25T21:51:06.473473,pos,"Ahmedabad, GJ",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000206,FUEL INC,30.47,EUR,2025-01-26T02:15:47.473473,pos,"Mumbai, MH",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000213,SQ * AMAZON PRIME,51.7,GBP,2025-01-26T06:38:42.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000742,SQ * ZOMATO,89.17,USD,2025-01-26T17:42:08.473473,pos,"New York, NY",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000376,SKILLSHARE BANGALORE,639.63,USD,2025-01-27T12:08:34.473473,online,,8299,Education,EDU,Education - Courses,EDU-CRS,Education - Courses - Online,EDU-CRS-ONL
+TXN_20241121_000289,TST* PAPA JOHNS,14.99,USD,2025-01-27T14:29:26.473473,pos,"Philadelphia, PA",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000499,BARBER NY,200.0,EUR,2025-01-27T16:37:18.473473,mobile,"Hyderabad, TG",7230,Personal Care,PER,Personal Care - Salon,PER-SAL,Personal Care - Salon - Haircut,PER-SAL-HAR
+TXN_20241121_000438,TST* RESTAURANT,44.54,USD,2025-01-27T18:07:01.473473,pos,"San Antonio, TX",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000549,ONLINE COURSE #7951,628.36,EUR,2025-01-28T02:50:02.473473,online,,8299,Education,EDU,Education - Courses,EDU-CRS,Education - Courses - Online,EDU-CRS-ONL
+TXN_20241121_000478,SUBWAY WA,399.12,EUR,2025-01-28T08:11:02.473473,online,,4111,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Metro,TRV-LOC-MET
+TXN_20241121_000471,FLIPKART ONLINE 7465,53.88,USD,2025-01-28T18:33:47.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000174,TST* COURSERA,594.74,USD,2025-01-28T19:42:15.473473,online,Internet,8299,Education,EDU,Education - Courses,EDU-CRS,Education - Courses - Online,EDU-CRS-ONL
+TXN_20241121_000579,PP* FUEL,39.04,INR,2025-01-29T11:47:48.473473,pos,"Houston, TX",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000563,EMIRATES #3743 5909,774.91,INR,2025-01-29T14:22:06.473473,online,Web Purchase,4511,Travel,TRV,Travel - International,TRV-INT,Travel - International - Flight,TRV-INT-FLT
+TXN_20241121_000996,YOUTUBE PREMIUM NC #1154 96663,23.36,GBP,2025-01-29T16:02:59.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000083,SBUX MA #3861,70.69,AUD,2025-01-29T16:53:51.473473,mobile,"Kolkata, WB",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000118,METRO CARD STORE,2000.0,AUD,2025-01-29T17:17:00.473473,atm,"Philadelphia, PA",4111,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Metro,TRV-LOC-MET
+TXN_20241121_000340,MASSAGE STORE 3040,97.45,USD,2025-01-29T22:44:44.473473,atm,"Chennai, TN",7298,Personal Care,PER,Personal Care - Wellness,PER-WEL,Personal Care - Wellness - Spa,PER-WEL-SPA
+TXN_20241121_000014,ZOMATO FOOD * N2GP3S70,56.51,AUD,2025-01-30T10:41:48.473473,mobile,"New York, NY",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000192,VFS ONLINE,434.45,USD,2025-01-30T11:11:49.473473,pos,"Chennai, TN",9399,Travel,TRV,Travel - International,TRV-INT,Travel - International - Visa,TRV-INT-VIS
+TXN_20241121_000928,INDIAN OIL VA #7093,18.66,USD,2025-01-30T20:21:14.473473,pos,"Ahmedabad, GJ",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000384,INSTACART #7050,31.56,USD,2025-01-30T20:24:22.473473,mobile,"Mumbai, MH",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000653,TST* NETFLIX SUBSCRIPTION,200.0,USD,2025-01-31T10:04:56.473473,online,Online,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Netflix,ENT-STR-NFX
+TXN_20241121_000567,AMAZON ONLINE,72.04,INR,2025-01-31T12:19:42.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000339,INSTACART NY,92.84,EUR,2025-01-31T18:29:39.473473,atm,"San Diego, CA",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000808,STRIPE * INSTACART,171.25,USD,2025-02-03T06:41:19.473473,online,,5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000489,WALMART NC #7934 240089,130.12,USD,2025-02-04T00:23:27.473473,online,,5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000394,TARGET MA #6133,376.7,EUR,2025-02-04T10:27:29.473473,online,,5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000628,SALON NC,88.99,USD,2025-02-04T12:43:28.473473,pos,"Chicago, IL",7230,Personal Care,PER,Personal Care - Salon,PER-SAL,Personal Care - Salon - Haircut,PER-SAL-HAR
+TXN_20241121_000450,ZERODHA HYDERABAD #8389,2524.48,USD,2025-02-04T18:16:48.473473,online,,6211,Financial Services,FIN,Financial Services - Investment,FIN-INV,Financial Services - Investment - Trading,FIN-INV-TRD
+TXN_20241121_000926,STRIPE * AIRBNB 74282,1022.71,USD,2025-02-05T02:25:41.473473,atm,"Ahmedabad, GJ",7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000939,UBER EATS,2000.0,USD,2025-02-05T11:12:24.473473,mobile,"Hyderabad, TG",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000278,HOTSTAR FL #5598 11150,93.78,GBP,2025-02-05T16:31:28.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000047,PVR IL #8834,45.5,USD,2025-02-05T18:14:30.473473,mobile,"Los Angeles, CA",7832,Entertainment,ENT,Entertainment - Movies,ENT-MOV,Entertainment - Movies - Theater,ENT-MOV-THR
+TXN_20241121_000895,EATERY CA 054699,150.0,USD,2025-02-06T12:03:21.473473,pos,"New York, NY",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000254,MOBILE RECHARGE * YD1P28OD 90982,300.0,EUR,2025-02-06T15:43:52.473473,mobile,"Delhi, DL",4814,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Mobile,UTL-INT-MOB
+TXN_20241121_000172,BARBER WA,129.07,USD,2025-02-06T17:42:07.473473,mobile,"Chennai, TN",7230,Personal Care,PER,Personal Care - Salon,PER-SAL,Personal Care - Salon - Haircut,PER-SAL-HAR
+TXN_20241121_000044,CONTRACTOR NY #9830,2516.58,EUR,2025-02-06T19:58:34.473473,pos,"Mumbai, MH",1520,Housing,HSG,Housing - Home Improvement,HSG-IMP,Housing - Home Improvement - Repair,HSG-IMP-REP
+TXN_20241121_000421,SBUX DELHI #7637,35.89,EUR,2025-02-07T20:39:35.473473,pos,"Philadelphia, PA",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000361,RICKSHAW #5952,790.53,EUR,2025-02-08T08:44:45.473473,pos,"Delhi, DL",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Auto/Rickshaw,TRV-LOC-AUT
+TXN_20241121_000671,ZOMATO FOOD #9580,25.24,EUR,2025-02-09T03:42:03.473473,atm,"Pune, MH",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000041,YOUTUBE PREMIUM DELHI 6598,61.53,EUR,2025-02-09T10:36:33.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000672,WATER #2627 5672,300.0,USD,2025-02-10T09:48:03.473473,atm,"Chennai, TN",4900,Utilities,UTL,Utilities - Water,UTL-WAT,Utilities - Water - Bill,UTL-WAT-BIL
+TXN_20241121_000848,RESTAURANT LTD,49.39,USD,2025-02-10T15:30:54.473473,pos,"Chennai, TN",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000230,STOCK CA,5143.33,USD,2025-02-10T17:45:55.473473,online,Online,6211,Financial Services,FIN,Financial Services - Investment,FIN-INV,Financial Services - Investment - Trading,FIN-INV-TRD
+TXN_20241121_000753,ZARA #8316 4481,222.14,USD,2025-02-10T18:18:23.473473,pos,"Mumbai, MH",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000564,DIESEL #6280,20.6,USD,2025-02-10T18:40:12.473473,pos,"Ahmedabad, GJ",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000362,H&M #4486,212.12,GBP,2025-02-10T19:44:40.473473,atm,"Hyderabad, TG",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000308,FLIPKART 4878,165.32,USD,2025-02-10T20:35:51.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000676,FUEL 1186,37.05,USD,2025-02-12T09:09:49.473473,pos,"San Antonio, TX",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000994,VEHICLE MAINTENANCE 022,36.23,INR,2025-02-12T18:00:45.473473,mobile,"Phoenix, AZ",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000214,COFFEE #7238,53.69,INR,2025-02-13T09:16:04.473473,atm,"Bangalore, KA",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000604,KFC FL #8570 301,77.5,USD,2025-02-14T10:50:45.473473,pos,"San Diego, CA",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000292,WATER * 618JPTNG,111.38,USD,2025-02-14T18:15:50.473473,online,,4900,Utilities,UTL,Utilities - Water,UTL-WAT,Utilities - Water - Bill,UTL-WAT-BIL
+TXN_20241121_000237,JIRA 1801,351.59,USD,2025-02-15T03:58:33.473473,online,,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Tools,TEC-SUB-TOL
+TXN_20241121_000720,ELECTRICITY #9923 901,30.4,USD,2025-02-15T08:06:13.473473,online,,4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000302,UBER PUNE,2000.0,USD,2025-02-16T07:43:32.473473,mobile,"Pune, MH",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000925,KFC * 3QTII3HJ,12.97,EUR,2025-02-16T19:25:03.473473,pos,"Delhi, DL",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000235,CROMA 65806,200.28,GBP,2025-02-17T09:14:07.473473,pos,"Chicago, IL",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000851,DMART GA,500.0,USD,2025-02-17T13:59:40.473473,atm,"San Diego, CA",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000441,EMI #7227 231,1632.14,USD,2025-02-17T19:32:20.473473,pos,"Hyderabad, TG",6513,Housing,HSG,Housing - Mortgage,HSG-MTG,Housing - Mortgage - EMI,HSG-MTG-EMI
+TXN_20241121_000379,SQ * PARKING FEE 540351,100.0,INR,2025-02-17T20:37:31.473473,pos,"Los Angeles, CA",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000050,H&M * OT2CXTGB 74628,115.43,USD,2025-02-18T14:55:12.473473,mobile,"San Diego, CA",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000963,CLOTHING STORE NC,33.92,USD,2025-02-18T18:39:30.473473,pos,"Ahmedabad, GJ",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000440,TST* UBER TECHNOLOGIES 013,384.02,AUD,2025-02-19T09:11:26.473473,online,Internet,4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000350,POWER BILL 215,300.0,USD,2025-02-19T09:37:44.473473,mobile,"San Diego, CA",4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000398,AIRBNB,135.29,USD,2025-02-19T10:57:24.473473,mobile,"Kolkata, WB",7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000527,PARKING FEE #7225,97.13,USD,2025-02-19T12:20:46.473473,online,,7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000904,VFS VA,168.41,USD,2025-02-19T14:35:17.473473,pos,"Chennai, TN",9399,Travel,TRV,Travel - International,TRV-INT,Travel - International - Visa,TRV-INT-VIS
+TXN_20241121_000826,BOOKMYSHOW * 4I2O7TYT 50773,22.52,USD,2025-02-20T07:06:31.473473,atm,"Los Angeles, CA",7922,Entertainment,ENT,Entertainment - Events,ENT-EVT,Entertainment - Events - Concerts,ENT-EVT-CON
+TXN_20241121_000114,PP* RESTAURANT 90693,54.63,EUR,2025-02-21T16:01:17.473473,pos,"Pune, MH",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000743,KFC  31358,51.0,EUR,2025-02-21T18:52:32.473473,atm,"San Antonio, TX",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000377,UNIVERSITY INC,5000.0,INR,2025-02-21T19:13:28.473473,atm,"San Antonio, TX",8220,Education,EDU,Education - Tuition,EDU-TUI,Education - Tuition - College,EDU-TUI-COL
+TXN_20241121_000452,CONCERT * 3RMME8OH 193840,22.17,GBP,2025-02-22T02:59:50.473473,atm,"Bangalore, KA",7922,Entertainment,ENT,Entertainment - Events,ENT-EVT,Entertainment - Events - Concerts,ENT-EVT-CON
+TXN_20241121_000226,DOCTOR FL #1388,148.39,INR,2025-02-22T10:36:59.473473,mobile,"Chicago, IL",8011,Healthcare,HLT,Healthcare - Hospital,HLT-HOS,Healthcare - Hospital - Consultation,HLT-HOS-CON
+TXN_20241121_000765,ELECTRIC COMPANY #6608,64.92,USD,2025-02-23T01:36:25.473473,mobile,"Phoenix, AZ",4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000771,PETROL MUMBAI 91825,36.17,INR,2025-02-23T21:58:56.473473,pos,"San Antonio, TX",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000551,AMAZON * EGPZ60XI 497901,73.35,INR,2025-02-24T10:46:04.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000704,PVR IL #172,107.88,USD,2025-02-24T19:56:30.473473,online,,7832,Entertainment,ENT,Entertainment - Movies,ENT-MOV,Entertainment - Movies - Theater,ENT-MOV-THR
+TXN_20241121_000264,BOOKING 95311,130.43,EUR,2025-02-25T14:44:31.473473,online,,7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000248,TST* DMART,280.32,USD,2025-02-25T15:00:55.473473,pos,"Chicago, IL",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000448,AMAZON PRIME INC,59.53,USD,2025-02-25T17:28:37.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000178,PVR,65.46,EUR,2025-02-26T15:10:07.473473,online,,7832,Entertainment,ENT,Entertainment - Movies,ENT-MOV,Entertainment - Movies - Theater,ENT-MOV-THR
+TXN_20241121_000066,AMAZON PRIME LTD,13.91,EUR,2025-02-26T16:03:09.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000332,FLIPKART,377.8,USD,2025-02-26T18:21:58.473473,online,Web Purchase,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000764,SQ * RESTAURANT 85042,31.5,USD,2025-02-27T12:56:55.473473,pos,"New York, NY",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000354,TST* INOX 689763,161.05,USD,2025-02-27T20:17:48.473473,atm,"San Diego, CA",7832,Entertainment,ENT,Entertainment - Movies,ENT-MOV,Entertainment - Movies - Theater,ENT-MOV-THR
+TXN_20241121_000108,CINEPOLIS VA,45.36,USD,2025-02-28T11:48:06.473473,atm,"Phoenix, AZ",7832,Entertainment,ENT,Entertainment - Movies,ENT-MOV,Entertainment - Movies - Theater,ENT-MOV-THR
+TXN_20241121_000958,BLINKIT * Q4BSCDA7,337.9,USD,2025-02-28T16:32:13.473473,pos,"San Antonio, TX",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000908,YOUTUBE PREMIUM * 8WFQ9DZF,49.59,USD,2025-02-28T17:57:50.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000968,CAR SERVICE #6817,58.06,EUR,2025-02-28T19:08:17.473473,pos,"Chennai, TN",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000799,SQ * FINE DINING,24.63,INR,2025-03-02T00:20:52.473473,pos,"Los Angeles, CA",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000792,LIFE INSURANCE,2947.75,INR,2025-03-02T06:04:40.473473,atm,"Kolkata, WB",6300,Financial Services,FIN,Financial Services - Insurance,FIN-INS,Financial Services - Insurance - Premium,FIN-INS-PRM
+TXN_20241121_000788,AMZN NY,174.01,USD,2025-03-02T08:41:18.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000080,SQ * STARBUCKS,18.66,GBP,2025-03-02T16:26:36.473473,pos,"Los Angeles, CA",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000729,SBUX,44.76,USD,2025-03-02T17:05:19.473473,mobile,"Ahmedabad, GJ",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000415,RESTAURANT,59.66,USD,2025-03-02T17:09:48.473473,pos,"San Antonio, TX",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000270,PIZZA HUT * 04IS7WJD 98083,42.86,USD,2025-03-02T19:43:03.473473,pos,"Los Angeles, CA",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000400,WIFI 434,190.34,USD,2025-03-03T08:41:05.473473,mobile,"San Diego, CA",4899,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Broadband,UTL-INT-BRD
+TXN_20241121_000038,FLIPKART ONLINE BANGALORE 935,333.24,USD,2025-03-03T10:29:07.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000349,PARKING LOT LTD 76240,36.31,USD,2025-03-03T12:45:04.473473,atm,"New York, NY",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000943,GITHUB 38804,1000.92,USD,2025-03-03T19:47:12.473473,atm,"Mumbai, MH",5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Tools,TEC-SUB-TOL
+TXN_20241121_000056,AIRBNB 206227,1610.32,USD,2025-03-04T10:16:53.473473,atm,"San Diego, CA",7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000507,PAYPAL * RENT 424,3000.0,INR,2025-03-04T15:28:28.473473,atm,"Bangalore, KA",6513,Housing,HSG,Housing - Rent,HSG-RNT,Housing - Rent - Monthly,HSG-RNT-MNT
+TXN_20241121_000012,UBER TRIP,269.23,INR,2025-03-04T20:04:48.473473,pos,"Kolkata, WB",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000971,PREPAID,75.03,USD,2025-03-05T17:28:27.473473,atm,"Bangalore, KA",4814,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Mobile,UTL-INT-MOB
+TXN_20241121_000368,WELLNESS #4814,20.46,USD,2025-03-05T20:19:13.473473,pos,"Phoenix, AZ",7298,Personal Care,PER,Personal Care - Wellness,PER-WEL,Personal Care - Wellness - Spa,PER-WEL-SPA
+TXN_20241121_000017,BLINKIT #1768,368.59,USD,2025-03-05T20:31:56.473473,atm,"Ahmedabad, GJ",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000572,STRIPE * MOBILE,301.35,USD,2025-03-06T15:48:34.473473,online,,5732,Technology,TEC,Technology - Electronics,TEC-ELE,Technology - Electronics - Mobile,TEC-ELE-MOB
+TXN_20241121_000011,SQ * VEHICLE MAINTENANCE,35.25,USD,2025-03-06T20:25:45.473473,pos,"Hyderabad, TG",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000890,HOUSE RENT 58038,1878.36,USD,2025-03-07T13:57:29.473473,pos,"Phoenix, AZ",6513,Housing,HSG,Housing - Rent,HSG-RNT,Housing - Rent - Monthly,HSG-RNT-MNT
+TXN_20241121_000562,FLIPKART,258.54,EUR,2025-03-07T17:03:45.473473,online,Online,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000021,BISTRO VA,98.98,USD,2025-03-08T16:35:37.473473,pos,"Philadelphia, PA",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000596,PP* SWIGGY DELIVERY,89.65,USD,2025-03-08T23:48:25.473473,mobile,"Bangalore, KA",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000300,NETFLIX,18.68,USD,2025-03-09T04:07:05.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Netflix,ENT-STR-NFX
+TXN_20241121_000896,AMAZON PRIME 48897,53.71,USD,2025-03-09T09:25:46.473473,pos,"Mumbai, MH",4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000500,BEST BUY 454,202.09,USD,2025-03-09T23:06:51.473473,pos,"San Antonio, TX",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000365,KFC * QYQDIRJY,150.0,GBP,2025-03-10T10:29:56.473473,pos,"Mumbai, MH",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000077,CLOTHING STORE,149.31,EUR,2025-03-10T13:33:23.473473,pos,"Kolkata, WB",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000258,STRIPE * SWIGGY,32.14,USD,2025-03-10T16:58:28.473473,mobile,"Philadelphia, PA",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000370,SQ * TEXTBOOKS,2004.68,USD,2025-03-10T17:58:48.473473,mobile,"Hyderabad, TG",5942,Education,EDU,Education - Books,EDU-BOK,Education - Books - Purchase,EDU-BOK-PUR
+TXN_20241121_000067,STRIPE * HEALTH INSURANCE,139.54,AUD,2025-03-11T01:27:11.473473,pos,"Mumbai, MH",6300,Healthcare,HLT,Healthcare - Insurance,HLT-INS,Healthcare - Insurance - Premium,HLT-INS-PRM
+TXN_20241121_000025,HOTSTAR 665000,17.82,USD,2025-03-11T06:53:47.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000803,LIVE MUSIC NY,78.66,USD,2025-03-11T09:21:18.473473,mobile,"San Antonio, TX",7922,Entertainment,ENT,Entertainment - Events,ENT-EVT,Entertainment - Events - Concerts,ENT-EVT-CON
+TXN_20241121_000777,FINE DINING VA #999,63.22,EUR,2025-03-11T16:52:02.473473,pos,"New York, NY",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000866,CAFE COFFEE DAY * 01OD3A45,67.25,USD,2025-03-11T17:31:52.473473,pos,"San Antonio, TX",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000640,BOOKING 54496,783.52,EUR,2025-03-11T19:32:19.473473,mobile,"New York, NY",7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000397,EMIRATES #1156,1058.0,USD,2025-03-12T05:33:13.473473,mobile,"Hyderabad, TG",4511,Travel,TRV,Travel - International,TRV-INT,Travel - International - Flight,TRV-INT-FLT
+TXN_20241121_000430,VEHICLE MAINTENANCE #574,100.0,EUR,2025-03-12T17:37:35.473473,mobile,"San Antonio, TX",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000305,BEST BUY  784672,97.5,USD,2025-03-13T10:09:47.473473,mobile,"San Antonio, TX",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000283,AIRLINE LTD 379023,1003.78,USD,2025-03-13T12:39:44.473473,mobile,"Philadelphia, PA",4511,Travel,TRV,Travel - International,TRV-INT,Travel - International - Flight,TRV-INT-FLT
+TXN_20241121_000138,TST* UNIQLO 82007,245.47,USD,2025-03-13T12:55:56.473473,pos,"Hyderabad, TG",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000651,TARGET MUMBAI #3545,74.84,USD,2025-03-13T13:14:59.473473,online,,5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000407,INSURANCE PREMIUM CA 6427,5100.13,USD,2025-03-13T13:49:40.473473,atm,"Mumbai, MH",6300,Financial Services,FIN,Financial Services - Insurance,FIN-INS,Financial Services - Insurance - Premium,FIN-INS-PRM
+TXN_20241121_000876,PARKING FEE NY #1523 1313,33.7,GBP,2025-03-13T13:52:01.473473,online,Internet,7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000935,ZEPTO NY #4965 5170,171.09,USD,2025-03-13T14:01:50.473473,pos,"Chennai, TN",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000099,ONLINE COURSE PUNE,698.17,EUR,2025-03-13T14:25:59.473473,online,,8299,Education,EDU,Education - Courses,EDU-CRS,Education - Courses - Online,EDU-CRS-ONL
+TXN_20241121_000404,BANK FEE,3746.25,EUR,2025-03-13T16:25:38.473473,online,Online,6010,Financial Services,FIN,Financial Services - Banking,FIN-BNK,Financial Services - Banking - Fees,FIN-BNK-FEE
+TXN_20241121_000239,SWIGGY #3614,81.1,EUR,2025-03-13T20:45:49.473473,mobile,"New York, NY",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000513,H&M TX #9074 7404,33.58,AUD,2025-03-15T21:33:38.473473,online,Web Purchase,5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000917,FUEL GA 2803,10.88,USD,2025-03-16T02:29:01.473473,pos,"Pune, MH",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000838,DIESEL NY #3229,44.71,GBP,2025-03-16T15:56:13.473473,pos,"Chennai, TN",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000042,STRIPE * AMZN,122.8,USD,2025-03-16T16:34:38.473473,online,Internet,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000037,ELECTRIC COMPANY WA 240854,184.88,USD,2025-03-16T23:21:39.473473,pos,"Chicago, IL",4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000509,FUEL #8142,8.34,INR,2025-03-17T15:18:39.473473,pos,"Kolkata, WB",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000485,FUEL #275,28.68,USD,2025-03-18T10:49:23.473473,pos,"Bangalore, KA",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000134,GITHUB STORE 2449,542.73,GBP,2025-03-18T12:29:22.473473,online,,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Tools,TEC-SUB-TOL
+TXN_20241121_000185,TUITION,693.63,AUD,2025-03-18T14:05:28.473473,pos,"Houston, TX",8211,Education,EDU,Education - Tuition,EDU-TUI,Education - Tuition - School,EDU-TUI-SCH
+TXN_20241121_000195,DIESEL * IHPKP2YJ 527217,56.85,GBP,2025-03-19T02:57:47.473473,online,Internet,5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000786,UDEMY * BGGLFTF5,612.34,USD,2025-03-19T09:56:17.473473,online,,8299,Education,EDU,Education - Courses,EDU-CRS,Education - Courses - Online,EDU-CRS-ONL
+TXN_20241121_000413,AIRBNB NY #6401 9423,352.46,USD,2025-03-20T12:19:16.473473,mobile,"San Antonio, TX",7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000144,WATER BILL STORE 99933,286.38,INR,2025-03-20T17:19:42.473473,atm,"Ahmedabad, GJ",4900,Utilities,UTL,Utilities - Water,UTL-WAT,Utilities - Water - Bill,UTL-WAT-BIL
+TXN_20241121_000429,BISTRO GA,56.9,USD,2025-03-20T18:41:52.473473,pos,"Mumbai, MH",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000741,TST* WATER BILL,132.04,AUD,2025-03-20T20:09:26.473473,atm,"Chicago, IL",4900,Utilities,UTL,Utilities - Water,UTL-WAT,Utilities - Water - Bill,UTL-WAT-BIL
+TXN_20241121_000599,AUTO #9761 689,2000.0,AUD,2025-03-21T13:13:24.473473,pos,"New York, NY",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Auto/Rickshaw,TRV-LOC-AUT
+TXN_20241121_000534,COFFEE,86.05,USD,2025-03-21T15:04:10.473473,pos,"Hyderabad, TG",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000815,AZURE PUNE #9174 423485,2000.0,USD,2025-03-21T18:58:45.473473,online,Internet,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Cloud,TEC-SUB-CLD
+TXN_20241121_000343,PIZZA HUT * KCL1G4VT,150.0,USD,2025-03-22T04:05:53.473473,pos,"San Diego, CA",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000439,WALMART,500.0,EUR,2025-03-22T07:20:33.473473,mobile,"Pune, MH",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000646,JIRA,1246.15,GBP,2025-03-22T09:45:35.473473,online,,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Tools,TEC-SUB-TOL
+TXN_20241121_000846,ZOMATO WA #2415,82.91,USD,2025-03-22T18:11:02.473473,pos,"Bangalore, KA",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000408,WATER BILL IL,97.51,USD,2025-03-22T22:53:47.473473,mobile,"San Diego, CA",4900,Utilities,UTL,Utilities - Water,UTL-WAT,Utilities - Water - Bill,UTL-WAT-BIL
+TXN_20241121_000344,HOME LOAN PUNE #3860,3000.0,USD,2025-03-23T16:57:06.473473,pos,"Ahmedabad, GJ",6513,Housing,HSG,Housing - Mortgage,HSG-MTG,Housing - Mortgage - EMI,HSG-MTG-EMI
+TXN_20241121_000913,ELECTRICITY * FSDF8YRD,130.84,USD,2025-03-24T02:14:52.473473,atm,"San Antonio, TX",4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000556,TST* DOMINOS,54.04,INR,2025-03-24T11:01:40.473473,pos,"Houston, TX",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000987,AMAZON MARKETPLACE PUNE,186.29,USD,2025-03-25T10:53:15.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000964,STARBUCKS INC,50.88,EUR,2025-03-25T12:31:29.473473,mobile,"San Diego, CA",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000696,PIZZA HUT * DO6RGBSO,32.18,USD,2025-03-25T13:15:32.473473,pos,"Mumbai, MH",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000461,SQ * ZEPTO,395.28,INR,2025-03-25T14:47:54.473473,online,,5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000999,SQ * NONPROFIT 187183,147.12,EUR,2025-03-26T11:28:10.473473,pos,"Chicago, IL",8398,Charitable,CHR,Charitable - Nonprofits,CHR-NPR,Charitable - Nonprofits - Contribution,CHR-NPR-CON
+TXN_20241121_000649,SQ * LICENSE,1353.1,USD,2025-03-27T10:40:41.473473,atm,"Hyderabad, TG",5734,Technology,TEC,Technology - Software,TEC-SFT,Technology - Software - License,TEC-SFT-LIC
+TXN_20241121_000162,MEDICAL INSURANCE ONLINE,61.41,GBP,2025-03-27T13:22:00.473473,pos,"Ahmedabad, GJ",6300,Healthcare,HLT,Healthcare - Insurance,HLT-INS,Healthcare - Insurance - Premium,HLT-INS-PRM
+TXN_20241121_000758,EATERY,124.99,INR,2025-03-27T15:57:32.473473,pos,"Pune, MH",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000351,BISTRO * 1PEHV9U3,39.2,USD,2025-03-27T18:04:59.473473,pos,"Phoenix, AZ",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000314,SQ * RESTAURANT,105.73,USD,2025-03-27T20:39:40.473473,pos,"Bangalore, KA",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000697,INSURANCE LLC,1860.86,EUR,2025-03-28T12:33:25.473473,pos,"Ahmedabad, GJ",6300,Financial Services,FIN,Financial Services - Insurance,FIN-INS,Financial Services - Insurance - Premium,FIN-INS-PRM
+TXN_20241121_000325,PROFESSIONAL SERVICES NC #6121,431.51,USD,2025-03-28T18:54:24.473473,mobile,"Bangalore, KA",8999,Business Expenses,BUS,Business Expenses - Services,BUS-SRV,Business Expenses - Services - Professional,BUS-SRV-PRO
+TXN_20241121_000988,COFFEE GA #5070 520038,106.34,USD,2025-03-29T00:50:26.473473,atm,"Chennai, TN",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000090,METRO CARD GA #3532,289.56,USD,2025-03-29T17:53:08.473473,online,,4111,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Metro,TRV-LOC-MET
+TXN_20241121_000645,JIRA LTD,1873.27,INR,2025-03-29T20:37:44.473473,online,,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Tools,TEC-SUB-TOL
+TXN_20241121_000074,SBUX STORE 70842,107.02,USD,2025-03-30T08:24:22.473473,online,,5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000738,FLIPKART MUMBAI #5123,119.42,GBP,2025-03-31T20:36:39.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000127,AMZN #8422,500.0,EUR,2025-04-01T03:22:49.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000667,NETFLIX SUBSCRIPTION * 45LUNNIV,51.7,USD,2025-04-01T17:48:47.473473,online,Online,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Netflix,ENT-STR-NFX
+TXN_20241121_000568,ZOMATO FOOD,32.23,INR,2025-04-02T04:42:52.473473,atm,"San Diego, CA",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000591,JIRA MUMBAI #1465,266.11,INR,2025-04-02T20:16:41.473473,online,,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Tools,TEC-SUB-TOL
+TXN_20241121_000381,METRO RAIL VA #2451,2000.0,INR,2025-04-03T15:03:31.473473,online,Online,4111,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Metro,TRV-LOC-MET
+TXN_20241121_000542,CLOUD,856.34,USD,2025-04-04T10:02:49.473473,online,Internet,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Cloud,TEC-SUB-CLD
+TXN_20241121_000582,PARKING FEE TX,23.48,GBP,2025-04-04T10:49:12.473473,atm,"San Diego, CA",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000076,PRIME VIDEO #246,120.28,INR,2025-04-04T12:55:57.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000022,ZOMATO * 0P3Y9GHD,37.94,EUR,2025-04-05T13:12:03.473473,mobile,"Chicago, IL",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000589,BOOKING IL 59023,418.88,AUD,2025-04-05T17:06:28.473473,mobile,"Houston, TX",7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000453,BEST BUY * H9TUHPPX,66.0,GBP,2025-04-06T08:32:49.473473,pos,"San Antonio, TX",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000266,SQ * UBER TECHNOLOGIES 213,190.52,USD,2025-04-06T14:15:31.473473,mobile,"Bangalore, KA",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000496,FITNESS LLC 3859,200.0,INR,2025-04-06T15:17:32.473473,mobile,"Pune, MH",7997,Personal Care,PER,Personal Care - Gym,PER-GYM,Personal Care - Gym - Membership,PER-GYM-MEM
+TXN_20241121_000785,VISA INC 324989,2000.0,INR,2025-04-07T08:24:34.473473,atm,"Ahmedabad, GJ",9399,Travel,TRV,Travel - International,TRV-INT,Travel - International - Visa,TRV-INT-VIS
+TXN_20241121_000717,ZOMATO LLC,75.72,GBP,2025-04-07T12:16:45.473473,mobile,"Delhi, DL",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000287,SUBWAY GA 0153,906.89,AUD,2025-04-07T12:34:59.473473,pos,"Phoenix, AZ",4111,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Metro,TRV-LOC-MET
+TXN_20241121_000170,POWER BILL STORE 018080,133.28,EUR,2025-04-08T14:50:54.473473,online,,4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000030,SQ * ZOMATO 47421,80.67,USD,2025-04-09T18:46:53.473473,pos,"Houston, TX",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000522,COFFEE TX #1974,51.03,USD,2025-04-10T14:11:51.473473,mobile,"Chicago, IL",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000664,CAFE COFFEE DAY STORE,65.97,EUR,2025-04-11T10:54:43.473473,atm,"Hyderabad, TG",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000919,BANK FEE #7496,2256.13,USD,2025-04-11T18:34:17.473473,pos,"Houston, TX",6010,Financial Services,FIN,Financial Services - Banking,FIN-BNK,Financial Services - Banking - Fees,FIN-BNK-FEE
+TXN_20241121_000641,VISA FEE INC,1321.32,USD,2025-04-11T20:15:25.473473,pos,"New York, NY",9399,Travel,TRV,Travel - International,TRV-INT,Travel - International - Visa,TRV-INT-VIS
+TXN_20241121_000371,DMART * D4J00Q4G,378.22,GBP,2025-04-12T17:44:22.473473,online,,5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000621,AMAZON MARKETPLACE VA #9423,145.1,USD,2025-04-13T06:01:54.473473,online,Web Purchase,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000078,RENT * 6VUADFZR,500.0,USD,2025-04-13T10:15:09.473473,atm,"San Antonio, TX",6513,Housing,HSG,Housing - Rent,HSG-RNT,Housing - Rent - Monthly,HSG-RNT-MNT
+TXN_20241121_000774,AMAZON PRIME #2842,47.34,EUR,2025-04-13T12:43:45.473473,pos,"Ahmedabad, GJ",4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000488,STRIPE * BLINKIT 049,116.19,USD,2025-04-13T23:56:20.473473,pos,"Ahmedabad, GJ",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000276,COURSERA * C4A9H51B,1600.94,INR,2025-04-14T16:58:01.473473,online,,8299,Education,EDU,Education - Courses,EDU-CRS,Education - Courses - Online,EDU-CRS-ONL
+TXN_20241121_000547,DIESEL DELHI #7471,18.96,USD,2025-04-14T18:32:11.473473,pos,"Delhi, DL",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000086,SBUX * NXGPR11L,150.0,USD,2025-04-14T18:54:19.473473,pos,"Houston, TX",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000150,RELIANCE DIGITAL * IV4LBDRB,500.0,USD,2025-04-15T09:00:26.473473,pos,"Hyderabad, TG",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000406,APOLLO PHARMACY ONLINE,168.51,EUR,2025-04-15T09:07:39.473473,pos,"Bangalore, KA",5912,Healthcare,HLT,Healthcare - Pharmacy,HLT-PHR,Healthcare - Pharmacy - Medicine,HLT-PHR-MED
+TXN_20241121_000200,WIFI #4454,144.68,GBP,2025-04-15T12:17:34.473473,pos,"Chennai, TN",4899,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Broadband,UTL-INT-BRD
+TXN_20241121_000674,CROMA #5338,47.35,EUR,2025-04-15T23:37:01.473473,pos,"San Antonio, TX",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000057,RELIANCE DIGITAL * OGU2K6S5,185.56,EUR,2025-04-16T08:57:21.473473,mobile,"Delhi, DL",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000205,STRIPE * AMAZON PRIME,33.59,USD,2025-04-16T19:29:21.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000293,FUEL PUNE #5032,70.13,EUR,2025-04-16T19:56:48.473473,online,,5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000626,PARKING LTD 968,62.59,USD,2025-04-17T12:33:17.473473,atm,"San Diego, CA",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000813,UNIVERSITY NY,1345.19,EUR,2025-04-17T17:08:22.473473,online,,8220,Education,EDU,Education - Tuition,EDU-TUI,Education - Tuition - College,EDU-TUI-COL
+TXN_20241121_000865,PARKING CA,22.95,USD,2025-04-18T09:40:31.473473,pos,"Phoenix, AZ",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000981,POWER BILL FL #8573,140.73,USD,2025-04-18T12:57:35.473473,atm,"Kolkata, WB",4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000356,SHELL #6084,99.42,USD,2025-04-18T16:06:01.473473,pos,"San Diego, CA",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000818,STRIPE * DOCTOR,116.59,EUR,2025-04-18T19:45:12.473473,mobile,"New York, NY",8011,Healthcare,HLT,Healthcare - Hospital,HLT-HOS,Healthcare - Hospital - Consultation,HLT-HOS-CON
+TXN_20241121_000019,ONLINE COURSE CA #6335,5000.0,EUR,2025-04-18T20:50:43.473473,online,,8299,Education,EDU,Education - Courses,EDU-CRS,Education - Courses - Online,EDU-CRS-ONL
+TXN_20241121_000806,UDEMY,444.91,AUD,2025-04-18T22:53:29.473473,online,,8299,Education,EDU,Education - Courses,EDU-CRS,Education - Courses - Online,EDU-CRS-ONL
+TXN_20241121_000324,SCHOOL,3966.58,EUR,2025-04-19T01:46:34.473473,mobile,"Kolkata, WB",8211,Education,EDU,Education - Tuition,EDU-TUI,Education - Tuition - School,EDU-TUI-SCH
+TXN_20241121_000103,RESTAURANT 21646,150.0,EUR,2025-04-19T07:57:50.473473,atm,"Phoenix, AZ",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000272,UDEMY,2079.16,USD,2025-04-19T10:55:34.473473,online,,8299,Education,EDU,Education - Courses,EDU-CRS,Education - Courses - Online,EDU-CRS-ONL
+TXN_20241121_000691,METRO RAIL STORE 450885,352.54,USD,2025-04-20T10:03:28.473473,atm,"New York, NY",4111,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Metro,TRV-LOC-MET
+TXN_20241121_000364,DOCTOR 911104,500.0,GBP,2025-04-20T14:54:31.473473,pos,"San Diego, CA",8011,Healthcare,HLT,Healthcare - Hospital,HLT-HOS,Healthcare - Hospital - Consultation,HLT-HOS-CON
+TXN_20241121_000571,SQ * HOME LOAN 914,827.82,USD,2025-04-20T15:04:19.473473,online,Web Purchase,6513,Housing,HSG,Housing - Mortgage,HSG-MTG,Housing - Mortgage - EMI,HSG-MTG-EMI
+TXN_20241121_000322,PP* INTERNET,150.55,GBP,2025-04-20T21:20:28.473473,online,Web Purchase,4899,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Broadband,UTL-INT-BRD
+TXN_20241121_000524,RENOVATION,1639.46,GBP,2025-04-21T18:56:41.473473,online,,1520,Housing,HSG,Housing - Home Improvement,HSG-IMP,Housing - Home Improvement - Repair,HSG-IMP-REP
+TXN_20241121_000577,STARBUCKS,117.45,USD,2025-04-21T20:02:56.473473,online,Web Purchase,5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000136,TARGET NY,500.0,USD,2025-04-21T23:13:16.473473,online,,5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000120,SKILLSHARE 7188,1089.19,USD,2025-04-22T11:55:01.473473,online,,8299,Education,EDU,Education - Courses,EDU-CRS,Education - Courses - Online,EDU-CRS-ONL
+TXN_20241121_000980,SWIGGY FOOD,87.79,USD,2025-04-22T12:52:45.473473,pos,"New York, NY",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000520,INDIAN OIL #5718,100.0,USD,2025-04-23T17:44:57.473473,pos,"Pune, MH",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000142,ZEPTO,184.29,USD,2025-04-23T18:35:16.473473,mobile,"Kolkata, WB",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000286,OTHER * VDKH92Q8,106.48,GBP,2025-04-23T19:08:56.473473,online,Internet,,Miscellaneous,MSC,Miscellaneous - Uncategorized,MSC-UNC,Miscellaneous - Uncategorized - Other,MSC-UNC-OTH
+TXN_20241121_000081,VEHICLE MAINTENANCE GA #9616 782238,46.14,USD,2025-04-24T17:13:44.473473,mobile,"San Diego, CA",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000514,POWER BILL WA,144.0,USD,2025-04-25T10:16:38.473473,pos,"Houston, TX",4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000842,FUEL LLC 475841,16.92,INR,2025-04-25T15:37:20.473473,pos,"New York, NY",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000222,ADOBE #4318,169.43,USD,2025-04-25T17:03:45.473473,mobile,"San Antonio, TX",5734,Technology,TEC,Technology - Software,TEC-SFT,Technology - Software - License,TEC-SFT-LIC
+TXN_20241121_000982,ELECTRIC COMPANY * TB4W2BC7,36.42,INR,2025-04-25T19:58:11.473473,online,,4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000984,PHONE 4799,889.21,EUR,2025-04-26T02:37:23.473473,atm,"Bangalore, KA",5732,Technology,TEC,Technology - Electronics,TEC-ELE,Technology - Electronics - Mobile,TEC-ELE-MOB
+TXN_20241121_000793,TST* VEHICLE MAINTENANCE,92.83,USD,2025-04-26T08:14:56.473473,pos,"Ahmedabad, GJ",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000762,HAIRCUT 93783,67.64,USD,2025-04-26T12:45:44.473473,atm,"Houston, TX",7230,Personal Care,PER,Personal Care - Salon,PER-SAL,Personal Care - Salon - Haircut,PER-SAL-HAR
+TXN_20241121_000505,TST* LICENSE,500.89,AUD,2025-04-27T05:39:32.473473,atm,"San Diego, CA",5734,Technology,TEC,Technology - Software,TEC-SFT,Technology - Software - License,TEC-SFT-LIC
+TXN_20241121_000615,REPAIR NC #4711,38.43,USD,2025-04-27T09:46:13.473473,atm,"San Diego, CA",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000240,BIGBASKET,132.87,INR,2025-04-27T20:09:46.473473,mobile,"Los Angeles, CA",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000827,BLINKIT INC,63.05,USD,2025-04-28T06:28:55.473473,atm,"Philadelphia, PA",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000198,HOTEL * 0J8GIM8D 562,1073.57,USD,2025-04-28T09:34:11.473473,pos,"Philadelphia, PA",7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000053,FUEL HYDERABAD,36.03,USD,2025-04-28T13:46:09.473473,pos,"Los Angeles, CA",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000722,SWIGGY FOOD 6983,90.92,USD,2025-04-28T20:33:43.473473,mobile,"New York, NY",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000092,WIFI GA 0997,24.93,INR,2025-04-28T20:51:21.473473,atm,"Kolkata, WB",4899,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Broadband,UTL-INT-BRD
+TXN_20241121_000323,PREPAID WA #2830 066,300.0,USD,2025-04-28T20:52:19.473473,online,,4814,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Mobile,UTL-INT-MOB
+TXN_20241121_000976,SPA * AC6CZLAV,37.02,GBP,2025-04-28T22:43:09.473473,mobile,"Delhi, DL",7298,Personal Care,PER,Personal Care - Wellness,PER-WEL,Personal Care - Wellness - Spa,PER-WEL-SPA
+TXN_20241121_000487,TST* MUTUAL FUND,924.0,USD,2025-04-29T09:48:16.473473,atm,"Los Angeles, CA",6211,Financial Services,FIN,Financial Services - Investment,FIN-INV,Financial Services - Investment - Trading,FIN-INV-TRD
+TXN_20241121_000307,MOBILE 4191,2000.0,USD,2025-04-29T11:36:49.473473,atm,"Kolkata, WB",5732,Technology,TEC,Technology - Electronics,TEC-ELE,Technology - Electronics - Mobile,TEC-ELE-MOB
+TXN_20241121_000923,POWER BILL GA,49.22,GBP,2025-04-29T14:22:43.473473,mobile,"Phoenix, AZ",4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000702,SWIGGY DELIVERY * MLSCC4NQ 96135,150.0,USD,2025-04-29T16:53:59.473473,online,,5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000378,FINE DINING 32859,27.79,USD,2025-04-30T07:52:09.473473,pos,"Delhi, DL",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000273,BEST BUY * VOL5NCGG,120.06,INR,2025-04-30T14:58:46.473473,pos,"Philadelphia, PA",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000446,FLIPKART TX #1551,184.48,GBP,2025-04-30T16:00:03.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000901,AMAZON MARKETPLACE 54362,48.89,GBP,2025-04-30T18:06:46.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000093,BOOKMYSHOW LTD,41.08,EUR,2025-05-01T12:48:51.473473,pos,"Philadelphia, PA",7922,Entertainment,ENT,Entertainment - Events,ENT-EVT,Entertainment - Events - Concerts,ENT-EVT-CON
+TXN_20241121_000755,PP* BOOKS,3850.29,USD,2025-05-01T18:13:56.473473,atm,"Kolkata, WB",5942,Education,EDU,Education - Books,EDU-BOK,Education - Books - Purchase,EDU-BOK-PUR
+TXN_20241121_000931,POSTPAID 8045,122.89,INR,2025-05-01T20:28:47.473473,atm,"Ahmedabad, GJ",4814,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Mobile,UTL-INT-MOB
+TXN_20241121_000617,BARISTA GA #4357 958,71.11,GBP,2025-05-02T00:14:56.473473,online,,5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000573,PP* PARKING,90.07,GBP,2025-05-02T10:42:46.473473,pos,"Mumbai, MH",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000820,CAFE FL #323,31.76,EUR,2025-05-02T17:49:55.473473,pos,"Los Angeles, CA",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000447,UBER EATS STORE,606.22,USD,2025-05-02T18:00:46.473473,pos,"New York, NY",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000879,SQ * POSTPAID,145.45,GBP,2025-05-02T20:58:08.473473,online,,4814,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Mobile,UTL-INT-MOB
+TXN_20241121_000458,CLOTHING STORE VA,446.55,INR,2025-05-03T06:30:27.473473,pos,"San Diego, CA",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000511,BARISTA,19.83,USD,2025-05-03T11:16:04.473473,online,,5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000191,TST* GAS STATION,55.53,INR,2025-05-03T16:08:47.473473,pos,"Ahmedabad, GJ",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000880,UBER,1483.81,USD,2025-05-04T07:24:30.473473,pos,"Mumbai, MH",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000043,JIO FIBER STORE,27.7,GBP,2025-05-04T11:30:16.473473,atm,"San Antonio, TX",4899,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Broadband,UTL-INT-BRD
+TXN_20241121_000434,COFFEE 4344,51.22,INR,2025-05-04T21:14:59.473473,pos,"Mumbai, MH",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000889,OTHER #9052,74.58,USD,2025-05-05T10:40:02.473473,atm,"San Antonio, TX",,Miscellaneous,MSC,Miscellaneous - Uncategorized,MSC-UNC,Miscellaneous - Uncategorized - Other,MSC-UNC-OTH
+TXN_20241121_000236,WATER #8399,222.16,USD,2025-05-05T19:36:58.473473,pos,"Mumbai, MH",4900,Utilities,UTL,Utilities - Water,UTL-WAT,Utilities - Water - Bill,UTL-WAT-BIL
+TXN_20241121_000346,TST* CLOTHING STORE,356.77,USD,2025-05-06T06:57:25.473473,pos,"Bangalore, KA",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000506,CONCERT #3903,52.82,USD,2025-05-06T12:08:11.473473,pos,"Chicago, IL",7922,Entertainment,ENT,Entertainment - Events,ENT-EVT,Entertainment - Events - Concerts,ENT-EVT-CON
+TXN_20241121_000297,EATERY * UE6GIEGI,150.0,USD,2025-05-06T12:50:22.473473,pos,"Chicago, IL",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000071,BP VA,23.86,USD,2025-05-06T14:40:07.473473,pos,"Bangalore, KA",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000188,FUEL VA #6011,23.66,USD,2025-05-07T12:38:46.473473,pos,"Delhi, DL",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000251,BLINKIT,75.15,USD,2025-05-07T15:27:06.473473,mobile,"Mumbai, MH",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000469,DMART,410.12,EUR,2025-05-08T12:52:38.473473,pos,"Kolkata, WB",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000232,COFFEE NC,8.24,USD,2025-05-09T13:45:55.473473,mobile,"Chicago, IL",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000750,OLA MUMBAI #4384,629.13,USD,2025-05-09T14:13:42.473473,online,Internet,4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Auto/Rickshaw,TRV-LOC-AUT
+TXN_20241121_000462,STRIPE * OYO,850.21,USD,2025-05-09T17:37:11.473473,mobile,"Chennai, TN",7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000163,SQ * KFC 65703,35.44,INR,2025-05-10T11:11:25.473473,pos,"Chennai, TN",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000233,FUEL * 3OSC93C4,6.72,EUR,2025-05-11T21:07:14.473473,pos,"Phoenix, AZ",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000870,STARBUCKS HYDERABAD,133.1,USD,2025-05-11T22:33:14.473473,online,Online,5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000791,NONPROFIT FL #2860 7437,270.8,AUD,2025-05-12T14:02:40.473473,mobile,"Kolkata, WB",8398,Charitable,CHR,Charitable - Nonprofits,CHR-NPR,Charitable - Nonprofits - Contribution,CHR-NPR-CON
+TXN_20241121_000182,AWS,562.58,USD,2025-05-12T15:26:33.473473,online,,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Cloud,TEC-SUB-CLD
+TXN_20241121_000669,GYM INC 3804,49.51,GBP,2025-05-13T09:52:51.473473,mobile,"Phoenix, AZ",7997,Personal Care,PER,Personal Care - Gym,PER-GYM,Personal Care - Gym - Membership,PER-GYM-MEM
+TXN_20241121_000924,DOMINOS #555,57.07,EUR,2025-05-13T11:51:13.473473,pos,"Ahmedabad, GJ",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000593,SWIGGY * YKJFR7PV 7800,97.29,USD,2025-05-13T16:33:53.473473,atm,"Bangalore, KA",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000553,HOUSE RENT STORE,3000.0,INR,2025-05-13T16:42:32.473473,mobile,"Chennai, TN",6513,Housing,HSG,Housing - Rent,HSG-RNT,Housing - Rent - Monthly,HSG-RNT-MNT
+TXN_20241121_000061,TST* CINEPOLIS,129.06,USD,2025-05-14T11:44:09.473473,pos,"San Diego, CA",7832,Entertainment,ENT,Entertainment - Movies,ENT-MOV,Entertainment - Movies - Theater,ENT-MOV-THR
+TXN_20241121_000263,CAR SERVICE * R5N77AJ2,57.3,GBP,2025-05-14T18:43:21.473473,mobile,"San Antonio, TX",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000766,CLOTHING STORE,500.0,USD,2025-05-14T20:26:54.473473,pos,"Philadelphia, PA",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000306,CONTRIBUTION CA 159,106.05,USD,2025-05-15T18:50:59.473473,online,Internet,8398,Charitable,CHR,Charitable - Nonprofits,CHR-NPR,Charitable - Nonprofits - Contribution,CHR-NPR-CON
+TXN_20241121_000723,PARKING FEE,16.24,USD,2025-05-16T06:14:59.473473,pos,"Bangalore, KA",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000682,BROADBAND,44.32,AUD,2025-05-16T15:08:17.473473,online,,4899,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Broadband,UTL-INT-BRD
+TXN_20241121_000159,REPAIR * T259QL6M,52.55,EUR,2025-05-16T16:00:53.473473,pos,"San Diego, CA",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000949,LAPTOP IL 107032,751.79,USD,2025-05-16T17:52:57.473473,pos,"Kolkata, WB",5732,Technology,TEC,Technology - Electronics,TEC-ELE,Technology - Electronics - Computer,TEC-ELE-CMP
+TXN_20241121_000494,FLIPKART ONLINE  07500,172.12,USD,2025-05-16T18:39:05.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000570,ELECTRIC COMPANY #5939 345279,80.89,EUR,2025-05-16T19:51:37.473473,atm,"New York, NY",4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000428,FLIPKART ONLINE 298978,151.39,AUD,2025-05-17T00:55:42.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000027,REPAIR #2130,63.0,USD,2025-05-18T11:49:06.473473,atm,"Bangalore, KA",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000209,ELECTRIC COMPANY #6432,299.13,AUD,2025-05-19T10:51:32.473473,pos,"Mumbai, MH",4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000123,SQ * INSTACART,190.59,AUD,2025-05-19T16:38:14.473473,mobile,"Mumbai, MH",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000619,SQ * VEHICLE MAINTENANCE,53.21,INR,2025-05-19T19:22:55.473473,atm,"San Antonio, TX",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000819,UBER TECHNOLOGIES PUNE #3742,253.09,EUR,2025-05-20T01:58:44.473473,pos,"Pune, MH",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000733,HOTSTAR HYDERABAD,179.2,USD,2025-05-20T13:36:57.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000437,BEST BUY MA #8815,49.02,EUR,2025-05-20T20:06:07.473473,pos,"Delhi, DL",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000979,SQ * WATER,64.0,USD,2025-05-20T20:52:23.473473,atm,"New York, NY",4900,Utilities,UTL,Utilities - Water,UTL-WAT,Utilities - Water - Bill,UTL-WAT-BIL
+TXN_20241121_000637,GITHUB GA #1653,272.89,INR,2025-05-21T08:23:20.473473,online,Online,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Tools,TEC-SUB-TOL
+TXN_20241121_000002,INDIAN OIL * EI5540O0,10.57,GBP,2025-05-21T14:50:30.473473,pos,"San Antonio, TX",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000151,ELECTRIC COMPANY #5582 25917,132.58,USD,2025-05-21T16:12:53.473473,atm,"Mumbai, MH",4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000211,BP NY,46.89,USD,2025-05-22T09:34:55.473473,pos,"Bangalore, KA",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000175,UBER MA #9398,1237.51,INR,2025-05-22T09:50:59.473473,atm,"Bangalore, KA",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000234,STRIPE * EMI,2760.21,USD,2025-05-22T16:54:35.473473,online,,6513,Housing,HSG,Housing - Mortgage,HSG-MTG,Housing - Mortgage - EMI,HSG-MTG-EMI
+TXN_20241121_000152,PP* PETROL,21.84,USD,2025-05-22T20:11:03.473473,pos,"Chicago, IL",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000508,BEST BUY,425.21,EUR,2025-05-22T20:13:48.473473,pos,"Hyderabad, TG",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000780,WATER * 6S5CYN50,93.0,GBP,2025-05-23T09:13:49.473473,atm,"Pune, MH",4900,Utilities,UTL,Utilities - Water,UTL-WAT,Utilities - Water - Bill,UTL-WAT-BIL
+TXN_20241121_000105,REPAIR * KM8N1AEX 342,100.0,INR,2025-05-24T08:56:36.473473,atm,"Houston, TX",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000416,INSURANCE * BJTE46IH 4539,1463.88,INR,2025-05-24T20:41:38.473473,mobile,"Hyderabad, TG",6300,Financial Services,FIN,Financial Services - Insurance,FIN-INS,Financial Services - Insurance - Premium,FIN-INS-PRM
+TXN_20241121_000321,HOTSTAR,200.0,INR,2025-05-24T22:30:57.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000131,TARGET * KJMW8SCU,464.37,AUD,2025-05-24T23:52:59.473473,mobile,"Kolkata, WB",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000916,AIRBNB HYDERABAD 407,486.69,EUR,2025-05-25T01:35:09.473473,mobile,"Chicago, IL",7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000130,PP* FUEL,38.69,USD,2025-05-25T06:13:30.473473,pos,"Phoenix, AZ",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000402,STRIPE * AMAZON,31.27,USD,2025-05-25T09:49:01.473473,online,Online,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000380,MCDONALDS,76.35,USD,2025-05-25T19:31:26.473473,pos,"Chennai, TN",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000337,STATIONERY #4051 621,400.08,USD,2025-05-25T19:33:10.473473,online,,5943,Business Expenses,BUS,Business Expenses - Office,BUS-OFC,Business Expenses - Office - Supplies,BUS-OFC-SUP
+TXN_20241121_000844,SWIGGY FOOD #5620,150.0,GBP,2025-05-25T19:34:41.473473,online,Internet,5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000574,SWIGGY IL 039187,149.13,GBP,2025-05-25T21:09:58.473473,mobile,"Kolkata, WB",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000422,COFFEE,30.98,USD,2025-05-26T10:23:01.473473,atm,"Delhi, DL",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000104,NGO,333.84,USD,2025-05-26T18:56:21.473473,pos,"San Diego, CA",8398,Charitable,CHR,Charitable - Donations,CHR-DON,Charitable - Donations - NGO,CHR-DON-NGO
+TXN_20241121_000000,STRIPE * STATIONERY 363,118.05,AUD,2025-05-27T16:07:15.473473,online,,5943,Business Expenses,BUS,Business Expenses - Office,BUS-OFC,Business Expenses - Office - Supplies,BUS-OFC-SUP
+TXN_20241121_000776,PP* NETFLIX,62.82,USD,2025-05-27T21:46:59.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Netflix,ENT-STR-NFX
+TXN_20241121_000229,NETFLIX #5620,64.62,USD,2025-05-28T10:57:15.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Netflix,ENT-STR-NFX
+TXN_20241121_000839,SMARTPHONE * 5FF31SS3 1318,243.92,EUR,2025-05-28T14:21:48.473473,pos,"Mumbai, MH",5732,Technology,TEC,Technology - Electronics,TEC-ELE,Technology - Electronics - Mobile,TEC-ELE-MOB
+TXN_20241121_000678,RELIANCE DIGITAL GA #8739,323.17,USD,2025-05-28T20:23:41.473473,pos,"San Diego, CA",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000208,CLOTHING STORE BANGALORE #3369,145.64,USD,2025-05-29T13:39:14.473473,pos,"Philadelphia, PA",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000013,WELLNESS #4479,47.75,INR,2025-05-29T17:33:10.473473,atm,"San Antonio, TX",7298,Personal Care,PER,Personal Care - Wellness,PER-WEL,Personal Care - Wellness - Spa,PER-WEL-SPA
+TXN_20241121_000097,CROMA VA #878,126.04,GBP,2025-05-29T17:38:50.473473,pos,"Philadelphia, PA",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000535,STARBUCKS,38.21,USD,2025-05-30T12:23:20.473473,pos,"Chicago, IL",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000334,ATM FEE,1847.06,USD,2025-05-30T14:10:45.473473,online,Internet,6010,Financial Services,FIN,Financial Services - Banking,FIN-BNK,Financial Services - Banking - Fees,FIN-BNK-FEE
+TXN_20241121_000951,PROFESSIONAL SERVICES 7171,330.18,INR,2025-05-30T19:44:37.473473,pos,"Chennai, TN",8999,Business Expenses,BUS,Business Expenses - Services,BUS-SRV,Business Expenses - Services - Professional,BUS-SRV-PRO
+TXN_20241121_000098,RENTAL PAYMENT #7780,1457.17,EUR,2025-05-31T11:35:34.473473,atm,"Delhi, DL",6513,Housing,HSG,Housing - Rent,HSG-RNT,Housing - Rent - Monthly,HSG-RNT-MNT
+TXN_20241121_000746,HAIRCUT FL 593126,57.24,EUR,2025-06-01T14:36:22.473473,atm,"Pune, MH",7230,Personal Care,PER,Personal Care - Salon,PER-SAL,Personal Care - Salon - Haircut,PER-SAL-HAR
+TXN_20241121_000269,CLOTHING STORE * OPG4WQYP,329.77,GBP,2025-06-02T05:23:54.473473,pos,"Houston, TX",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000648,FLIPKART ONLINE MA #9547,500.0,GBP,2025-06-02T10:45:08.473473,online,Internet,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000459,SWIGGY FOOD #5352,23.83,USD,2025-06-02T12:14:40.473473,online,Online,5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000956,H&M,82.8,USD,2025-06-02T16:56:11.473473,pos,"Phoenix, AZ",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000495,ZERODHA LLC 357806,778.02,INR,2025-06-03T09:17:09.473473,pos,"Chennai, TN",6211,Financial Services,FIN,Financial Services - Investment,FIN-INV,Financial Services - Investment - Trading,FIN-INV-TRD
+TXN_20241121_000609,SQ * BROADBAND,27.01,EUR,2025-06-03T10:45:10.473473,mobile,"Chennai, TN",4899,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Broadband,UTL-INT-BRD
+TXN_20241121_000947,PIZZA HUT,14.7,USD,2025-06-03T19:16:42.473473,pos,"Bangalore, KA",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000006,NONPROFIT #2367 2799,500.0,USD,2025-06-04T09:34:46.473473,mobile,"San Antonio, TX",8398,Charitable,CHR,Charitable - Nonprofits,CHR-NPR,Charitable - Nonprofits - Contribution,CHR-NPR-CON
+TXN_20241121_000288,STRIPE * COLLEGE FEE 12329,2462.56,INR,2025-06-04T20:22:32.473473,atm,"Chennai, TN",8220,Education,EDU,Education - Tuition,EDU-TUI,Education - Tuition - College,EDU-TUI-COL
+TXN_20241121_000775,SQ * TEXTBOOKS 45283,4864.19,USD,2025-06-05T00:41:56.473473,mobile,"Philadelphia, PA",5942,Education,EDU,Education - Books,EDU-BOK,Education - Books - Purchase,EDU-BOK-PUR
+TXN_20241121_000427,WELLNESS DELHI,94.92,USD,2025-06-05T20:58:26.473473,pos,"Delhi, DL",7298,Personal Care,PER,Personal Care - Wellness,PER-WEL,Personal Care - Wellness - Spa,PER-WEL-SPA
+TXN_20241121_000888,SWIGGY FOOD,34.94,EUR,2025-06-06T11:13:54.473473,mobile,"Pune, MH",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000095,STRIPE * YOUTUBE PREMIUM,45.56,EUR,2025-06-06T14:40:25.473473,online,Web Purchase,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000618,WALMART INC 7048,370.8,INR,2025-06-06T14:54:17.473473,atm,"Houston, TX",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000858,SQ * BIGBASKET,25.6,USD,2025-06-07T08:54:42.473473,mobile,"New York, NY",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000033,EATERY ONLINE 2263,41.59,EUR,2025-06-08T05:24:30.473473,pos,"Chicago, IL",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000385,STARBUCKS,150.0,EUR,2025-06-09T18:20:20.473473,atm,"Delhi, DL",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000857,PARKING LOT * 294TSRE3,38.67,AUD,2025-06-09T20:49:02.473473,online,Web Purchase,7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000133,RENTAL PAYMENT,1392.32,USD,2025-06-10T06:14:57.473473,online,,6513,Housing,HSG,Housing - Rent,HSG-RNT,Housing - Rent - Monthly,HSG-RNT-MNT
+TXN_20241121_000089,PC HYDERABAD #4383 2086,194.91,INR,2025-06-10T12:09:45.473473,pos,"Chicago, IL",5732,Technology,TEC,Technology - Electronics,TEC-ELE,Technology - Electronics - Computer,TEC-ELE-CMP
+TXN_20241121_000246,STRIPE * NETFLIX SUBSCRIPTION 641635,117.16,EUR,2025-06-10T17:46:50.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Netflix,ENT-STR-NFX
+TXN_20241121_000978,CAFE COFFEE DAY * 3478HYPF 516125,43.85,USD,2025-06-11T01:08:08.473473,online,,5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000616,CONSULTING,273.76,USD,2025-06-11T11:46:38.473473,atm,"Houston, TX",8999,Business Expenses,BUS,Business Expenses - Services,BUS-SRV,Business Expenses - Services - Professional,BUS-SRV-PRO
+TXN_20241121_000811,MUTUAL FUND 803701,10000.0,EUR,2025-06-11T14:44:52.473473,mobile,"Delhi, DL",6211,Financial Services,FIN,Financial Services - Investment,FIN-INV,Financial Services - Investment - Trading,FIN-INV-TRD
+TXN_20241121_000840,VISA FEE 0656,1360.28,INR,2025-06-12T08:56:49.473473,online,,9399,Travel,TRV,Travel - International,TRV-INT,Travel - International - Visa,TRV-INT-VIS
+TXN_20241121_000701,ZARA * 75WE03T6,81.78,USD,2025-06-12T10:24:50.473473,pos,"San Antonio, TX",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000040,AMAZON PRIME * G1I09R15,28.81,USD,2025-06-12T10:55:41.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000657,DIESEL,46.91,GBP,2025-06-13T05:12:20.473473,pos,"Los Angeles, CA",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000861,STRIPE * RICKSHAW,492.59,USD,2025-06-13T06:38:19.473473,mobile,"Pune, MH",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Auto/Rickshaw,TRV-LOC-AUT
+TXN_20241121_000049,STATIONERY NC 10784,662.0,EUR,2025-06-13T06:59:12.473473,online,Internet,5943,Business Expenses,BUS,Business Expenses - Office,BUS-OFC,Business Expenses - Office - Supplies,BUS-OFC-SUP
+TXN_20241121_000985,INSURANCE VA,1440.81,INR,2025-06-13T12:23:16.473473,mobile,"San Antonio, TX",6300,Financial Services,FIN,Financial Services - Insurance,FIN-INS,Financial Services - Insurance - Premium,FIN-INS-PRM
+TXN_20241121_000328,BIGBASKET #4103,500.0,USD,2025-06-13T16:54:33.473473,online,Online,5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000620,AMC IL #1655,63.78,USD,2025-06-13T17:40:24.473473,atm,"San Diego, CA",7832,Entertainment,ENT,Entertainment - Movies,ENT-MOV,Entertainment - Movies - Theater,ENT-MOV-THR
+TXN_20241121_000882,SQ * BLINKIT 268,131.75,EUR,2025-06-13T18:29:26.473473,atm,"Ahmedabad, GJ",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000699,SQ * PHONE,943.04,EUR,2025-06-13T19:49:18.473473,pos,"Phoenix, AZ",5732,Technology,TEC,Technology - Electronics,TEC-ELE,Technology - Electronics - Mobile,TEC-ELE-MOB
+TXN_20241121_000333,SWIGGY #5369,150.0,USD,2025-06-14T01:51:27.473473,atm,"Pune, MH",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000974,CAFE * 94NK9GYI 588595,81.28,USD,2025-06-14T05:49:06.473473,pos,"Bangalore, KA",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000225,CAFE VA #2229 6338,108.13,USD,2025-06-14T20:35:35.473473,pos,"San Antonio, TX",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000304,NONPROFIT BANGALORE #3385,85.7,USD,2025-06-15T22:32:35.473473,atm,"Kolkata, WB",8398,Charitable,CHR,Charitable - Nonprofits,CHR-NPR,Charitable - Nonprofits - Contribution,CHR-NPR-CON
+TXN_20241121_000516,PAYPAL * MICROSOFT,176.11,EUR,2025-06-16T11:16:59.473473,pos,"Philadelphia, PA",5734,Technology,TEC,Technology - Software,TEC-SFT,Technology - Software - License,TEC-SFT-LIC
+TXN_20241121_000039,MASSAGE 512670,23.4,INR,2025-06-16T12:44:17.473473,mobile,"Chennai, TN",7298,Personal Care,PER,Personal Care - Wellness,PER-WEL,Personal Care - Wellness - Spa,PER-WEL-SPA
+TXN_20241121_000852,MCDONALDS LLC 656065,16.03,EUR,2025-06-17T14:42:34.473473,pos,"Kolkata, WB",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000905,WELLNESS LTD 475,66.2,INR,2025-06-17T15:38:52.473473,online,,7298,Personal Care,PER,Personal Care - Wellness,PER-WEL,Personal Care - Wellness - Spa,PER-WEL-SPA
+TXN_20241121_000586,ZOMATO #2912,150.0,USD,2025-06-19T12:29:25.473473,pos,"Los Angeles, CA",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000217,UNIQLO DELHI #1415,188.88,USD,2025-06-19T12:55:31.473473,pos,"San Diego, CA",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000481,KFC #5038,13.29,EUR,2025-06-19T17:09:38.473473,pos,"Hyderabad, TG",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000757,PARKING #2756 9234,100.0,USD,2025-06-20T09:01:42.473473,online,,7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000912,BISTRO,87.45,USD,2025-06-20T11:51:36.473473,pos,"San Diego, CA",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000051,STARBUCKS,48.9,INR,2025-06-20T15:26:16.473473,mobile,"Delhi, DL",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000695,BIGBASKET * S8BOBPNN,289.26,USD,2025-06-21T15:42:43.473473,online,,5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000841,PP* HOTEL,538.63,USD,2025-06-21T17:59:13.473473,mobile,"Bangalore, KA",7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000181,POSTPAID #6058,32.34,USD,2025-06-21T21:33:08.473473,atm,"Phoenix, AZ",4814,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Mobile,UTL-INT-MOB
+TXN_20241121_000920,INSTACART,243.1,EUR,2025-06-22T09:50:02.473473,pos,"New York, NY",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000483,PP* TARGET,500.0,USD,2025-06-23T07:42:54.473473,atm,"Phoenix, AZ",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000635,BARBER * PR7WZOPD 456,95.41,EUR,2025-06-23T20:40:53.473473,mobile,"Hyderabad, TG",7230,Personal Care,PER,Personal Care - Salon,PER-SAL,Personal Care - Salon - Haircut,PER-SAL-HAR
+TXN_20241121_000473,MORTGAGE LLC,1802.24,AUD,2025-06-25T11:14:48.473473,atm,"Pune, MH",6513,Housing,HSG,Housing - Mortgage,HSG-MTG,Housing - Mortgage - EMI,HSG-MTG-EMI
+TXN_20241121_000623,ATM FEE 19507,10000.0,INR,2025-06-25T13:55:57.473473,atm,"Los Angeles, CA",6010,Financial Services,FIN,Financial Services - Banking,FIN-BNK,Financial Services - Banking - Fees,FIN-BNK-FEE
+TXN_20241121_000759,AMZN * VCO7GGP0 55437,500.0,USD,2025-06-25T15:41:07.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000655,PREPAID ONLINE 6908,149.68,EUR,2025-06-25T16:53:01.473473,online,,4814,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Mobile,UTL-INT-MOB
+TXN_20241121_000224,TST* CHARITY,102.04,AUD,2025-06-25T17:44:06.473473,atm,"Los Angeles, CA",8398,Charitable,CHR,Charitable - Donations,CHR-DON,Charitable - Donations - NGO,CHR-DON-NGO
+TXN_20241121_000770,SQ * FLIPKART ONLINE,370.69,USD,2025-06-25T18:37:28.473473,online,Online,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000688,STRIPE * INOX,30.62,GBP,2025-06-25T18:57:00.473473,pos,"Bangalore, KA",7832,Entertainment,ENT,Entertainment - Movies,ENT-MOV,Entertainment - Movies - Theater,ENT-MOV-THR
+TXN_20241121_000769,ZARA * DZL7NKZ3,500.0,INR,2025-06-26T19:01:02.473473,pos,"Hyderabad, TG",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000898,PIZZA HUT #5414,111.29,USD,2025-06-26T19:54:14.473473,pos,"Delhi, DL",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000355,DIESEL LTD,44.09,USD,2025-06-27T07:16:01.473473,pos,"Bangalore, KA",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000526,FLIPKART ONLINE MUMBAI #8649 044,475.5,GBP,2025-06-27T11:46:02.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000977,UBER EATS,366.83,USD,2025-06-27T17:17:20.473473,pos,"Hyderabad, TG",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000432,VEHICLE MAINTENANCE MA #3645 66425,22.96,GBP,2025-06-28T15:16:17.473473,mobile,"Mumbai, MH",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000503,SQ * BIGBASKET,177.01,EUR,2025-06-30T08:00:39.473473,online,,5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000029,BARBER NY #6479,45.2,USD,2025-06-30T14:08:19.473473,mobile,"Mumbai, MH",7230,Personal Care,PER,Personal Care - Salon,PER-SAL,Personal Care - Salon - Haircut,PER-SAL-HAR
+TXN_20241121_000992,ZEPTO * YQKPHR72,270.38,INR,2025-06-30T17:09:11.473473,mobile,"Phoenix, AZ",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000064,KFC LTD,81.53,USD,2025-06-30T17:11:15.473473,atm,"Philadelphia, PA",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000532,AMAZON VA 262,43.08,INR,2025-07-01T15:46:30.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000833,PP* UNIVERSITY,626.77,USD,2025-07-01T15:52:46.473473,atm,"Ahmedabad, GJ",8220,Education,EDU,Education - Tuition,EDU-TUI,Education - Tuition - College,EDU-TUI-COL
+TXN_20241121_000597,JIRA CA,963.15,USD,2025-07-02T00:21:19.473473,online,Online,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Tools,TEC-SUB-TOL
+TXN_20241121_000456,SOFTWARE,857.08,GBP,2025-07-02T06:01:23.473473,atm,"Ahmedabad, GJ",5734,Technology,TEC,Technology - Software,TEC-SFT,Technology - Software - License,TEC-SFT-LIC
+TXN_20241121_000256,PAYPAL * CAFE 450352,24.76,USD,2025-07-02T14:48:46.473473,pos,"Los Angeles, CA",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000629,DIESEL 106535,25.38,GBP,2025-07-02T16:07:27.473473,pos,"Pune, MH",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000411,ZEPTO * 85XU1616,194.58,EUR,2025-07-02T18:51:26.473473,online,,5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000347,DMART,67.79,USD,2025-07-04T09:29:53.473473,online,,5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000285,REPAIR INC 430030,75.1,EUR,2025-07-04T11:21:57.473473,mobile,"Pune, MH",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000479,ZOMATO #7473,150.0,EUR,2025-07-04T19:41:43.473473,online,,5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000871,GITHUB,1018.15,USD,2025-07-05T05:46:25.473473,online,,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Tools,TEC-SUB-TOL
+TXN_20241121_000624,RELIANCE DIGITAL 365,76.95,AUD,2025-07-05T11:08:20.473473,atm,"Kolkata, WB",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000245,FINE DINING,76.8,GBP,2025-07-05T19:54:46.473473,pos,"Chicago, IL",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000795,FUEL DELHI #863,12.49,USD,2025-07-05T20:02:02.473473,pos,"Chicago, IL",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000673,BOOKSTORE ONLINE 5550,1341.97,GBP,2025-07-06T01:02:37.473473,mobile,"Bangalore, KA",5942,Education,EDU,Education - Books,EDU-BOK,Education - Books - Purchase,EDU-BOK-PUR
+TXN_20241121_000940,POWER BILL 65680,90.33,USD,2025-07-06T07:52:02.473473,mobile,"Delhi, DL",4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000147,CONFLUENCE * 4Z426R3D,535.5,EUR,2025-07-06T10:33:45.473473,online,,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Tools,TEC-SUB-TOL
+TXN_20241121_000584,DIESEL * 8JVOLG0B 6967,5.0,USD,2025-07-06T14:08:44.473473,pos,"Chennai, TN",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000824,AMAZON PRIME * 2QTZPZ9S,74.22,USD,2025-07-06T18:15:11.473473,online,Web Purchase,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000531,CAFE COFFEE DAY #1199,86.19,EUR,2025-07-06T18:44:34.473473,mobile,"Kolkata, WB",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000911,VISA * K9O3YOE2,870.74,EUR,2025-07-06T22:01:25.473473,pos,"Phoenix, AZ",9399,Travel,TRV,Travel - International,TRV-INT,Travel - International - Visa,TRV-INT-VIS
+TXN_20241121_000164,RENTAL PAYMENT * THVP158T,754.35,EUR,2025-07-07T04:18:55.473473,online,,6513,Housing,HSG,Housing - Rent,HSG-RNT,Housing - Rent - Monthly,HSG-RNT-MNT
+TXN_20241121_000231,PP* HEALTH INSURANCE 9256,500.0,EUR,2025-07-07T11:47:50.473473,pos,"Phoenix, AZ",6300,Healthcare,HLT,Healthcare - Insurance,HLT-INS,Healthcare - Insurance - Premium,HLT-INS-PRM
+TXN_20241121_000581,UBER TRIP DELHI #9977,2000.0,USD,2025-07-07T15:47:55.473473,pos,"Houston, TX",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000386,TST* ZOMATO FOOD,43.75,USD,2025-07-07T18:14:44.473473,atm,"Houston, TX",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000639,DOMINOS,14.11,USD,2025-07-08T00:34:08.473473,pos,"San Diego, CA",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000789,KFC MUMBAI 004,107.87,USD,2025-07-08T09:10:19.473473,pos,"New York, NY",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000690,RENOVATION * V88W9RFQ,500.0,USD,2025-07-08T11:55:31.473473,pos,"Houston, TX",1520,Housing,HSG,Housing - Home Improvement,HSG-IMP,Housing - Home Improvement - Repair,HSG-IMP-REP
+TXN_20241121_000023,PAYPAL * NETFLIX SUBSCRIPTION 225682,200.0,USD,2025-07-08T16:32:02.473473,online,Web Purchase,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Netflix,ENT-STR-NFX
+TXN_20241121_000082,EMIRATES * DLA003WJ,1506.19,EUR,2025-07-08T16:52:38.473473,online,,4511,Travel,TRV,Travel - International,TRV-INT,Travel - International - Flight,TRV-INT-FLT
+TXN_20241121_000179,CROMA * P94R0325 706576,131.55,INR,2025-07-08T20:11:26.473473,pos,"New York, NY",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000936,BLINKIT,370.1,INR,2025-07-08T20:42:41.473473,pos,"Phoenix, AZ",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000523,STARBUCKS  93488,57.17,USD,2025-07-09T09:17:46.473473,pos,"San Antonio, TX",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000425,CAFE COFFEE DAY #8695,29.35,INR,2025-07-09T10:11:50.473473,online,,5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000158,OFFICE SUPPLIES * 4FXQEGXH,173.14,USD,2025-07-09T15:34:31.473473,pos,"Chicago, IL",5943,Business Expenses,BUS,Business Expenses - Office,BUS-OFC,Business Expenses - Office - Supplies,BUS-OFC-SUP
+TXN_20241121_000173,TST* MICROSOFT,1112.53,USD,2025-07-09T16:50:37.473473,atm,"San Diego, CA",5734,Technology,TEC,Technology - Software,TEC-SFT,Technology - Software - License,TEC-SFT-LIC
+TXN_20241121_000510,BURGER KING,32.57,USD,2025-07-09T19:32:03.473473,online,,5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000472,CLINIC VA,162.8,EUR,2025-07-10T01:34:55.473473,online,,8011,Healthcare,HLT,Healthcare - Hospital,HLT-HOS,Healthcare - Hospital - Consultation,HLT-HOS-CON
+TXN_20241121_000892,ELECTRICITY #6613 03773,300.0,USD,2025-07-10T10:43:31.473473,atm,"Chennai, TN",4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000779,GITHUB TX,563.03,GBP,2025-07-10T12:35:10.473473,online,,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Tools,TEC-SUB-TOL
+TXN_20241121_000442,SWIGGY FOOD MA #4163,39.66,USD,2025-07-11T11:30:10.473473,atm,"New York, NY",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000997,BURGER KING MUMBAI,150.0,USD,2025-07-11T13:32:11.473473,pos,"Chicago, IL",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000933,INDIAN OIL,7.55,EUR,2025-07-11T20:00:28.473473,pos,"Phoenix, AZ",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000969,TST* TARGET 9424,178.65,USD,2025-07-11T23:55:57.473473,mobile,"Chicago, IL",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000419,NONPROFIT CA 1359,36.43,USD,2025-07-12T05:23:26.473473,pos,"San Antonio, TX",8398,Charitable,CHR,Charitable - Nonprofits,CHR-NPR,Charitable - Nonprofits - Contribution,CHR-NPR-CON
+TXN_20241121_000199,AMAZON #6418,85.0,GBP,2025-07-12T21:15:40.473473,online,Internet,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000727,JIRA 5771,1331.97,EUR,2025-07-13T21:10:32.473473,online,,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Tools,TEC-SUB-TOL
+TXN_20241121_000426,TST* COFFEE,21.23,USD,2025-07-14T07:20:13.473473,online,,5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000501,UNIQLO HYDERABAD,99.64,USD,2025-07-14T09:47:53.473473,pos,"Pune, MH",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000327,PIZZA HUT HYDERABAD #4106,43.38,EUR,2025-07-14T18:12:40.473473,pos,"Phoenix, AZ",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000390,TST* WIFI,67.36,EUR,2025-07-14T18:50:55.473473,mobile,"Delhi, DL",4899,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Broadband,UTL-INT-BRD
+TXN_20241121_000518,EATERY PUNE #8625,19.8,USD,2025-07-15T11:19:13.473473,pos,"San Antonio, TX",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000883,PIZZA HUT * W0SP0EOO,150.0,USD,2025-07-15T11:45:14.473473,pos,"San Diego, CA",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000310,SWIGGY DELIVERY,150.0,GBP,2025-07-15T11:55:39.473473,atm,"San Antonio, TX",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000760,INOX MA #427 32914,54.4,INR,2025-07-15T14:33:01.473473,online,,7832,Entertainment,ENT,Entertainment - Movies,ENT-MOV,Entertainment - Movies - Theater,ENT-MOV-THR
+TXN_20241121_000749,BLINKIT * P7A30JM6,500.0,USD,2025-07-15T17:59:47.473473,mobile,"Pune, MH",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000312,SQ * BOOKSTORE 57964,622.23,GBP,2025-07-16T10:02:14.473473,mobile,"Chennai, TN",5942,Education,EDU,Education - Books,EDU-BOK,Education - Books - Purchase,EDU-BOK-PUR
+TXN_20241121_000177,PP* CAR SERVICE 39164,92.05,USD,2025-07-16T11:52:50.473473,mobile,"New York, NY",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000998,UNIVERSITY WA,438.17,AUD,2025-07-17T09:22:13.473473,pos,"Ahmedabad, GJ",8220,Education,EDU,Education - Tuition,EDU-TUI,Education - Tuition - College,EDU-TUI-COL
+TXN_20241121_000835,TST* BURGER KING,102.89,USD,2025-07-18T07:27:36.473473,pos,"Chennai, TN",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000700,TST* WATER BILL,35.97,USD,2025-07-18T09:06:02.473473,online,Online,4900,Utilities,UTL,Utilities - Water,UTL-WAT,Utilities - Water - Bill,UTL-WAT-BIL
+TXN_20241121_000255,AIRLINE PUNE 1923,125.76,EUR,2025-07-19T22:09:25.473473,atm,"Phoenix, AZ",4511,Travel,TRV,Travel - International,TRV-INT,Travel - International - Flight,TRV-INT-FLT
+TXN_20241121_000627,REPAIR,14.04,GBP,2025-07-21T10:01:41.473473,mobile,"Kolkata, WB",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000279,ZARA 858973,265.59,USD,2025-07-21T15:20:09.473473,pos,"Houston, TX",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000168,SQ * BISTRO,43.13,EUR,2025-07-22T13:13:23.473473,pos,"Hyderabad, TG",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000711,NETFLIX IL 104,23.38,USD,2025-07-22T14:01:13.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Netflix,ENT-STR-NFX
+TXN_20241121_000915,APOLLO PHARMACY #6319 451,404.87,EUR,2025-07-22T18:14:55.473473,pos,"New York, NY",5912,Healthcare,HLT,Healthcare - Pharmacy,HLT-PHR,Healthcare - Pharmacy - Medicine,HLT-PHR-MED
+TXN_20241121_000075,WELLNESS VA 712363,200.0,USD,2025-07-23T14:00:13.473473,mobile,"New York, NY",7298,Personal Care,PER,Personal Care - Wellness,PER-WEL,Personal Care - Wellness - Spa,PER-WEL-SPA
+TXN_20241121_000311,TST* UNIQLO 676611,394.05,EUR,2025-07-23T15:48:21.473473,pos,"Chennai, TN",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000632,MASSAGE STORE 356,95.33,USD,2025-07-25T13:12:53.473473,mobile,"Chicago, IL",7298,Personal Care,PER,Personal Care - Wellness,PER-WEL,Personal Care - Wellness - Spa,PER-WEL-SPA
+TXN_20241121_000679,POWER BILL,180.12,USD,2025-07-25T20:11:24.473473,online,Internet,4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000530,AMAZON MARKETPLACE ONLINE,143.06,USD,2025-07-26T00:27:07.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000709,PP* NGO,63.48,USD,2025-07-26T07:38:44.473473,mobile,"Phoenix, AZ",8398,Charitable,CHR,Charitable - Donations,CHR-DON,Charitable - Donations - NGO,CHR-DON-NGO
+TXN_20241121_000032,RENT,1205.95,USD,2025-07-26T18:04:27.473473,online,,6513,Housing,HSG,Housing - Rent,HSG-RNT,Housing - Rent - Monthly,HSG-RNT-MNT
+TXN_20241121_000887,MORTGAGE * 569Y351K,2654.8,USD,2025-07-26T20:42:53.473473,mobile,"Philadelphia, PA",6513,Housing,HSG,Housing - Mortgage,HSG-MTG,Housing - Mortgage - EMI,HSG-MTG-EMI
+TXN_20241121_000787,PP* STARBUCKS 30898,150.0,EUR,2025-07-27T00:49:23.473473,online,,5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000153,PRIME VIDEO,55.55,USD,2025-07-27T16:44:34.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000375,PP* PARKING,96.76,USD,2025-07-28T10:41:24.473473,pos,"San Diego, CA",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000724,RESTAURANT 024,42.83,USD,2025-07-28T11:31:26.473473,atm,"Houston, TX",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000277,SQ * KFC,21.03,USD,2025-07-28T19:46:06.473473,pos,"New York, NY",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000718,INSURANCE * PQD47AYB 5250,1413.24,EUR,2025-07-29T06:37:00.473473,online,,6300,Financial Services,FIN,Financial Services - Insurance,FIN-INS,Financial Services - Insurance - Premium,FIN-INS-PRM
+TXN_20241121_000504,MCDONALDS IL #5017,84.95,USD,2025-07-29T12:56:02.473473,pos,"San Diego, CA",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000460,LICENSE INC,575.29,INR,2025-07-29T13:15:36.473473,mobile,"Pune, MH",5734,Technology,TEC,Technology - Software,TEC-SFT,Technology - Software - License,TEC-SFT-LIC
+TXN_20241121_000100,DOMINOS,24.54,USD,2025-07-29T15:44:11.473473,online,Web Purchase,5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000734,FINE DINING 490,7.16,USD,2025-07-30T12:45:50.473473,pos,"Chennai, TN",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000906,BANK FEE ONLINE,4434.77,USD,2025-07-30T17:45:55.473473,pos,"Chicago, IL",6010,Financial Services,FIN,Financial Services - Banking,FIN-BNK,Financial Services - Banking - Fees,FIN-BNK-FEE
+TXN_20241121_000884,SQ * HEALTH INSURANCE,46.49,USD,2025-07-31T09:44:25.473473,mobile,"Pune, MH",6300,Healthcare,HLT,Healthcare - Insurance,HLT-INS,Healthcare - Insurance - Premium,HLT-INS-PRM
+TXN_20241121_000117,ADOBE BANGALORE #4625,288.43,USD,2025-07-31T15:34:46.473473,mobile,"Ahmedabad, GJ",5734,Technology,TEC,Technology - Software,TEC-SFT,Technology - Software - License,TEC-SFT-LIC
+TXN_20241121_000652,SCHOOL LTD,4984.32,EUR,2025-07-31T17:56:54.473473,online,,8211,Education,EDU,Education - Tuition,EDU-TUI,Education - Tuition - School,EDU-TUI-SCH
+TXN_20241121_000069,INSURANCE #2555,10000.0,USD,2025-08-01T09:07:30.473473,online,,6300,Financial Services,FIN,Financial Services - Insurance,FIN-INS,Financial Services - Insurance - Premium,FIN-INS-PRM
+TXN_20241121_000543,HOTSTAR BANGALORE,33.07,USD,2025-08-01T17:33:49.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000326,DOMINOS * HOA69XUK,100.86,USD,2025-08-01T19:10:43.473473,online,Online,5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000106,UNIQLO,113.78,AUD,2025-08-01T19:16:59.473473,mobile,"Houston, TX",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000804,HOTSTAR VA,56.54,USD,2025-08-02T03:28:31.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000843,BOOKS TX #135 970242,2451.8,USD,2025-08-03T13:20:17.473473,online,,5942,Education,EDU,Education - Books,EDU-BOK,Education - Books - Purchase,EDU-BOK-PUR
+TXN_20241121_000909,TST* CLINIC,417.23,GBP,2025-08-04T06:25:58.473473,atm,"Delhi, DL",8011,Healthcare,HLT,Healthcare - Hospital,HLT-HOS,Healthcare - Hospital - Consultation,HLT-HOS-CON
+TXN_20241121_000393,PARKING,18.8,USD,2025-08-04T17:18:18.473473,pos,"New York, NY",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000096,GOOGLE CLOUD ONLINE 0815,519.95,INR,2025-08-05T11:51:30.473473,online,,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Cloud,TEC-SUB-CLD
+TXN_20241121_000137,BURGER KING ONLINE 500014,23.41,EUR,2025-08-05T16:10:14.473473,pos,"Delhi, DL",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000366,CROMA 430390,94.78,USD,2025-08-06T15:22:58.473473,pos,"Mumbai, MH",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000585,UBER TECHNOLOGIES #2194 5821,1028.7,EUR,2025-08-06T18:44:26.473473,pos,"Delhi, DL",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000946,CAFE WA,141.12,USD,2025-08-06T19:18:01.473473,pos,"Phoenix, AZ",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000867,PP* COLLEGE FEE,809.2,INR,2025-08-07T11:23:06.473473,mobile,"New York, NY",8220,Education,EDU,Education - Tuition,EDU-TUI,Education - Tuition - College,EDU-TUI-COL
+TXN_20241121_000036,CAFE COFFEE DAY VA #4553,28.52,EUR,2025-08-07T20:49:08.473473,pos,"Delhi, DL",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000625,STARBUCKS #5851 732563,47.6,GBP,2025-08-08T09:22:08.473473,online,,5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000630,DOMINOS MA,46.82,USD,2025-08-08T11:19:58.473473,pos,"Mumbai, MH",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000484,FINE DINING,94.91,INR,2025-08-08T12:13:27.473473,mobile,"Bangalore, KA",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000942,SQ * MCDONALDS 869245,43.65,USD,2025-08-08T14:41:00.473473,mobile,"San Antonio, TX",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000201,SQ * PARKING LOT,15.99,USD,2025-08-08T19:49:23.473473,online,Online,7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000267,YOUTUBE PREMIUM #893,24.63,EUR,2025-08-08T20:54:04.473473,online,Online,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000121,ZEPTO,184.38,EUR,2025-08-09T18:22:24.473473,mobile,"Ahmedabad, GJ",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000622,AIRWAYS FL,472.48,USD,2025-08-11T11:00:20.473473,pos,"Houston, TX",4511,Travel,TRV,Travel - International,TRV-INT,Travel - International - Flight,TRV-INT-FLT
+TXN_20241121_000486,TST* AMAZON PRIME 97279,49.28,EUR,2025-08-11T16:13:55.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000832,EMIRATES GA,2000.0,USD,2025-08-12T18:33:19.473473,online,Online,4511,Travel,TRV,Travel - International,TRV-INT,Travel - International - Flight,TRV-INT-FLT
+TXN_20241121_000613,AMAZON MARKETPLACE,263.17,USD,2025-08-12T21:38:38.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000318,AIRBNB BANGALORE,794.73,INR,2025-08-13T06:06:20.473473,pos,"Hyderabad, TG",7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000713,VISA,533.94,EUR,2025-08-13T17:18:32.473473,online,Web Purchase,9399,Travel,TRV,Travel - International,TRV-INT,Travel - International - Visa,TRV-INT-VIS
+TXN_20241121_000921,OLA * RC77OZXT,2000.0,INR,2025-08-13T19:19:39.473473,atm,"Ahmedabad, GJ",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Auto/Rickshaw,TRV-LOC-AUT
+TXN_20241121_000184,FLIPKART ONLINE HYDERABAD 54004,147.21,USD,2025-08-14T14:04:21.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000309,SBUX IL #6522,40.9,GBP,2025-08-14T15:36:42.473473,online,,5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000257,TST* REPAIR,27.85,USD,2025-08-15T03:48:39.473473,atm,"Mumbai, MH",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000855,TARGET MUMBAI #3844,500.0,GBP,2025-08-15T17:13:49.473473,atm,"San Antonio, TX",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000830,HOSPITAL * 95FD75IN,312.76,USD,2025-08-15T17:16:16.473473,atm,"Chicago, IL",8011,Healthcare,HLT,Healthcare - Hospital,HLT-HOS,Healthcare - Hospital - Consultation,HLT-HOS-CON
+TXN_20241121_000035,WIFI CA 605,243.33,INR,2025-08-15T18:33:49.473473,online,,4899,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Broadband,UTL-INT-BRD
+TXN_20241121_000569,BLINKIT #6928,500.0,USD,2025-08-16T05:26:52.473473,mobile,"Mumbai, MH",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000018,CONCERT * DUQKW3JU,34.66,USD,2025-08-17T06:57:09.473473,online,,7922,Entertainment,ENT,Entertainment - Events,ENT-EVT,Entertainment - Events - Concerts,ENT-EVT-CON
+TXN_20241121_000536,SPA #9416,53.16,EUR,2025-08-17T07:06:07.473473,atm,"Chicago, IL",7298,Personal Care,PER,Personal Care - Wellness,PER-WEL,Personal Care - Wellness - Spa,PER-WEL-SPA
+TXN_20241121_000125,POSTPAID,298.52,INR,2025-08-17T18:10:33.473473,atm,"Bangalore, KA",4814,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Mobile,UTL-INT-MOB
+TXN_20241121_000610,ZARA,121.06,USD,2025-08-18T10:04:01.473473,pos,"Pune, MH",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000966,PARKING 4193,37.36,INR,2025-08-18T15:48:12.473473,atm,"Ahmedabad, GJ",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000954,SQ * INSURANCE 916,1835.48,USD,2025-08-18T17:45:45.473473,atm,"Bangalore, KA",6300,Financial Services,FIN,Financial Services - Insurance,FIN-INS,Financial Services - Insurance - Premium,FIN-INS-PRM
+TXN_20241121_000666,OLA #6212,2000.0,AUD,2025-08-19T13:06:25.473473,atm,"Los Angeles, CA",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Auto/Rickshaw,TRV-LOC-AUT
+TXN_20241121_000463,KFC,67.11,USD,2025-08-19T13:10:04.473473,pos,"Phoenix, AZ",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000048,WATER BILL * HDRHG0TD 99831,58.47,AUD,2025-08-19T15:12:00.473473,pos,"Chennai, TN",4900,Utilities,UTL,Utilities - Water,UTL-WAT,Utilities - Water - Bill,UTL-WAT-BIL
+TXN_20241121_000521,BOOKMYSHOW #8927,53.53,EUR,2025-08-19T18:55:17.473473,pos,"Kolkata, WB",7922,Entertainment,ENT,Entertainment - Events,ENT-EVT,Entertainment - Events - Concerts,ENT-EVT-CON
+TXN_20241121_000756,OFFICE SUPPLIES TX #475,171.02,USD,2025-08-20T19:22:50.473473,atm,"Ahmedabad, GJ",5943,Business Expenses,BUS,Business Expenses - Office,BUS-OFC,Business Expenses - Office - Supplies,BUS-OFC-SUP
+TXN_20241121_000768,JIO FIBER,70.3,AUD,2025-08-20T20:04:04.473473,mobile,"Kolkata, WB",4899,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Broadband,UTL-INT-BRD
+TXN_20241121_000171,PARKING FEE IL,42.42,USD,2025-08-21T03:12:57.473473,mobile,"New York, NY",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000798,WATER ONLINE 53994,164.26,GBP,2025-08-21T14:33:31.473473,pos,"Chicago, IL",4900,Utilities,UTL,Utilities - Water,UTL-WAT,Utilities - Water - Bill,UTL-WAT-BIL
+TXN_20241121_000544,OTHER,98.34,USD,2025-08-21T18:15:15.473473,atm,"Chicago, IL",,Miscellaneous,MSC,Miscellaneous - Uncategorized,MSC-UNC,Miscellaneous - Uncategorized - Other,MSC-UNC-OTH
+TXN_20241121_000849,TST* PRIME VIDEO 19964,200.0,EUR,2025-08-22T18:31:34.473473,online,Internet,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000466,SQ * BISTRO,97.44,EUR,2025-08-23T09:28:43.473473,mobile,"Ahmedabad, GJ",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000187,SWIGGY DELIVERY 447,146.44,USD,2025-08-24T05:33:55.473473,mobile,"Pune, MH",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000552,ADOBE PUNE 99833,1013.51,USD,2025-08-24T07:39:02.473473,online,,5734,Technology,TEC,Technology - Software,TEC-SFT,Technology - Software - License,TEC-SFT-LIC
+TXN_20241121_000751,SQ * NETFLIX SUBSCRIPTION 042803,47.41,EUR,2025-08-24T14:19:54.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Netflix,ENT-STR-NFX
+TXN_20241121_000605,SWIGGY * NHP5EC5A,61.05,GBP,2025-08-24T14:20:22.473473,online,,5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000957,PARKING LOT,69.45,EUR,2025-08-24T14:30:43.473473,online,,7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000812,RENOVATION,691.02,EUR,2025-08-25T10:47:01.473473,mobile,"Los Angeles, CA",1520,Housing,HSG,Housing - Home Improvement,HSG-IMP,Housing - Home Improvement - Repair,HSG-IMP-REP
+TXN_20241121_000367,DMART WA,142.89,EUR,2025-08-26T01:06:58.473473,online,,5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000475,SWIGGY FOOD MA #943,52.88,USD,2025-08-26T13:22:35.473473,atm,"New York, NY",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000244,ZOMATO NC #2641,57.14,GBP,2025-08-27T10:21:46.473473,mobile,"Hyderabad, TG",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000024,FLIPKART ONLINE STORE,49.18,USD,2025-08-27T17:22:46.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000708,STRIPE * VEHICLE MAINTENANCE,62.65,INR,2025-08-28T12:15:09.473473,pos,"Bangalore, KA",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000545,ADOBE,1737.53,GBP,2025-08-28T15:00:35.473473,atm,"New York, NY",5734,Technology,TEC,Technology - Software,TEC-SFT,Technology - Software - License,TEC-SFT-LIC
+TXN_20241121_000094,PIZZA HUT #6214 0727,150.0,USD,2025-08-29T05:33:41.473473,pos,"Chennai, TN",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000109,UBER LTD,767.89,EUR,2025-08-29T09:00:26.473473,online,Web Purchase,4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000331,BOOKMYSHOW * G3GBTOE7 794920,44.08,INR,2025-08-30T04:20:53.473473,pos,"Chicago, IL",7922,Entertainment,ENT,Entertainment - Events,ENT-EVT,Entertainment - Events - Concerts,ENT-EVT-CON
+TXN_20241121_000658,COLLEGE FEE DELHI,520.62,USD,2025-08-30T05:57:33.473473,mobile,"Bangalore, KA",8220,Education,EDU,Education - Tuition,EDU-TUI,Education - Tuition - College,EDU-TUI-COL
+TXN_20241121_000631,PRIME VIDEO #2307,78.64,USD,2025-08-30T15:51:19.473473,online,Online,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000897,CONSULTING LTD,584.72,EUR,2025-08-30T19:20:25.473473,online,Online,8999,Business Expenses,BUS,Business Expenses - Services,BUS-SRV,Business Expenses - Services - Professional,BUS-SRV-PRO
+TXN_20241121_000694,PVR LLC,46.18,INR,2025-08-30T19:58:49.473473,online,Internet,7832,Entertainment,ENT,Entertainment - Movies,ENT-MOV,Entertainment - Movies - Theater,ENT-MOV-THR
+TXN_20241121_000932,DOMINOS,31.49,GBP,2025-08-31T04:03:33.473473,pos,"Pune, MH",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000436,DOCTOR STORE,464.96,USD,2025-08-31T18:12:34.473473,atm,"San Antonio, TX",8011,Healthcare,HLT,Healthcare - Hospital,HLT-HOS,Healthcare - Hospital - Consultation,HLT-HOS-CON
+TXN_20241121_000703,INSURANCE PREMIUM INC 933,6222.89,EUR,2025-09-01T01:37:24.473473,pos,"Delhi, DL",6300,Financial Services,FIN,Financial Services - Insurance,FIN-INS,Financial Services - Insurance - Premium,FIN-INS-PRM
+TXN_20241121_000973,NETFLIX STORE,111.67,USD,2025-09-01T13:08:01.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Netflix,ENT-STR-NFX
+TXN_20241121_000810,PP* NGO 0354,260.25,USD,2025-09-01T13:46:00.473473,mobile,"San Antonio, TX",8398,Charitable,CHR,Charitable - Donations,CHR-DON,Charitable - Donations - NGO,CHR-DON-NGO
+TXN_20241121_000369,ZOMATO #8980,39.53,INR,2025-09-01T16:46:45.473473,online,,5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000726,AIRBNB DELHI #8899,1370.34,USD,2025-09-02T09:03:14.473473,online,,7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000268,RESTAURANT #4235,48.52,USD,2025-09-02T09:09:10.473473,pos,"Bangalore, KA",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000565,PARKING FEE #9924 255877,9.84,USD,2025-09-02T11:27:07.473473,pos,"Chicago, IL",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000602,UBER TRIP VA #6472,2000.0,GBP,2025-09-02T11:54:04.473473,pos,"New York, NY",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000107,INSTACART WA #309,102.2,USD,2025-09-02T19:26:51.473473,atm,"Houston, TX",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000970,CAFE,8.44,USD,2025-09-02T22:00:59.473473,mobile,"San Diego, CA",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000825,FLIPKART ONLINE #4038 44361,81.43,USD,2025-09-03T12:38:41.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000525,PP* SMARTPHONE,931.72,INR,2025-09-03T16:20:54.473473,online,,5732,Technology,TEC,Technology - Electronics,TEC-ELE,Technology - Electronics - Mobile,TEC-ELE-MOB
+TXN_20241121_000930,PROFESSIONAL SERVICES NC 5926,253.4,USD,2025-09-03T17:46:00.473473,online,Web Purchase,8999,Business Expenses,BUS,Business Expenses - Services,BUS-SRV,Business Expenses - Services - Professional,BUS-SRV-PRO
+TXN_20241121_000329,AMAZON MARKETPLACE,123.2,USD,2025-09-04T14:16:04.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000282,BARISTA,92.71,USD,2025-09-05T09:41:59.473473,pos,"Chicago, IL",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000972,EATERY MUMBAI,150.0,USD,2025-09-06T15:01:00.473473,pos,"Delhi, DL",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000684,PIZZA HUT * 6DFMOZJ3,78.96,EUR,2025-09-07T20:55:05.473473,pos,"Chicago, IL",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000176,SPA * AFACJMF3 750,200.0,INR,2025-09-08T10:46:54.473473,atm,"San Diego, CA",7298,Personal Care,PER,Personal Care - Wellness,PER-WEL,Personal Care - Wellness - Spa,PER-WEL-SPA
+TXN_20241121_000773,WALMART * GO13Y99K,414.16,GBP,2025-09-08T20:57:14.473473,atm,"Philadelphia, PA",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000391,ZEPTO #363,165.79,AUD,2025-09-09T03:51:48.473473,atm,"Philadelphia, PA",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000143,AIRBNB ONLINE 3815,865.11,USD,2025-09-09T16:29:57.473473,mobile,"Chennai, TN",7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000003,ZOMATO FOOD 137,45.91,USD,2025-09-09T17:21:20.473473,mobile,"San Diego, CA",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000675,VFS LTD,540.8,EUR,2025-09-09T19:23:26.473473,online,,9399,Travel,TRV,Travel - International,TRV-INT,Travel - International - Visa,TRV-INT-VIS
+TXN_20241121_000112,INSTACART ONLINE,155.47,EUR,2025-09-10T10:33:57.473473,mobile,"Bangalore, KA",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000020,TST* SCHOOL FEE,4035.67,USD,2025-09-10T14:57:40.473473,pos,"Los Angeles, CA",8211,Education,EDU,Education - Tuition,EDU-TUI,Education - Tuition - School,EDU-TUI-SCH
+TXN_20241121_000348,PP* CAR SERVICE,46.66,INR,2025-09-10T17:18:11.473473,online,Online,7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000732,TST* AMAZON,348.97,GBP,2025-09-10T17:28:35.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000686,SWIGGY FOOD NC #9574,50.0,EUR,2025-09-10T20:56:51.473473,pos,"Houston, TX",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000737,HOTSTAR #1001 127296,56.17,USD,2025-09-11T12:26:21.473473,online,Web Purchase,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000859,SQ * PIZZA HUT,39.67,GBP,2025-09-12T10:17:05.473473,pos,"Bangalore, KA",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000388,SALON,200.0,USD,2025-09-13T02:32:01.473473,pos,"Hyderabad, TG",7230,Personal Care,PER,Personal Care - Salon,PER-SAL,Personal Care - Salon - Haircut,PER-SAL-HAR
+TXN_20241121_000900,HOME LOAN,3000.0,USD,2025-09-13T05:14:27.473473,pos,"Philadelphia, PA",6513,Housing,HSG,Housing - Mortgage,HSG-MTG,Housing - Mortgage - EMI,HSG-MTG-EMI
+TXN_20241121_000707,PP* EMI,1613.77,AUD,2025-09-13T06:14:26.473473,online,,6513,Housing,HSG,Housing - Mortgage,HSG-MTG,Housing - Mortgage - EMI,HSG-MTG-EMI
+TXN_20241121_000196,WATER,47.65,GBP,2025-09-13T09:52:21.473473,mobile,"New York, NY",4900,Utilities,UTL,Utilities - Water,UTL-WAT,Utilities - Water - Bill,UTL-WAT-BIL
+TXN_20241121_000301,VISA,412.29,EUR,2025-09-14T23:33:58.473473,mobile,"Delhi, DL",9399,Travel,TRV,Travel - International,TRV-INT,Travel - International - Visa,TRV-INT-VIS
+TXN_20241121_000146,RELIANCE DIGITAL MA,156.04,USD,2025-09-15T10:24:16.473473,pos,"Houston, TX",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000016,ZEPTO PUNE #6910,108.15,INR,2025-09-15T10:30:43.473473,pos,"Houston, TX",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000476,BARBER PUNE #7236,116.71,USD,2025-09-15T13:16:04.473473,pos,"Chicago, IL",7230,Personal Care,PER,Personal Care - Salon,PER-SAL,Personal Care - Salon - Haircut,PER-SAL-HAR
+TXN_20241121_000557,AMAZON MARKETPLACE VA #6901 895,469.59,USD,2025-09-16T11:11:24.473473,online,Internet,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000836,UNIQLO * CFPRJKX6 8438,137.72,USD,2025-09-16T11:23:51.473473,pos,"Mumbai, MH",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000809,CAFE COFFEE DAY 118,26.3,USD,2025-09-16T18:25:09.473473,pos,"San Diego, CA",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000790,EMIRATES NY,341.32,USD,2025-09-16T19:10:34.473473,atm,"Phoenix, AZ",4511,Travel,TRV,Travel - International,TRV-INT,Travel - International - Flight,TRV-INT-FLT
+TXN_20241121_000710,STRIPE * AIRLINE,232.15,GBP,2025-09-17T09:21:52.473473,mobile,"Los Angeles, CA",4511,Travel,TRV,Travel - International,TRV-INT,Travel - International - Flight,TRV-INT-FLT
+TXN_20241121_000539,AMAZON MARKETPLACE #4144 330,110.47,INR,2025-09-17T20:13:48.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000363,BP TX #8800 47251,39.18,EUR,2025-09-18T14:31:50.473473,pos,"New York, NY",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000782,PIZZA HUT #7636,150.0,USD,2025-09-18T19:46:52.473473,pos,"Bangalore, KA",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000660,BEST BUY #3454 8101,248.25,USD,2025-09-18T19:48:10.473473,pos,"Bangalore, KA",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000262,BEST BUY LLC,227.9,USD,2025-09-19T02:53:54.473473,pos,"Chennai, TN",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000587,ONLINE COURSE MUMBAI,2898.54,USD,2025-09-19T12:26:25.473473,pos,"Ahmedabad, GJ",8299,Education,EDU,Education - Courses,EDU-CRS,Education - Courses - Online,EDU-CRS-ONL
+TXN_20241121_000202,PAPA JOHNS 4339,39.0,AUD,2025-09-20T04:01:35.473473,pos,"Chicago, IL",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000834,PARKING FEE,11.64,GBP,2025-09-20T08:57:34.473473,online,,7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000004,MCDONALDS GA #6130,33.16,USD,2025-09-20T12:17:28.473473,pos,"Phoenix, AZ",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000608,VISA LLC,250.08,USD,2025-09-20T13:09:09.473473,atm,"New York, NY",9399,Travel,TRV,Travel - International,TRV-INT,Travel - International - Visa,TRV-INT-VIS
+TXN_20241121_000578,SBUX,150.0,USD,2025-09-20T20:04:51.473473,pos,"Ahmedabad, GJ",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000752,SMARTPHONE ONLINE 39596,234.58,USD,2025-09-20T20:43:54.473473,mobile,"Ahmedabad, GJ",5732,Technology,TEC,Technology - Electronics,TEC-ELE,Technology - Electronics - Mobile,TEC-ELE-MOB
+TXN_20241121_000719,FLIPKART  167,168.59,INR,2025-09-20T22:50:29.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000893,SWIGGY FOOD #5899,67.17,GBP,2025-09-21T03:40:17.473473,pos,"San Antonio, TX",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000784,PP* CROMA 7436,86.9,USD,2025-09-21T06:28:19.473473,pos,"Bangalore, KA",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000952,SQ * ZOMATO FOOD 1019,150.0,USD,2025-09-22T15:50:25.473473,pos,"Bangalore, KA",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000119,VFS 39348,119.4,USD,2025-09-23T14:53:45.473473,mobile,"San Antonio, TX",9399,Travel,TRV,Travel - International,TRV-INT,Travel - International - Visa,TRV-INT-VIS
+TXN_20241121_000315,AMZN 79383,186.41,USD,2025-09-23T15:51:53.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000194,SMARTPHONE * 7C9V8EIZ,1147.07,EUR,2025-09-23T19:14:05.473473,online,Internet,5732,Technology,TEC,Technology - Electronics,TEC-ELE,Technology - Electronics - Mobile,TEC-ELE-MOB
+TXN_20241121_000817,SPOTIFY HYDERABAD #6890,170.5,INR,2025-09-23T19:16:58.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000541,NGO STORE,62.16,INR,2025-09-24T16:35:57.473473,mobile,"Pune, MH",8398,Charitable,CHR,Charitable - Donations,CHR-DON,Charitable - Donations - NGO,CHR-DON-NGO
+TXN_20241121_000414,RESTAURANT #9664,33.13,USD,2025-09-24T18:05:10.473473,mobile,"Chicago, IL",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000156,YOUTUBE PREMIUM * DDTVBWLG,73.74,USD,2025-09-24T18:22:51.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000468,MEDICAL INSURANCE MA,63.52,USD,2025-09-24T20:16:15.473473,online,Online,6300,Healthcare,HLT,Healthcare - Insurance,HLT-INS,Healthcare - Insurance - Premium,HLT-INS-PRM
+TXN_20241121_000001,APOLLO PHARMACY * 5USBEJMY,281.25,USD,2025-09-24T23:14:29.473473,atm,"Delhi, DL",5912,Healthcare,HLT,Healthcare - Pharmacy,HLT-PHR,Healthcare - Pharmacy - Medicine,HLT-PHR-MED
+TXN_20241121_000396,ZOMATO #5439,45.04,EUR,2025-09-25T16:57:35.473473,online,Internet,5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000405,PREPAID BANGALORE #7930,53.88,EUR,2025-09-26T01:02:06.473473,online,,4814,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Mobile,UTL-INT-MOB
+TXN_20241121_000891,PAYPAL * WATER BILL 123654,208.63,USD,2025-09-26T13:27:56.473473,atm,"Pune, MH",4900,Utilities,UTL,Utilities - Water,UTL-WAT,Utilities - Water - Bill,UTL-WAT-BIL
+TXN_20241121_000607,NETFLIX SUBSCRIPTION LTD 50525,95.57,USD,2025-09-27T11:58:08.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Netflix,ENT-STR-NFX
+TXN_20241121_000944,DIESEL 656,41.07,USD,2025-09-28T00:33:31.473473,pos,"Los Angeles, CA",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000298,FLIPKART 4825,108.34,USD,2025-09-28T04:44:37.473473,pos,"Chennai, TN",5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000959,LAPTOP INC 192818,270.65,USD,2025-09-28T10:14:55.473473,mobile,"Pune, MH",5732,Technology,TEC,Technology - Electronics,TEC-ELE,Technology - Electronics - Computer,TEC-ELE-CMP
+TXN_20241121_000937,PRIME VIDEO,49.5,EUR,2025-09-28T10:21:43.473473,online,Online,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000902,PIZZA HUT #2046 2791,25.34,USD,2025-09-29T03:09:40.473473,pos,"Los Angeles, CA",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000807,DIESEL,15.2,INR,2025-09-29T12:50:03.473473,pos,"Philadelphia, PA",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000805,SKILLSHARE PUNE 04300,1810.63,USD,2025-09-29T13:35:52.473473,online,Online,8299,Education,EDU,Education - Courses,EDU-CRS,Education - Courses - Online,EDU-CRS-ONL
+TXN_20241121_000135,EMIRATES #5792,219.5,INR,2025-09-30T17:34:08.473473,pos,"San Antonio, TX",4511,Travel,TRV,Travel - International,TRV-INT,Travel - International - Flight,TRV-INT-FLT
+TXN_20241121_000374,STATIONERY LTD,643.48,EUR,2025-10-01T13:19:06.473473,pos,"San Antonio, TX",5943,Business Expenses,BUS,Business Expenses - Office,BUS-OFC,Business Expenses - Office - Supplies,BUS-OFC-SUP
+TXN_20241121_000470,STARBUCKS NC 8580,112.14,INR,2025-10-01T15:06:29.473473,online,Web Purchase,5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000850,YOUTUBE PREMIUM,30.4,GBP,2025-10-01T17:01:23.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000218,UNIQLO LLC,152.5,USD,2025-10-02T00:13:10.473473,pos,"Ahmedabad, GJ",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000140,TST* PARKING,51.37,EUR,2025-10-02T12:36:56.473473,pos,"Pune, MH",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000498,AMZN #3347 995,235.44,INR,2025-10-02T12:56:59.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000070,MEDPLUS #6634,102.8,EUR,2025-10-02T16:09:43.473473,online,Web Purchase,5912,Healthcare,HLT,Healthcare - Pharmacy,HLT-PHR,Healthcare - Pharmacy - Medicine,HLT-PHR-MED
+TXN_20241121_000357,APOLLO PHARMACY #1814,44.07,AUD,2025-10-03T09:22:56.473473,mobile,"Philadelphia, PA",5912,Healthcare,HLT,Healthcare - Pharmacy,HLT-PHR,Healthcare - Pharmacy - Medicine,HLT-PHR-MED
+TXN_20241121_000431,ONLINE COURSE,1615.78,USD,2025-10-03T13:51:29.473473,online,,8299,Education,EDU,Education - Courses,EDU-CRS,Education - Courses - Online,EDU-CRS-ONL
+TXN_20241121_000668,NETFLIX SUBSCRIPTION LLC 088,131.01,USD,2025-10-03T14:28:08.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Netflix,ENT-STR-NFX
+TXN_20241121_000058,CAR SERVICE * K5AUYT9J,8.42,INR,2025-10-03T16:03:39.473473,pos,"Delhi, DL",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000772,PP* LIVE MUSIC,200.0,AUD,2025-10-03T17:24:38.473473,pos,"San Antonio, TX",7922,Entertainment,ENT,Entertainment - Events,ENT-EVT,Entertainment - Events - Concerts,ENT-EVT-CON
+TXN_20241121_000160,CONTRIBUTION * N10JXC1F 13285,174.22,USD,2025-10-03T19:26:09.473473,mobile,"Ahmedabad, GJ",8398,Charitable,CHR,Charitable - Nonprofits,CHR-NPR,Charitable - Nonprofits - Contribution,CHR-NPR-CON
+TXN_20241121_000680,SALON ONLINE,26.24,GBP,2025-10-04T02:50:56.473473,pos,"San Antonio, TX",7230,Personal Care,PER,Personal Care - Salon,PER-SAL,Personal Care - Salon - Haircut,PER-SAL-HAR
+TXN_20241121_000636,INSURANCE CA,6239.42,INR,2025-10-04T07:38:41.473473,mobile,"Mumbai, MH",6300,Financial Services,FIN,Financial Services - Insurance,FIN-INS,Financial Services - Insurance - Premium,FIN-INS-PRM
+TXN_20241121_000990,FLIPKART ONLINE,37.37,AUD,2025-10-04T17:57:56.473473,online,Online,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000492,FITNESS,68.0,EUR,2025-10-04T20:46:57.473473,pos,"Bangalore, KA",7997,Personal Care,PER,Personal Care - Gym,PER-GYM,Personal Care - Gym - Membership,PER-GYM-MEM
+TXN_20241121_000079,AMAZON MARKETPLACE 3434,189.05,USD,2025-10-05T03:22:01.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000550,RENTAL PAYMENT TX 821659,3000.0,USD,2025-10-05T07:49:51.473473,online,,6513,Housing,HSG,Housing - Rent,HSG-RNT,Housing - Rent - Monthly,HSG-RNT-MNT
+TXN_20241121_000373,COLLEGE FEE 659,5000.0,USD,2025-10-05T11:07:47.473473,online,,8220,Education,EDU,Education - Tuition,EDU-TUI,Education - Tuition - College,EDU-TUI-COL
+TXN_20241121_000801,PRIME VIDEO,25.51,USD,2025-10-05T17:52:52.473473,online,Online,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000797,FLIPKART TX #6993,171.71,USD,2025-10-05T21:16:00.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000796,SMARTPHONE NY 414,2000.0,USD,2025-10-06T08:34:55.473473,mobile,"Los Angeles, CA",5732,Technology,TEC,Technology - Electronics,TEC-ELE,Technology - Electronics - Mobile,TEC-ELE-MOB
+TXN_20241121_000345,STRIPE * DONATION,500.0,GBP,2025-10-07T15:37:00.473473,online,,8398,Charitable,CHR,Charitable - Donations,CHR-DON,Charitable - Donations - NGO,CHR-DON-NGO
+TXN_20241121_000781,PAPA JOHNS NY #4408 698442,150.0,INR,2025-10-07T17:32:03.473473,pos,"Philadelphia, PA",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000975,CAFE NC 85019,27.46,GBP,2025-10-08T02:01:00.473473,online,,5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000537,WATER BILL #1482,173.35,USD,2025-10-08T09:15:00.473473,atm,"San Diego, CA",4900,Utilities,UTL,Utilities - Water,UTL-WAT,Utilities - Water - Bill,UTL-WAT-BIL
+TXN_20241121_000392,STRIPE * DIESEL,17.08,USD,2025-10-08T09:44:33.473473,pos,"New York, NY",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000320,BROADBAND MA 343581,193.52,INR,2025-10-09T05:12:44.473473,mobile,"Phoenix, AZ",4899,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Broadband,UTL-INT-BRD
+TXN_20241121_000403,SWIGGY FL #2602,121.88,AUD,2025-10-09T06:55:56.473473,online,,5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000477,SWIGGY LLC,81.43,USD,2025-10-10T15:44:18.473473,atm,"Houston, TX",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000683,RESTAURANT NC #8539 615454,131.74,USD,2025-10-11T01:40:57.473473,atm,"Chicago, IL",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000650,BEST BUY CA #7459,271.96,USD,2025-10-11T12:01:00.473473,pos,"Hyderabad, TG",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000382,SQ * BARISTA,48.01,USD,2025-10-11T18:07:03.473473,pos,"Delhi, DL",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000592,TST* STARBUCKS,11.35,USD,2025-10-12T13:40:47.473473,mobile,"Los Angeles, CA",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000687,WELLNESS INC,20.48,USD,2025-10-12T15:17:24.473473,online,,7298,Personal Care,PER,Personal Care - Wellness,PER-WEL,Personal Care - Wellness - Spa,PER-WEL-SPA
+TXN_20241121_000497,PAPA JOHNS WA #9823,35.59,USD,2025-10-12T17:31:00.473473,pos,"New York, NY",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000647,AMAZON MARKETPLACE MA,165.51,USD,2025-10-12T19:02:41.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000060,STRIPE * PARKING LOT,12.69,USD,2025-10-12T21:08:20.473473,online,,7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000993,POSTPAID 4478,93.22,EUR,2025-10-13T16:49:28.473473,pos,"Bangalore, KA",4814,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Mobile,UTL-INT-MOB
+TXN_20241121_000837,MUTUAL FUND #5161,1789.0,USD,2025-10-13T19:12:43.473473,pos,"Delhi, DL",6211,Financial Services,FIN,Financial Services - Investment,FIN-INV,Financial Services - Investment - Trading,FIN-INV-TRD
+TXN_20241121_000761,PIZZA HUT DELHI 673,40.05,INR,2025-10-14T08:27:10.473473,pos,"Pune, MH",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000261,AIRLINE #8234,1325.07,INR,2025-10-14T10:42:06.473473,online,,4511,Travel,TRV,Travel - International,TRV-INT,Travel - International - Flight,TRV-INT-FLT
+TXN_20241121_000868,BANK FEE INC,10000.0,USD,2025-10-14T10:42:41.473473,atm,"Delhi, DL",6010,Financial Services,FIN,Financial Services - Banking,FIN-BNK,Financial Services - Banking - Fees,FIN-BNK-FEE
+TXN_20241121_000110,ZOMATO 441813,75.55,EUR,2025-10-14T12:16:16.473473,atm,"Delhi, DL",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000603,SBUX 332505,59.18,USD,2025-10-14T15:21:52.473473,atm,"Chicago, IL",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000129,FLIPKART WA 982,152.71,GBP,2025-10-14T17:06:13.473473,online,Web Purchase,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000528,DOCTOR * T15HJK1C 899,143.14,AUD,2025-10-14T19:53:49.473473,pos,"Chennai, TN",8011,Healthcare,HLT,Healthcare - Hospital,HLT-HOS,Healthcare - Hospital - Consultation,HLT-HOS-CON
+TXN_20241121_000736,DOCTOR HYDERABAD 121179,61.49,USD,2025-10-15T05:47:24.473473,pos,"New York, NY",8011,Healthcare,HLT,Healthcare - Hospital,HLT-HOS,Healthcare - Hospital - Consultation,HLT-HOS-CON
+TXN_20241121_000126,WATER * F565572M,110.15,USD,2025-10-15T09:29:48.473473,pos,"Chicago, IL",4900,Utilities,UTL,Utilities - Water,UTL-WAT,Utilities - Water - Bill,UTL-WAT-BIL
+TXN_20241121_000670,RELIANCE DIGITAL FL #6491 983,273.0,EUR,2025-10-16T10:34:48.473473,pos,"Los Angeles, CA",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000238,BROADBAND * 5WDE5GM5 5572,95.03,USD,2025-10-16T11:01:51.473473,mobile,"Kolkata, WB",4899,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Broadband,UTL-INT-BRD
+TXN_20241121_000559,ZOMATO FOOD #807,66.38,USD,2025-10-16T13:03:30.473473,atm,"Bangalore, KA",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000590,NONPROFIT HYDERABAD 038,116.32,USD,2025-10-16T18:44:27.473473,atm,"Bangalore, KA",8398,Charitable,CHR,Charitable - Nonprofits,CHR-NPR,Charitable - Nonprofits - Contribution,CHR-NPR-CON
+TXN_20241121_000455,FITNESS,80.02,USD,2025-10-16T19:49:12.473473,atm,"Hyderabad, TG",7997,Personal Care,PER,Personal Care - Gym,PER-GYM,Personal Care - Gym - Membership,PER-GYM-MEM
+TXN_20241121_000894,FLIPKART * ZQ95BOLU 04969,500.0,USD,2025-10-17T11:17:05.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000714,LAPTOP PUNE #460,109.16,EUR,2025-10-17T12:26:20.473473,atm,"Kolkata, WB",5732,Technology,TEC,Technology - Electronics,TEC-ELE,Technology - Electronics - Computer,TEC-ELE-CMP
+TXN_20241121_000207,COFFEE BANGALORE #8338,33.43,AUD,2025-10-17T12:59:25.473473,online,,5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000223,SWIGGY DELIVERY STORE,19.01,AUD,2025-10-17T14:00:57.473473,atm,"Pune, MH",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000412,BURGER KING,58.0,USD,2025-10-17T17:34:49.473473,pos,"Pune, MH",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000005,UBER TRIP,560.58,USD,2025-10-18T05:26:09.473473,pos,"Mumbai, MH",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000073,PARKING FEE,32.07,GBP,2025-10-18T07:46:15.473473,pos,"San Antonio, TX",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000451,PIZZA HUT BANGALORE,70.9,USD,2025-10-18T22:09:44.473473,online,,5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000372,OYO,342.48,USD,2025-10-19T01:41:33.473473,atm,"Bangalore, KA",7011,Travel,TRV,Travel - Accommodation,TRV-ACC,Travel - Accommodation - Hotel,TRV-ACC-HTL
+TXN_20241121_000454,PRIME VIDEO,69.2,USD,2025-10-19T03:17:16.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000656,CONSULTING * IOFXEE7N,622.21,USD,2025-10-19T10:32:58.473473,mobile,"Phoenix, AZ",8999,Business Expenses,BUS,Business Expenses - Services,BUS-SRV,Business Expenses - Services - Professional,BUS-SRV-PRO
+TXN_20241121_000212,COMPUTER BANGALORE,969.8,INR,2025-10-19T18:44:33.473473,atm,"New York, NY",5732,Technology,TEC,Technology - Electronics,TEC-ELE,Technology - Electronics - Computer,TEC-ELE-CMP
+TXN_20241121_000139,FLIPKART ONLINE #5335,133.66,USD,2025-10-20T14:41:05.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000665,PAYPAL * INTERNET 228,58.55,AUD,2025-10-21T09:55:50.473473,mobile,"Kolkata, WB",4899,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Broadband,UTL-INT-BRD
+TXN_20241121_000065,TST* DMART,131.46,USD,2025-10-21T10:36:17.473473,pos,"Kolkata, WB",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000873,SCHOOL NY #5436 34785,3011.68,USD,2025-10-21T19:57:57.473473,pos,"Bangalore, KA",8211,Education,EDU,Education - Tuition,EDU-TUI,Education - Tuition - School,EDU-TUI-SCH
+TXN_20241121_000659,SALON * T7P2V37I,41.46,USD,2025-10-22T09:59:26.473473,mobile,"Ahmedabad, GJ",7230,Personal Care,PER,Personal Care - Salon,PER-SAL,Personal Care - Salon - Haircut,PER-SAL-HAR
+TXN_20241121_000101,SQ * NETFLIX SUBSCRIPTION,100.23,USD,2025-10-22T13:40:15.473473,online,Online,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Netflix,ENT-STR-NFX
+TXN_20241121_000561,POSTPAID #7423 8762,73.29,USD,2025-10-22T18:19:18.473473,atm,"Houston, TX",4814,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Mobile,UTL-INT-MOB
+TXN_20241121_000490,SWIGGY #568,150.0,USD,2025-10-22T19:47:21.473473,atm,"San Antonio, TX",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000991,BARBER FL 245114,26.59,AUD,2025-10-22T20:10:13.473473,atm,"San Diego, CA",7230,Personal Care,PER,Personal Care - Salon,PER-SAL,Personal Care - Salon - Haircut,PER-SAL-HAR
+TXN_20241121_000644,WATER IL #8807,149.5,GBP,2025-10-23T09:05:31.473473,mobile,"San Diego, CA",4900,Utilities,UTL,Utilities - Water,UTL-WAT,Utilities - Water - Bill,UTL-WAT-BIL
+TXN_20241121_000540,TUITION #198 899,909.29,GBP,2025-10-23T11:27:15.473473,mobile,"Kolkata, WB",8211,Education,EDU,Education - Tuition,EDU-TUI,Education - Tuition - School,EDU-TUI-SCH
+TXN_20241121_000962,STRIPE * BURGER KING,94.33,EUR,2025-10-23T15:02:11.473473,pos,"Houston, TX",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000681,RELIANCE DIGITAL * 08JQ8CEV,75.4,INR,2025-10-24T05:52:23.473473,pos,"Delhi, DL",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000864,SOFTWARE * LVU5E4ZA,359.32,INR,2025-10-24T11:55:49.473473,atm,"Philadelphia, PA",5734,Technology,TEC,Technology - Software,TEC-SFT,Technology - Software - License,TEC-SFT-LIC
+TXN_20241121_000654,HOSPITAL #778,82.97,GBP,2025-10-24T14:17:31.473473,pos,"Delhi, DL",8011,Healthcare,HLT,Healthcare - Hospital,HLT-HOS,Healthcare - Hospital - Consultation,HLT-HOS-CON
+TXN_20241121_000145,COFFEE DELHI,23.23,USD,2025-10-24T14:58:21.473473,atm,"Los Angeles, CA",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Local,DIN-COF-LOC
+TXN_20241121_000445,LAPTOP CA #1519,536.76,USD,2025-10-24T16:55:46.473473,mobile,"Houston, TX",5732,Technology,TEC,Technology - Electronics,TEC-ELE,Technology - Electronics - Computer,TEC-ELE-CMP
+TXN_20241121_000149,STRIPE * NETFLIX 73093,160.63,INR,2025-10-24T20:17:44.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Netflix,ENT-STR-NFX
+TXN_20241121_000271,AMZN #9012 034165,316.14,GBP,2025-10-25T03:41:10.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000303,STARBUCKS LTD 59807,45.05,INR,2025-10-25T23:58:03.473473,atm,"Chennai, TN",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000872,TST* BP,43.44,USD,2025-10-27T01:59:38.473473,pos,"Phoenix, AZ",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000823,ZOMATO 0588,11.9,USD,2025-10-27T04:59:16.473473,mobile,"Phoenix, AZ",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000783,GYM MEMBERSHIP ONLINE,65.09,GBP,2025-10-27T14:08:30.473473,atm,"Bangalore, KA",7997,Personal Care,PER,Personal Care - Gym,PER-GYM,Personal Care - Gym - Membership,PER-GYM-MEM
+TXN_20241121_000554,AMZN #9225 5504,35.69,USD,2025-10-27T14:10:46.473473,online,,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Amazon,SHP-ONL-AMZ
+TXN_20241121_000281,PP* AIR INDIA,265.77,USD,2025-10-27T15:01:35.473473,online,Online,4511,Travel,TRV,Travel - International,TRV-INT,Travel - International - Flight,TRV-INT-FLT
+TXN_20241121_000598,STRIPE * BLINKIT 118,83.7,INR,2025-10-28T18:09:30.473473,atm,"Ahmedabad, GJ",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000274,VEHICLE MAINTENANCE VA #6973,89.18,USD,2025-10-28T19:22:52.473473,mobile,"New York, NY",7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000265,PAYPAL * FLIPKART ONLINE,500.0,EUR,2025-10-29T15:01:41.473473,online,Web Purchase,5942,Shopping,SHP,Shopping - Online,SHP-ONL,Shopping - Online - Flipkart,SHP-ONL-FLP
+TXN_20241121_000054,WELLNESS * DOFIZMSN 166,50.48,GBP,2025-10-31T00:36:04.473473,online,,7298,Personal Care,PER,Personal Care - Wellness,PER-WEL,Personal Care - Wellness - Spa,PER-WEL-SPA
+TXN_20241121_000010,PAYPAL * BURGER KING 14425,89.3,EUR,2025-10-31T09:26:51.473473,online,,5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000183,SPA #1553 295,126.58,USD,2025-11-01T21:25:23.473473,online,,7298,Personal Care,PER,Personal Care - Wellness,PER-WEL,Personal Care - Wellness - Spa,PER-WEL-SPA
+TXN_20241121_000420,RESTAURANT #4554 16676,49.35,EUR,2025-11-01T21:29:03.473473,pos,"Delhi, DL",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000869,ZARA 025,111.98,INR,2025-11-03T06:31:05.473473,atm,"Pune, MH",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000031,AUTO #214,372.57,INR,2025-11-03T11:37:31.473473,online,Internet,4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Auto/Rickshaw,TRV-LOC-AUT
+TXN_20241121_000009,H&M HYDERABAD,500.0,GBP,2025-11-04T08:53:20.473473,pos,"Ahmedabad, GJ",5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000128,BP DELHI,34.08,USD,2025-11-04T16:16:10.473473,pos,"Phoenix, AZ",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Petrol,TRN-FUL-PET
+TXN_20241121_000491,STARBUCKS WA,41.78,INR,2025-11-04T19:46:31.473473,pos,"Delhi, DL",5814,Dining,DIN,Dining - Coffee Shops,DIN-COF,Dining - Coffee Shops - Starbucks,DIN-COF-STB
+TXN_20241121_000763,RAPIDO * OXK5RJN7,289.59,EUR,2025-11-05T07:53:49.473473,mobile,"Ahmedabad, GJ",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Auto/Rickshaw,TRV-LOC-AUT
+TXN_20241121_000854,PARKING LLC,50.54,GBP,2025-11-05T09:59:55.473473,atm,"New York, NY",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000467,STRIPE * SOFTWARE 124,253.13,USD,2025-11-05T15:18:49.473473,pos,"Chennai, TN",5734,Technology,TEC,Technology - Software,TEC-SFT,Technology - Software - License,TEC-SFT-LIC
+TXN_20241121_000712,SWIGGY DELIVERY IL #3762 151216,8.45,USD,2025-11-05T19:49:45.473473,pos,"Hyderabad, TG",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000847,VEHICLE MAINTENANCE CA #9993,20.12,USD,2025-11-05T20:57:00.473473,online,Internet,7538,Transportation,TRN,Transportation - Maintenance,TRN-MNT,Transportation - Maintenance - Service,TRN-MNT-SRV
+TXN_20241121_000767,BURGER KING #1939,100.97,INR,2025-11-06T14:55:06.473473,pos,"Philadelphia, PA",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Burgers,DIN-FST-BRG
+TXN_20241121_000878,DOMINOS 865589,61.51,USD,2025-11-06T15:33:34.473473,pos,"Ahmedabad, GJ",5814,Dining,DIN,Dining - Fast Food,DIN-FST,Dining - Fast Food - Pizza,DIN-FST-PIZ
+TXN_20241121_000316,RAPIDO NC #5083,203.87,USD,2025-11-06T23:13:54.473473,atm,"Houston, TX",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Auto/Rickshaw,TRV-LOC-AUT
+TXN_20241121_000941,AZURE VA #6739 9997,1431.9,USD,2025-11-07T11:14:26.473473,online,,5734,Technology,TEC,Technology - Subscriptions,TEC-SUB,Technology - Subscriptions - Cloud,TEC-SUB-CLD
+TXN_20241121_000007,UBER TECHNOLOGIES NC #2521,448.36,AUD,2025-11-07T20:10:55.473473,pos,"Bangalore, KA",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Uber,TRV-LOC-UBR
+TXN_20241121_000945,EATERY NC #6376,150.0,INR,2025-11-08T09:29:30.473473,pos,"Chennai, TN",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000210,SQ * RESTAURANT,45.09,USD,2025-11-08T17:53:38.473473,pos,"San Antonio, TX",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Fine Dining,DIN-RES-FIN
+TXN_20241121_000250,SPOTIFY LLC 64349,59.86,EUR,2025-11-10T09:15:34.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000642,PP* ZOMATO,150.0,USD,2025-11-11T01:16:22.473473,pos,"Philadelphia, PA",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000068,SQ * POWER BILL,167.68,USD,2025-11-11T10:50:33.473473,pos,"Hyderabad, TG",4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000575,SQ * SERVICE CHARGE,930.23,USD,2025-11-11T14:03:24.473473,online,,6010,Financial Services,FIN,Financial Services - Banking,FIN-BNK,Financial Services - Banking - Fees,FIN-BNK-FEE
+TXN_20241121_000601,TARGET FL 046572,281.49,USD,2025-11-11T15:05:51.473473,online,,5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000903,WALMART,117.5,USD,2025-11-11T18:33:11.473473,atm,"Los Angeles, CA",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000863,PRIME VIDEO * I4NBX3RV,39.71,USD,2025-11-11T19:12:05.473473,pos,"New York, NY",4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Prime,ENT-STR-PRM
+TXN_20241121_000193,COLLEGE FEE * BZCJ4H7D,2358.86,INR,2025-11-12T08:17:55.473473,online,Online,8220,Education,EDU,Education - Tuition,EDU-TUI,Education - Tuition - College,EDU-TUI-COL
+TXN_20241121_000677,H&M VA #3854,139.13,USD,2025-11-12T12:54:05.473473,online,,5651,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Clothing,SHP-RET-CLO
+TXN_20241121_000744,ZOMATO STORE,50.5,USD,2025-11-12T17:44:51.473473,atm,"Chicago, IL",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM
+TXN_20241121_000449,DIESEL HYDERABAD,14.5,USD,2025-11-13T07:28:04.473473,pos,"Houston, TX",5541,Transportation,TRN,Transportation - Fuel,TRN-FUL,Transportation - Fuel - Diesel,TRN-FUL-DIE
+TXN_20241121_000874,BISTRO VA #2646,19.73,AUD,2025-11-13T11:01:29.473473,pos,"Houston, TX",5812,Dining,DIN,Dining - Restaurants,DIN-RES,Dining - Restaurants - Casual,DIN-RES-CAS
+TXN_20241121_000313,HAIRCUT VA #200,39.6,USD,2025-11-13T12:53:35.473473,pos,"Kolkata, WB",7230,Personal Care,PER,Personal Care - Salon,PER-SAL,Personal Care - Salon - Haircut,PER-SAL-HAR
+TXN_20241121_000989,PARKING FEE MA #9296 80008,71.15,GBP,2025-11-13T13:52:18.473473,pos,"Mumbai, MH",7523,Transportation,TRN,Transportation - Parking,TRN-PRK,Transportation - Parking - Fee,TRN-PRK-FEE
+TXN_20241121_000961,HEALTH INSURANCE #5635,105.44,USD,2025-11-13T15:54:18.473473,atm,"Ahmedabad, GJ",6300,Healthcare,HLT,Healthcare - Insurance,HLT-INS,Healthcare - Insurance - Premium,HLT-INS-PRM
+TXN_20241121_000960,SWIGGY FOOD,24.36,USD,2025-11-13T16:17:29.473473,mobile,"Bangalore, KA",5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Swiggy,DIN-DEL-SWG
+TXN_20241121_000881,RAPIDO #8693 553134,2000.0,USD,2025-11-13T16:47:08.473473,pos,"Philadelphia, PA",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Auto/Rickshaw,TRV-LOC-AUT
+TXN_20241121_000034,SQ * BIGBASKET,293.62,EUR,2025-11-14T09:00:48.473473,atm,"Houston, TX",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Supermarket,SHP-GRO-SUP
+TXN_20241121_000899,ELECTRICITY HYDERABAD #4267 425965,123.2,USD,2025-11-14T09:35:27.473473,online,,4900,Utilities,UTL,Utilities - Electric,UTL-ELC,Utilities - Electric - Bill,UTL-ELC-BIL
+TXN_20241121_000875,AIRWAYS,638.45,USD,2025-11-14T15:24:11.473473,atm,"Delhi, DL",4511,Travel,TRV,Travel - International,TRV-INT,Travel - International - Flight,TRV-INT-FLT
+TXN_20241121_000342,AUTO #6024,948.59,INR,2025-11-15T00:33:05.473473,atm,"Bangalore, KA",4121,Travel,TRV,Travel - Local,TRV-LOC,Travel - Local - Auto/Rickshaw,TRV-LOC-AUT
+TXN_20241121_000745,INSTACART FL 86599,45.88,EUR,2025-11-15T01:37:23.473473,online,,5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000638,STATIONERY ONLINE,334.87,INR,2025-11-15T04:01:14.473473,atm,"Bangalore, KA",5943,Business Expenses,BUS,Business Expenses - Office,BUS-OFC,Business Expenses - Office - Supplies,BUS-OFC-SUP
+TXN_20241121_000063,HOTSTAR #1242,74.57,INR,2025-11-16T13:39:51.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000721,INSURANCE PREMIUM 03647,10000.0,EUR,2025-11-16T21:59:56.473473,online,Online,6300,Financial Services,FIN,Financial Services - Insurance,FIN-INS,Financial Services - Insurance - Premium,FIN-INS-PRM
+TXN_20241121_000705,HOTSTAR,200.0,USD,2025-11-18T11:09:14.473473,online,,4899,Entertainment,ENT,Entertainment - Streaming,ENT-STR,Entertainment - Streaming - Other,ENT-STR-OTH
+TXN_20241121_000829,VISA STORE,288.53,EUR,2025-11-19T10:47:06.473473,online,,9399,Travel,TRV,Travel - International,TRV-INT,Travel - International - Visa,TRV-INT-VIS
+TXN_20241121_000715,STRIPE * OFFICE SUPPLIES 2653,168.55,USD,2025-11-19T11:46:46.473473,online,,5943,Business Expenses,BUS,Business Expenses - Office,BUS-OFC,Business Expenses - Office - Supplies,BUS-OFC-SUP
+TXN_20241121_000685,BROADBAND * A0DXOQ1G 807,73.95,USD,2025-11-19T22:29:59.473473,pos,"Ahmedabad, GJ",4899,Utilities,UTL,Utilities - Internet,UTL-INT,Utilities - Internet - Broadband,UTL-INT-BRD
+TXN_20241121_000576,HOME LOAN #1748,3000.0,USD,2025-11-20T13:10:09.473473,online,,6513,Housing,HSG,Housing - Mortgage,HSG-MTG,Housing - Mortgage - EMI,HSG-MTG-EMI
+TXN_20241121_000243,CROMA 279245,178.95,EUR,2025-11-20T19:44:21.473473,pos,"Los Angeles, CA",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000284,BLINKIT LLC,175.68,AUD,2025-11-20T23:02:41.473473,pos,"Philadelphia, PA",5411,Shopping,SHP,Shopping - Groceries,SHP-GRO,Shopping - Groceries - Online,SHP-GRO-ONL
+TXN_20241121_000015,SQ * BEST BUY,500.0,USD,2025-11-21T20:07:40.473473,pos,"Ahmedabad, GJ",5732,Shopping,SHP,Shopping - Retail,SHP-RET,Shopping - Retail - Electronics,SHP-RET-ELC
+TXN_20241121_000512,ZOMATO NC #1553,120.41,INR,2025-11-21T20:27:22.473473,online,,5814,Dining,DIN,Dining - Food Delivery,DIN-DEL,Dining - Food Delivery - Zomato,DIN-DEL-ZOM

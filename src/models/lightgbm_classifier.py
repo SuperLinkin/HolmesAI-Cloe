@@ -64,6 +64,10 @@ class LightGBMClassifier:
         # Feature names
         self.feature_names = None
 
+        # Hierarchy mappings for conditional prediction
+        self.l1_to_l2_map = {}
+        self.l2_to_l3_map = {}
+
     def load_taxonomy(self, taxonomy_path: str):
         """
         Load category taxonomy from JSON file.
@@ -133,6 +137,39 @@ class LightGBMClassifier:
             encoded = self.label_encoder_l3.fit_transform(labels)
 
         return encoded
+
+    def build_hierarchy_maps(self, transactions: List[Dict]):
+        """
+        Build L1->L2 and L2->L3 mappings from training data.
+
+        Args:
+            transactions: List of transactions with category labels
+        """
+        for txn in transactions:
+            if 'category' in txn:
+                l1 = txn['category'].get('l1', '')
+                l2 = txn['category'].get('l2', '')
+                l3 = txn['category'].get('l3', '')
+            else:
+                l1 = txn.get('l1', '')
+                l2 = txn.get('l2', '')
+                l3 = txn.get('l3', '')
+
+            if l1 and l2:
+                if l1 not in self.l1_to_l2_map:
+                    self.l1_to_l2_map[l1] = set()
+                self.l1_to_l2_map[l1].add(l2)
+
+            if l2 and l3:
+                if l2 not in self.l2_to_l3_map:
+                    self.l2_to_l3_map[l2] = set()
+                self.l2_to_l3_map[l2].add(l3)
+
+        # Convert sets to lists for easier use
+        self.l1_to_l2_map = {k: list(v) for k, v in self.l1_to_l2_map.items()}
+        self.l2_to_l3_map = {k: list(v) for k, v in self.l2_to_l3_map.items()}
+
+        print(f"Built hierarchy maps: {len(self.l1_to_l2_map)} L1 categories, {len(self.l2_to_l3_map)} L2 categories")
 
     def train(
         self,
@@ -244,14 +281,16 @@ class LightGBMClassifier:
     def predict(
         self,
         X: np.ndarray,
-        return_proba: bool = True
+        return_proba: bool = True,
+        use_hierarchy: bool = True
     ) -> Dict[str, np.ndarray]:
         """
-        Predict categories for transactions.
+        Predict categories for transactions with hierarchical constraints.
 
         Args:
             X: Feature matrix
             return_proba: Return probability distributions
+            use_hierarchy: Apply hierarchical filtering (recommended)
 
         Returns:
             Dictionary with predictions for each level
@@ -260,24 +299,85 @@ class LightGBMClassifier:
             raise ValueError("Models not trained. Call train() first.")
 
         predictions = {}
+        n_samples = X.shape[0]
 
-        # Predict L1
+        # Step 1: Predict L1
         l1_proba = self.model_l1.predict(X)
         l1_pred = np.argmax(l1_proba, axis=1)
         predictions['l1'] = self.label_encoder_l1.inverse_transform(l1_pred)
         if return_proba:
             predictions['l1_proba'] = l1_proba
 
-        # Predict L2
+        # Step 2: Predict L2 with hierarchical filtering
         l2_proba = self.model_l2.predict(X)
-        l2_pred = np.argmax(l2_proba, axis=1)
+        l2_pred = np.zeros(n_samples, dtype=int)
+
+        if use_hierarchy and self.l1_to_l2_map:
+            # For each sample, filter L2 predictions based on L1
+            for i in range(n_samples):
+                l1_category = predictions['l1'][i]
+                valid_l2_categories = self.l1_to_l2_map.get(l1_category, [])
+
+                if valid_l2_categories:
+                    # Get indices of valid L2 categories
+                    valid_l2_indices = []
+                    for l2_cat in valid_l2_categories:
+                        try:
+                            idx = np.where(self.label_encoder_l2.classes_ == l2_cat)[0]
+                            if len(idx) > 0:
+                                valid_l2_indices.append(idx[0])
+                        except:
+                            continue
+
+                    if valid_l2_indices:
+                        # Mask out invalid L2 categories by setting their probabilities to -inf
+                        masked_proba = np.full(l2_proba.shape[1], -np.inf)
+                        masked_proba[valid_l2_indices] = l2_proba[i, valid_l2_indices]
+                        l2_pred[i] = np.argmax(masked_proba)
+                    else:
+                        l2_pred[i] = np.argmax(l2_proba[i])
+                else:
+                    l2_pred[i] = np.argmax(l2_proba[i])
+        else:
+            l2_pred = np.argmax(l2_proba, axis=1)
+
         predictions['l2'] = self.label_encoder_l2.inverse_transform(l2_pred)
         if return_proba:
             predictions['l2_proba'] = l2_proba
 
-        # Predict L3
+        # Step 3: Predict L3 with hierarchical filtering
         l3_proba = self.model_l3.predict(X)
-        l3_pred = np.argmax(l3_proba, axis=1)
+        l3_pred = np.zeros(n_samples, dtype=int)
+
+        if use_hierarchy and self.l2_to_l3_map:
+            # For each sample, filter L3 predictions based on L2
+            for i in range(n_samples):
+                l2_category = predictions['l2'][i]
+                valid_l3_categories = self.l2_to_l3_map.get(l2_category, [])
+
+                if valid_l3_categories:
+                    # Get indices of valid L3 categories
+                    valid_l3_indices = []
+                    for l3_cat in valid_l3_categories:
+                        try:
+                            idx = np.where(self.label_encoder_l3.classes_ == l3_cat)[0]
+                            if len(idx) > 0:
+                                valid_l3_indices.append(idx[0])
+                        except:
+                            continue
+
+                    if valid_l3_indices:
+                        # Mask out invalid L3 categories
+                        masked_proba = np.full(l3_proba.shape[1], -np.inf)
+                        masked_proba[valid_l3_indices] = l3_proba[i, valid_l3_indices]
+                        l3_pred[i] = np.argmax(masked_proba)
+                    else:
+                        l3_pred[i] = np.argmax(l3_proba[i])
+                else:
+                    l3_pred[i] = np.argmax(l3_proba[i])
+        else:
+            l3_pred = np.argmax(l3_proba, axis=1)
+
         predictions['l3'] = self.label_encoder_l3.inverse_transform(l3_pred)
         if return_proba:
             predictions['l3_proba'] = l3_proba
@@ -329,12 +429,14 @@ class LightGBMClassifier:
         self.model_l2.save_model(str(save_path / 'model_l2.txt'))
         self.model_l3.save_model(str(save_path / 'model_l3.txt'))
 
-        # Save label encoders
+        # Save label encoders and hierarchy maps
         with open(save_path / 'encoders.pkl', 'wb') as f:
             pickle.dump({
                 'l1': self.label_encoder_l1,
                 'l2': self.label_encoder_l2,
-                'l3': self.label_encoder_l3
+                'l3': self.label_encoder_l3,
+                'l1_to_l2_map': self.l1_to_l2_map,
+                'l2_to_l3_map': self.l2_to_l3_map
             }, f)
 
         print(f"Models saved to: {save_path}")
@@ -356,12 +458,15 @@ class LightGBMClassifier:
         self.model_l2 = lgb.Booster(model_file=str(model_path / 'model_l2.txt'))
         self.model_l3 = lgb.Booster(model_file=str(model_path / 'model_l3.txt'))
 
-        # Load label encoders
+        # Load label encoders and hierarchy maps
         with open(model_path / 'encoders.pkl', 'rb') as f:
             encoders = pickle.load(f)
             self.label_encoder_l1 = encoders['l1']
             self.label_encoder_l2 = encoders['l2']
             self.label_encoder_l3 = encoders['l3']
+            # Load hierarchy maps if available (for backward compatibility)
+            self.l1_to_l2_map = encoders.get('l1_to_l2_map', {})
+            self.l2_to_l3_map = encoders.get('l2_to_l3_map', {})
 
         print(f"Models loaded from: {model_path}")
 
