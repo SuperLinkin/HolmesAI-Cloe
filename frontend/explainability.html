@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holmes AI - Explainability Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .code-font { font-family: 'Courier New', monospace; }
+        .fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .feature-bar {
+            transition: width 0.5s ease-out;
+        }
+        .positive-impact { background: linear-gradient(90deg, #10b981, #059669); }
+        .negative-impact { background: linear-gradient(90deg, #ef4444, #dc2626); }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #1f2937;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 12px;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-4 md:p-8">
+    <!-- Header -->
+    <div class="max-w-7xl mx-auto mb-8">
+        <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="bg-gradient-to-br from-purple-600 to-indigo-600 p-3 rounded-lg">
+                        <i class="fas fa-lightbulb text-white text-3xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-900">Holmes AI</h1>
+                        <p class="text-gray-500 mt-1">Explainability Dashboard</p>
+                    </div>
+                </div>
+                <a href="index.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium transition">
+                    <i class="fas fa-arrow-left mr-2"></i>Back to Predictions
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto space-y-6">
+        <!-- Input Section -->
+        <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+            <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <i class="fas fa-search text-purple-600"></i>
+                Analyze Transaction
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Merchant Name</label>
+                    <input type="text" id="merchant"
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-100 focus:outline-none"
+                           placeholder="e.g., STARBUCKS #4532" value="STARBUCKS #4532">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Amount ($)</label>
+                    <input type="number" id="amount" step="0.01"
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-100 focus:outline-none"
+                           placeholder="e.g., 5.25" value="5.25">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Date</label>
+                    <input type="date" id="date"
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-100 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">MCC Code (Optional)</label>
+                    <input type="text" id="mcc"
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-100 focus:outline-none"
+                           placeholder="e.g., 5812" value="5812">
+                </div>
+            </div>
+
+            <div class="mt-4 flex gap-3">
+                <button onclick="analyzePrediction()"
+                        class="flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-3 rounded-lg font-medium hover:shadow-lg transition flex items-center justify-center gap-2">
+                    <i class="fas fa-brain"></i>
+                    <span>Explain Prediction</span>
+                </button>
+                <button onclick="loadSample('starbucks')" class="px-4 py-3 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm transition">
+                    <i class="fas fa-coffee"></i> Sample
+                </button>
+            </div>
+
+            <!-- Quick Samples -->
+            <div class="mt-4 pt-4 border-t border-gray-200">
+                <p class="text-sm font-medium text-gray-600 mb-2">Quick Samples</p>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="loadSample('starbucks')" class="px-3 py-1.5 bg-gray-100 hover:bg-purple-50 rounded-lg text-sm border border-gray-200 hover:border-purple-300 transition">
+                        ☕ Starbucks
+                    </button>
+                    <button onclick="loadSample('shell')" class="px-3 py-1.5 bg-gray-100 hover:bg-purple-50 rounded-lg text-sm border border-gray-200 hover:border-purple-300 transition">
+                        ⛽ Shell Gas
+                    </button>
+                    <button onclick="loadSample('amazon')" class="px-3 py-1.5 bg-gray-100 hover:bg-purple-50 rounded-lg text-sm border border-gray-200 hover:border-purple-300 transition">
+                        📦 Amazon
+                    </button>
+                    <button onclick="loadSample('netflix')" class="px-3 py-1.5 bg-gray-100 hover:bg-purple-50 rounded-lg text-sm border border-gray-200 hover:border-purple-300 transition">
+                        🎬 Netflix
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="hidden space-y-6 fade-in">
+            <!-- Prediction Summary -->
+            <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-xl shadow-lg p-6 text-white">
+                <h3 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                    <i class="fas fa-check-circle"></i>
+                    Prediction Summary
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                        <p class="text-sm opacity-90 mb-1">Category</p>
+                        <p id="pred-category" class="text-xl font-bold"></p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                        <p class="text-sm opacity-90 mb-1">Confidence</p>
+                        <p id="pred-confidence" class="text-xl font-bold"></p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                        <p class="text-sm opacity-90 mb-1">Latency</p>
+                        <p id="pred-latency" class="text-xl font-bold"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Natural Language Explanation -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <i class="fas fa-comment-dots text-blue-600"></i>
+                    Why This Prediction?
+                </h3>
+                <div id="explanation-text" class="prose max-w-none">
+                    <p class="text-gray-700 leading-relaxed"></p>
+                </div>
+            </div>
+
+            <!-- Confidence Breakdown -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <i class="fas fa-chart-pie text-indigo-600"></i>
+                    Confidence Breakdown
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-medium text-gray-700">Model Prediction</span>
+                            <span id="conf-model" class="text-sm font-bold text-purple-600">70%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div id="bar-model" class="bg-purple-600 h-2 rounded-full transition-all duration-500" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-medium text-gray-700">Alias Matching</span>
+                            <span id="conf-alias" class="text-sm font-bold text-blue-600">20%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div id="bar-alias" class="bg-blue-600 h-2 rounded-full transition-all duration-500" style="width: 20%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-medium text-gray-700">MCC Code</span>
+                            <span id="conf-mcc" class="text-sm font-bold text-green-600">10%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div id="bar-mcc" class="bg-green-600 h-2 rounded-full transition-all duration-500" style="width: 10%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SHAP Feature Importance -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <i class="fas fa-sliders-h text-yellow-600"></i>
+                    Top Contributing Features
+                    <span class="tooltip ml-2">
+                        <i class="fas fa-question-circle text-gray-400 text-sm cursor-help"></i>
+                        <span class="tooltiptext">SHAP values show how much each feature influenced the prediction. Green = positive impact, Red = negative impact.</span>
+                    </span>
+                </h3>
+                <div id="shap-features" class="space-y-3">
+                    <!-- Feature bars will be inserted here -->
+                </div>
+            </div>
+
+            <!-- Feature Details -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <i class="fas fa-table text-teal-600"></i>
+                    Feature Values
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Feature</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Value</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody id="feature-table" class="bg-white divide-y divide-gray-200">
+                            <!-- Feature rows will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Decision Path Visualization -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <i class="fas fa-project-diagram text-pink-600"></i>
+                    Hierarchical Decision Path
+                </h3>
+                <div class="flex items-center justify-center gap-4 py-8">
+                    <div class="text-center">
+                        <div class="bg-purple-100 text-purple-800 px-6 py-3 rounded-lg font-bold text-lg mb-2">
+                            <span id="path-l1"></span>
+                        </div>
+                        <p class="text-xs text-gray-500">Level 1</p>
+                    </div>
+                    <i class="fas fa-arrow-right text-gray-400 text-2xl"></i>
+                    <div class="text-center">
+                        <div class="bg-blue-100 text-blue-800 px-6 py-3 rounded-lg font-bold text-lg mb-2">
+                            <span id="path-l2"></span>
+                        </div>
+                        <p class="text-xs text-gray-500">Level 2</p>
+                    </div>
+                    <i class="fas fa-arrow-right text-gray-400 text-2xl"></i>
+                    <div class="text-center">
+                        <div class="bg-green-100 text-green-800 px-6 py-3 rounded-lg font-bold text-lg mb-2">
+                            <span id="path-l3"></span>
+                        </div>
+                        <p class="text-xs text-gray-500">Level 3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample data
+        const samples = {
+            starbucks: { merchant: 'STARBUCKS #4532', amount: 5.25, date: '2025-01-15', mcc: '5812' },
+            shell: { merchant: 'SHELL GAS STATION', amount: 45.00, date: '2025-01-14', mcc: '5541' },
+            amazon: { merchant: 'AMAZON MARKETPLACE', amount: 23.45, date: '2025-01-13', mcc: '5968' },
+            netflix: { merchant: 'NETFLIX.COM', amount: 15.99, date: '2025-01-11', mcc: '4899' }
+        };
+
+        // Mock SHAP values and predictions
+        const mockPredictions = {
+            'STARBUCKS #4532': {
+                L1: 'Dining', L2: 'Coffee Shops', L3: 'Starbucks',
+                confidence: 0.954,
+                latency: 10.5,
+                explanation: "High confidence prediction based on strong merchant name similarity to known Starbucks patterns. The spending amount ($5.25) falls within the typical 'micro' range for coffee shop transactions, and the MCC code 5812 (Eating Places, Restaurants) provides additional validation. Daily transaction frequency is common for coffee purchases.",
+                confidence_breakdown: { model: 0.72, alias: 0.18, mcc: 0.10 },
+                shap_values: [
+                    { name: 'Merchant Name Embedding', value: 0.45, impact: 'positive', description: 'Strong semantic similarity to "Starbucks" patterns' },
+                    { name: 'Spending Amount (Micro)', value: 0.12, impact: 'positive', description: 'Typical coffee shop transaction amount' },
+                    { name: 'MCC Code (5812)', value: 0.08, impact: 'positive', description: 'Eating Places, Restaurants category' },
+                    { name: 'Channel (In-Person)', value: 0.05, impact: 'positive', description: 'Physical store transaction' },
+                    { name: 'Temporal Pattern (Daily)', value: 0.02, impact: 'positive', description: 'High-frequency purchase pattern' }
+                ],
+                features: [
+                    { name: 'Cleaned Merchant', value: 'starbucks', description: 'Normalized merchant name' },
+                    { name: 'Spend Band', value: 'micro', description: 'Amount category (<$10)' },
+                    { name: 'Temporal Pattern', value: 'daily', description: 'Purchase frequency estimate' },
+                    { name: 'Channel', value: 'in_person', description: 'Transaction channel' },
+                    { name: 'MCC Category', value: '5812', description: 'Merchant Category Code' },
+                    { name: 'Amount Percentile', value: '15th', description: 'Relative to all transactions' }
+                ]
+            },
+            'SHELL GAS STATION': {
+                L1: 'Transportation', L2: 'Gas Stations', L3: 'Shell',
+                confidence: 0.921,
+                latency: 9.8,
+                explanation: "High confidence prediction due to exact merchant name match with 'Shell' aliases. The spending amount ($45.00) aligns with typical 'medium' range gas station transactions, and MCC code 5541 (Service Stations) provides strong categorical validation. Weekly transaction frequency is consistent with regular vehicle refueling.",
+                confidence_breakdown: { model: 0.68, alias: 0.20, mcc: 0.12 },
+                shap_values: [
+                    { name: 'Merchant Name Embedding', value: 0.42, impact: 'positive', description: 'Exact match with Shell aliases' },
+                    { name: 'MCC Code (5541)', value: 0.15, impact: 'positive', description: 'Service Stations category' },
+                    { name: 'Spending Amount (Medium)', value: 0.10, impact: 'positive', description: 'Typical gas station purchase' },
+                    { name: 'Temporal Pattern (Weekly)', value: 0.04, impact: 'positive', description: 'Regular refueling pattern' },
+                    { name: 'Channel (In-Person)', value: 0.03, impact: 'positive', description: 'Physical station transaction' }
+                ],
+                features: [
+                    { name: 'Cleaned Merchant', value: 'shell gas station', description: 'Normalized merchant name' },
+                    { name: 'Spend Band', value: 'medium', description: 'Amount category ($10-$100)' },
+                    { name: 'Temporal Pattern', value: 'weekly', description: 'Purchase frequency estimate' },
+                    { name: 'Channel', value: 'in_person', description: 'Transaction channel' },
+                    { name: 'MCC Category', value: '5541', description: 'Merchant Category Code' },
+                    { name: 'Amount Percentile', value: '52nd', description: 'Relative to all transactions' }
+                ]
+            },
+            'AMAZON MARKETPLACE': {
+                L1: 'Shopping', L2: 'Online Retail', L3: 'Amazon',
+                confidence: 0.887,
+                latency: 11.2,
+                explanation: "Strong confidence driven by merchant name recognition of 'Amazon' patterns. The spending amount ($23.45) fits the 'low' range for online retail, though the category is broad. MCC code 5968 (Direct Marketing - Continuity/Subscription Merchants) provides moderate support. Monthly purchase frequency aligns with typical online shopping behavior.",
+                confidence_breakdown: { model: 0.65, alias: 0.16, mcc: 0.08 },
+                shap_values: [
+                    { name: 'Merchant Name Embedding', value: 0.38, impact: 'positive', description: 'Strong match with Amazon patterns' },
+                    { name: 'Channel (Online)', value: 0.12, impact: 'positive', description: 'Online marketplace transaction' },
+                    { name: 'MCC Code (5968)', value: 0.08, impact: 'positive', description: 'Direct Marketing category' },
+                    { name: 'Spending Amount (Low)', value: 0.05, impact: 'positive', description: 'Typical online purchase amount' },
+                    { name: 'Temporal Pattern (Monthly)', value: 0.02, impact: 'neutral', description: 'Regular but infrequent' }
+                ],
+                features: [
+                    { name: 'Cleaned Merchant', value: 'amazon marketplace', description: 'Normalized merchant name' },
+                    { name: 'Spend Band', value: 'low', description: 'Amount category ($10-$50)' },
+                    { name: 'Temporal Pattern', value: 'monthly', description: 'Purchase frequency estimate' },
+                    { name: 'Channel', value: 'online', description: 'Transaction channel' },
+                    { name: 'MCC Category', value: '5968', description: 'Merchant Category Code' },
+                    { name: 'Amount Percentile', value: '38th', description: 'Relative to all transactions' }
+                ]
+            },
+            'NETFLIX.COM': {
+                L1: 'Subscriptions', L2: 'Streaming Services', L3: 'Netflix',
+                confidence: 0.978,
+                latency: 9.5,
+                explanation: "Very high confidence due to exact merchant name match with Netflix aliases. The recurring amount ($15.99) is characteristic of the 'low' range for streaming subscriptions. MCC code 4899 (Cable, Satellite, and Other Pay Television and Radio Services) strongly validates the streaming service category. Monthly temporal pattern confirms subscription behavior.",
+                confidence_breakdown: { model: 0.75, alias: 0.18, mcc: 0.08 },
+                shap_values: [
+                    { name: 'Merchant Name Embedding', value: 0.48, impact: 'positive', description: 'Perfect match with Netflix aliases' },
+                    { name: 'Temporal Pattern (Monthly)', value: 0.14, impact: 'positive', description: 'Subscription-like frequency' },
+                    { name: 'MCC Code (4899)', value: 0.10, impact: 'positive', description: 'Pay Television Services' },
+                    { name: 'Spending Amount (Low)', value: 0.05, impact: 'positive', description: 'Typical subscription price' },
+                    { name: 'Channel (Online)', value: 0.04, impact: 'positive', description: 'Online service transaction' }
+                ],
+                features: [
+                    { name: 'Cleaned Merchant', value: 'netflix com', description: 'Normalized merchant name' },
+                    { name: 'Spend Band', value: 'low', description: 'Amount category ($10-$50)' },
+                    { name: 'Temporal Pattern', value: 'monthly', description: 'Purchase frequency estimate' },
+                    { name: 'Channel', value: 'online', description: 'Transaction channel' },
+                    { name: 'MCC Category', value: '4899', description: 'Merchant Category Code' },
+                    { name: 'Amount Percentile', value: '28th', description: 'Relative to all transactions' }
+                ]
+            }
+        };
+
+        // Set today's date by default
+        document.getElementById('date').value = new Date().toISOString().split('T')[0];
+
+        function loadSample(sample) {
+            const data = samples[sample];
+            document.getElementById('merchant').value = data.merchant;
+            document.getElementById('amount').value = data.amount;
+            document.getElementById('date').value = data.date;
+            document.getElementById('mcc').value = data.mcc;
+        }
+
+        function analyzePrediction() {
+            const merchant = document.getElementById('merchant').value.trim();
+            const amount = parseFloat(document.getElementById('amount').value);
+            const date = document.getElementById('date').value;
+            const mcc = document.getElementById('mcc').value.trim();
+
+            if (!merchant || !amount || !date) {
+                alert('Please fill in all required fields (Merchant, Amount, Date)');
+                return;
+            }
+
+            // Simulate analysis delay
+            const btn = event.target.closest('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Analyzing...</span>';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                // Get prediction (mock data)
+                const pred = mockPredictions[merchant] || mockPredictions['STARBUCKS #4532'];
+
+                // Update prediction summary
+                document.getElementById('pred-category').textContent = `${pred.L1} → ${pred.L2} → ${pred.L3}`;
+                document.getElementById('pred-confidence').textContent = `${(pred.confidence * 100).toFixed(1)}%`;
+                document.getElementById('pred-latency').textContent = `${pred.latency.toFixed(1)}ms`;
+
+                // Update explanation text
+                document.getElementById('explanation-text').innerHTML = `<p class="text-gray-700 leading-relaxed">${pred.explanation}</p>`;
+
+                // Update confidence breakdown
+                const confModel = Math.round(pred.confidence_breakdown.model * 100);
+                const confAlias = Math.round(pred.confidence_breakdown.alias * 100);
+                const confMCC = Math.round(pred.confidence_breakdown.mcc * 100);
+
+                document.getElementById('conf-model').textContent = `${confModel}%`;
+                document.getElementById('conf-alias').textContent = `${confAlias}%`;
+                document.getElementById('conf-mcc').textContent = `${confMCC}%`;
+
+                document.getElementById('bar-model').style.width = `${confModel}%`;
+                document.getElementById('bar-alias').style.width = `${confAlias}%`;
+                document.getElementById('bar-mcc').style.width = `${confMCC}%`;
+
+                // Update SHAP features
+                const shapContainer = document.getElementById('shap-features');
+                shapContainer.innerHTML = '';
+                pred.shap_values.forEach((feature, idx) => {
+                    const isPositive = feature.impact === 'positive';
+                    const barColor = isPositive ? 'positive-impact' : 'negative-impact';
+                    const iconColor = isPositive ? 'text-green-600' : 'text-red-600';
+                    const icon = isPositive ? 'fa-arrow-up' : 'fa-arrow-down';
+
+                    const featureHtml = `
+                        <div class="border border-gray-200 rounded-lg p-3 hover:shadow-md transition">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas ${icon} ${iconColor}"></i>
+                                    <span class="font-medium text-gray-800">${feature.name}</span>
+                                </div>
+                                <span class="text-sm font-bold ${isPositive ? 'text-green-600' : 'text-red-600'}">
+                                    ${isPositive ? '+' : ''}${feature.value.toFixed(2)}
+                                </span>
+                            </div>
+                            <p class="text-xs text-gray-600 mb-2">${feature.description}</p>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="feature-bar ${barColor} h-2 rounded-full" style="width: ${Math.abs(feature.value) * 100}%"></div>
+                            </div>
+                        </div>
+                    `;
+                    shapContainer.innerHTML += featureHtml;
+                });
+
+                // Update feature table
+                const featureTable = document.getElementById('feature-table');
+                featureTable.innerHTML = '';
+                pred.features.forEach(feature => {
+                    const row = `
+                        <tr>
+                            <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">${feature.name}</td>
+                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 code-font">${feature.value}</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">${feature.description}</td>
+                        </tr>
+                    `;
+                    featureTable.innerHTML += row;
+                });
+
+                // Update decision path
+                document.getElementById('path-l1').textContent = pred.L1;
+                document.getElementById('path-l2').textContent = pred.L2;
+                document.getElementById('path-l3').textContent = pred.L3;
+
+                // Show results
+                document.getElementById('results').classList.remove('hidden');
+
+                // Scroll to results
+                setTimeout(() => {
+                    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 1500);
+        }
+
+        // Allow Enter key to submit
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') analyzePrediction();
+            });
+        });
+    </script>
+</body>
+</html>

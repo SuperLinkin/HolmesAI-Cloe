@@ -38,7 +38,13 @@
       "Bash(git restore:*)",
       "Bash(powershell -Command:*)",
       "Bash(unzip:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(start architecture_dashboard.html)",
+      "Bash(start results_dashboard.html)",
+      "Bash(start demo_workflow.html)",
+      "Bash(start frontend/explainability.html)",
+      "Bash(start frontend/feedback.html)",
+      "Bash(start frontend/demo.html)"
     ],
     "deny": [],
     "ask": []

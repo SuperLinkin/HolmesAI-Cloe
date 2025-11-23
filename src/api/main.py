@@ -15,6 +15,7 @@ from ..preprocessing.preprocessor import TransactionPreprocessor
 from ..models.sentence_bert_encoder import SentenceBERTEncoder
 from ..models.lightgbm_classifier import LightGBMClassifier
 from ..utils.confidence_scorer import ConfidenceScorer
+from ..feedback.feedback_storage import FeedbackStorage
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -97,19 +98,71 @@ class HealthResponse(BaseModel):
     models_loaded: bool
 
 
+class FeedbackRequest(BaseModel):
+    """Request model for feedback submission."""
+    merchant: str = Field(..., description="Merchant name")
+    amount: float = Field(..., gt=0, description="Transaction amount")
+    date: str = Field(..., description="Transaction date (YYYY-MM-DD)")
+    mcc_code: Optional[str] = Field(None, description="MCC code")
+    transaction_id: Optional[str] = Field(None, description="Transaction ID")
+    predicted_l1: str = Field(..., description="Predicted L1 category")
+    predicted_l2: str = Field(..., description="Predicted L2 category")
+    predicted_l3: str = Field(..., description="Predicted L3 category")
+    predicted_confidence: float = Field(..., ge=0, le=1, description="Prediction confidence")
+    corrected_l1: str = Field(..., description="Corrected L1 category")
+    corrected_l2: str = Field(..., description="Corrected L2 category")
+    corrected_l3: str = Field(..., description="Corrected L3 category")
+    user_id: Optional[str] = Field(None, description="User ID")
+    notes: Optional[str] = Field(None, description="Additional notes")
+
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "merchant": "STARBUCKS #4532",
+                "amount": 5.25,
+                "date": "2025-01-15",
+                "mcc_code": "5812",
+                "predicted_l1": "Shopping",
+                "predicted_l2": "Retail",
+                "predicted_l3": "Other",
+                "predicted_confidence": 0.65,
+                "corrected_l1": "Dining",
+                "corrected_l2": "Coffee Shops",
+                "corrected_l3": "Starbucks",
+                "notes": "Misclassified coffee shop as retail"
+            }
+        }
+
+
+class FeedbackResponse(BaseModel):
+    """Response model for feedback submission."""
+    feedback_id: int
+    message: str
+    total_feedback: int
+
+
 # Global model instances (loaded on startup)
 preprocessor: Optional[TransactionPreprocessor] = None
 encoder: Optional[SentenceBERTEncoder] = None
 classifier: Optional[LightGBMClassifier] = None
 confidence_scorer: Optional[ConfidenceScorer] = None
+feedback_storage: Optional[FeedbackStorage] = None
 
 
 @app.on_event("startup")
 async def startup_event():
     """Initialize models on application startup."""
-    global preprocessor, encoder, classifier, confidence_scorer
+    global preprocessor, encoder, classifier, confidence_scorer, feedback_storage
 
     print("Initializing Holmes AI models...")
+
+    # Initialize feedback storage
+    try:
+        feedback_storage = FeedbackStorage(db_path="data/feedback.db")
+        print("[OK] Feedback storage initialized")
+    except Exception as e:
+        print(f"Warning: Could not initialize feedback storage: {e}")
+        feedback_storage = None
 
     # Initialize preprocessor
     preprocessor = TransactionPreprocessor()
@@ -302,7 +355,8 @@ async def get_stats():
             "preprocessor": preprocessor is not None,
             "encoder": encoder is not None,
             "classifier": classifier is not None,
-            "confidence_scorer": confidence_scorer is not None
+            "confidence_scorer": confidence_scorer is not None,
+            "feedback_storage": feedback_storage is not None
         },
         "taxonomy": {
             "l1_categories": 15,
@@ -313,6 +367,169 @@ async def get_stats():
             "target_f1_score": 0.90
         }
     }
+
+
+@app.post("/api/v1/feedback", response_model=FeedbackResponse)
+async def submit_feedback(request: FeedbackRequest):
+    """
+    Submit user feedback for a prediction correction.
+
+    This endpoint allows users to correct misclassified transactions,
+    which will be stored for future model retraining.
+
+    Args:
+        request: FeedbackRequest with prediction and correction
+
+    Returns:
+        FeedbackResponse with feedback ID and summary
+    """
+    if feedback_storage is None:
+        raise HTTPException(
+            status_code=503,
+            detail="Feedback storage not available"
+        )
+
+    try:
+        feedback_id = feedback_storage.add_feedback(
+            merchant=request.merchant,
+            amount=request.amount,
+            date=request.date,
+            mcc_code=request.mcc_code,
+            transaction_id=request.transaction_id,
+            predicted_l1=request.predicted_l1,
+            predicted_l2=request.predicted_l2,
+            predicted_l3=request.predicted_l3,
+            predicted_confidence=request.predicted_confidence,
+            corrected_l1=request.corrected_l1,
+            corrected_l2=request.corrected_l2,
+            corrected_l3=request.corrected_l3,
+            user_id=request.user_id,
+            feedback_type="correction",
+            notes=request.notes
+        )
+
+        total_feedback = feedback_storage.get_feedback_count()
+
+        return FeedbackResponse(
+            feedback_id=feedback_id,
+            message="Feedback submitted successfully. Thank you for helping improve the model!",
+            total_feedback=total_feedback
+        )
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error storing feedback: {str(e)}"
+        )
+
+
+@app.get("/api/v1/feedback/stats")
+async def get_feedback_stats():
+    """
+    Get feedback statistics and summary.
+
+    Returns:
+        Dictionary with feedback counts and statistics
+    """
+    if feedback_storage is None:
+        raise HTTPException(
+            status_code=503,
+            detail="Feedback storage not available"
+        )
+
+    try:
+        summary = feedback_storage.get_feedback_summary()
+        return {
+            "summary": summary,
+            "status": "ok"
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error retrieving feedback stats: {str(e)}"
+        )
+
+
+@app.get("/api/v1/feedback/patterns")
+async def get_misclassification_patterns(min_count: int = 3):
+    """
+    Get common misclassification patterns from user feedback.
+
+    Args:
+        min_count: Minimum occurrences to be considered a pattern
+
+    Returns:
+        List of common misclassification patterns
+    """
+    if feedback_storage is None:
+        raise HTTPException(
+            status_code=503,
+            detail="Feedback storage not available"
+        )
+
+    try:
+        patterns_df = feedback_storage.get_misclassification_patterns(min_count=min_count)
+        patterns = patterns_df.to_dict('records') if not patterns_df.empty else []
+
+        return {
+            "patterns": patterns,
+            "count": len(patterns),
+            "min_count_threshold": min_count
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error retrieving patterns: {str(e)}"
+        )
+
+
+@app.get("/api/v1/feedback/export")
+async def export_feedback(unused_only: bool = True):
+    """
+    Export feedback data for analysis.
+
+    Args:
+        unused_only: If True, only export feedback not yet used in training
+
+    Returns:
+        CSV data of feedback entries
+    """
+    if feedback_storage is None:
+        raise HTTPException(
+            status_code=503,
+            detail="Feedback storage not available"
+        )
+
+    try:
+        import tempfile
+        from fastapi.responses import FileResponse
+
+        # Create temporary CSV file
+        with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.csv') as f:
+            temp_path = f.name
+
+        # Export to CSV
+        count = feedback_storage.export_feedback_csv(temp_path, unused_only=unused_only)
+
+        if count == 0:
+            raise HTTPException(
+                status_code=404,
+                detail="No feedback data available for export"
+            )
+
+        return FileResponse(
+            path=temp_path,
+            filename=f"feedback_export_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+            media_type="text/csv"
+        )
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error exporting feedback: {str(e)}"
+        )
 
 
 if __name__ == "__main__":

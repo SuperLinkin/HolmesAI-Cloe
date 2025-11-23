@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holmes AI - Feedback & Corrections</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .code-font { font-family: 'Courier New', monospace; }
+        .fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .success-message {
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-4 md:p-8">
+    <!-- Header -->
+    <div class="max-w-7xl mx-auto mb-8">
+        <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="bg-gradient-to-br from-orange-600 to-red-600 p-3 rounded-lg">
+                        <i class="fas fa-comments text-white text-3xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-900">Feedback & Corrections</h1>
+                        <p class="text-gray-500 mt-1">Help improve Holmes AI by reporting misclassifications</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <a href="explainability.html" class="px-4 py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-lg text-sm font-medium transition">
+                        <i class="fas fa-lightbulb mr-2"></i>Explainability
+                    </a>
+                    <a href="index.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium transition">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Left Panel: Feedback Form -->
+        <div class="lg:col-span-2 space-y-6">
+            <!-- Transaction Details -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <i class="fas fa-receipt text-blue-600"></i>
+                    Transaction Details
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Merchant Name *</label>
+                        <input type="text" id="merchant"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-100 focus:outline-none"
+                               placeholder="e.g., STARBUCKS #4532">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Amount ($) *</label>
+                        <input type="number" id="amount" step="0.01"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-100 focus:outline-none"
+                               placeholder="e.g., 5.25">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Date *</label>
+                        <input type="date" id="date"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-100 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">MCC Code (Optional)</label>
+                        <input type="text" id="mcc"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-100 focus:outline-none"
+                               placeholder="e.g., 5812">
+                    </div>
+                </div>
+
+                <!-- Quick Load from Samples -->
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                    <p class="text-sm font-medium text-gray-600 mb-2">Load Sample Transaction</p>
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="loadSample('starbucks')" class="px-3 py-1.5 bg-gray-100 hover:bg-orange-50 rounded-lg text-sm border border-gray-200 hover:border-orange-300 transition">
+                            ☕ Starbucks
+                        </button>
+                        <button onclick="loadSample('shell')" class="px-3 py-1.5 bg-gray-100 hover:bg-orange-50 rounded-lg text-sm border border-gray-200 hover:border-orange-300 transition">
+                            ⛽ Shell Gas
+                        </button>
+                        <button onclick="loadSample('amazon')" class="px-3 py-1.5 bg-gray-100 hover:bg-orange-50 rounded-lg text-sm border border-gray-200 hover:border-orange-300 transition">
+                            📦 Amazon
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Predicted Categories -->
+            <div class="bg-red-50 rounded-xl shadow-lg p-6 border-2 border-red-200">
+                <h2 class="text-xl font-bold text-red-900 mb-4 flex items-center gap-2">
+                    <i class="fas fa-exclamation-triangle text-red-600"></i>
+                    What Holmes AI Predicted (Incorrect)
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-red-800 mb-2">Level 1 Category *</label>
+                        <select id="predicted-l1" class="w-full px-4 py-2 border-2 border-red-300 bg-white rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-100 focus:outline-none">
+                            <option value="">-- Select --</option>
+                            <option value="Dining">Dining</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Transportation">Transportation</option>
+                            <option value="Subscriptions">Subscriptions</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Bills">Bills</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Travel">Travel</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-red-800 mb-2">Level 2 Category *</label>
+                        <select id="predicted-l2" class="w-full px-4 py-2 border-2 border-red-300 bg-white rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-100 focus:outline-none">
+                            <option value="">-- Select --</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-red-800 mb-2">Level 3 Category *</label>
+                        <select id="predicted-l3" class="w-full px-4 py-2 border-2 border-red-300 bg-white rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-100 focus:outline-none">
+                            <option value="">-- Select --</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <label class="block text-sm font-medium text-red-800 mb-2">Predicted Confidence</label>
+                    <input type="number" id="predicted-confidence" step="0.01" min="0" max="1" value="0.65"
+                           class="w-full px-4 py-2 border-2 border-red-300 bg-white rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-100 focus:outline-none"
+                           placeholder="e.g., 0.65">
+                </div>
+            </div>
+
+            <!-- Corrected Categories -->
+            <div class="bg-green-50 rounded-xl shadow-lg p-6 border-2 border-green-200">
+                <h2 class="text-xl font-bold text-green-900 mb-4 flex items-center gap-2">
+                    <i class="fas fa-check-circle text-green-600"></i>
+                    Correct Categories
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-green-800 mb-2">Level 1 Category *</label>
+                        <select id="corrected-l1" class="w-full px-4 py-2 border-2 border-green-300 bg-white rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-100 focus:outline-none">
+                            <option value="">-- Select --</option>
+                            <option value="Dining">Dining</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Transportation">Transportation</option>
+                            <option value="Subscriptions">Subscriptions</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Bills">Bills</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Travel">Travel</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-green-800 mb-2">Level 2 Category *</label>
+                        <select id="corrected-l2" class="w-full px-4 py-2 border-2 border-green-300 bg-white rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-100 focus:outline-none">
+                            <option value="">-- Select --</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-green-800 mb-2">Level 3 Category *</label>
+                        <select id="corrected-l3" class="w-full px-4 py-2 border-2 border-green-300 bg-white rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-100 focus:outline-none">
+                            <option value="">-- Select --</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Notes -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <i class="fas fa-sticky-note text-yellow-600"></i>
+                    Additional Notes (Optional)
+                </h2>
+
+                <textarea id="notes"
+                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-100 focus:outline-none resize-none"
+                          rows="3"
+                          placeholder="Explain why the prediction was incorrect or any other relevant details..."></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="flex gap-3">
+                <button onclick="submitFeedback()"
+                        class="flex-1 bg-gradient-to-r from-orange-600 to-red-600 text-white py-4 rounded-lg font-bold text-lg hover:shadow-lg transition flex items-center justify-center gap-3">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Submit Feedback</span>
+                </button>
+                <button onclick="resetForm()"
+                        class="px-6 py-4 bg-gray-200 hover:bg-gray-300 rounded-lg font-medium transition">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Right Panel: Statistics & Info -->
+        <div class="lg:col-span-1 space-y-6">
+            <!-- Feedback Stats -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <i class="fas fa-chart-bar text-purple-600"></i>
+                    Feedback Statistics
+                </h3>
+
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-600">Total Feedback</span>
+                        <span id="stat-total" class="font-bold text-purple-600">0</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-600">Corrections</span>
+                        <span id="stat-corrections" class="font-bold text-orange-600">0</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-600">Used in Training</span>
+                        <span id="stat-used" class="font-bold text-green-600">0</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-600">Pending</span>
+                        <span id="stat-pending" class="font-bold text-blue-600">0</span>
+                    </div>
+                </div>
+
+                <button onclick="loadStats()" class="mt-4 w-full px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium transition">
+                    <i class="fas fa-sync-alt mr-2"></i>Refresh Stats
+                </button>
+            </div>
+
+            <!-- Why Feedback Matters -->
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-lg p-6 border border-blue-200">
+                <h3 class="text-lg font-bold text-blue-900 mb-3 flex items-center gap-2">
+                    <i class="fas fa-info-circle text-blue-600"></i>
+                    Why Your Feedback Matters
+                </h3>
+
+                <ul class="space-y-2 text-sm text-blue-800">
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-check text-blue-600 mt-1"></i>
+                        <span>Improves model accuracy for future predictions</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-check text-blue-600 mt-1"></i>
+                        <span>Helps identify systematic misclassification patterns</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-check text-blue-600 mt-1"></i>
+                        <span>Enables continuous model improvement</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-check text-blue-600 mt-1"></i>
+                        <span>Contributes to retraining with real-world examples</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Quick Guide -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                <h3 class="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                    <i class="fas fa-question-circle text-gray-600"></i>
+                    Quick Guide
+                </h3>
+
+                <ol class="space-y-2 text-sm text-gray-700">
+                    <li class="flex items-start gap-2">
+                        <span class="font-bold text-orange-600">1.</span>
+                        <span>Enter transaction details</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="font-bold text-orange-600">2.</span>
+                        <span>Select what Holmes AI predicted</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="font-bold text-orange-600">3.</span>
+                        <span>Select the correct categories</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="font-bold text-orange-600">4.</span>
+                        <span>Add optional notes</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="font-bold text-orange-600">5.</span>
+                        <span>Submit feedback!</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Toast -->
+    <div id="success-toast" class="hidden fixed top-8 right-8 bg-green-500 text-white px-6 py-4 rounded-lg shadow-2xl success-message z-50">
+        <div class="flex items-center gap-3">
+            <i class="fas fa-check-circle text-2xl"></i>
+            <div>
+                <p class="font-bold">Feedback Submitted!</p>
+                <p class="text-sm opacity-90">Thank you for helping improve Holmes AI</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample data
+        const samples = {
+            starbucks: { merchant: 'STARBUCKS #4532', amount: 5.25, date: '2025-01-15', mcc: '5812' },
+            shell: { merchant: 'SHELL GAS STATION', amount: 45.00, date: '2025-01-14', mcc: '5541' },
+            amazon: { merchant: 'AMAZON MARKETPLACE', amount: 23.45, date: '2025-01-13', mcc: '5968' }
+        };
+
+        // Simplified taxonomy (in production, load from API)
+        const taxonomy = {
+            'Dining': ['Coffee Shops', 'Restaurants', 'Fast Food'],
+            'Shopping': ['Online Retail', 'Grocery Stores', 'Department Stores'],
+            'Transportation': ['Gas Stations', 'Rideshare', 'Public Transit'],
+            'Subscriptions': ['Streaming Services', 'Cloud Services', 'Software'],
+            'Healthcare': ['Pharmacy', 'Doctor Visits', 'Insurance'],
+            'Bills': ['Utilities', 'Internet', 'Mobile'],
+            'Entertainment': ['Movies', 'Gaming', 'Events'],
+            'Travel': ['Airlines', 'Hotels', 'Car Rentals']
+        };
+
+        const l3Categories = {
+            'Coffee Shops': ['Starbucks', 'Dunkin', 'Local Cafe'],
+            'Restaurants': ['Chipotle', 'McDonald\'s', 'Olive Garden'],
+            'Gas Stations': ['Shell', 'Chevron', 'BP'],
+            'Online Retail': ['Amazon', 'eBay', 'Walmart.com'],
+            'Streaming Services': ['Netflix', 'Spotify', 'Disney+'],
+            // Add more as needed
+        };
+
+        // Set today's date by default
+        document.getElementById('date').value = new Date().toISOString().split('T')[0];
+
+        function loadSample(sample) {
+            const data = samples[sample];
+            document.getElementById('merchant').value = data.merchant;
+            document.getElementById('amount').value = data.amount;
+            document.getElementById('date').value = data.date;
+            document.getElementById('mcc').value = data.mcc;
+        }
+
+        // Update L2 options when L1 changes
+        document.getElementById('predicted-l1').addEventListener('change', function() {
+            updateL2Options('predicted', this.value);
+        });
+
+        document.getElementById('corrected-l1').addEventListener('change', function() {
+            updateL2Options('corrected', this.value);
+        });
+
+        // Update L3 options when L2 changes
+        document.getElementById('predicted-l2').addEventListener('change', function() {
+            updateL3Options('predicted', this.value);
+        });
+
+        document.getElementById('corrected-l2').addEventListener('change', function() {
+            updateL3Options('corrected', this.value);
+        });
+
+        function updateL2Options(prefix, l1Value) {
+            const l2Select = document.getElementById(`${prefix}-l2`);
+            l2Select.innerHTML = '<option value="">-- Select --</option>';
+
+            if (l1Value && taxonomy[l1Value]) {
+                taxonomy[l1Value].forEach(l2 => {
+                    const option = document.createElement('option');
+                    option.value = l2;
+                    option.textContent = l2;
+                    l2Select.appendChild(option);
+                });
+            }
+
+            // Reset L3
+            document.getElementById(`${prefix}-l3`).innerHTML = '<option value="">-- Select --</option>';
+        }
+
+        function updateL3Options(prefix, l2Value) {
+            const l3Select = document.getElementById(`${prefix}-l3`);
+            l3Select.innerHTML = '<option value="">-- Select --</option>';
+
+            if (l2Value && l3Categories[l2Value]) {
+                l3Categories[l2Value].forEach(l3 => {
+                    const option = document.createElement('option');
+                    option.value = l3;
+                    option.textContent = l3;
+                    l3Select.appendChild(option);
+                });
+            } else if (l2Value) {
+                // Generic option if no specific L3 categories defined
+                const option = document.createElement('option');
+                option.value = 'Other';
+                option.textContent = 'Other';
+                l3Select.appendChild(option);
+            }
+        }
+
+        async function submitFeedback() {
+            // Validate required fields
+            const merchant = document.getElementById('merchant').value.trim();
+            const amount = parseFloat(document.getElementById('amount').value);
+            const date = document.getElementById('date').value;
+            const predictedL1 = document.getElementById('predicted-l1').value;
+            const predictedL2 = document.getElementById('predicted-l2').value;
+            const predictedL3 = document.getElementById('predicted-l3').value;
+            const correctedL1 = document.getElementById('corrected-l1').value;
+            const correctedL2 = document.getElementById('corrected-l2').value;
+            const correctedL3 = document.getElementById('corrected-l3').value;
+            const confidence = parseFloat(document.getElementById('predicted-confidence').value);
+
+            if (!merchant || !amount || !date || !predictedL1 || !predictedL2 || !predictedL3 ||
+                !correctedL1 || !correctedL2 || !correctedL3 || !confidence) {
+                alert('Please fill in all required fields (*)');
+                return;
+            }
+
+            const feedbackData = {
+                merchant,
+                amount,
+                date,
+                mcc_code: document.getElementById('mcc').value.trim() || null,
+                predicted_l1: predictedL1,
+                predicted_l2: predictedL2,
+                predicted_l3: predictedL3,
+                predicted_confidence: confidence,
+                corrected_l1: correctedL1,
+                corrected_l2: correctedL2,
+                corrected_l3: correctedL3,
+                notes: document.getElementById('notes').value.trim() || null
+            };
+
+            try {
+                // Mock API call (replace with actual endpoint)
+                console.log('Submitting feedback:', feedbackData);
+
+                // Simulate API delay
+                await new Promise(resolve => setTimeout(resolve, 800));
+
+                // Show success toast
+                const toast = document.getElementById('success-toast');
+                toast.classList.remove('hidden');
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                }, 3000);
+
+                // Reset form
+                resetForm();
+
+                // Reload stats
+                loadStats();
+
+                // In production, make actual API call:
+                // const response = await fetch('/api/v1/feedback', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify(feedbackData)
+                // });
+                // const result = await response.json();
+
+            } catch (error) {
+                console.error('Error submitting feedback:', error);
+                alert('Error submitting feedback. Please try again.');
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('merchant').value = '';
+            document.getElementById('amount').value = '';
+            document.getElementById('date').value = new Date().toISOString().split('T')[0];
+            document.getElementById('mcc').value = '';
+            document.getElementById('predicted-l1').value = '';
+            document.getElementById('predicted-l2').innerHTML = '<option value="">-- Select --</option>';
+            document.getElementById('predicted-l3').innerHTML = '<option value="">-- Select --</option>';
+            document.getElementById('corrected-l1').value = '';
+            document.getElementById('corrected-l2').innerHTML = '<option value="">-- Select --</option>';
+            document.getElementById('corrected-l3').innerHTML = '<option value="">-- Select --</option>';
+            document.getElementById('predicted-confidence').value = '0.65';
+            document.getElementById('notes').value = '';
+        }
+
+        async function loadStats() {
+            try {
+                // Mock stats (replace with actual API call)
+                const stats = {
+                    total_feedback: 142,
+                    corrections: 134,
+                    used_in_training: 89,
+                    unused_feedback: 53
+                };
+
+                document.getElementById('stat-total').textContent = stats.total_feedback;
+                document.getElementById('stat-corrections').textContent = stats.corrections;
+                document.getElementById('stat-used').textContent = stats.used_in_training;
+                document.getElementById('stat-pending').textContent = stats.unused_feedback;
+
+                // In production, make actual API call:
+                // const response = await fetch('/api/v1/feedback/stats');
+                // const data = await response.json();
+                // Update DOM with data.summary
+
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+        }
+
+        // Load stats on page load
+        loadStats();
+    </script>
+</body>
+</html>

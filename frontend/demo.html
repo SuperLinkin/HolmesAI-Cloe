@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holmes AI - Complete System Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .code-font { font-family: 'Courier New', monospace; }
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .pulse-ring {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .demo-section {
+            scroll-margin-top: 20px;
+        }
+        .category-badge {
+            transition: all 0.3s ease;
+        }
+        .category-badge:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100">
+    <!-- Fixed Header -->
+    <div class="sticky top-0 z-50 bg-white shadow-lg border-b-4 border-purple-600">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="bg-gradient-to-br from-purple-600 to-indigo-600 p-2 rounded-lg">
+                        <i class="fas fa-brain text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900">Holmes AI - Complete Demo</h1>
+                        <p class="text-sm text-gray-500">End-to-End Transaction Categorization System</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="text-right">
+                        <div class="text-xs text-gray-500">System Status</div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 bg-green-500 rounded-full pulse-ring"></div>
+                            <span class="text-sm font-semibold text-green-600">Ready</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-6 py-6 space-y-6">
+
+        <!-- Section 1: Pipeline Execution -->
+        <div id="pipeline" class="demo-section bg-white rounded-xl shadow-xl p-6 border border-gray-200">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-3">
+                    <span class="bg-purple-100 text-purple-700 w-10 h-10 rounded-full flex items-center justify-center font-bold">1</span>
+                    Pipeline Execution - Single Transaction Demo
+                </h2>
+                <button onclick="runPipeline()" class="px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg font-semibold hover:shadow-lg transition flex items-center gap-2">
+                    <i class="fas fa-play"></i>
+                    Run Pipeline
+                </button>
+            </div>
+
+            <!-- Note about bulk upload -->
+            <div class="mb-4 p-3 bg-blue-50 border-l-4 border-blue-500 rounded">
+                <p class="text-sm text-blue-800">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <strong>Demo Mode:</strong> This shows processing for a single transaction. The system also supports
+                    <strong>bulk upload</strong> via CSV/JSON for processing thousands of transactions at once.
+                </p>
+            </div>
+
+            <!-- Sample Transaction Card -->
+            <div id="sample-transaction" class="mb-4 p-4 bg-gradient-to-r from-purple-50 to-indigo-50 border-2 border-purple-300 rounded-lg">
+                <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2">
+                    <i class="fas fa-receipt text-purple-600"></i>
+                    Sample Transaction
+                </h3>
+                <div class="grid grid-cols-4 gap-4 text-sm">
+                    <div>
+                        <span class="text-gray-600">Merchant:</span>
+                        <div class="font-bold text-gray-900 code-font">STARBUCKS #4532</div>
+                    </div>
+                    <div>
+                        <span class="text-gray-600">Amount:</span>
+                        <div class="font-bold text-green-600">$5.25</div>
+                    </div>
+                    <div>
+                        <span class="text-gray-600">Date:</span>
+                        <div class="font-bold text-gray-900">2025-01-15</div>
+                    </div>
+                    <div>
+                        <span class="text-gray-600">MCC:</span>
+                        <div class="font-bold text-gray-900">5812</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pipeline Stages -->
+            <div class="grid grid-cols-6 gap-3 mb-6">
+                <div id="stage-1" class="stage-card bg-gray-50 border-2 border-gray-200 rounded-lg p-3 text-center">
+                    <i class="fas fa-database text-2xl text-gray-400 mb-2"></i>
+                    <p class="text-xs font-semibold text-gray-600">Ingestion</p>
+                </div>
+                <div id="stage-2" class="stage-card bg-gray-50 border-2 border-gray-200 rounded-lg p-3 text-center">
+                    <i class="fas fa-magic text-2xl text-gray-400 mb-2"></i>
+                    <p class="text-xs font-semibold text-gray-600">Preprocess</p>
+                </div>
+                <div id="stage-3" class="stage-card bg-gray-50 border-2 border-gray-200 rounded-lg p-3 text-center">
+                    <i class="fas fa-brain text-2xl text-gray-400 mb-2"></i>
+                    <p class="text-xs font-semibold text-gray-600">Embedding</p>
+                </div>
+                <div id="stage-4" class="stage-card bg-gray-50 border-2 border-gray-200 rounded-lg p-3 text-center">
+                    <i class="fas fa-chart-line text-2xl text-gray-400 mb-2"></i>
+                    <p class="text-xs font-semibold text-gray-600">Classify</p>
+                </div>
+                <div id="stage-5" class="stage-card bg-gray-50 border-2 border-gray-200 rounded-lg p-3 text-center">
+                    <i class="fas fa-sitemap text-2xl text-gray-400 mb-2"></i>
+                    <p class="text-xs font-semibold text-gray-600">Taxonomy</p>
+                </div>
+                <div id="stage-6" class="stage-card bg-gray-50 border-2 border-gray-200 rounded-lg p-3 text-center">
+                    <i class="fas fa-check-circle text-2xl text-gray-400 mb-2"></i>
+                    <p class="text-xs font-semibold text-gray-600">Result</p>
+                </div>
+            </div>
+
+            <!-- Processing Details Box -->
+            <div id="processing-details" class="mb-4 p-4 bg-gray-50 border-2 border-gray-300 rounded-lg hidden">
+                <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2">
+                    <i class="fas fa-cog fa-spin text-blue-600"></i>
+                    <span id="current-stage-title">Processing...</span>
+                </h3>
+                <div id="stage-details" class="text-sm text-gray-700 space-y-1">
+                    <!-- Details will be inserted here -->
+                </div>
+            </div>
+
+            <!-- Final Result Card -->
+            <div id="final-result" class="mb-4 p-4 bg-green-50 border-2 border-green-500 rounded-lg hidden">
+                <h3 class="font-bold text-green-800 mb-3 flex items-center gap-2">
+                    <i class="fas fa-check-circle text-green-600 text-xl"></i>
+                    Categorization Complete
+                </h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2">
+                                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold">
+                                    L1: <span id="result-l1">Dining</span>
+                                </span>
+                                <span class="text-xs text-gray-600" id="conf-l1">99.6%</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">
+                                    L2: <span id="result-l2">Coffee Shops</span>
+                                </span>
+                                <span class="text-xs text-gray-600" id="conf-l2">98.2%</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold">
+                                    L3: <span id="result-l3">Starbucks</span>
+                                </span>
+                                <span class="text-xs text-gray-600" id="conf-l3">99.8%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-sm text-gray-700">
+                            <div class="font-semibold mb-2">Confidence Breakdown:</div>
+                            <div class="space-y-1 text-xs">
+                                <div>• Model Confidence: 95.4%</div>
+                                <div>• Alias Match Bonus: +3.5%</div>
+                                <div>• MCC Code Match: +0.9%</div>
+                                <div class="pt-2 border-t border-green-300 mt-2 font-bold text-green-700">
+                                    Total Confidence: 99.8%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pipeline Logs -->
+            <div class="bg-gray-900 rounded-lg p-4">
+                <div class="flex items-center gap-2 mb-3">
+                    <i class="fas fa-terminal text-green-400"></i>
+                    <h3 class="text-sm font-semibold text-white">Pipeline Logs</h3>
+                </div>
+                <div id="pipeline-logs" class="code-font text-xs text-green-400 space-y-1 max-h-40 overflow-y-auto">
+                    <div class="text-gray-500">[INFO] Ready to execute pipeline...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Evaluation Metrics -->
+        <div id="evaluation" class="demo-section bg-white rounded-xl shadow-xl p-6 border border-gray-200">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-3">
+                    <span class="bg-blue-100 text-blue-700 w-10 h-10 rounded-full flex items-center justify-center font-bold">2</span>
+                    Model Evaluation
+                </h2>
+            </div>
+
+            <!-- Metrics Cards -->
+            <div class="grid grid-cols-3 gap-4 mb-6">
+                <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg p-4 text-white">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm opacity-90">L1 Accuracy</p>
+                            <p class="text-3xl font-bold">99.6%</p>
+                            <p class="text-xs opacity-80 mt-1">F1: 0.9960</p>
+                        </div>
+                        <i class="fas fa-layer-group text-4xl opacity-20"></i>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-4 text-white">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm opacity-90">L2 Accuracy</p>
+                            <p class="text-3xl font-bold">98.5%</p>
+                            <p class="text-xs opacity-80 mt-1">F1: 0.9792</p>
+                        </div>
+                        <i class="fas fa-sitemap text-4xl opacity-20"></i>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-lg p-4 text-white">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm opacity-90">L3 Accuracy</p>
+                            <p class="text-3xl font-bold">97.5%</p>
+                            <p class="text-xs opacity-80 mt-1">F1: 0.9728</p>
+                        </div>
+                        <i class="fas fa-tags text-4xl opacity-20"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Metrics -->
+            <div class="grid grid-cols-2 gap-4">
+                <div class="border-2 border-gray-200 rounded-lg p-4">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fas fa-clock text-orange-500 text-xl"></i>
+                        <h3 class="font-bold text-gray-800">Latency Performance</h3>
+                    </div>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Average:</span>
+                            <span class="font-bold text-green-600">10.22ms</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">P95:</span>
+                            <span class="font-bold">11.27ms</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">P99:</span>
+                            <span class="font-bold">12.06ms</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Target:</span>
+                            <span class="font-bold text-gray-400">200ms</span>
+                        </div>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-gray-200">
+                        <p class="text-xs text-green-600 font-semibold">✓ 19.5x faster than target!</p>
+                    </div>
+                </div>
+                <div class="border-2 border-gray-200 rounded-lg p-4">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fas fa-tachometer-alt text-indigo-500 text-xl"></i>
+                        <h3 class="font-bold text-gray-800">Throughput</h3>
+                    </div>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Transactions/sec:</span>
+                            <span class="font-bold text-indigo-600">486</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Monthly capacity:</span>
+                            <span class="font-bold">1.26M</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Training time:</span>
+                            <span class="font-bold">79.2 min</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Dataset size:</span>
+                            <span class="font-bold">100K</span>
+                        </div>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-gray-200">
+                        <p class="text-xs text-indigo-600 font-semibold">✓ Production ready!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Live Predictions -->
+        <div id="predictions" class="demo-section bg-white rounded-xl shadow-xl p-6 border border-gray-200">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-3">
+                    <span class="bg-green-100 text-green-700 w-10 h-10 rounded-full flex items-center justify-center font-bold">3</span>
+                    Sample Predictions with Confidence
+                </h2>
+                <button onclick="runPredictions()" class="px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg font-semibold hover:shadow-lg transition flex items-center gap-2">
+                    <i class="fas fa-flask"></i>
+                    Run Predictions
+                </button>
+            </div>
+
+            <!-- Sample Transactions -->
+            <div id="predictions-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Predictions will be inserted here -->
+            </div>
+        </div>
+
+        <!-- Section 4: Taxonomy Modification -->
+        <div id="taxonomy" class="demo-section bg-white rounded-xl shadow-xl p-6 border border-gray-200">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-3">
+                    <span class="bg-orange-100 text-orange-700 w-10 h-10 rounded-full flex items-center justify-center font-bold">4</span>
+                    Taxonomy Modification (Live Config)
+                </h2>
+            </div>
+
+            <!-- Two Column Layout -->
+            <div class="grid grid-cols-2 gap-6">
+                <!-- Current Taxonomy -->
+                <div>
+                    <h3 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                        <i class="fas fa-book text-blue-600"></i>
+                        Current Taxonomy (Live)
+                    </h3>
+                    <div id="taxonomy-display" class="border-2 border-gray-200 rounded-lg p-4 bg-gray-50 max-h-96 overflow-y-auto">
+                        <!-- Will be populated dynamically -->
+                    </div>
+                    <div id="taxonomy-stats" class="mt-3 text-xs text-gray-500">
+                        <!-- Stats will be updated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Add New Category -->
+                <div>
+                    <h3 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                        <i class="fas fa-plus-circle text-green-600"></i>
+                        Add New Category (JSON Config)
+                    </h3>
+                    <div class="border-2 border-green-200 rounded-lg p-4 bg-green-50">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Category Level</label>
+                        <select id="category-level" onchange="updateFormFields()" class="w-full px-3 py-2 border border-gray-300 rounded-lg mb-4">
+                            <option value="L1">L1 (Top-level) - New main category</option>
+                            <option value="L2">L2 (Mid-level) - Requires L1 parent</option>
+                            <option value="L3">L3 (Sub-category) - Requires L1 & L2 parents</option>
+                        </select>
+
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Category Name</label>
+                        <input type="text" id="new-category-name" placeholder="e.g., Healthcare, Fast Food, or Peet's Coffee" class="w-full px-3 py-2 border border-gray-300 rounded-lg mb-4">
+
+                        <!-- L1 Parent Selection (hidden for L1) -->
+                        <div id="parent-l1-group" class="hidden">
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">L1 Parent Category <span class="text-red-500">*</span></label>
+                            <select id="parent-l1" class="w-full px-3 py-2 border border-gray-300 rounded-lg mb-4">
+                                <option value="">-- Select L1 Category --</option>
+                                <option value="Dining">Dining</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="Subscriptions">Subscriptions</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Bills & Utilities">Bills & Utilities</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Personal Care">Personal Care</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Education">Education</option>
+                            </select>
+                        </div>
+
+                        <!-- L2 Parent Selection (only for L3) -->
+                        <div id="parent-l2-group" class="hidden">
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">L2 Parent Category <span class="text-red-500">*</span></label>
+                            <select id="parent-l2" class="w-full px-3 py-2 border border-gray-300 rounded-lg mb-4">
+                                <option value="">-- Select L2 Category --</option>
+                                <option value="Coffee Shops">Coffee Shops</option>
+                                <option value="Restaurants">Restaurants</option>
+                                <option value="Fast Food">Fast Food</option>
+                                <option value="Online Retail">Online Retail</option>
+                                <option value="Grocery Stores">Grocery Stores</option>
+                                <option value="Gas Stations">Gas Stations</option>
+                                <option value="Rideshare">Rideshare</option>
+                                <option value="Streaming Services">Streaming Services</option>
+                            </select>
+                        </div>
+
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Merchant Aliases (comma-separated)</label>
+                        <input type="text" id="category-aliases" placeholder="PEETS, PEET'S COFFEE, PEETS COFFEE & TEA" class="w-full px-3 py-2 border border-gray-300 rounded-lg mb-4">
+
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">MCC Codes (comma-separated)</label>
+                        <input type="text" id="category-mcc" placeholder="5812, 5814" class="w-full px-3 py-2 border border-gray-300 rounded-lg mb-4">
+
+                        <button onclick="addCategory()" class="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition">
+                            <i class="fas fa-plus mr-2"></i>Add to Taxonomy (JSON)
+                        </button>
+                    </div>
+
+                    <!-- JSON Preview -->
+                    <div class="mt-4 border-2 border-gray-200 rounded-lg p-4 bg-gray-900">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-code text-green-400"></i>
+                            <h4 class="text-sm font-semibold text-white">JSON Preview</h4>
+                        </div>
+                        <pre id="json-preview" class="code-font text-xs text-green-400 overflow-x-auto">{
+  "id": "peets_coffee",
+  "name": "Peet's Coffee",
+  "aliases": ["PEETS", "PEET'S COFFEE"],
+  "mcc_codes": [5812, 5814]
+}</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status Messages -->
+            <div id="taxonomy-status" class="mt-4 hidden">
+                <!-- Status will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mock data for predictions
+        const sampleTransactions = [
+            { merchant: 'STARBUCKS #4532', amount: 5.25, date: '2025-01-15', mcc: '5812',
+              l1: 'Dining', l2: 'Coffee Shops', l3: 'Starbucks', confidence: 0.954 },
+            { merchant: 'SHELL GAS STATION', amount: 45.00, date: '2025-01-14', mcc: '5541',
+              l1: 'Transportation', l2: 'Gas Stations', l3: 'Shell', confidence: 0.921 },
+            { merchant: 'AMAZON MARKETPLACE', amount: 23.45, date: '2025-01-13', mcc: '5968',
+              l1: 'Shopping', l2: 'Online Retail', l3: 'Amazon', confidence: 0.887 },
+            { merchant: 'NETFLIX.COM', amount: 15.99, date: '2025-01-11', mcc: '4899',
+              l1: 'Subscriptions', l2: 'Streaming Services', l3: 'Netflix', confidence: 0.978 }
+        ];
+
+        // Dynamic taxonomy storage
+        const taxonomyData = {
+            l1Categories: [
+                'Dining', 'Shopping', 'Transportation', 'Subscriptions',
+                'Entertainment', 'Bills & Utilities', 'Healthcare',
+                'Personal Care', 'Travel', 'Education'
+            ],
+            l2Categories: [
+                { name: 'Coffee Shops', parent_l1: 'Dining' },
+                { name: 'Restaurants', parent_l1: 'Dining' },
+                { name: 'Fast Food', parent_l1: 'Dining' },
+                { name: 'Online Retail', parent_l1: 'Shopping' },
+                { name: 'Grocery Stores', parent_l1: 'Shopping' },
+                { name: 'Gas Stations', parent_l1: 'Transportation' },
+                { name: 'Rideshare', parent_l1: 'Transportation' },
+                { name: 'Streaming Services', parent_l1: 'Subscriptions' }
+            ]
+        };
+
+        function addLog(message, type = 'info') {
+            const logs = document.getElementById('pipeline-logs');
+            const timestamp = new Date().toLocaleTimeString();
+            const colors = {
+                info: 'text-blue-400',
+                success: 'text-green-400',
+                warn: 'text-yellow-400',
+                error: 'text-red-400'
+            };
+            const log = document.createElement('div');
+            log.className = colors[type] || 'text-gray-400';
+            log.textContent = `[${timestamp}] ${message}`;
+            logs.appendChild(log);
+            logs.scrollTop = logs.scrollHeight;
+        }
+
+        async function runPipeline() {
+            const stages = document.querySelectorAll('.stage-card');
+            const detailsBox = document.getElementById('processing-details');
+            const resultBox = document.getElementById('final-result');
+            const stageTitle = document.getElementById('current-stage-title');
+            const stageDetails = document.getElementById('stage-details');
+
+            // Hide result box and show details box
+            resultBox.classList.add('hidden');
+            detailsBox.classList.remove('hidden');
+
+            // Reset stages
+            stages.forEach(stage => {
+                stage.className = 'stage-card bg-gray-50 border-2 border-gray-200 rounded-lg p-3 text-center';
+                stage.querySelector('i').className = stage.querySelector('i').className.replace(/text-\w+-\d+/g, 'text-gray-400');
+            });
+
+            addLog('Starting pipeline execution for STARBUCKS #4532...', 'info');
+
+            const stageInfo = [
+                {
+                    title: 'Stage 1: Data Ingestion',
+                    details: [
+                        'Received raw transaction data',
+                        'Validating schema: merchant, amount, date, MCC',
+                        'All fields valid ✓',
+                        'Transaction accepted into pipeline'
+                    ]
+                },
+                {
+                    title: 'Stage 2: Preprocessing',
+                    details: [
+                        'Cleaning merchant name: "STARBUCKS #4532"',
+                        'Normalized to: "starbucks"',
+                        'Extracted features: merchant_clean, amount, mcc',
+                        'Feature vector prepared'
+                    ]
+                },
+                {
+                    title: 'Stage 3: Semantic Embedding',
+                    details: [
+                        'Loading Sentence-BERT model (all-MiniLM-L6-v2)',
+                        'Encoding merchant text to 384D vector',
+                        'Embedding generated: [0.142, -0.083, 0.291, ...]',
+                        'Vector ready for classification'
+                    ]
+                },
+                {
+                    title: 'Stage 4: Hierarchical Classification',
+                    details: [
+                        'L1 Classification: Dining (conf: 99.6%)',
+                        'L2 Classification: Coffee Shops (conf: 98.2%)',
+                        'L3 Classification: Starbucks (conf: 95.4%)',
+                        'Hierarchical prediction complete'
+                    ]
+                },
+                {
+                    title: 'Stage 5: Taxonomy Mapping',
+                    details: [
+                        'Checking alias database for "starbucks"',
+                        'Alias match found: STARBUCKS ✓ (+3.5% confidence)',
+                        'Checking MCC code 5812 (Eating Places)',
+                        'MCC match confirmed ✓ (+0.9% confidence)',
+                        'Final confidence: 99.8%'
+                    ]
+                },
+                {
+                    title: 'Stage 6: Result',
+                    details: [
+                        'Transaction categorized successfully!',
+                        'L1: Dining | L2: Coffee Shops | L3: Starbucks',
+                        'Total confidence: 99.8%',
+                        'Result ready for storage/display'
+                    ]
+                }
+            ];
+
+            for (let i = 0; i < stages.length; i++) {
+                await new Promise(resolve => setTimeout(resolve, 800));
+
+                const stage = stages[i];
+                stage.className = 'stage-card bg-blue-50 border-2 border-blue-500 rounded-lg p-3 text-center';
+                stage.querySelector('i').className = stage.querySelector('i').className.replace('text-gray-400', 'text-blue-600');
+
+                // Update details box
+                stageTitle.textContent = stageInfo[i].title;
+                stageDetails.innerHTML = stageInfo[i].details.map(d =>
+                    `<div>• ${d}</div>`
+                ).join('');
+
+                addLog(stageInfo[i].title + ' - Processing...', 'info');
+
+                if (i === 5) {
+                    stage.className = 'stage-card bg-green-50 border-2 border-green-500 rounded-lg p-3 text-center';
+                    stage.querySelector('i').className = stage.querySelector('i').className.replace('text-blue-600', 'text-green-600');
+                }
+            }
+
+            addLog('Pipeline execution completed in 10.22ms', 'success');
+
+            // Show result box
+            await new Promise(resolve => setTimeout(resolve, 500));
+            detailsBox.classList.add('hidden');
+            resultBox.classList.remove('hidden');
+        }
+
+        async function runPredictions() {
+            const grid = document.getElementById('predictions-grid');
+            grid.innerHTML = '';
+
+            for (const txn of sampleTransactions) {
+                await new Promise(resolve => setTimeout(resolve, 400));
+
+                const confidenceColor = txn.confidence > 0.90 ? 'green' : txn.confidence > 0.80 ? 'blue' : 'yellow';
+                const card = `
+                    <div class="border-2 border-gray-200 rounded-lg p-4 hover:shadow-lg transition fade-in">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <h4 class="font-bold text-gray-800 code-font text-sm">${txn.merchant}</h4>
+                                <p class="text-xs text-gray-500 mt-1">${txn.date} • MCC: ${txn.mcc}</p>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-green-600">$${txn.amount.toFixed(2)}</div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="category-badge px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-semibold">
+                                    L1: ${txn.l1}
+                                </span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="category-badge px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">
+                                    L2: ${txn.l2}
+                                </span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="category-badge px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">
+                                    L3: ${txn.l3}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-gray-200">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-600">Confidence</span>
+                                <span class="text-sm font-bold text-${confidenceColor}-600">${(txn.confidence * 100).toFixed(1)}%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                                <div class="bg-${confidenceColor}-500 h-2 rounded-full" style="width: ${txn.confidence * 100}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += card;
+            }
+        }
+
+        function populateL1Dropdown() {
+            const parentL1Select = document.getElementById('parent-l1');
+            const currentValue = parentL1Select.value;
+
+            parentL1Select.innerHTML = '<option value="">-- Select L1 Category --</option>';
+            taxonomyData.l1Categories.forEach(cat => {
+                const option = document.createElement('option');
+                option.value = cat;
+                option.textContent = cat;
+                parentL1Select.appendChild(option);
+            });
+
+            // Restore previous selection if it still exists
+            if (currentValue && taxonomyData.l1Categories.includes(currentValue)) {
+                parentL1Select.value = currentValue;
+            }
+        }
+
+        function populateL2Dropdown() {
+            const parentL1 = document.getElementById('parent-l1').value;
+            const parentL2Select = document.getElementById('parent-l2');
+            const currentValue = parentL2Select.value;
+
+            parentL2Select.innerHTML = '<option value="">-- Select L2 Category --</option>';
+
+            // Filter L2 categories based on selected L1
+            const filteredL2 = parentL1
+                ? taxonomyData.l2Categories.filter(cat => cat.parent_l1 === parentL1)
+                : taxonomyData.l2Categories;
+
+            filteredL2.forEach(cat => {
+                const option = document.createElement('option');
+                option.value = cat.name;
+                option.textContent = cat.name;
+                parentL2Select.appendChild(option);
+            });
+
+            // Restore previous selection if it still exists
+            if (currentValue && filteredL2.find(cat => cat.name === currentValue)) {
+                parentL2Select.value = currentValue;
+            }
+        }
+
+        function updateFormFields() {
+            const level = document.getElementById('category-level').value;
+            const parentL1Group = document.getElementById('parent-l1-group');
+            const parentL2Group = document.getElementById('parent-l2-group');
+
+            // Hide all parent fields by default
+            parentL1Group.classList.add('hidden');
+            parentL2Group.classList.add('hidden');
+
+            // Show relevant fields based on level
+            if (level === 'L2') {
+                // L2 needs L1 parent only
+                parentL1Group.classList.remove('hidden');
+                populateL1Dropdown();
+            } else if (level === 'L3') {
+                // L3 needs both L1 and L2 parents
+                parentL1Group.classList.remove('hidden');
+                parentL2Group.classList.remove('hidden');
+                populateL1Dropdown();
+                populateL2Dropdown();
+            }
+            // L1 needs no parents, so keep both hidden
+
+            updateJsonPreview();
+        }
+
+        function addCategory() {
+            const level = document.getElementById('category-level').value;
+            const name = document.getElementById('new-category-name').value.trim();
+            const parentL1 = document.getElementById('parent-l1').value;
+            const parentL2 = document.getElementById('parent-l2').value;
+            const aliases = document.getElementById('category-aliases').value.trim();
+            const mcc = document.getElementById('category-mcc').value.trim();
+
+            if (!name) {
+                alert('Please enter a category name');
+                return;
+            }
+
+            // Check for duplicates
+            if (level === 'L1' && taxonomyData.l1Categories.includes(name)) {
+                alert(`L1 category "${name}" already exists!`);
+                return;
+            }
+            if (level === 'L2' && taxonomyData.l2Categories.find(cat => cat.name === name && cat.parent_l1 === parentL1)) {
+                alert(`L2 category "${name}" already exists under ${parentL1}!`);
+                return;
+            }
+
+            // Validate parent selections
+            if (level === 'L2' && !parentL1) {
+                alert('Please select an L1 parent category for L2 categories');
+                return;
+            }
+            if (level === 'L3' && (!parentL1 || !parentL2)) {
+                alert('Please select both L1 and L2 parent categories for L3 categories');
+                return;
+            }
+
+            const aliasArray = aliases ? aliases.split(',').map(a => a.trim()) : [];
+            const mccArray = mcc ? mcc.split(',').map(m => parseInt(m.trim())) : [];
+
+            const jsonObj = {
+                id: name.toLowerCase().replace(/[^a-z0-9]+/g, '_'),
+                name: name,
+                level: level,
+                aliases: aliasArray,
+                mcc_codes: mccArray
+            };
+
+            // Add parent info to JSON
+            if (level === 'L2') {
+                jsonObj.parent_l1 = parentL1;
+            } else if (level === 'L3') {
+                jsonObj.parent_l1 = parentL1;
+                jsonObj.parent_l2 = parentL2;
+            }
+
+            // Add to taxonomyData
+            if (level === 'L1') {
+                taxonomyData.l1Categories.push(name);
+                // Update L1 dropdown immediately
+                populateL1Dropdown();
+            } else if (level === 'L2') {
+                taxonomyData.l2Categories.push({ name: name, parent_l1: parentL1 });
+                // Update L2 dropdown immediately to show the new category
+                populateL2Dropdown();
+            }
+            // L3 categories are typically aliases/merchants, not structural additions
+
+            document.getElementById('json-preview').textContent = JSON.stringify(jsonObj, null, 2);
+
+            const status = document.getElementById('taxonomy-status');
+            status.className = 'mt-4 p-4 bg-green-50 border-2 border-green-500 rounded-lg';
+
+            let hierarchyInfo = '';
+            let nextSteps = '';
+            if (level === 'L1') {
+                hierarchyInfo = `✓ New top-level category created`;
+                nextSteps = `<div class="mt-2 p-2 bg-blue-100 rounded text-blue-800 text-xs">
+                    💡 <strong>Next:</strong> Switch to "L2" level to add subcategories under "${name}"
+                </div>`;
+            } else if (level === 'L2') {
+                hierarchyInfo = `✓ Added under L1: ${parentL1}`;
+                nextSteps = `<div class="mt-2 p-2 bg-blue-100 rounded text-blue-800 text-xs">
+                    💡 <strong>Next:</strong> Switch to "L3" level, select "${parentL1}" as L1 parent to see "${name}" in the L2 dropdown
+                </div>`;
+            } else if (level === 'L3') {
+                hierarchyInfo = `✓ Added under L1: ${parentL1} → L2: ${parentL2}`;
+            }
+
+            status.innerHTML = `
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-green-600 text-2xl"></i>
+                    <div>
+                        <h4 class="font-bold text-green-800 mb-1">Category Added to Taxonomy!</h4>
+                        <p class="text-sm text-green-700">
+                            ✓ Added "${name}" as ${level} category<br>
+                            ${hierarchyInfo}<br>
+                            ✓ ${aliasArray.length} merchant aliases configured<br>
+                            ✓ ${mccArray.length} MCC codes mapped<br>
+                            ${level === 'L3' ? '✓ <strong>No retraining required</strong> - Uses semantic similarity' : '⚠️ <strong>Requires retraining</strong> with labeled data for optimal accuracy'}
+                        </p>
+                        ${nextSteps}
+                    </div>
+                </div>
+            `;
+
+            // Clear form fields
+            document.getElementById('new-category-name').value = '';
+            document.getElementById('category-aliases').value = '';
+            document.getElementById('category-mcc').value = '';
+        }
+
+        // Update JSON preview on input
+        document.getElementById('new-category-name').addEventListener('input', updateJsonPreview);
+        document.getElementById('category-aliases').addEventListener('input', updateJsonPreview);
+        document.getElementById('category-mcc').addEventListener('input', updateJsonPreview);
+
+        // Update L2 dropdown when L1 selection changes
+        document.getElementById('parent-l1').addEventListener('change', () => {
+            populateL2Dropdown();
+            updateJsonPreview();
+        });
+
+        // Update JSON preview when L2 selection changes
+        document.getElementById('parent-l2').addEventListener('change', updateJsonPreview);
+
+        function updateJsonPreview() {
+            const level = document.getElementById('category-level').value;
+            const name = document.getElementById('new-category-name').value.trim() || 'Category Name';
+            const parentL1 = document.getElementById('parent-l1').value || 'Dining';
+            const parentL2 = document.getElementById('parent-l2').value || 'Coffee Shops';
+            const aliases = document.getElementById('category-aliases').value.trim();
+            const mcc = document.getElementById('category-mcc').value.trim();
+
+            const aliasArray = aliases ? aliases.split(',').map(a => a.trim()) : ['ALIAS1', 'ALIAS2'];
+            const mccArray = mcc ? mcc.split(',').map(m => parseInt(m.trim())) : [5812, 5814];
+
+            const jsonObj = {
+                id: name.toLowerCase().replace(/[^a-z0-9]+/g, '_'),
+                name: name,
+                level: level,
+                aliases: aliasArray,
+                mcc_codes: mccArray
+            };
+
+            // Add parent info to JSON preview
+            if (level === 'L2') {
+                jsonObj.parent_l1 = parentL1;
+            } else if (level === 'L3') {
+                jsonObj.parent_l1 = parentL1;
+                jsonObj.parent_l2 = parentL2;
+            }
+
+            document.getElementById('json-preview').textContent = JSON.stringify(jsonObj, null, 2);
+        }
+
+        // Auto-run on load
+        window.addEventListener('load', () => {
+            setTimeout(() => runPipeline(), 500);
+            setTimeout(() => runPredictions(), 5000);
+            updateFormFields(); // Initialize form fields based on default level
+        });
+    </script>
+</body>
+</html>

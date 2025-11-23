@@ -1,0 +1,8 @@
+merchant,amount,date,mcc_code,L1,L2,L3,feedback_id
+STARBUCKS #4532,5.25,2025-01-15,5812,Dining,Coffee Shops,Starbucks,1
+STARBUCKS #4532,5.25,2025-01-15,5812,Dining,Coffee Shops,Starbucks,2
+TEST_MERCHANT_0,10.0,2025-01-16,,Shopping,Online Retail,Amazon,3
+TEST_MERCHANT_1,11.0,2025-01-16,,Shopping,Online Retail,Amazon,4
+TEST_MERCHANT_2,12.0,2025-01-16,,Shopping,Online Retail,Amazon,5
+TEST_MERCHANT_3,13.0,2025-01-16,,Shopping,Online Retail,Amazon,6
+TEST_MERCHANT_4,14.0,2025-01-16,,Shopping,Online Retail,Amazon,7

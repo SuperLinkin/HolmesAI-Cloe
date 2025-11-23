@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holmes AI v2.0 - Live Workflow Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stage-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stage-card.active {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
+            border: 2px solid #667eea;
+        }
+
+        .stage-card.completed {
+            border: 2px solid #10b981;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+        }
+
+        .stage-card.processing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.3), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            100% { left: 100%; }
+        }
+
+        .data-packet {
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(0.95); }
+        }
+
+        .progress-bar {
+            transition: width 0.5s ease;
+        }
+
+        .console-log {
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .input-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <!-- Header -->
+    <div class="max-w-7xl mx-auto mb-8">
+        <div class="bg-white rounded-xl shadow-lg p-5 border border-gray-100">
+            <div class="flex items-center gap-3">
+                <div class="bg-gradient-to-br from-purple-600 to-indigo-600 p-3 rounded-lg">
+                    <i class="fas fa-brain text-white text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900">Holmes AI</h1>
+                    <p class="text-sm text-gray-500 mt-0.5">Transaction Categorization Workflow</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Left Panel: Input -->
+        <div class="lg:col-span-1">
+            <div class="input-card rounded-xl shadow-lg p-5 sticky top-4 border border-gray-100">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                    <i class="fas fa-arrow-right text-purple-600 text-sm"></i>
+                    Input Transaction
+                </h2>
+
+                <form id="transactionForm" class="space-y-3">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-600 mb-2">
+                            Transaction Data
+                        </label>
+                        <textarea id="rawInput"
+                               class="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-100 focus:outline-none code-font text-xs resize-none transition"
+                               rows="3"
+                               placeholder="Paste transaction: STARBUCKS #4532 $5.25 01/15/2025">STARBUCKS #4532 | $5.25 | 01/15/2025 | MCC:5812</textarea>
+                    </div>
+
+                    <div class="bg-purple-50 border border-purple-100 rounded-lg p-2.5 text-xs">
+                        <p class="text-purple-800 font-medium mb-1 text-xs">Supported formats</p>
+                        <ul class="text-purple-700 space-y-0.5 ml-3 text-xs">
+                            <li>• Free text, CSV, pipe-separated</li>
+                            <li>• Bank SMS alerts</li>
+                        </ul>
+                    </div>
+
+                    <button type="submit" id="processBtn"
+                            class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-3 rounded-lg font-medium text-sm hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i class="fas fa-play text-xs"></i>
+                        <span>Process</span>
+                    </button>
+                </form>
+
+                <!-- Quick Samples -->
+                <div class="mt-5 pt-4 border-t border-gray-200">
+                    <p class="text-xs font-medium text-gray-600 mb-2">Quick Samples</p>
+                    <div class="space-y-1.5">
+                        <button onclick="loadSample('starbucks')" class="w-full text-left px-2.5 py-2 bg-gray-50 hover:bg-gray-100 rounded-md text-xs code-font truncate transition border border-gray-200">
+                            ☕ Starbucks $5.25
+                        </button>
+                        <button onclick="loadSample('shell')" class="w-full text-left px-2.5 py-2 bg-gray-50 hover:bg-gray-100 rounded-md text-xs code-font truncate transition border border-gray-200">
+                            ⛽ Shell Gas $45.00
+                        </button>
+                        <button onclick="loadSample('amazon')" class="w-full text-left px-2.5 py-2 bg-gray-50 hover:bg-gray-100 rounded-md text-xs code-font truncate transition border border-gray-200">
+                            📦 Amazon $23.45
+                        </button>
+                        <button onclick="loadSample('walmart')" class="w-full text-left px-2.5 py-2 bg-gray-50 hover:bg-gray-100 rounded-md text-xs code-font truncate transition border border-gray-200">
+                            🛒 Walmart $87.32
+                        </button>
+                        <button onclick="loadSample('netflix')" class="w-full text-left px-2.5 py-2 bg-gray-50 hover:bg-gray-100 rounded-md text-xs code-font truncate transition border border-gray-200">
+                            🎬 Netflix $15.99
+                        </button>
+                        <button onclick="loadSample('google')" class="w-full text-left px-2.5 py-2 bg-green-50 hover:bg-green-100 rounded-md text-xs code-font truncate transition border border-green-200">
+                            💳 Google Services $11.79
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Panel: Workflow Stages -->
+        <div class="lg:col-span-2 space-y-3">
+            <!-- Progress Bar -->
+            <div class="bg-white rounded-xl shadow-md p-4 border border-gray-100">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-xs font-medium text-gray-600">Progress</span>
+                    <span id="progressText" class="text-xs font-semibold text-purple-600">0%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                    <div id="progressBar" class="progress-bar h-full bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Stage 1: Data Ingestion -->
+            <div id="stage1" class="stage-card bg-white rounded-xl shadow-md p-4 border border-gray-100">
+                <div class="flex items-start gap-3">
+                    <div class="bg-purple-100 p-2 rounded-lg">
+                        <i class="fas fa-database text-purple-600 text-lg"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-1">
+                            <h3 class="text-sm font-semibold text-gray-800">Data Ingestion</h3>
+                            <span id="stage1-status" class="text-xs text-gray-400">Waiting...</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-2">Schema validation & normalization</p>
+                        <div id="stage1-data" class="bg-gray-50 rounded-lg p-2.5 code-font text-xs hidden border border-gray-200">
+                            <pre class="text-gray-700"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stage 2: Token Enrichment -->
+            <div id="stage2" class="stage-card bg-white rounded-xl shadow-md p-4 border border-gray-100">
+                <div class="flex items-start gap-3">
+                    <div class="bg-blue-100 p-2 rounded-lg">
+                        <i class="fas fa-magic text-blue-600 text-lg"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-1">
+                            <h3 class="text-sm font-semibold text-gray-800">Token Enrichment</h3>
+                            <span id="stage2-status" class="text-xs text-gray-400">Waiting...</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-2">Text cleaning + 5 engineered features</p>
+                        <div id="stage2-data" class="bg-gray-50 rounded-lg p-2.5 code-font text-xs hidden border border-gray-200">
+                            <pre class="text-gray-700"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stage 3: Semantic Vector -->
+            <div id="stage3" class="stage-card bg-white rounded-xl shadow-md p-4 border border-gray-100">
+                <div class="flex items-start gap-3">
+                    <div class="bg-indigo-100 p-2 rounded-lg">
+                        <i class="fas fa-brain text-indigo-600 text-lg"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-1">
+                            <h3 class="text-sm font-semibold text-gray-800">Semantic Vector</h3>
+                            <span id="stage3-status" class="text-xs text-gray-400">Waiting...</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-2">BERT embedding generation (768D)</p>
+                        <div id="stage3-data" class="bg-gray-50 rounded-lg p-2.5 code-font text-xs hidden border border-gray-200">
+                            <pre class="text-gray-700"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stage 4: Classification -->
+            <div id="stage4" class="stage-card bg-white rounded-xl shadow-md p-4 border border-gray-100">
+                <div class="flex items-start gap-3">
+                    <div class="bg-green-100 p-2 rounded-lg">
+                        <i class="fas fa-chart-line text-green-600 text-lg"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-1">
+                            <h3 class="text-sm font-semibold text-gray-800">Classification</h3>
+                            <span id="stage4-status" class="text-xs text-gray-400">Waiting...</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-2">LightGBM hierarchical prediction</p>
+                        <div id="stage4-data" class="bg-gray-50 rounded-lg p-2.5 code-font text-xs hidden border border-gray-200">
+                            <pre class="text-gray-700"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stage 5: Taxonomy Mapping -->
+            <div id="stage5" class="stage-card bg-white rounded-xl shadow-md p-4 border border-gray-100">
+                <div class="flex items-start gap-3">
+                    <div class="bg-yellow-100 p-2 rounded-lg">
+                        <i class="fas fa-sitemap text-yellow-600 text-lg"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-1">
+                            <h3 class="text-sm font-semibold text-gray-800">Taxonomy Mapping</h3>
+                            <span id="stage5-status" class="text-xs text-gray-400">Waiting...</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-2">JSON-based category lookup</p>
+                        <div id="stage5-data" class="bg-gray-50 rounded-lg p-2.5 code-font text-xs hidden border border-gray-200">
+                            <pre class="text-gray-700"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stage 6: Final Result -->
+            <div id="stage6" class="stage-card result-card rounded-xl shadow-lg p-5 hidden border-2 border-green-500">
+                <div class="flex items-start gap-3">
+                    <div class="bg-white bg-opacity-20 p-2 rounded-lg">
+                        <i class="fas fa-check-circle text-white text-xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-lg font-bold text-white mb-3">Categorization Complete</h3>
+                        <div class="space-y-2.5">
+                            <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                                <p class="text-xs text-white opacity-80 mb-1">Category</p>
+                                <p id="result-hierarchy" class="text-base font-semibold text-white"></p>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2.5">
+                                <div class="bg-white bg-opacity-20 rounded-lg p-2.5">
+                                    <p class="text-xs text-white opacity-80 mb-0.5">Confidence</p>
+                                    <p id="result-confidence" class="text-lg font-bold text-white"></p>
+                                </div>
+                                <div class="bg-white bg-opacity-20 rounded-lg p-2.5">
+                                    <p class="text-xs text-white opacity-80 mb-0.5">Latency</p>
+                                    <p id="result-latency" class="text-lg font-bold text-white"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Console Logs -->
+            <div class="bg-gray-900 rounded-xl shadow-lg p-3.5 border border-gray-700">
+                <div class="flex items-center gap-2 mb-2.5">
+                    <i class="fas fa-terminal text-green-400 text-xs"></i>
+                    <h3 class="text-xs font-semibold text-white">System Logs</h3>
+                    <button onclick="clearLogs()" class="ml-auto text-xs text-gray-500 hover:text-gray-300 transition">
+                        <i class="fas fa-trash text-xs"></i>
+                    </button>
+                </div>
+                <div id="console" class="space-y-0.5 code-font text-xs text-green-400 max-h-48 overflow-y-auto">
+                    <div class="text-gray-500">[INFO] System ready</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample transaction data (raw strings)
+        const samples = {
+            starbucks: 'STARBUCKS #4532 | $5.25 | 01/15/2025 | MCC:5812',
+            shell: 'SHELL GAS STATION | $45.00 | 01/14/2025 | MCC:5541',
+            amazon: 'AMAZON MARKETPLACE | $23.45 | 01/13/2025 | MCC:5968',
+            walmart: 'WALMART SUPERCENTER | $87.32 | 01/12/2025 | MCC:5411',
+            netflix: 'NETFLIX.COM | $15.99 | 01/11/2025 | MCC:4899',
+            google: "Alert: You've spent $11.79 on your AMEX card ** 41002 at GOOGLE SERVI on 22 November 2025 at 11:01 AM IST. Call 18004190691 if this was not made by you."
+        };
+
+        // Mock categorization data
+        const mockResults = {
+            'STARBUCKS #4532': {
+                L1: 'Dining',
+                L2: 'Coffee Shops',
+                L3: 'Starbucks',
+                confidence: 0.952,
+                cleaned: 'starbucks',
+                spend_band: 'micro',
+                temporal_pattern: 'daily',
+                channel: 'pos',
+                embedding_preview: '[0.234, -0.567, 0.891, ..., 0.123]',
+                latency: 9.8
+            },
+            'SHELL GAS STATION': {
+                L1: 'Transportation',
+                L2: 'Gas Stations',
+                L3: 'Shell',
+                confidence: 0.923,
+                cleaned: 'shell gas station',
+                spend_band: 'medium',
+                temporal_pattern: 'weekly',
+                channel: 'pos',
+                embedding_preview: '[0.456, -0.234, 0.678, ..., -0.345]',
+                latency: 10.3
+            },
+            'AMAZON MARKETPLACE': {
+                L1: 'Shopping',
+                L2: 'Online Retail',
+                L3: 'Amazon',
+                confidence: 0.867,
+                cleaned: 'amazon marketplace',
+                spend_band: 'low',
+                temporal_pattern: 'irregular',
+                channel: 'online',
+                embedding_preview: '[0.789, -0.123, 0.456, ..., 0.234]',
+                latency: 11.2
+            },
+            'WALMART SUPERCENTER': {
+                L1: 'Groceries',
+                L2: 'Supermarkets',
+                L3: 'Walmart',
+                confidence: 0.941,
+                cleaned: 'walmart supercenter',
+                spend_band: 'high',
+                temporal_pattern: 'weekly',
+                channel: 'pos',
+                embedding_preview: '[0.123, -0.456, 0.789, ..., -0.234]',
+                latency: 10.1
+            },
+            'NETFLIX.COM': {
+                L1: 'Subscriptions',
+                L2: 'Streaming Services',
+                L3: 'Netflix',
+                confidence: 0.978,
+                cleaned: 'netflix com',
+                spend_band: 'low',
+                temporal_pattern: 'monthly',
+                channel: 'online',
+                embedding_preview: '[0.567, -0.890, 0.234, ..., 0.456]',
+                latency: 9.5
+            },
+            'GOOGLE SERVI': {
+                L1: 'Subscriptions',
+                L2: 'Cloud Services',
+                L3: 'Google Services',
+                confidence: 0.965,
+                cleaned: 'google servi',
+                spend_band: 'low',
+                temporal_pattern: 'monthly',
+                channel: 'online',
+                embedding_preview: '[0.891, -0.345, 0.567, ..., 0.234]',
+                latency: 9.2
+            }
+        };
+
+        // Parse raw transaction string into structured data
+        function parseRawTransaction(rawInput) {
+            addLog('Parsing raw input...', 'info');
+
+            let merchant, amount, date, mcc;
+
+            // Check if it's a bank SMS alert format: "Alert: You've spent $X.XX... at MERCHANT on DATE..."
+            const bankSMSMatch = rawInput.match(/spent\s+\$?(\d+\.?\d*)\s+.*?\bat\s+([A-Z0-9\s\-\.]+?)\s+on\s+(\d{1,2}\s+\w+\s+\d{4})/i);
+
+            if (bankSMSMatch) {
+                // Bank SMS format
+                amount = parseFloat(bankSMSMatch[1]);
+                merchant = bankSMSMatch[2].trim();
+
+                // Parse date like "22 November 2025"
+                const dateStr = bankSMSMatch[3];
+                const dateObj = new Date(dateStr);
+                date = dateObj.toISOString().split('T')[0];
+
+                addLog('Detected bank SMS format', 'info');
+            } else {
+                // Standard format parsing
+
+                // Extract merchant name (anything before amount or first separator)
+                merchant = rawInput.split(/[$|,]/)[0].trim();
+
+                // Extract amount (look for $XX.XX or just number)
+                const amountMatch = rawInput.match(/\$?\s*(\d+\.?\d*)/);
+                amount = amountMatch ? parseFloat(amountMatch[1]) : 0;
+
+                // Extract date (various formats)
+                const dateMatch = rawInput.match(/(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4})|(\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2})/);
+                date = dateMatch ? dateMatch[0] : new Date().toISOString().split('T')[0];
+
+                // Convert MM/DD/YYYY to YYYY-MM-DD if needed
+                if (date.includes('/')) {
+                    const parts = date.split('/');
+                    if (parts[2].length === 4) {
+                        date = `${parts[2]}-${parts[0].padStart(2, '0')}-${parts[1].padStart(2, '0')}`;
+                    }
+                }
+            }
+
+            // Extract MCC code if present
+            const mccMatch = rawInput.match(/MCC:?\s*(\d{4})/i);
+            mcc = mccMatch ? mccMatch[1] : null;
+
+            addLog(`Parsed: ${merchant} | $${amount} | ${date}`, 'success');
+
+            return { merchant, amount, date, mcc };
+        }
+
+        function loadSample(sample) {
+            const rawInput = samples[sample];
+            document.getElementById('rawInput').value = rawInput;
+            addLog(`Sample loaded: ${sample}`, 'info');
+        }
+
+        function addLog(message, type = 'info') {
+            const console = document.getElementById('console');
+            const timestamp = new Date().toTimeString().split(' ')[0];
+            const colors = {
+                info: 'text-blue-400',
+                success: 'text-green-400',
+                warning: 'text-yellow-400',
+                error: 'text-red-400'
+            };
+            const log = document.createElement('div');
+            log.className = `console-log ${colors[type] || colors.info}`;
+            log.textContent = `[${timestamp}] ${message}`;
+            console.appendChild(log);
+            console.scrollTop = console.scrollHeight;
+        }
+
+        function clearLogs() {
+            document.getElementById('console').innerHTML = '<div class="text-gray-500">[INFO] Console cleared.</div>';
+        }
+
+        function updateProgress(percent) {
+            document.getElementById('progressBar').style.width = percent + '%';
+            document.getElementById('progressText').textContent = Math.round(percent) + '%';
+        }
+
+        function updateStage(stageNum, status, data = null) {
+            const stage = document.getElementById(`stage${stageNum}`);
+            const statusEl = document.getElementById(`stage${stageNum}-status`);
+            const dataEl = document.getElementById(`stage${stageNum}-data`);
+
+            // Safety check - ensure elements exist
+            if (!stage || !statusEl) {
+                console.error(`Stage elements not found for stage ${stageNum}`);
+                return;
+            }
+
+            // Update status
+            if (status === 'processing') {
+                stage.classList.add('processing', 'active');
+                statusEl.innerHTML = '<div class="spinner inline-block"></div>';
+                addLog(`Stage ${stageNum} processing...`, 'info');
+            } else if (status === 'completed') {
+                stage.classList.remove('processing', 'active');
+                stage.classList.add('completed');
+                statusEl.innerHTML = '<i class="fas fa-check-circle text-green-500"></i>';
+                addLog(`Stage ${stageNum} completed ✓`, 'success');
+
+                // Show data if provided
+                if (data && dataEl) {
+                    dataEl.classList.remove('hidden');
+                    const preEl = dataEl.querySelector('pre');
+                    if (preEl) {
+                        preEl.textContent = data;
+                    }
+                }
+            } else if (status === 'reset') {
+                stage.classList.remove('processing', 'active', 'completed');
+                statusEl.innerHTML = '<span class="text-gray-400">Waiting...</span>';
+                if (dataEl) {
+                    dataEl.classList.add('hidden');
+                }
+            }
+        }
+
+        function resetWorkflow() {
+            updateProgress(0);
+            for (let i = 1; i <= 6; i++) {
+                updateStage(i, 'reset');
+            }
+            document.getElementById('stage6').classList.add('hidden');
+        }
+
+        async function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function processTransaction(merchant, amount, date, mcc) {
+            resetWorkflow();
+            addLog('='.repeat(60), 'info');
+            addLog(`Processing transaction: ${merchant}`, 'info');
+
+            const startTime = Date.now();
+
+            // Get mock result
+            const result = mockResults[merchant] || mockResults['STARBUCKS #4532'];
+
+            // Stage 1: Data Ingestion (0-16%)
+            updateStage(1, 'processing');
+            updateProgress(8);
+            await sleep(800);
+            const stage1Data = JSON.stringify({
+                merchant: merchant,
+                amount: parseFloat(amount),
+                date: date,
+                mcc_code: mcc || null
+            }, null, 2);
+            updateStage(1, 'completed', stage1Data);
+            updateProgress(16);
+            await sleep(300);
+
+            // Stage 2: Token Enrichment (16-33%)
+            updateStage(2, 'processing');
+            updateProgress(24);
+            await sleep(1000);
+            const stage2Data = JSON.stringify({
+                merchant_cleaned: result.cleaned,
+                spend_band: result.spend_band,
+                temporal_pattern: result.temporal_pattern,
+                channel: result.channel,
+                mcc_code_normalized: mcc ? parseFloat(mcc) / 10000 : 0.0,
+                amount_percentile: 0.42
+            }, null, 2);
+            updateStage(2, 'completed', stage2Data);
+            updateProgress(33);
+            await sleep(300);
+
+            // Stage 3: Semantic Vector (33-50%)
+            updateStage(3, 'processing');
+            updateProgress(41);
+            await sleep(1200);
+            const stage3Data = `Embedding (768D):\n${result.embedding_preview}\n\nTotal features: 773\n(768 embeddings + 5 engineered)`;
+            updateStage(3, 'completed', stage3Data);
+            updateProgress(50);
+            await sleep(300);
+
+            // Stage 4: Classification (50-75%)
+            updateStage(4, 'processing');
+            updateProgress(62);
+            await sleep(1000);
+            const stage4Data = JSON.stringify({
+                L1_prediction: result.L1,
+                L1_confidence: (result.confidence * 0.98).toFixed(3),
+                L2_prediction: result.L2,
+                L2_confidence: (result.confidence * 0.95).toFixed(3),
+                L3_prediction: result.L3,
+                L3_confidence: result.confidence.toFixed(3)
+            }, null, 2);
+            updateStage(4, 'completed', stage4Data);
+            updateProgress(75);
+            await sleep(300);
+
+            // Stage 5: Taxonomy Mapping (75-90%)
+            updateStage(5, 'processing');
+            updateProgress(82);
+            await sleep(800);
+            const stage5Data = `Category Hierarchy:\n${result.L1} → ${result.L2} → ${result.L3}\n\nAlias match: ✓\nMCC validation: ✓\nHierarchy check: ✓`;
+            updateStage(5, 'completed', stage5Data);
+            updateProgress(90);
+            await sleep(300);
+
+            // Stage 6: Final Result (90-100%)
+            updateProgress(100);
+            const endTime = Date.now();
+            const latency = (endTime - startTime) / 1000;
+
+            document.getElementById('stage6').classList.remove('hidden');
+            document.getElementById('result-hierarchy').textContent =
+                `${result.L1} → ${result.L2} → ${result.L3}`;
+            document.getElementById('result-confidence').textContent =
+                `${(result.confidence * 100).toFixed(1)}%`;
+            document.getElementById('result-latency').textContent =
+                `${latency.toFixed(2)}s`;
+
+            addLog('='.repeat(60), 'success');
+            addLog(`✓ Transaction categorized successfully!`, 'success');
+            addLog(`Category: ${result.L1} → ${result.L2} → ${result.L3}`, 'success');
+            addLog(`Confidence: ${(result.confidence * 100).toFixed(1)}%`, 'success');
+            addLog(`Total latency: ${latency.toFixed(2)}s (demo mode)`, 'info');
+            addLog('='.repeat(60), 'info');
+        }
+
+        // Form submission
+        document.getElementById('transactionForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const rawInput = document.getElementById('rawInput').value.trim();
+
+            if (!rawInput) {
+                addLog('Error: Please enter a transaction', 'error');
+                return;
+            }
+
+            // Parse the raw input
+            const { merchant, amount, date, mcc } = parseRawTransaction(rawInput);
+
+            if (!merchant || !amount) {
+                addLog('Error: Could not parse merchant name and amount', 'error');
+                return;
+            }
+
+            const btn = document.getElementById('processBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<div class="spinner inline-block mr-2"></div> Processing...';
+
+            try {
+                await processTransaction(merchant, amount, date, mcc);
+            } catch (error) {
+                addLog(`Error: ${error.message}`, 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-play"></i> <span>Process Transaction</span>';
+            }
+        });
+
+        // Initialize
+        addLog('Holmes AI - Transaction Categorization', 'success');
+        addLog('Ready to process', 'info');
+    </script>
+</body>
+</html>
