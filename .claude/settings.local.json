@@ -44,7 +44,8 @@
       "Bash(start demo_workflow.html)",
       "Bash(start frontend/explainability.html)",
       "Bash(start frontend/feedback.html)",
-      "Bash(start frontend/demo.html)"
+      "Bash(start frontend/demo.html)",
+      "Bash(git config:*)"
     ],
     "deny": [],
     "ask": []
